@@ -50,3 +50,24 @@ As a minimum, the retail store shall be able to provision the parameters describ
 * 设备配置有用户定义的用户特定参数。
 * 网络和服务提供商端点将该设备识别为具有使用所购买的服务的授权。
 * 设备和所有购买的服务全面运行。
+####1.3.1.1.4 Variations 变动
+The user purchases a device in retail market, on power on the device is automatically provisioned over the air.<br/>
+用户在零售市场中购买设备，在设备通电时，通过空中下载自动配置。
+####1.3.1.1.4 Normal Flow 一般流程
+1. Device is discovered by local Device Management infrastructure.
+2. Trusted Relationship is established.
+3. Device is queried for Type and Capabilities.
+4. Type and Capabilities are transferred.
+5. Provisioning data is transferred to Device.
+6. Provisioning is confirmed.
+
+O : Optional the User overwrites the predefined values for the User's preferences.
+
+1. 设备由本地设备管理基础设施发现。
+2. 建立可信关系。
+3. 查询设备的类型和功能。
+4. 传输类型和能力。
+5. 配置数据传输到设备。
+6. 确认配置。
+
+O：可选用户将覆盖用户首选项的预定义值。
