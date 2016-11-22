@@ -99,7 +99,7 @@ Parameters: In this context, parameters are service-related data elements that a
 参数：在此上下文中，参数是存储在设备中并且可以通过网络承载来操纵（即，改变，添加或删除）的服务相关数据元素。 例如，系统参数可以用于建立或维持承载会话，并且应用参数可以用于指定特定服务的属性，或者一些参数可以与性能特性相关。
 
 PC Agent: Application running on a PC or PC-like device in User's proximity, not the Device itself, that facilitates Device Management functionality, and which MAY involve a logical association with a DMS.<br/>
-PC代理：应用程序在用户接近的PC或类似PC的设备上运行，而不是设备本身，其促进设备管理功能，并且其可以涉及与DMS的逻辑关联。
+PC代理：应用程序在与用户接近的PC或类似PC的设备上运行，而不是设备本身，其促进设备管理功能，并且其可以涉及与DMS的逻辑关联。
 
 Policy: The set of Service configuration settings and installed applications which are mandated by the Management Authority.<br/>
 政策：由管理机构授权的一组服务配置设置和已安装的应用程序。
@@ -113,5 +113,23 @@ Regulatory Agency: A governmental agency (typically) that regulates the use and/
 Regulatory Agency Label: A digital signature or digital certificate that securely identifies a piece of software and/or data as being approved by a particular Regulatory Agency.<br/>
 监管机构标签：安全地将一段软件和/或数据标识为由特定监管机构批准的数字签名或数字证书。
 
+Removable Media Card: A removable card for the purpose of storing and/or exchanging mass data as e.g., music, video. <br/>
+可移动媒体卡：用于存储和/或交换例如音乐，视频等大量数据的可移动卡。
 
+Radio Software: The software within a Device that is coupled with the radio hardware to derive the overall “radio” functionality. Radio software is not to be confused with User applications and content, but has certain commonality for functional requirements for device management.<br/>
+无线电软件：与无线电硬件耦合以导出整体“无线电”功能的设备内的软件。 无线电软件不应与用户应用程序和内容混淆，但对于设备管理的功能要求具有一定的共性。
 
+Service Provider: An entity that provides and administers a service to a Subscriber and/or User. The Network Operator is often a Service Provider.<br/>
+服务提供者：向订阅者和/或用户提供和管理服务的实体。网络运营商通常是服务提供商。
+
+Software Originator: The entity that creates, directly or through a third party, software and/or data targeted for use in a Device, Platform or Base Station. In the event that the software and/or data is controlled by a Regulatory Agency, the Software Originator is responsible for obtaining any Regulatory Agency license and Label. <br/>
+软件创作者：直接或通过第三方创建在设备，平台或基站中使用的软件和/或数据的实体。 如果软件和/或数据由监管机构控制，则软件创始人负责获得任何监管机构许可证和标签。
+
+Subscriber: The individual or organisation that is paying for service. <br/>
+订阅者：正在为服务付费的个人或组织。
+
+User: The individual who is in possession of and operates the Device. <br/>
+用户：拥有并操作设备的个人。
+
+Wireless Bearer: WAN Network Bearers ( e.g. GPRS, GSM Data, CDMA), WLAN Bearers (802.1x), Local Wireless Network Bearers (e.g. Bluetooth, IR).<br/>
+无线承载：WAN网络承载（例如GPRS，GSM数据，CDMA），WLAN承载（802.1x），本地无线网络承载（例如蓝牙，IR）。
