@@ -71,3 +71,9 @@ O : Optional the User overwrites the predefined values for the User's preference
 6. 确认配置。
 
 O：可选用户将覆盖用户首选项的预定义值。
+![](1.3.1.1.4.jpeg)
+Remarks: The User Preference parameters should be changeable for the User in a comfortable way. The network parameters should be altered only by an authorized Management Server.<br/>
+备注：用户首选项参数应以舒适的方式为用户更改。 网络参数只能由授权的管理服务器更改。
+
+If pre-configured Devices are brought in bulk by the operator, it should be possible for the operator to give a simple "Provisioning Content" XML file to the Device manufacturers, so that the Device (or the smart card) can be provisioned in factory.<br/>
+如果操作员大量引入预配置的设备，则操作员应该可以向设备制造商提供简单的“配置内容”XML文件，以便设备（或智能卡）可以在工厂配置。
