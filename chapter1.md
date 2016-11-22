@@ -30,6 +30,11 @@ Device Discovery: A mechanism to allow devices to identify each other for the pu
 Device Query: The process of polling a mobile Device for a specific piece of information.<br/>
 设备查询：针对特定信息轮询移动设备的过程。
 
+Device Reporting: The process whereby a Device sends specific information to a management server in the network. This can occur as a response to a Device Query (pull) or it can occur autonomously in response to a state change in the Device (push). The information that is sent may either be parameters stored in data fields in the Device, information about the configuration of the Device, information about the capabilities of the Device, or data that has been collected, stored, and assembled for later forwarding (e.g., performance metrics).<br/>
+设备报告：设备向网络中的管理服务器发送特定信息的过程。这可以作为对设备查询（拉）的响应而发生，或者其可以响应于设备（推）中的状态改变而自主地发生。发送的信息可以是存储在设备中的数据字段中的参数，关于设备的配置的信息，关于设备的能力的信息，或者已经收集，存储和组装以供稍后转发的数据（例如，性能指标）。
+
+
+
 
 
 
