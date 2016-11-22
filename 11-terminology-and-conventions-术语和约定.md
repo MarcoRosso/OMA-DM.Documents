@@ -62,5 +62,56 @@ Local Wired Bearers: Serial, USB, Ethernet<br/>
 本地有线承载：串行，USB，以太网。
 
 Management Authority: An entity that has the right to perform a specific Device Management function on a Device or manipulate a given data element or parameter. For example, the Network Operator, handset manufacturer, enterprise, or Device owner may be the authority or share authority for managing the Device. One Management Authority may own all Device resources or may share or delegate all or parts of these with/to other Management Authorities. <br/>
-管理机构：有权在设备上执行特定设备管理功能或操纵给定数据元素或参数的实体。 例如，网络运营商，手机制造商，企业或设备所有者可以独享或者共享管理设备的权限。 一个管理机构可以拥有所有设备资源，或者可以与其他管理机构共享或委派这些资源的全部或部分
+管理机构：有权在设备上执行特定设备管理功能或操纵给定数据元素或参数的实体。 例如，网络运营商，手机制造商，企业或设备所有者可以独享或者共享管理设备的权限。 一个管理机构可以拥有所有设备资源，或者可以与其他管理机构共享或委派这些资源的全部或部分。
+
+Management Object: A logical element that can contain or represent and manage configurable data and software within a Device. The data and/or software includes but is not limited to
+* Parameters such as connectivity address, User preferences, proxy settings, User Identity, etc.
+* Software such as applications, applets, drivers, modules, firmware and their updates.
+A management object may represent the complete device configuration or a portion of a device configuration. There may be multiple Management Objects on a Device with a pre-specified relationship between them. Each Management Object will support the following operations.
+* Add/Install – insert new elements into a Management Object.
+* Replace/Update – modify existing and/or insert new elements into a
+Management Object.
+* Delete/Uninstall – remove existing elements from a Management Object.
+* Query/Enumerate – List all or part of a Management Object.
+
+管理对象：可以包含，表示或管理设备中的可配置数据和软件的逻辑元素。数据和/或软件包括但不限于
+* 参数，如连接地址，用户首选项，代理设置，用户身份等。
+* 软件，如应用程序，小应用程序，驱动程序，模块，固件及其更新。
+管理对象可以表示完整的设备配置或设备配置的一部分。 设备上可以有多个管理对象，它们之间具有预先指定的关系。每个管理对象将支持以下操作。
+* 添加/安装 - 将新元素插入到管理对象中。
+* 替换/更新 - 修改现有和/或将新元素插入到管理对象。
+* 删除/卸载 - 从管理对象中删除现有元素。
+* 查询/枚举 - 列出管理对象的全部或部分。
+
+Network Bearers: Wireless Bearer and Local Wired Bearers<br/>
+网络承载：无线承载和本地有线承载。
+
+Network Device Management Server: Part of the Device Management System that is under administration of a Network Management Authority. <br/>
+网络设备管理服务：属于网络管理机构管理的设备管理系统的一部分。
+
+Network Operator: An entity that is licensed and allocated frequency to operate a public mobile wireless telecommunications network for the purpose of providing publicly available commercial services.<br/>
+网络运营商：以提供公共可用的商业服务的目的而被许可和分配频率来操作公共移动无线电信网络的实体。
+
+Network Unique Name: A full qualified domain name.<br/>
+网络唯一名称：完全限定域名。
+
+Parameters: In this context, parameters are service-related data elements that are stored in the Device and can be manipulated (i.e., changed, added, or deleted) over Network Bearers. For example, system parameters can be used to establish or maintain a bearer session, and application parameters can be used to specify the profile of a particular service, or some parameters may be related with performance characteristics.<br/>
+参数：在此上下文中，参数是存储在设备中并且可以通过网络承载来操纵（即，改变，添加或删除）的服务相关数据元素。 例如，系统参数可以用于建立或维持承载会话，并且应用参数可以用于指定特定服务的属性，或者一些参数可以与性能特性相关。
+
+PC Agent: Application running on a PC or PC-like device in User's proximity, not the Device itself, that facilitates Device Management functionality, and which MAY involve a logical association with a DMS.<br/>
+PC代理：应用程序在用户接近的PC或类似PC的设备上运行，而不是设备本身，其促进设备管理功能，并且其可以涉及与DMS的逻辑关联。
+
+Policy: The set of Service configuration settings and installed applications which are mandated by the Management Authority.<br/>
+政策：由管理机构授权的一组服务配置设置和已安装的应用程序。
+
+Provisioning Mechanisms: Network bearers, smart card, and Media card<br/>
+配置机制：网络承载，智能卡和媒体卡。
+
+Regulatory Agency: A governmental agency (typically) that regulates the use and/or sale of Devices. For example the FCC in the USA.<br/>
+监管机构：管理设备使用和/或销售的政府机构（通常）。 例如美国的FCC。
+
+Regulatory Agency Label: A digital signature or digital certificate that securely identifies a piece of software and/or data as being approved by a particular Regulatory Agency.<br/>
+监管机构标签：安全地将一段软件和/或数据标识为由特定监管机构批准的数字签名或数字证书。
+
+
 
