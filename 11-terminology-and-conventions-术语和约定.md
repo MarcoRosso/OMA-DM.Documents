@@ -135,3 +135,33 @@ Wireless Bearer: WAN Network Bearers ( e.g. GPRS, GSM Data, CDMA), WLAN Bearers 
 无线承载：WAN网络承载（例如GPRS，GSM数据，CDMA），WLAN承载（802.1x），本地无线网络承载（例如蓝牙，IR）。
 
 ### 1.3 Abbreviations 缩写
+APN: Access Point Name 接入点名称<br/>
+CDMA: Code Division Multiple Access 码分多址<br/>
+CPU: Central Processing Unit 中央处理单元<br/>
+DHCP: Dynamic Host Configuration Protocol 动态主机配置协议<br/>
+DM: Device Management 设备管理<br/>
+DMS: Device Management Server 设备管理服务器<br/>
+DRM: Digital Rights Management 数字版权管理<br/>
+GPRS: General Packet Radio Service 通用分组无线服务<br/>
+GSM: Global System for Mobile Communication 全球移动通信系统<br/>
+HTTP: HyperText Transfer Protocol 超文本传输协议<br/>
+HTTPS: HTTP Secure 安全的HTTP<br/>
+HW: Hardware 硬件<br/>
+IMEI: International Mobile Equipment Identity 国际移动设备身份<br/>
+IMSI: International Mobile Subscriber Identity 国际移动用户身份<br/>
+IR: InfraRed 红外<br/>
+MMS: Multimedia Messaging Service 多媒体消息服务<br/>
+OTA: Over The Air 空中下载<br/>
+PC: Personal Computer 个人计算机<br/>
+PCMCIA: Personal Computer Memory Card International Association 个人计算机存储卡国际协会<br/>
+PDA: Personal Digital Assistant 个人数字助理<br/>
+RAN: Radio Access Network 无线接入网络<br/>
+SSDP: Simple Service Discovery Protocol 简单服务发现协议<br/>
+SW: Software 软件<br/>
+UC: Use Case 用例<br/>
+UI: User Interface 用户界面<br/>
+USB: Universal Serial Bus 通用串行总线<br/>
+WAN: Wide Area Network 广域网<br/>
+WAP: Wireless Application Protocol 无线应用协议<br/>
+WLAN: Wireless Local Access Network 无线本地接入网络<br/>
+XML: Extensible Markup Language 可扩展标记语言
