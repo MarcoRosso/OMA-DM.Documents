@@ -1,6 +1,9 @@
 
 # OMA Device Management
 
+Approved Version 1.2.1 - 17 Jun 2008 
+
+版本1.2.1 2008年6月17日
 
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+
