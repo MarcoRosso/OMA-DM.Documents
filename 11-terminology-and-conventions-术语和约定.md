@@ -5,7 +5,7 @@
 The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in [RFC2119]. <br/>
 本文档中的关键词“必须”，“必须不”，“必须”，“必须”，“必须不”，“推荐”，“不推荐”，“推荐”，“可以”和“可以” 解释如[RFC2119]中所述。（根据该文档，MUST、REQUIRED和SHALL, MUST NOT和SHALL NOT, SHOULD和RECOMMENDED,SHOULD NOT和NOT RECOMMENDED，MAY和OPTIONAL均为相同含义，故分别译为必须，必须不，推荐，不推荐，可以。） 
 
-### 1.1 Definitions 定义
+### 1.2 Definitions 定义
 
 Archiving of applications: The process initiated by the Device Management System or the Device itself that, together with DRM policies, allows applications to be moved to an offline or online storage medium. These remotely stored applications may run on request by the User, and be transparently restored to the device or the User may take explicit action to restore the application. The process includes all actions required to temporarily replace applications on demand.<br/>
 应用程序归档：由设备管理系统或设备本身启动的与DRM策略一起将应用移动到离线或在线存储介质的过程。这些远程存储的应用可以由用户请求运行，并且被透明地恢复到设备，或者用户可以采取明确的动作来恢复应用。该过程包括临时替换需要的应用程序所需的所有操作。
@@ -133,3 +133,5 @@ User: The individual who is in possession of and operates the Device. <br/>
 
 Wireless Bearer: WAN Network Bearers ( e.g. GPRS, GSM Data, CDMA), WLAN Bearers (802.1x), Local Wireless Network Bearers (e.g. Bluetooth, IR).<br/>
 无线承载：WAN网络承载（例如GPRS，GSM数据，CDMA），WLAN承载（802.1x），本地无线网络承载（例如蓝牙，IR）。
+
+### 1.3 Abbreviations 缩写
