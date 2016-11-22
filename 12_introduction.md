@@ -11,6 +11,7 @@ A Device is any User terminal which is primarily used in mobile scenarios. They 
 
 Each of the requirements may limit the target Device to the specific subset of capabilities of a Device considering the fact that each of the Devices has different constraints from each other due mainly to capabilities in particular for mobile phone handset. When such requirements or use cases are specified, the capabilities of Device(s) that each requirement or use case is targeting should clearly be described in this specification. Devices which are under the control of a Management Authority should support transparent forced setting of all parameters covered by the Management Authority Control.<br/>
 考虑到每个设备由于主要是针对移动电话手机的能力而彼此具有不同的约束的事实，每个要求可以将目标设备限制到设备的能力的特定子集。当指定了这些要求或用例时，每个需求或用例所针对的设备的能力应在本规范中清楚地描述。受管理机构控制的设备应支持对管理权限控制所涵盖的所有参数的透明强制设置。
+
 The actors involved in Device Management include Management Authorities (including Network Operators, Enterprise Managers, Service Providers), Device Management Systems, Subscribers and Users.<br/>
 设备管理参与的参与者包括管理机构（包括网络运营商，企业管理器，服务提供商），设备管理系统，订户和用户。
 
