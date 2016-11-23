@@ -158,7 +158,6 @@ A smart card is inserted into the Device for the first time. The smart card cont
 * 服务提供商
 
 
-
 ####1.3.1.3.2 Pre-Conditions 前提条件
 * The User/Subscriber has established a contractual relationship with the Service Provider for service and has obtained a pre-configured smart card with a key (Issuing aspects of the smart card are not within scope of this document).<br/>
 用户/订户已经与服务提供商建立了服务的合同关系，并且已经获得具有密钥的预配置的智能卡（智能卡的发布方面不在本文档的范围内）。
@@ -214,3 +213,59 @@ Alternatively the Subscriber asks explicitly for a configuration parameter set, 
 
 Difference to the use case in section 1.3.1.3 is that here already inserted configuration data has to be overridden; the Device is not in a 'fresh' state, but might be highly mis-configured, so standard values do not necessarily apply.<br/>
 与第1.3.1.3节中的用例区别在于，必须覆盖已插入的配置数据；设备不处于“新鲜”状态，但可能是高度错误配置，因此标准值不一定适用。
+
+####1.3.1.4.1 Actors and Data Authority 参与者和数据权威
+* Subscriber: The Subscriber has decided to connect to a particular Network Operator.
+* User : The User is authorised to define and change the User Preference Parameter.
+* Network Operator: The selected Network Operator is authorised to define and change the Network Configuration Data.
+
+
+* 订户：订户已决定连接到特定的网络运营商。
+* 用户：用户有权定义和更改用户首选项参数。
+* 网络运营商：所选的网络运营商有权定义和更改网络配置数据。
+
+
+####1.3.1.4.2 Pre-Conditions 前提条件
+* The Subscriber has purchased a service contract with the Network Operator.
+* Device is capable of interfacing with the Device Management system.
+
+
+* 订户已向网络运营商购买服务合同。
+* 设备能够与设备管理系统连接。
+
+
+####1.3.1.4.3 Post-Conditions 后条件
+
+* Device is provisioned with parameters necessary to obtain the services the User/Subscriber has purchased.
+* Device is configured with User-specific parameters as defined by the User.
+* Device and all purchased services are fully operational.
+
+
+* 为设备提供获取用户/订阅者购买的服务所必需的参数。
+* 设备配置有用户定义的用户特定参数。
+* 设备和所有购买的服务全面运行。
+
+
+
+####1.3.1.4.4 Normal Flow 一般流程
+1. User inserts smart card (where applicable)
+2. Radio Network detects a new combination of Subscriber (e.g. IMSI) and Device (e.g. IMEI).
+3. Establishment of trusted relationship between Device and Device Management Server.
+4. Management server queries the Device for its capabilities
+5. Device responses to the request
+6. Appropriate configuration is transferred by the Device Management Server.
+7. The provisioning of the Device is confirmed.
+
+
+1. 用户插入智能卡（如适用）
+2. 无线电网络检测到订户（例如IMSI）和设备（例如，IMEI）的新组合。
+3. 在设备和设备管理服务器之间建立信任关系。
+4. 管理服务器查询设备的功能
+5. 设备对请求的响应
+6. 适当的配置由设备管理服务器传送。
+7. 确认设备的配置。
+
+![](1.3.1.4.4.jpeg)
+####1.3.1.3.5 Alternative Flow 替代流程
+The Device Management data transfer is triggered by the User. In this case step 2 is replaced by the User's request.<br/>
+设备管理数据传输由用户触发。在这种情况下，步骤2由用户的请求替代。
