@@ -394,3 +394,20 @@ The management server receives the parameters for the client Device to be update
 
 Remarks: High volume remote configuration of Devices should be possible in a short time period, so the interruption/duplication of a service is short. In order to avoid User confusion in this case the configuration affirmation should be abandoned.<br/>
 备注：应在短时间内进行设备的大量远程配置，因此服务的中断/复制很短。为了避免用户在这种情况下的混淆，应该放弃配置确认。
+####1.3.2.1.5 Normal Flow 一般流程
+1. Detection of Device with obsolete configuration settings, e.g. by addressing wrong URL or IP-address. Alternatively query for the Device settings actively, e.g. triggered by customer care call.
+2. Establishment of trusted relationship between Device and Device Management Server.
+3. Management servers queries the Device for actual configuration.
+4. The Device responses to that query.
+5. The effective configuration data is transferred to the Device.
+6. The update of the configuration data is confirmed.
+
+
+1. 检测具有过时配置设置的设备，例如，通过解决错误的URL或IP地址。或者主动查询设备设置，例如，由客户服务呼叫触发。
+2. 建立设备与设备管理服务器之间的信任关系。
+3. 管理服务器查询设备的实际配置。
+4. 设备对该查询的响应。
+5. 有效的配置数据被传送到设备。
+6. 确认更新配置数据。
+
+####1.3.2.1.6 Alternative Flow 替代流程
