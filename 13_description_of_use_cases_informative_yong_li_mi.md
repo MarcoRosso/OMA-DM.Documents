@@ -266,6 +266,72 @@ Difference to the use case in section 1.3.1.3 is that here already inserted conf
 7. 确认设备的配置。
 
 ![](1.3.1.4.4.jpeg)
-####1.3.1.3.5 Alternative Flow 替代流程
+####1.3.1.4.5 Alternative Flow 替代流程
 The Device Management data transfer is triggered by the User. In this case step 2 is replaced by the User's request.<br/>
 设备管理数据传输由用户触发。在这种情况下，步骤2由用户的请求替代。
+
+###1.3.1.5 Subscriber provisioning through the PC 通过PC的用户配置
+A new Device is purchased by the User via the Internet from a Device vendor. The User receives the Device from the vendor.<br/>
+用户通过互联网从设备供应商购买新设备。 用户从供应商处接收设备。
+
+To provision the Device the User places the new Device in proximity to their PC. The PC Agent discovers the Device. The User is prompted to ask if they wish to provision the Device, after an affirmation of consent the PC Agent connects to the Network Management Authority.<br/>
+为了设置设备，用户将新设备放置在他们的PC附近。 PC代理发现设备。 在PC代理连接到网络管理机构的同意确认后，提示用户询问他们是否希望配置设备。
+
+The User is then presented with options on the PC UI and is stepped through the process of provisioning the Device via a secure Network connection. The User selects to configure network settings, add additional prepaid minutes and selects the game service. The User enters their personal and credit card information and confirms the transaction. Upon completion of a credential check the Network Management Authority provisions the device via the PC Agent.<br/>
+然后向用户呈现PC UI上的选项，并且进入通过经由安全网络连接配置设备的过程。 用户选择配置网络设置，添加额外的预付分钟并选择游戏服务。 用户输入他们的个人信息和信用卡信息并确认交易。 在完成凭证检查后，网络管理机构通过PC代理配置设备。
+
+
+####1.3.1.5.1 Actors 参与者
+* User
+* Network Operator 
+* Management Authority
+* PC Agent
+
+
+* 用户
+* 网络运营商
+* 管理机构
+* PC代理
+
+
+####1.3.1.5.2 Pre-Conditions 前提条件
+* User may be a Subscriber and has purchased a service contract with the Network Operator.
+* PC Agent is capable of interfacing with the Network Management Authority.
+* PC Agent is capable of interfacing with the Device.
+* PC Agent has obtained mechanism to access the Network Management Authority.
+* PC Agent is present on the PC.
+* Device is capable of interfacing with the Network Management Authority (variation 1).
+* User has obtained mechanism to access and log into Network Management Authority website (variation 1).
+
+
+* 用户可能是订阅者，并与网络运营商购买了服务合同。
+* PC代理能够与网络管理机构连接。
+* PC代理能够与设备连接。
+* PC代理已获取访问网络管理权限的机制。
+* PC代理存在于PC上。
+* 设备能够与网络管理机构连接（变动1）。
+* 用户已获得访问和登录网络管理机构网站的机制（变动1）。
+
+
+####1.3.1.5.3 Post-Conditions 后条件
+* The Device has network connectivity.
+* The Subscriber has more prepaid minutes on their account.
+* The appropriate applications are installed and server side service provisioning is complete.
+
+
+* 设备具有网络连接。
+* 订阅者在其帐户上有更多的预付分钟。
+* 安装相应的应用程序，并完成服务器端服务配置。
+
+
+####1.3.1.5.4 Variations 变动
+1. The Device provisioning can be performed via an OTA mechanism between the Network Management Authority and the Device.
+2. The User while sitting in front of their computer places the Device in proximity of the PC. The PC Agent discovers the Device and interrogates the Device for the number of available service minutes. If the service minutes are below a preconfigured limit the PC Agent prompts the User if they wish to top up the number of service minutes.
+
+
+1. 可以经由网络管理机构和设备之间的OTA机制来执行设备配置。
+2. 坐在计算机前面的用户将设备放在PC的附近。 PC代理发现设备，并询问设备可用的服务分钟数。 如果服务分钟低于预配置的限制，则PC代理提示用户是否希望充值服务分钟数。
+
+
+####1.3.1.5.4 Normal Flow 一般流程
+![](1.3.1.5.5.jpeg)
