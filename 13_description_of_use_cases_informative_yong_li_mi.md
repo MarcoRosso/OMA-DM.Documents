@@ -333,5 +333,9 @@ The User is then presented with options on the PC UI and is stepped through the 
 2. 坐在计算机前面的用户将设备放在PC的附近。 PC代理发现设备，并询问设备可用的服务分钟数。 如果服务分钟低于预配置的限制，则PC代理提示用户是否希望充值服务分钟数。
 
 
-####1.3.1.5.4 Normal Flow 一般流程
+####1.3.1.5.5 Normal Flow 一般流程
 ![](1.3.1.5.5.jpeg)
+####1.3.1.5.6 Variation 1 Flow 变动1流程
+![](1.3.1.5.6.jpeg)
+####1.3.1.5.7 Variation 2 Flow 变动2流程
+![![](1.3.1.5.7.jpeg
