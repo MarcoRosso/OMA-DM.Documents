@@ -338,4 +338,54 @@ The User is then presented with options on the PC UI and is stepped through the 
 ####1.3.1.5.6 Variation 1 Flow 变动1流程
 ![](1.3.1.5.6.jpeg)
 ####1.3.1.5.7 Variation 2 Flow 变动2流程
-![![](1.3.1.5.7.jpeg
+![](1.3.1.5.7.jpeg)
+##1.3.2 Configuration Maintenance/Management 配置维护/管理
+###1.3.2.1 Remote Configuration initiated by the management server 由管理服务器启动的远程配置
+An operator changes its platform infrastructure for a data service, e.g. the IP-address of WAP gateway changes. Manual configuration of the new parameters by the Subscriber with assistance of Customer care is a lengthy and cumbersome procedure. Either the attempt to access the operator's infrastructure with the old parameter set triggers the transfer of the new parameter set, or all affected Devices are identified and automatically updated over the air, regardless of the actual usage of the service.<br/>
+运营商改变其用于数据服务的平台基础设施，例如WAP网关的IP地址更改。在客户服务的帮助下由用户手动配置新参数是一个冗长和繁琐的过程。尝试使用旧参数集访问运营商的基础设施会触发新参数集的传输，或者所有受影响的设备都将被识别并通过空中下载自动更新，而不考虑服务的实际使用情况。
+
+The management server receives the parameters for the client Device to be updated. The management server determines the Device information in order to potentially customise the configuration. The management server sends the configuration information to the Device. The Device stores the data in the configuration context associated with the management server without any User interaction and reports the status as requested by the management server. Optionally an User confirmation may be requested. The Device interacts with the User. If the User confirms the operation, the Device stores the data in the configuration context associated with the management server.<br/>
+管理服务器接收要更新的客户端设备的参数。管理服务器确定设备信息以便潜在地定制配置。管理服务器将配置信息发送到设备。设备在没有任何用户交互的情况下将数据存储在与管理服务器相关联的配置上下文中，并且报告管理服务器所请求的状态。可选地，可以请求用户确认。设备与用户交互。如果用户确认操作，则设备将数据存储在与管理服务器相关联的配置上下文中。
+
+####1.3.2.1.1 Actors and Data Authority 参与者和数据权威
+* User: User-specific preferences are not altered
+* Management Authority: The Management Authority is authorised to define and change the Configuration Data
+
+
+* 用户：用户特定的首选项不会更改
+* 管理机构：管理机构有权定义和更改配置数据
+
+
+####1.3.2.1.2 Pre-Conditions 前提条件
+* Configuration Data has/will become obsolete.
+* Device is capable of interfacing with the Device Management system.
+
+
+* 配置数据已/将要过期。
+* 设备能够与设备管理系统连接。
+
+
+####1.3.2.1.3 Post-Conditions 后条件
+* Device is provisioned with effective parameters necessary to conserve/improve the services the User/Subscriber has purchased.
+* Device is configured with User-specific parameters as previously defined by the User.
+* Device and all purchased services are fully operational.
+
+
+* 为设备提供有效参数，以保存/改进用户/订阅者购买的服务。
+* 设备配置有用户以前定义的用户特定参数。
+* 设备和所有购买的服务全面运行。
+
+
+####1.3.2.1.4 Variations 变动
+* A Enterprise Management Authority changes a Device policy setting. Using the Enterprise Device Management system the administrator deploys the policy change to all Devices. The next time the Users connect to the corporate network, the new policy is applied.<br/>
+企业管理机构更改设备策略设置。使用企业设备管理系统，管理员将策略更改部署到所有设备。下次用户连接到公司网络时，将应用新策略。
+* A Customer experiencing problems with their handset calls customer care. While the call is still active, the customer care agent is able to read:<br/>
+ 客户遇到问题呼叫客户服务。当呼叫仍然活动时，客户服务代理能够读取：
+    * the Device information;
+    * other available Device settings, including as a minimum those described in section 1.4.10;
+    * the application inventory.
+* The agent detects a fault in the settings and resets the incorrect parameters remotely via the management server.
+* The Network Operator reads the Device settings listed in the above bullet outside of the context of a customer care call, as part of pro-actively solving problems.
+* A new service is to be enabled for legacy Devices. This may require a new APN to be configured in the handset, a new bookmark to be added etc.
+
+Remarks: High volume remote configuration of Devices should be possible in a short time period, so the interruption/duplication of a service is short. In order to avoid User confusion in this case the configuration affirmation should be abandoned.
