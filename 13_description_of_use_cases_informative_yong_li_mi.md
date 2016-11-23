@@ -203,4 +203,14 @@ The Device is fully provisioned with parameters necessary to allow delivery of t
 
 ####1.3.1.3.6 Alternative Flow 替代流程
 As described in variation 1 the trusted relationship can be established without prior transfer of provisioning data from the smart card to the Device (omission of step 2).<br/>
-如变型1中所述，可以在没有从智能卡到设备的预配置数据的预先传送（省略步骤2）的情况下建立信任关系。
+如变动1中所述，可以在没有从智能卡到设备的预配置数据的预先传送（省略步骤2）的情况下建立信任关系。
+
+###1.3.1.4 Bootstrap Provisioning for used Devices 已使用设备的引导配置
+A Subscriber acquires a Device outside the operator's normal sales lines, e.g. second-hand. An inappropriate configuration in this case is very likely. The only connection to the operator is the smart card, where applicable. The Subscriber's first time use of the Device is detected automatically by the operator's infrastructure.<br/>
+订户在运营商的正常销售线路之外获取设备，例如二手。在这种情况下非常可能出现不适当的配置。与运营商的唯一连接是智能卡（如果适用）。订户首次使用设备由运营商的基础设施自动检测。
+
+Alternatively the Subscriber asks explicitly for a configuration parameter set, e.g. by Customer care call or an abbreviated dialling request. The characteristics of the Device (e.g., Device capabilities, resident applications, configuration parameters) are determined and transmitted to the operator's management server. The appropriate provisioning parameters are transferred to the Device; optionally after a confirmation by the Subscriber. In addition User-specific preferences are defined by the User.<br/>
+或者，订户明确地请求配置参数集，例如。通过客户服务呼叫或缩写拨号请求。确定设备的特性（例如，设备能力，驻留应用，配置参数）并将其传输到运营商的管理服务器。将适当的设置参数传输到设备；可选地在订阅者确认之后。此外，用户特定的首选项由用户定义。
+
+Difference to the use case in section 1.3.1.3 is that here already inserted configuration data has to be overridden; the Device is not in a 'fresh' state, but might be highly mis-configured, so standard values do not necessarily apply.<br/>
+与第1.3.1.3节中的用例区别在于，必须覆盖已插入的配置数据；设备不处于“新鲜”状态，但可能是高度错误配置，因此标准值不一定适用。
