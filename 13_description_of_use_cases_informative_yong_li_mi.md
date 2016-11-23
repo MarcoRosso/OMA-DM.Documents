@@ -103,6 +103,8 @@ A new Device (e.g., a handset or PDA) is purchased by an Enterprise Management A
 * 网络运营商管理机构
 * 企业管理机构企业
 * 管理员
+
+
 ####1.3.1.2.2 Pre-Conditions 前提条件
 * User may be a Subscriber and has purchased a service contract with the Network Operator. 
 * The Enterprise has a Device Management system.
@@ -114,6 +116,8 @@ A new Device (e.g., a handset or PDA) is purchased by an Enterprise Management A
 * 企业有一个设备管理系统。
 * 设备能够与设备管理系统连接。
 * 企业管理机构可以编程访问由网络运营商管理机构建立的适当的WAN网络承载参数。 这可能涉及管理权力的部分转移。
+
+
 ####1.3.1.2.3 Post-Conditions 后条件
 Device is provisioned with parameters and applications necessary to connect to the enterprise network and run the installed enterprise applications.<br/>
 设备已配置连接到企业网络所需的参数和应用络并成功运行已安装的企业应用。
