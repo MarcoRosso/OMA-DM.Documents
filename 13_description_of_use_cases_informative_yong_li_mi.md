@@ -410,4 +410,48 @@ Remarks: High volume remote configuration of Devices should be possible in a sho
 5. 有效的配置数据被传送到设备。
 6. 确认更新配置数据。
 
+![](1.3.2.1.5.jpeg)
 ####1.3.2.1.6 Alternative Flow 替代流程
+If settings should be overwritten unconditionally, the transfer of old configuration in the Device can be omitted (step 3 and 4).<br/>
+如果应无条件覆盖设置，则可以省略设备中旧配置的传输（步骤3和4）。
+
+The Device Query (step 3) and the corresponding transfer of capabilities/configuration (step 4) could be omitted if the wrong configuration is detected in the network or if the configuration is distributed to a mass of Devices unconditionally.<br/>
+如果在网络中检测到错误的配置或者如果配置无条件地分布到大量设备，则可以省略设备查询（步骤3）和能力/配置（步骤4）的相应传输。
+##1.3.3 Software management 软件管理
+###1.3.3.1 Software upgrade/update/installation initiated by the management server/User 由管理服务器／用户启动软件升级／更新／安装
+The management server requests the software/hardware inventory of the Device. The Device returns appropriate inventory data to the management server (with optional User interaction). The management server analyses the data, and initiates the transfer of the required software. The Device receives and installs the software using the mechanisms that are applicable to that type of software. Upon completion, the Device reports the status to the management server as requested by the management server. Software may be transferred as an upgrade package that is not in itself the complete software component being updated. Software updated in this way may be indistinguishable from software updated in its entirety.
+
+管理服务器请求设备的软件/硬件清单。设备将适当的清单数据返回到管理服务器（可选择用户交互）。管理服务器分析数据，并启动所需软件的传输。设备使用适用于该类型软件的机制接收和安装软件。完成后，设备根据管理服务器的请求将状态报告给管理服务器。软件可以作为升级包传输，该升级包本身不是正在更新的完整软件组件。以这种方式更新的软件可能与更新软件整体无法区分。
+####1.3.3.1.1 Actors and Data Authority 参与者和数据权威
+* Provider: The Service/Content Provider assigns what application software should be installed by default on a specific Device type. The provider is authorised to define and change the default software on a Device type.
+* User authorises request from the Management Server.
+
+
+* 提供商：服务/内容提供商默认分配在特定设备类型上应安装的应用软件。提供程序有权定义和更改设备类型上的默认软件。
+* 用户授权来自管理服务器的请求。
+
+####1.3.3.1.2 Pre-Conditions 前提条件
+
+* Installed software (or SW versions) on a Device is incorrect or incomplete or non-existent or is to have added functionality applied or is to be enhanced for security or performance reasons.
+* Device is capable of interfacing with the Device Management system.
+* Security constraints imposed by Device Management Server and any Device Client are met.
+
+
+* 设备上的安装软件（或软件版本）不正确，不完整或不存在，或者由于安全或性能原因已安装的软件要增强功能。
+* 设备能够与设备管理系统连接。
+* 满足由设备管理服务器和任何设备客户端施加的安全约束。
+
+
+####1.3.3.1.3 Post-Conditions 后条件
+* All software and/or software updates target at the device have been delivered and installed.
+* Device and all purchased services are fully operational.
+
+* 设备上所有目标软件和/或软件更新已交付和安装。
+* 设备和所有购买的服务全面运行。
+
+
+####1.3.3.1.4 Variations 变动
+
+* The servers request (inventory) is replaced by an User request (directly or indirectly via a web service for example). Furthermore the User may request additional software over the default software installation. The portfolio of these additional software is authorized by the provider.
+* The service/content provider may suggest updates and/or additional software. User acceptance would lead to device query and download of update.
+* The management server may be able to trigger the remote execution of the application securely, i.e. after authentication of the management server and with assured integrity of the executed code.
