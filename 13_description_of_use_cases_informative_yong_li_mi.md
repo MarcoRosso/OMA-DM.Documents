@@ -85,7 +85,7 @@ O : Optional the User overwrites the predefined values for the User's preference
 5. 配置数据传输到设备。
 6. 确认配置。
 
-O：可选用户将覆盖用户首选项的预定义值。
+O：可选项为用户将覆盖用户首选项的预定义值。
 ![](1.3.1.1.4.jpeg)
 Remarks: The User Preference parameters should be changeable for the User in a comfortable way. The network parameters should be altered only by an authorized Management Server.<br/>
 备注：用户首选项参数应以舒适的方式为用户更改。 网络参数只能由授权的管理服务器更改。
@@ -148,3 +148,10 @@ Device is provisioned with parameters and applications necessary to connect to t
 ###1.3.1.3 Smart Card based Provisioning 基于智能卡的配置
 A smart card is inserted into the Device for the first time. The smart card contains pre-configured service parameters that enable access to a Service Provider’s infrastructure and a key that allows to establish a trust connection to the Device Management system. The User inserts the smart card into the Device and the Device is provisioned (with optional user interaction) with parameters from the smart card. Upon use, the Device then establishes a relation to the Service Provider’s management server in the network.<br/>
 首次将智能卡插入设备。 智能卡包含预配置的服务参数，用于访问服务提供商的基础设施和允许建立与设备管理系统的信任连接的密钥。 用户将智能卡插入设备，并使用智能卡的参数配置设备（可选择与用户交互）。 在使用时，设备建立与网络服务提供商的管理服务器的关系。
+
+####1.3.1.1.1 Actors and Data Authority 参与者和数据权威
+* User/Subscriber 
+* Service Provider
+
+* 用户/订阅者
+* 服务提供商
