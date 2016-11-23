@@ -141,3 +141,6 @@ Device is provisioned with parameters and applications necessary to connect to t
 4. 设置运行并且设备已正确配置。
 
 ![](1.3.1.2.4.jpeg)
+###1.3.1.3 Smart Card based Provisioning 基于智能卡的配置
+A smart card is inserted into the Device for the first time. The smart card contains pre-configured service parameters that enable access to a Service Provider’s infrastructure and a key that allows to establish a trust connection to the Device Management system. The User inserts the smart card into the Device and the Device is provisioned (with optional user interaction) with parameters from the smart card. Upon use, the Device then establishes a relation to the Service Provider’s management server in the network.<br/>
+首次将智能卡插入设备。 智能卡包含预配置的服务参数，用于访问服务提供商的基础设施和允许建立与设备管理系统的信任连接的密钥。 用户将智能卡插入设备，并使用智能卡的参数配置设备（可选择与用户交互）。 在使用时，设备建立与网络服务提供商的管理服务器的关系。
