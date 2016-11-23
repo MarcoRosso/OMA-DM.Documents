@@ -34,6 +34,7 @@ As a minimum, the retail store shall be able to provision the parameters describ
 * 网络运营商的授权代理
 
 
+
 ####1.3.1.1.2 Pre-Conditions 前提条件
 
 * User is the Subscriber and has purchased a service contract with the Network Operator.
@@ -44,6 +45,7 @@ As a minimum, the retail store shall be able to provision the parameters describ
 * 用户是订户，并与网络运营商购买了服务合同。
 * 授权代理（例如零售店）具有用于配置设备的设备管理系统。
 * 设备能够与设备管理系统连接。 
+
 
 
 ####1.3.1.1.3 Post-Conditions 后条件
@@ -59,9 +61,11 @@ As a minimum, the retail store shall be able to provision the parameters describ
 * 设备和所有购买的服务全面运行。
 
 
+
 ####1.3.1.1.4 Variations 变动
 The user purchases a device in retail market, on power on the device is automatically provisioned over the air.<br/>
 用户在零售市场中购买设备，在设备通电时，通过空中下载自动配置。
+
 
 
 ####1.3.1.1.4 Normal Flow 一般流程
