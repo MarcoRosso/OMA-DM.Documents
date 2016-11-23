@@ -410,7 +410,7 @@ Remarks: High volume remote configuration of Devices should be possible in a sho
 5. 有效的配置数据被传送到设备。
 6. 确认更新配置数据。
 
-![](1.3.3.1.5.jpeg)![](1.3.2.1.5.jpeg)
+![](1.3.2.1.5.jpeg)
 ####1.3.2.1.6 Alternative Flow 替代流程
 If settings should be overwritten unconditionally, the transfer of old configuration in the Device can be omitted (step 3 and 4).<br/>
 如果应无条件覆盖设置，则可以省略设备中旧配置的传输（步骤3和4）。
@@ -473,6 +473,8 @@ The management server requests the software/hardware inventory of the Device. Th
 4. 设备管理服务器启动软件下载，安装和执行
 5. 设备将确认发送回设备管理服务器
 
+
+![](1.3.3.1.5.jpeg)
 
 ##1.3.4 Fault Detection, Query and Reporting 故障检测，查询和报告
 ###1.3.4.1 Helpdesk problem determination 帮助台问题确定
