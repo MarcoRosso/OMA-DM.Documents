@@ -68,7 +68,7 @@ The user purchases a device in retail market, on power on the device is automati
 
 
 
-####1.3.1.1.4 Normal Flow 一般流程
+####1.3.1.1.5 Normal Flow 一般流程
 1. Device is discovered by local Device Management infrastructure.
 2. Trusted Relationship is established.
 3. Device is queried for Type and Capabilities.
@@ -149,9 +149,50 @@ Device is provisioned with parameters and applications necessary to connect to t
 A smart card is inserted into the Device for the first time. The smart card contains pre-configured service parameters that enable access to a Service Provider’s infrastructure and a key that allows to establish a trust connection to the Device Management system. The User inserts the smart card into the Device and the Device is provisioned (with optional user interaction) with parameters from the smart card. Upon use, the Device then establishes a relation to the Service Provider’s management server in the network.<br/>
 首次将智能卡插入设备。 智能卡包含预配置的服务参数，用于访问服务提供商的基础设施和允许建立与设备管理系统的信任连接的密钥。 用户将智能卡插入设备，并使用智能卡的参数配置设备（可选择与用户交互）。 在使用时，设备建立与网络服务提供商的管理服务器的关系。
 
-####1.3.1.1.1 Actors and Data Authority 参与者和数据权威
+####1.3.1.3.1 Actors and Data Authority 参与者和数据权威
 * User/Subscriber 
 * Service Provider
 
+
 * 用户/订阅者
 * 服务提供商
+
+
+
+####1.3.1.3.2 Pre-Conditions 前提条件
+* The User/Subscriber has established a contractual relationship with the Service Provider for service and has obtained a pre-configured smart card with a key (Issuing aspects of the smart card are not within scope of this document).<br/>
+用户/订户已经与服务提供商建立了服务的合同关系，并且已经获得具有密钥的预配置的智能卡（智能卡的发布方面不在本文档的范围内）。
+* The Device is equipped with a Device Management User Agent<br/>
+  设备配备了设备管理用户代理
+* The Device is equipped with an User Agent associated with the pre-configured service, if required (or the Device has the ability to download such a User Agent)<br/>
+如果需要（或者设备具有下载这样的用户代理的能力），设备配备有与预先配置的服务相关联的用户代理
+
+
+####1.3.1.3.3 Post-Conditions 后条件
+The Device is fully provisioned with parameters necessary to allow delivery of the purchased service.<br/>
+设备已完全配置了允许交付已购买服务所必需的参数。
+
+####1.3.1.3.4 Variations 变动
+Instead of having parameters pre-configured on the smart card, the card could contain only a key that enables establishment of a trust relationship with the Service Provider’s management server. Service parameters could then be subsequently provisioned onto the Device by the Service Provider over the air.<br/>
+尽管可以在智能卡上预先配置参数，但智能卡可以仅包含能够建立与服务提供商的管理服务器的信任关系的密钥。 服务参数可以随后由服务提供商通过空中下载提供到设备上。
+
+Instead of purchasing a new smart card with a Device, a Subscriber could purchase a service from a Service Provider and have their existing smart card configured with parameters or keys by an entity with Management Authority of the smart card.<br/>
+尽管可以在购买新设备时附带新的智能卡，但订户可以从服务提供商购买服务，并且通过具有智能卡的管理权限的实体用他们的现有智能卡配置参数或密钥。
+
+####1.3.1.2.5 Normal Flow 一般流程
+1. The User inserts the smart card into the Device.
+2. If applicable (parts of) provisioning data is transferred from the smart card to the Device.
+3. With the key on the smart card a trusted connection is established between the Device and the Device Management server.
+4. The Device Management server queries the Device for actual configuration.
+5. The Device responses to the query.
+6. The relevant provisioning data is downloaded towards the Device.
+7. The Transfer of the Provisioning data is confirmed.
+
+
+1. 用户将智能卡插入设备。
+2. 配置数据从智能卡传输到设备（如适用）。
+3. 使用智能卡上的密钥，在设备和设备管理服务器之间建立信任的连接。
+4. 设备管理服务器查询设备的实际配置。
+5. 设备对查询的响应。
+6. 向设备下载相关的配置数据。
+7. 确认配置数据传输。
