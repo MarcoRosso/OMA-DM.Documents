@@ -1,2 +1,161 @@
 # 1.4 Requirements 需求
+## 1.4.1 High Level Functional Requirements 高级功能需求
+### 1.4.1.1 Security 安全
+#### 1.4.1.1 General security requirements 一般安全需求
+1. The authentication procedure MUST be strong enough to ensure that is not be possible for a third party to masquerade as a Device management server by spoofing its identity. <br/>
+认证过程必须足够强，以确保第三方不可能通过欺骗其身份来伪装为设备管理服务器。
+2. The client and sever MUST be capable of detecting replay attacks.<br/>
+客户端和服务器必须能够检测重放攻击。 
+3. Architecture supports traversal of corporate firewalls and Network translation Devices (Use Case 1.3.1.2)<br/>
+架构支持公司防火墙和网络翻译设备的遍历（用例1.3.1.2）
+4. If end user confirmation is indicated by the Device Management Server, the Device will prompt for user confirmation before incorporation of configuration data. (Use Case 1.3.1.5)<br/>
+如果设备管理服务器指示最终用户确认，则在合并配置数据之前，设备将提示用户确认。(用例1.3.1.5）
+5. Except for establishing the initial trust relationship (bootstrap) over the air, if end user confirmation is not indicated by the Device Management Server, the Device MUST NOT ask for user confirmation before incorporation of configuration data. (Use Case 1.3.1.5)<br/>
+除了通过空中下载建立初始信任关系（引导）之外，如果设备管理服务器未指示最终用户确认，则设备必须不在并入配置数据之前请求用户确认。（用例1.3.1.5）
+6. The non-repudiation of the session MUST be ensured. (Use Case 1.3.4.1) <br/>
+必须确保会话的不可否认性。（用例1.3.4.1)
+
+
+
+#### 1.4.1.2 Authentication 鉴定
+Before any Device management operations can be carried out on the Device, it must conform to the following:<br/>
+在设备上执行任何设备管理操作之前，必须符合以下要求：
+1. The client MUST successfully authenticate the Device Management server (Use Case 1.3.2.1).<br/>
+客户端必须成功验证设备管理服务器（用例1.3.2.1）。
+2. If the Device management operation is related to personal information then the user MUST successfully authenticate himself to the Device management server (Use Case 1.3.2.1).<br/>
+如果设备管理操作与个人信息相关，则用户必须成功地向设备管理服务器认证自己（用例1.3.2.1）。
+3. The Device Management Server May also authenticate the Device (Use Case 1.3.1.1., 1.3.1.3, 1.3.4.1)<br/>
+设备管理服务器也可以验证设备（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+4. Whenever there is communication between Device Management Servers the Device Management Servers MUST mutually authenticate (Use Case 1.3.1.2).<br/>
+每当设备管理服务器之间有通信时，设备管理服务器必须相互认证（用例1.3.1.2）。
+5. With local wireless interfaces, discovery is controlled between the PC Agent and Device. Secure association and authentication MUST be supported. The first connection requires a secure association be created between the Device and PC. (Use Case 1.3.1.5)<br/>
+当使用本地无线接口时，设备发现被控制在PC代理和设备之间。必须支持安全关联和认证。第一个连接需要在设备和PC之间创建安全关联。（用例1.3.1.5）
+
+#### 1.4.1.3 Authorisation 授权
+Before the Device Management server can carry out any Device management operations on the Device, it must conform to the following:
+在设备管理服务器可以在设备上执行任何设备管理操作之前，它必须符合以下条件：
+1. The Device Management server MUST be authorised to carry out any Device management operations on the Device (Use Case 1.3.2.1).<br/>
+设备管理服务器必须被授权在设备上执行任何设备管理操作（用例1.3.2.1）。
+2. With local wireless interfaces, discovery is controlled between the PC Agent and Device. Secure association and authorisation MUST be supported. The first connection requires a secure association be created between the Device and PC. (Use Case 1.3.1.5)<br/>
+当使用本地无线接口时，设备发现被控制在PC代理和设备之间。必须支持安全关联和授权。第一个连接需要在设备和PC之间创建安全关联。（用例1.3.1.5）
+
+
+#### 1.4.1.4 Integrity protection 完整性保护
+1. All data communication between the Device Management Server and a Device MUST be integrity protected. (Use Case 1.3.1.1, 5.1.3, 5.4.1)<br/>
+设备管理服务器和设备之间的所有数据通信必须是完整性保护的。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+2. All data communication between Device Management Server MUST be integrity protected. (Use Case 1.3.1.2)<br/>
+设备管理服务器之间的所有数据通信必须完整性保护。（用例1.3.1.2）
+3. The Data Link between the Software Originator (or agent) and the Device Management Server MUST maintain data integrity. (Use Case 1.3.5.1)<br/>
+软件发起方（或代理）和设备管理服务器之间的数据链路必须保持数据完整。（用例1.3.5.1）
+4. The inventory SHALL be secure from alteration when sent by the appropriate integrity protection. (Use Case 1.3.3.1) <br/>
+当通过适当的完整性保护发送时，目录必须是安全的。（用例1.3.5.1）
+5. The downloaded software SHALL be secure from alteration by the appropriate integrity protection. (Use Case 5.3.1)<br/>
+下载的软件应必须不受适当的完整性保护的影响。（用例1.3.3.1）
+
+#### 1.4.1.5 Confidentiality protection 机密性保护
+
+1. All data communication between the Device Management Server and a Device, that is personal to the user or confidential to the owner of the information (e.g. some network operator settings) MUST be confidentiality protected. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+设备管理服务器和设备之间的所有数据通信（对于用户来说是个人的或对信息所有者来说是机密的）（例如某些网络运营商设置）必须是机密性保护的。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+2. All data communication between Device Management Servers MUST be confidentiality protected. (Use Case 1.3.1.2)<br/>
+设备管理服务器之间的所有数据通信必须被机密性保护。（用例1.3.1.2）
+3. The Data Link between the Software Originator (or agent) and the Device Management Server MAY maintain data confidentiality. (Use Case 1.3.5.1)<br/>
+软件发起者（或代理）和设备管理服务器之间的数据链路可以维护数据保密。（用例1.3.5.1）
+4. The Data Link between the Device Management Server and the Device MAY maintain data confidentiality, where appropriate. (Use Case 1.3.5.1)<br/>
+设备管理服务器和设备之间的数据链路可以在适当情况下保持数据机密性。（用例1.3.5.1）
+
+#### 1.4.1.6 Smart card security 智能卡安全
+
+1. Provisioning data on smart card SHALL be protected against unauthorized modification. (UC 1.3.1.3) <br/>
+智能卡上的配置数据必须防止未经授权的修改。（用例 1.3.1.3）
+2. It SHALL NOT be possible for the Smart Card to reveal any secret keys it holds (UC 1.3.1.3)<br/>
+智能卡必须不显示其所拥有的任何密钥（用例 1.3.1.3）
+
+
+### 1.4.1.2 Recording 纪录
+1. The Device Management System SHALL provide sufficient information so that queries from the Device Management Server, reports from Devices, data downloads, and acknowledgements MAY be billed and tracked accordingly. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+设备管理系统必须提供足够的信息，以便接受来自设备管理服务器的查询，来自设备的报告，数据下载和确认可以被相应地纪录和跟踪。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+2. If a management authority causes delegation to occur among several Device Management Servers, the Management Authority MAY request from each DMS, and each DMS SHALL provide, reports of the operations performed in a device for tracking purposes (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+如果管理权限导致在多个设备管理服务器之间发生授权，则管理权限可以从每个DMS请求并且每个DMS应当提供在设备中执行的用于跟踪目的的操作的报告（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+3. The session MUST be identified as customer-care-related. (Use Case 1.3.4.1)<br/>
+会话必须被标识为与客户服务相关。（用例1.3.4.1）
+4. The session MUST be uniquely identified. (Use Case 1.3.4.1)<br/>
+会话必须被唯一标识。（用例1.3.4.1）
+5. If transactions are logged, server MUST log transactions with success indicator. (Use Case 1.3.4.1)<br/>
+如果记录事务，则服务器必须使用成功指示器记录事务。（用例1.3.4.1）
+
+
+### 1.4.1.3 Administration and Configuration 管理和配置
+
+1. The DMS SHALL provide a standardized mechanism for publishing session/message transactions, such as confirmation requests and results, etc.(Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+DMS必须提供用于发布会话/消息事务的标准化机制，例如确认请求和结果等。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+2. Confirmation request messages SHALL be uniquely identified and contain at least the subscriber id, data or data summary, and date/time.
+(Use Case 1.3.4.1)<br/>
+确认请求消息必须唯一标识，并至少包含订户id，数据或数据摘要和日期/时间。（用例1.3.4.1）
+3. Confirmation result messages SHALL be uniquely identified and correlated to the request.(Use Case 1.3.4.1)<br/>
+确认结果消息必须唯一标识并与请求相关联。（用例1.3.4.1）
+4. Management Authority MAY be delegated by a primary Management Authority (one that has domain over a given set of Management Objects) to a secondary Management Authority. (Use Case 1.3.1.1)<br/>
+管理机构可以由主管理机构（具有指定管理对象集合的域）委托给次级管理机构。（用例1.3.1.1）
+5. The first connection MUST involve a secure association be created between the Device and PC. (Use Case 1.3.1.5)<br/>
+第一个连接必须涉及在设备和PC之间创建安全关联。（用例1.3.1.5）
+6. The DMS shall send a notification of the update/upgrade to the appropriate management authority. (Use Case 1.3.3.1)<br/>
+DMS必须向适当的管理机构发送更新/升级的通知。（用例1.3.3.1）
+
+
+### 1.4.1.4 Usability 可用性
+1. If user confirmation is indicated by smart card data, the Device SHALL ask for user confirmation before incorporation of provisioning data (stored on smart card).<br/>
+如果智能卡数据指示用户确认，则在合并配置数据（存储在智能卡上）之前，设备必须要求用户确认。
+2. If user confirmation is not indicated by smart card data, the Device MUST NOT ask for user confirmation before incorporation of provisioning data (stored on smart card). (用例 1.3.1.3)<br/>
+如果智能卡数据未指示用户确认，则设备必须不在合并供应数据（存储在智能卡上）之前请求用户确认。（用例 1.3.1.3）
+3. If indicated by smart card data, the Device SHALL establish the connection to Device Management Server autonomously. (UC 1.3.1.3)<br/>
+如果数据由智能卡提供，设备必须自动建立与设备管理服务器的连接。（用例 1.3.1.3）
+4. If user confirmation is indicated by the Device Management Server, the Device SHALL ask for user confirmation before incorporation of configuration data (transferred by Device Management Server).<br/>
+如果设备管理服务器指示用户确认，则在合并配置数据（由设备管理服务器传送）之前，设备必须要求用户确认。
+5. Except for establishing the initial trust relationship configuration (bootstrap) over the air, if user confirmation is not indicated by the Device Management Server, the Device MUST NOT ask for user confirmation before incorporation of configuration data (transferred by Device Management Server). (用例 1.3.1.3, 1.3.1.4, 1.3.2.1)<br/>
+除了通过空中下载建立初始信任关系配置（引导）之外，如果设备管理服务器未指示用户确认，则在并入配置数据（由设备管理服务器传送）之前，设备必须不要求用户确认。 （用例 1.3.1.3, 1.3.1.4, 1.3.2.1）
+6. The Device SHALL be capable for being contacted by the Device Management Server, if the Device is switched on and has radio coverage by its subscribed network operator and is not busy by a voice link. (用例 1.3.2.1)<br/>
+如果设备通电并且具有由其订阅的网络运营商的无线电覆盖并且不被语音链路占用，则设备必须能够被设备管理服务器联系。（用例 1.3.2.1）
+7. The Device MAY be capable for being contacted by the Device Management Server, if the Device is busy by a voice link. (UC 1.3.2.1)<br/>
+如果设备通过语音链路正忙，则设备可以能够被设备管理服务器联系。（用例 1.3.2.1）
+8. User is not prompted if there is no work to be done (Use Case 1.3.1.5)<br/>
+如果没有工作要做，则不提示用户（用例1.3.1.5）
+9. Management Authority MAY clarify implications of subsequent actions (query, etc.) to the User. (Use Case 1.3.4.1)<br/>
+管理机构可以澄清后续行动（查询等）对用户的影响。（用例1.3.4.1）
+10. User voice calls MUST NOT be terminated upon reception of the query. (Use Case 1.3.4.1)<br/>
+用户语音呼叫必须不在接收到查询时终止。（用例1.3.4.1）
+11. User voice calls MUST NOT be terminated upon reception of the authorization request. (Use Case 1.3.4.1)<br/>
+用户语音呼叫必须不在收到授权请求时终止。（用例1.3.4.1）
+12. Authorization MUST be clear esp. regarding privacy issues and warranty. (Use Case 1.3.4.1)<br/>
+由于隐私和保修问题，授权必须清除。（用例1.3.4.1）
+13. User MAY be informed that the process is over. (Use Case 1.3.4.1)<br/>
+用户可被告知过程已结束。（用例1.3.4.1）
+14. The user SHALL be asked for confirmation to proceed before any software is updated. (Use Case 1.3.3.1)<br/>
+在更新任何软件之前，必须要求用户确认以继续操作。（用例1.3.3.1）
+15. The user SHALL be informed that the update/upgrade has been completed. (Use Case 1.3.3.1)<br/>
+必须通知用户更新/升级已完成。（用例1.3.3.1）
+16. The Device MUST NOT send an inventory list of applications installed in the Device without either this optional feature being added by the user or the Device asks for permission from the user when needed.<br/>
+设备必须不发送安装在设备中的应用程序的清单列表，或者用户可添加此可选功能，或者设备在需要时向用户请求许可。
+
+### 1.4.1.5 Interoperability 互操作性
+
+1. The DMS MAY be interfaced with a Customer Care application. (Use Case 1.3.4.1) <br/>
+DMS可以与客户服务应用程序接口。（用例1.3.4.1）
+2. Errors MAY be reported to a Customer Care application. (Use Case 1.3.4.1)<br/>
+错误可以报告给客户服务中心应用程序。（用例1.3.4.1）
+
+
+### 1.4.1.6 Privacy 隐私
+Requirements covered in other sections. <br/>
+需求已在其它部分描述。
+
+## 1.4.2 Overall Systems Requirements 整体系统要求
+1. The Device Management infrastructure MAY be based on a distributed architecture, wherein functional elements of the system (e.g., the Device Management Server) MAY consist of one or more coordinated, but physically separate entities. (Use Case 1.3.1.1)<br/>
+设备管理基础设施可以基于分布式架构，其中系统的功能元件（例如，设备管理服务器）可以由一个或多个协调但物理上分离的实体组成。（用例1.3.1.1）
+2. The overall system SHALL support a distributed system architecture (Use Case 1.3.1.2)<br/>
+整个系统必须支持分布式系统架构（用例1.3.1.2）
+3. Device Discovery by the Device Management Server MUST be clearly defined (e.g. SMS, push.). (Use Case 1.3.4.1)<br/>
+必须清楚地定义设备管理服务器的设备发现（例如，SMS，推送）。（用例1.3.4.1）
+4. The Device Management System SHALL make provision for different Management Authorities (e.g. Enterprise, Network Operator) to manage different data sets or applications in a single device. Each Management Authority can control data sets and applications owned by that Management Authority.<br/>
+设备管理系统必须为不同的管理机构（例如企业，网络运营商）提供管理，以在单个设备中管理不同的数据集或应用程序。每个管理机构可以控制该管理机构拥有的数据集和应用程序。
+
+## 1.4.3 Systems Elements 系统组件
 
