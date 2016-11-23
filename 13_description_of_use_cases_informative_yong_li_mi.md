@@ -173,13 +173,16 @@ The Device is fully provisioned with parameters necessary to allow delivery of t
 设备已完全配置了允许交付已购买服务所必需的参数。
 
 ####1.3.1.3.4 Variations 变动
-Instead of having parameters pre-configured on the smart card, the card could contain only a key that enables establishment of a trust relationship with the Service Provider’s management server. Service parameters could then be subsequently provisioned onto the Device by the Service Provider over the air.<br/>
+1. Instead of having parameters pre-configured on the smart card, the card could contain only a key that enables establishment of a trust relationship with the Service Provider’s management server. Service parameters could then be subsequently provisioned onto the Device by the Service Provider over the air.<br/>
 尽管可以在智能卡上预先配置参数，但智能卡可以仅包含能够建立与服务提供商的管理服务器的信任关系的密钥。 服务参数可以随后由服务提供商通过空中下载提供到设备上。
 
-Instead of purchasing a new smart card with a Device, a Subscriber could purchase a service from a Service Provider and have their existing smart card configured with parameters or keys by an entity with Management Authority of the smart card.<br/>
-尽管可以在购买新设备时附带新的智能卡，但订户可以从服务提供商购买服务，并且通过具有智能卡的管理权限的实体用他们的现有智能卡配置参数或密钥。
+2. Instead of purchasing a new smart card with a Device, a Subscriber could purchase a service from a Service Provider and have their existing smart card configured with parameters or keys by an entity with Management Authority of the smart card.<br/>
+尽管可以在购买新设备时附带新的智能卡，但订户可以从服务提供商购买服务，并且通过具有智能卡的管理权限的实体配置过的现有智能卡配置参数或密钥。
 
-####1.3.1.2.5 Normal Flow 一般流程
+
+
+
+####1.3.1.3.5 Normal Flow 一般流程
 1. The User inserts the smart card into the Device.
 2. If applicable (parts of) provisioning data is transferred from the smart card to the Device.
 3. With the key on the smart card a trusted connection is established between the Device and the Device Management server.
@@ -196,3 +199,8 @@ Instead of purchasing a new smart card with a Device, a Subscriber could purchas
 5. 设备对查询的响应。
 6. 向设备下载相关的配置数据。
 7. 确认配置数据传输。
+![](1.3.1.2.5.jpeg)
+
+####1.3.1.3.6 Alternative Flow 替代流程
+As described in variation 1 the trusted relationship can be established without prior transfer of provisioning data from the smart card to the Device (omission of step 2).<br/>
+如变型1中所述，可以在没有从智能卡到设备的预配置数据的预先传送（省略步骤2）的情况下建立信任关系。
