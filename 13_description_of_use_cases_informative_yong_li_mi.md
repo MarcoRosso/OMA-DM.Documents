@@ -22,7 +22,7 @@ In the sub-clauses that follow describing the use cases, further flows may be re
 A new Device (e.g., a handset or PDA) is purchased by a network Subscriber in an authorised retail store and provisioned with parameters. The Device is powered on and store personnel at the retail outlet use a Device Management system to provision the Device with network-specific parameters (e.g. gateway addresses, etc.) that enable delivery of subscribed services, as well as User-specific preferences (e.g. message headers, etc.) as defined by the User. The Device provisioning can be done via a local or public transport mechanism, e.g. IR, Bluetooth, local, or non-local, wired, or wireless network. The new Device and all accompanying services are fully operational when the Subscriber leaves the store.
 As a minimum, the retail store shall be able to provision the parameters described in section 1.5. <br/>
 新的设备（例如，手持机或PDA）由网络订阅者在授权的零售商店中购买并且提供参数。 设备通电并且在零售商店的工作人员使用设备管理系统来向设备传送订阅服务的网络特定参数（例如网关地址等）以及用户特定偏好（例如， 消息头等），由用户定义。 设备配置可以通过本地或公共传输机制来完成，例如IR，蓝牙，本地或非本地，有线或无线网络。 当用户离开商店时，新设备和所有伴随服务都可以完全运行。零售商店至少应能够提供1.5节中描述的参数。
-####1.3.1.1.1 Actors and Data Authority 参与者和数据权威
+####1.3.1.1.1 Actors and Data Authority 参与者和数据权限
 
 * User/Subscriber. The User/Subscriber is authorised to define and change the User Preference parameters.
 * Network Operator. The Network Operator is authorised to define and change the Network Parameters.
@@ -48,7 +48,7 @@ As a minimum, the retail store shall be able to provision the parameters describ
 
 
 
-####1.3.1.1.3 Post-Conditions 后条件
+####1.3.1.1.3 Post-Conditions 之后状态
 * Device is provisioned with parameters necessary to obtain the services the User/Subscriber has purchased.
 * Device is configured with User-specific parameters as defined by the User.
 * Network and service provider end points recognise the device as having authorisation to use the purchased services.
@@ -122,7 +122,7 @@ A new Device (e.g., a handset or PDA) is purchased by an Enterprise Management A
 * 企业管理机构可以编程访问由网络运营商管理机构建立的适当的WAN网络承载参数。 这可能涉及管理权力的部分转移。
 
 
-####1.3.1.2.3 Post-Conditions 后条件
+####1.3.1.2.3 Post-Conditions 之后状态
 Device is provisioned with parameters and applications necessary to connect to the enterprise network and run the installed enterprise applications.<br/>
 设备已配置连接到企业网络所需的参数和应用络并成功运行已安装的企业应用。
 
@@ -149,7 +149,7 @@ Device is provisioned with parameters and applications necessary to connect to t
 A smart card is inserted into the Device for the first time. The smart card contains pre-configured service parameters that enable access to a Service Provider’s infrastructure and a key that allows to establish a trust connection to the Device Management system. The User inserts the smart card into the Device and the Device is provisioned (with optional user interaction) with parameters from the smart card. Upon use, the Device then establishes a relation to the Service Provider’s management server in the network.<br/>
 首次将智能卡插入设备。 智能卡包含预配置的服务参数，用于访问服务提供商的基础设施和允许建立与设备管理系统的信任连接的密钥。 用户将智能卡插入设备，并使用智能卡的参数配置设备（可选择与用户交互）。 在使用时，设备建立与网络服务提供商的管理服务器的关系。
 
-####1.3.1.3.1 Actors and Data Authority 参与者和数据权威
+####1.3.1.3.1 Actors and Data Authority 参与者和数据权限
 * User/Subscriber 
 * Service Provider
 
@@ -167,7 +167,7 @@ A smart card is inserted into the Device for the first time. The smart card cont
 如果需要（或者设备具有下载这样的用户代理的能力），设备配备有与预先配置的服务相关联的用户代理
 
 
-####1.3.1.3.3 Post-Conditions 后条件
+####1.3.1.3.3 Post-Conditions 之后状态
 The Device is fully provisioned with parameters necessary to allow delivery of the purchased service.<br/>
 设备已完全配置了允许交付已购买服务所必需的参数。
 
@@ -214,7 +214,7 @@ Alternatively the Subscriber asks explicitly for a configuration parameter set, 
 Difference to the use case in section 1.3.1.3 is that here already inserted configuration data has to be overridden; the Device is not in a 'fresh' state, but might be highly mis-configured, so standard values do not necessarily apply.<br/>
 与第1.3.1.3节中的用例区别在于，必须覆盖已插入的配置数据；设备不处于“新鲜”状态，但可能是高度错误配置，因此标准值不一定适用。
 
-####1.3.1.4.1 Actors and Data Authority 参与者和数据权威
+####1.3.1.4.1 Actors and Data Authority 参与者和数据权限
 * Subscriber: The Subscriber has decided to connect to a particular Network Operator.
 * User : The User is authorised to define and change the User Preference Parameter.
 * Network Operator: The selected Network Operator is authorised to define and change the Network Configuration Data.
@@ -234,7 +234,7 @@ Difference to the use case in section 1.3.1.3 is that here already inserted conf
 * 设备能够与设备管理系统连接。
 
 
-####1.3.1.4.3 Post-Conditions 后条件
+####1.3.1.4.3 Post-Conditions 之后状态
 
 * Device is provisioned with parameters necessary to obtain the services the User/Subscriber has purchased.
 * Device is configured with User-specific parameters as defined by the User.
@@ -313,7 +313,7 @@ The User is then presented with options on the PC UI and is stepped through the 
 * 用户已获得访问和登录网络管理机构网站的机制（变动1）。
 
 
-####1.3.1.5.3 Post-Conditions 后条件
+####1.3.1.5.3 Post-Conditions 之后状态
 * The Device has network connectivity.
 * The Subscriber has more prepaid minutes on their account.
 * The appropriate applications are installed and server side service provisioning is complete.
@@ -347,7 +347,7 @@ An operator changes its platform infrastructure for a data service, e.g. the IP-
 The management server receives the parameters for the client Device to be updated. The management server determines the Device information in order to potentially customise the configuration. The management server sends the configuration information to the Device. The Device stores the data in the configuration context associated with the management server without any User interaction and reports the status as requested by the management server. Optionally an User confirmation may be requested. The Device interacts with the User. If the User confirms the operation, the Device stores the data in the configuration context associated with the management server.<br/>
 管理服务器接收要更新的客户端设备的参数。管理服务器确定设备信息以便潜在地定制配置。管理服务器将配置信息发送到设备。设备在没有任何用户交互的情况下将数据存储在与管理服务器相关联的配置上下文中，并且报告管理服务器所请求的状态。可选地，可以请求用户确认。设备与用户交互。如果用户确认操作，则设备将数据存储在与管理服务器相关联的配置上下文中。
 
-####1.3.2.1.1 Actors and Data Authority 参与者和数据权威
+####1.3.2.1.1 Actors and Data Authority 参与者和数据权限
 * User: User-specific preferences are not altered
 * Management Authority: The Management Authority is authorised to define and change the Configuration Data
 
@@ -365,7 +365,7 @@ The management server receives the parameters for the client Device to be update
 * 设备能够与设备管理系统连接。
 
 
-####1.3.2.1.3 Post-Conditions 后条件
+####1.3.2.1.3 Post-Conditions 之后状态
 * Device is provisioned with effective parameters necessary to conserve/improve the services the User/Subscriber has purchased.
 * Device is configured with User-specific parameters as previously defined by the User.
 * Device and all purchased services are fully operational.
@@ -422,7 +422,7 @@ The Device Query (step 3) and the corresponding transfer of capabilities/configu
 The management server requests the software/hardware inventory of the Device. The Device returns appropriate inventory data to the management server (with optional User interaction). The management server analyses the data, and initiates the transfer of the required software. The Device receives and installs the software using the mechanisms that are applicable to that type of software. Upon completion, the Device reports the status to the management server as requested by the management server. Software may be transferred as an upgrade package that is not in itself the complete software component being updated. Software updated in this way may be indistinguishable from software updated in its entirety.
 
 管理服务器请求设备的软件/硬件清单。设备将适当的清单数据返回到管理服务器（可选择用户交互）。管理服务器分析数据，并启动所需软件的传输。设备使用适用于该类型软件的机制接收和安装软件。完成后，设备根据管理服务器的请求将状态报告给管理服务器。软件可以作为升级包传输，该升级包本身不是正在更新的完整软件组件。以这种方式更新的软件可能与更新软件整体无法区分。
-####1.3.3.1.1 Actors and Data Authority 参与者和数据权威
+####1.3.3.1.1 Actors and Data Authority 参与者和数据权限
 * Provider: The Service/Content Provider assigns what application software should be installed by default on a specific Device type. The provider is authorised to define and change the default software on a Device type.
 * User authorises request from the Management Server.
 
@@ -442,7 +442,7 @@ The management server requests the software/hardware inventory of the Device. Th
 * 满足由设备管理服务器和任何设备客户端施加的安全约束。
 
 
-####1.3.3.1.3 Post-Conditions 后条件
+####1.3.3.1.3 Post-Conditions 之后状态
 * All software and/or software updates target at the device have been delivered and installed.
 * Device and all purchased services are fully operational.
 
