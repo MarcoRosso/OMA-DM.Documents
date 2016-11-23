@@ -177,8 +177,11 @@ Requirements covered in other sections. <br/>
 9. The Device SHALL be able to acknowledge the receipt and installation of data downloaded from the Device Management Server. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
 设备必须能够确认从设备管理服务器接收下载数据并安装。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
 10. The Device SHALL be capable of detecting the presence of provisioning data on an installed, activated Smart Card. (Use Case 1.3.1.3)<br/>
+设备必须能够检测安装的激活智能卡上是否存在配置数据。（用例1.3.1.3）
 11. The Device SHALL be capable of autonomously establishing a data link with the Device Management Server, using connectivity information stored on the Smart Card. (Use Case 1.3.1.3)<br/>
+设备必须能够使用存储在智能卡上的连接信息自主地与设备管理服务器建立数据链路。 （用例1.3.1.3）
 12. The Device SHALL be capable of participating in a mutual authentication with the Device Management Server, using authentication credentials (e.g., a challenge response) stored on or derived from the Smart Card. (Use Case 1.3.1.3, 1.3.4.1)<br/>
+设备必须能够使用存储在智能卡上或从智能卡导出的认证证书（例如，质询响应）参与与设备管理服务器的相互认证。（用例1.3.1.3, 1.3.4.1）
 13. Device SHALL retrieve and incorporate relevant configuration data stored on the smart card into the Device's DM structure. (UC 1.3.1.3)<br/>
 14. Each Device MUST support standardized dynamic IP allocation when the Device is first connected to the network. If an IP address cannot be allocated from the network, then the Device MUST use automatic IP addressing (Auto-IP) to obtain an address. (Use Case 1.3.1.5)
 15. The Device SHOULD announce itself on the network to all control points it detects. The act of announcement does not imply the Device will receive rights, since assignment of rights is an expression of the user's decision. When the Device is added to the network, the discovery protocol allows that Device to advertise its services to control points on the network. The fundamental exchange in both cases is a discovery message containing a few, essential specifics about the Device e.g., its type, identifier, and a pointer to more detailed information. (Use Case 1.3.1.5)<br/>
