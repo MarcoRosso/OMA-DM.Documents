@@ -158,4 +158,21 @@ Requirements covered in other sections. <br/>
 设备管理系统必须为不同的管理机构（例如企业，网络运营商）提供管理，以在单个设备中管理不同的数据集或应用程序。每个管理机构可以控制该管理机构拥有的数据集和应用程序。
 
 ## 1.4.3 Systems Elements 系统组件
-
+### 1.4.3.1 Device 设备
+1. The Device SHALL be capable of discovering the presence of nearby, active Device Management system elements if those elements are using compatible local bearers. (Use Case 1.3.1.1)<br/>
+如果这些元件使用兼容的本地承载，则设备必须能够发现附近的，活动的设备管理系统元件的存在。（用例1.3.1.1）
+2. The Device SHALL be able to communicate all of its relevant properties (e.g., manufacturer, model, firmware, etc.) to the Device Management Server on demand. (Use Case 1.3.1.1,  1.3.1.3, 1.3.4.1)<br/>
+设备应能够根据需要将所有相关属性（例如，制造商，型号，固件等）传送到设备管理服务器。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+3. The Device SHALL be able to communicate its capabilities and configuration (e.g., WAP/MMS settings, installed software applications, etc.) to the Device Management Server on demand. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+设备必须能够按需向设备管理服务器传达其能力和配置（例如，WAP/MMS设置，安装的软件应用等）。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+4. The Device SHALL be capable of autonomously (i.e., without User interaction) accepting and storing downloaded Management Objects (e.g., parameters, software, etc.) after the one time initial trust relationship configuration (bootstrap) is performed. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+在执行一次初始信任关系配置（引导）之后，设备必须能够自主地（即，没有用户交互）接受和存储下载的管理对象（例如，参数，软件等）。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+5. Obsolete/outdated configuration data transferred/stored by any other Management Authority MUST NOT prevent the incorporation of the current data (UC 1.3.1.4).<br/>
+由任何其他管理机构传输/存储的过时/过期的配置数据必须不阻止并入当前数据（用例  1.3.1.4）
+6. The data tree for containing Device management objects on the Device SHALL be capable of being modified (i.e., nodes or data fields added or deleted), read from, and/or written to. (Use Case 1.3.1.1, 1.3.1.3, and 1.3.4.1)<br/>
+用于包含设备上的设备管理对象的数据树必须能够被修改（即，添加或删除节点或数据字段），读取和/或写入。 （用例1.3.1.1, 1.3.1.3和1.3.4.1）
+7. The Device SHALL be capable of receiving and displaying a command from the DM Server to request User confirmation for a management action. (Use Case 1.3.4.1)<br/>
+设备必须能够接收和显示来自DM服务器的命令，以请求用户确认管理动作。（用例1.3.4.1）
+8. The Device SHALL be capable of accepting User input regarding confirmation of a proposed management action, and sending the result of that confirmation to the DM Server. (Use Case 1.3.4.1)<br/>设备必须能够接受关于提出的管理动作的用户确认输入，并且将该确认的结果发送到DM服务器。（用例1.3.4.1）
+9. The Device SHALL be able to acknowledge the receipt and installation of data downloaded from the Device Management Server. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+设备必须能够确认从设备管理服务器接收下载数据并安装。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
