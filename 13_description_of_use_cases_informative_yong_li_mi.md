@@ -455,3 +455,139 @@ The management server requests the software/hardware inventory of the Device. Th
 * The servers request (inventory) is replaced by an User request (directly or indirectly via a web service for example). Furthermore the User may request additional software over the default software installation. The portfolio of these additional software is authorized by the provider.
 * The service/content provider may suggest updates and/or additional software. User acceptance would lead to device query and download of update.
 * The management server may be able to trigger the remote execution of the application securely, i.e. after authentication of the management server and with assured integrity of the executed code.
+* * 服务器请求（清单）由用户请求（例如直接或间接通过web服务）替换。此外，用户可以通过默认软件安装请求附加软件。 这些附加软件的组合由供应商授权。
+* 服务/内容提供商可能会建议更新和/或其他软件。用户可接受设备查询和下载更新。
+* 管理服务器可以能够安全地触发应用程序的远程执行，即在管理服务器的认证之后并且以可靠的完整性执行代码。
+
+####1.3.3.1.5 Normal Flow (for initialisation by the server) 一般流程（由服务器初始化）
+1. The Device Management Server issues a request to the Device for an inventory of installed software
+* The Device issues a request to the User for authorization to send a response to the Device Management Server containing an inventory of installed software and authorization to install upgrades
+* Upon confirmation by the User, the Device sends the response to the Device Management Server 
+* The Device Management Server initiates software download, installation, and execution
+* The Device sends a confirmation back to the Device Management Server
+
+
+1. 设备管理服务器向设备发出对已安装软件的清单的请求
+2. 设备向用户发出请求，要求授权向设备管理服务器发送响应，其中包含已安装软件的清单和安装升级的授权
+3. 在用户确认后，设备将响应发送到设备管理服务器
+4. 设备管理服务器启动软件下载，安装和执行
+5. 设备将确认发送回设备管理服务器
+
+![](1.3.3.1.5.jpeg)
+##1.3.4 Fault Detection, Query and Reporting 故障检测，查询和报告
+###1.3.4.1 Helpdesk problem determination 帮助台问题确定
+A Subscriber calls the operator’s customer care facility or corporate help desk complaining that their Device is reporting an error, or a service is failing to work. The corporate help desk or operator’s Customer care server Help Desk agent can query the Device to determine key information, e.g.:
+* Device type
+* Serial number
+* Operating system version
+* Capabilities
+* Installed applications
+* Connectivity/application configuration
+* Event/performance logs
+
+Based upon this information, the Help Desk agent may be able to determine the cause of the issue, and take Device Management actions that resolve it.
+
+订阅者呼叫运营商的客户服务中心或企业帮助台抱怨他们的设备报告错误或服务无法正常工作。公司帮助台或运营商的客户服务中心帮助台代理可以查询设备以确定关键信息，例如：
+* 设备类型
+* 序列号
+* 操作系统版本
+* 能力
+* 已安装的应用程序
+* 连接/应用程序配置
+* 事件/性能日志
+
+根据这些信息，帮助台代理可能能够确定问题的原因，并执行解决问题的设备管理操作。
+####1.3.4.1.1 Actors and Data Authority 参与者和数据权限
+* Subscriber (User or Corporate Customer): A Corporate Customer may be able to specify aspects of the configuration and issue resolution procedures for its Devices.
+* Device: The Device protects its configuration from unauthorized access.
+* Management Authority: The Management Authority can access the Device configuration, and change it.
+
+
+* 订户（用户或公司客户）：公司客户可能能够指定其设备的配置和问题解决程序的方案。
+* 设备：设备保护其配置免受未经授权的访问。
+* 管理权限：管理权限可以访问设备配置并进行更改。
+
+
+####1.3.4.1.2 Pre-Conditions 前提条件
+
+* Devices support Device Management queries and actions from the management server.
+* The Network Operator has a Device Management server supporting Device Management queries and actions.
+
+
+* 设备支持来自管理服务器的设备管理查询和操作。
+* 网络运营商具有支持设备管理查询和行为的设备管理服务器。
+
+
+####1.3.4.1.3 Post-Conditions 之后状态
+N/A 无
+
+####1.3.4.1.5 Normal Flow 一般流程
+1. User calls Customer Care
+2. Customer Care sends query to Device
+3. Device reports its configuration information to the Customer Care server
+4. Customer Care sends request to User for authorisation to download application to Device
+5. User grants authorisation
+6. Customer Care downloads application to device, installs and executes it
+7. Device sends acknowledgement to Customer Care server
+
+
+1. 用户致电客户服务
+2. 客户服务向设备发送查询
+3. 设备向客户服务服务器报告其配置信息
+4. 客户服务向用户发送请求，以授权将应用程序下载到设备
+5. 用户授予权限
+6. 客户服务将应用程序下载到设备，安装并执行它
+7. 设备向客户服务器发送确认
+
+!![](1.3.4.1.5.jpeg)[](1.3.4.1.5.jpeg)
+##1.3.5 Non-application Software Download 故障检测，查询和报告
+Non-application software download is the process of delivering new executable code to a device to modify its operation or performance.<br/>
+非应用软件下载是将新的可执行代码递送到设备以修改其操作或性能的过程。
+
+Examples of non-application software include but are not limited to device operating system, drivers, radio software and firmware. While the following Use Case is intended to be generic it should be noted that the software being updated may have its own requirements and that these requirements may be outside the scope of OMA. What is being described here is the need for the ability to update non-application software and provide a means to do so. We are not defining the elements but a mechanism to update them.<br/>
+非应用软件的示例包括但不限于设备操作系统，驱动程序，无线电软件和固件。尽管以下用例旨在通用，但应当注意，正在更新的软件可以具有其自己的要求，并且这些要求可能在OMA的范围之外。 这里描述的是需要更新非应用软件的能力并提供这样做的方法。我们不是定义元素，而是更新它们的机制。
+
+###1.3.5.1 Bug Fixes for Operational Improvement 为了操作改进修正错误
+####1.3.5.1.1 Short Description 简短描述
+The increased complexity of Devices has increased the likelihood for device recalls due to software. There is a strong business case for over-the-air software download to correct software deficiencies including non-applications software. The manufacturer is responsible for developing software for correcting “bugs” in their software and for seeking approval from the appropriate regulatory agency for every software version to be installed and executed on any wireless hardware device.<br/>
+由于软件的原因，设备的复杂性增加了设备召回的可能性。 有一个商业案例，通过无线软件下载以纠正软件缺陷，包括非应用软件。制造商负责开发用于纠正其软件中的“错误”的软件，并且要求适当的管理机构批准在任何无线硬件设备上安装和执行的每个软件版本。
+
+####1.3.5.1.2 Actors and Data Authority 参与者和数据权限
+* User/Subscriber: The end User may request a download of software to fix “bugs” in non-application software.
+* Network Operator/Service Provider: The Network Operator/Service Provider may initiate software download to correct “bugs” in the software.
+
+
+* 用户/订阅者：最终用户可以请求下载软件以修复非应用软件中的“错误”。
+* 网络运营商/服务提供商：网络运营商/服务提供商可能会启动软件下载纠正软件中的“错误”。
+
+####1.3.5.1.3 Pre-Conditions 前提条件
+
+* Manufacturer: Must include non-application software reconfiguration capabilities in the design of the device.
+* User/Subscriber: Must initially configure Device to accept software download for non-application software reconfiguration.
+* Network Operator/Service Provide: Works with the manufacturer to identify and solve deficiencies in non- applications software.
+
+* 制造商：在设备设计中必须包括非应用软件重新配置功能。
+* 用户/订户：必须初始配置设备以接受非应用软件的软件下载与重新配置。
+* 网络运营商/服务提供：与制造商合作，识别和解决非应用软件中的缺陷。
+
+####1.3.5.1.4 Post-Conditions 之后状态
+Mobile device has corrected operational non-applications software<br/>
+移动设备已更正可操作的非应用软件
+
+####1.3.5.1.5 Variations 变动
+* The download may be accomplished either over-the-air or by other mechanisms (e.g., service technician at a kiosk).
+* Either the Network Operator/Service Provider or the User/ Subscriber may initiate this action.
+
+
+* 可以通过空中下载或通过其他机制（例如，在售货亭处的服务技术人员）来完成下载。
+* 网络运营商/服务提供商或用户/订阅方可以启动此操作。
+
+####1.3.5.1.6 Normal Call Flow 一般工作流
+1. Operator Management authority installs corrected software in server.
+2. Software is downloaded to the device using a standardized protocol. This protocol includes device discovery, capability exchange, authentication, authorization and security and other software download functions.
+3. The User is notified of changed software.
+
+
+1. 操作员管理机构在服务器中安装更正的软件。
+2. 使用标准化协议将软件下载到设备。该协议包括设备发现，能力交换，认证，授权和安全以及其他软件下载功能。
+3. 向用户通知更改的软件。
