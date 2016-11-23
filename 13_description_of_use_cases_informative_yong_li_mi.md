@@ -381,11 +381,16 @@ The management server receives the parameters for the client Device to be update
 企业管理机构更改设备策略设置。使用企业设备管理系统，管理员将策略更改部署到所有设备。下次用户连接到公司网络时，将应用新策略。
 * A Customer experiencing problems with their handset calls customer care. While the call is still active, the customer care agent is able to read:<br/>
  客户遇到问题呼叫客户服务。当呼叫仍然活动时，客户服务代理能够读取：
-    * the Device information;
-    * other available Device settings, including as a minimum those described in section 1.4.10;
-    * the application inventory.
-* The agent detects a fault in the settings and resets the incorrect parameters remotely via the management server.
-* The Network Operator reads the Device settings listed in the above bullet outside of the context of a customer care call, as part of pro-actively solving problems.
-* A new service is to be enabled for legacy Devices. This may require a new APN to be configured in the handset, a new bookmark to be added etc.
+    * the Device information; 设备信息
+    * other available Device settings, including as a minimum those described in section 1.4.10; <br/>
+    其他可用的设备设置，包括至少第1.4.10节中描述的那些;
+    * the application inventory. 应用程序清单。
+* The agent detects a fault in the settings and resets the incorrect parameters remotely via the management server.<br/>
+代理检测设置中的故障，并通过管理服务器远程复位不正确的参数
+* The Network Operator reads the Device settings listed in the above bullet outside of the context of a customer care call, as part of pro-actively solving problems.<br/>
+作为主动解决问题的一部分，网络操作员在客户服务电话的上下文之外读取上述项目符号中列出的设备设置。
+* A new service is to be enabled for legacy Devices. This may require a new APN to be configured in the handset, a new bookmark to be added etc.<br/>
+要为旧设备启用新服务。这可能需要在手持机中配置新的APN，添加新书签等。
 
-Remarks: High volume remote configuration of Devices should be possible in a short time period, so the interruption/duplication of a service is short. In order to avoid User confusion in this case the configuration affirmation should be abandoned.
+Remarks: High volume remote configuration of Devices should be possible in a short time period, so the interruption/duplication of a service is short. In order to avoid User confusion in this case the configuration affirmation should be abandoned.<br/>
+备注：应在短时间内进行设备的大量远程配置，因此服务的中断/复制很短。为了避免用户在这种情况下的混淆，应该放弃配置确认。
