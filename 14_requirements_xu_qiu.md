@@ -227,3 +227,25 @@ PC代理应能够更改设备上的DM树并安装应用程序（用例 1.3.1.5�
 设备必须将其安装的软件的清单发送到设备管理服务器。（用例1.3.3.1）
 40. The Device SHALL receive the software update/upgrade. (Use Case 1.3.3.1)<br/>
 设备必须接收软件更新/升级。（用例1.3.3.1）
+
+#### 1.4.3.1.1 Interface to other Devices 与其它设备的接口
+1. Data links between the Devices SHALL be over standardized, local and/or remote, wired and/or wireless bearers (e.g., Bluetooth, IR, USB, Ethernet, GPRS, etc.). (Use Case 1.3.1.1)<br/>
+设备之间的数据链路必须通过标准化的，本地和/或远程的，有线和/或无线承载的（例如，蓝牙，IR，USB，以太网，GPRS等）。（用例1.3.1.1）
+2. Protocols used SHALL be generally accepted and standardized (e.g. TCP/IP, http, https, Universal Plug and Play, etc) (Use Case 1.3.1.5)<br/>
+使用的协议应该被普遍接受和标准化（例如TCP/IP, http, https，通用即插即用等）（用例1.3.1.5）
+
+#### 1.4.3.1.2 Interface to Device Management Servers 设备管理服务器的接口
+1. Data links between the Device Management Server and Devices SHALL be over standardized, local and/or remote, wired and/or wireless bearers (e.g., Bluetooth, IR, USB, Ethernet, GPRS, etc.). (Use Case 1.3.1.1,  1.3.1.3, 1.3.4.1)
+设备管理服务器和设备之间的数据链路应当是通过标准化的，本地和/或远程，有线和/或无线承载（例如，蓝牙，IR，USB，以太网，GPRS等）。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+2. Interface MUST support traversal of corporate firewalls and Network Address Translators (Use Case 1.3.1.2)<br/>
+接口必须支持公司防火墙和网络地址转换器的穿越。（用例1.3.1.2）
+3. Interface MUST be discoverable (Use Case 1.3.1.2)<br/>
+接口必须是可发现的（用例1.3.1.2）
+4. The Device Management Server MUST support secure connectivity via HTTPS. (Use Case 1.3.1.5)<br/>
+设备管理服务器必须支持通过HTTPS的安全连接。（用例1.3.1.5）
+5. Protocols used SHALL be generally accepted and standardized (e.g. TCP/IP, http, https, Universal Plug and Play, etc) (Use Case 1.3.1.5)<br/>
+使用的协议应该被普遍接受和标准化（例如TCP/IP，http，https，通用即插即用等）（用例1.3.1.5）
+7. The Device Management Server and the Device MUST be able to exchange their respective capabilities and select a set to be used for the download. (Use Case 1.3.5.1)
+设备管理服务器和设备必须能够交换它们各自的能力并选择一组用于下载。（用例1.3.5.1）
+8. The Device MUST be able to notify the server that it has accepted and successfully saved the downloaded software and/or data. (Use Case 1.3.5.1)
+设备必须能够通知服务器它已经接受并成功保存了下载的软件和/或数据。（用例1.3.5.1）
