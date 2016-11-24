@@ -51,4 +51,29 @@ Many devices cannot continuously listen for connections from a management server
 许多设备不能连续侦听来自管理服务器的连接。出于安全原因，其他设备仅仅不希望“打开端口”（即接受连接）。然而，大多数设备可以接收未经请求的消息，有时称为“通知”。
 
 A management server can use this notification capability to cause the client to initiate a connection back to the management server. OMA DM Protocol specifies several Management Initiation notification bearers. Definition of bearers and notification content can be found from [DMNOTI] specification.<br/>
+管理服务器可以使用该通知能力来使得客户端发起到管理服务器的连接。OMA DM协议指定了几个管理发起通知承载。承载和通知内容的定义可以从[DMNOTI]规范中找到。
+
+[DMNOTI]:“OMA Device Management Notification Initiated Session, Version 1.2”. Open Mobile Alliance .
+OMA-TS-DM_Notification-V1_2. URL:http://www.openmobilealliance.org
+
 Note that an identical effect to receiving a Management Initiation notification can be caused in other ways. For example, the user interface (UI) of the device may allow the user to tell the client to initiate a management session. Alternatively, the management client might initiate a session as the result of a timer expiring. A fault of some type in the device could also cause the management client to initiate a session.<br/>
+注意，可以以其他方式引起与接收管理发起通知相同的效果。例如，设备的用户界面（UI）可以允许用户告诉客户端发起管理会话。或者，管理客户端可以作为定时器到期的结果来发起会话。设备中某种类型的故障也可能导致管理客户端发起会话。
+
+## 2.3.3 Package 1: Initialization from client to server 包1：从客户端到服务器的初始化
+The setup phase is virtually identical to that described in the [SYNCPRO]. The purpose of the initialization package sent by the client is:<br/>
+设置阶段实际上与[SYNCPRO]中描述的相同。 客户端发送的初始化包的目的是：
+
+* To send the device information (like manufacturer, model etc) to a Device Management Server as specified [DMSTDOBJ]. Client MUST send device information in the first message of management session.<br/>
+将设备信息（如制造商，型号等）发送到指定的设备管理服务器[DMSTDOBJ]。 客户端必须在管理会话的第一个消息中发送设备信息。
+* To identify the client to the server according to the rules specified in Section 2.4.<br/>
+根据第2.4节中指定的规则识别服务器的客户端。
+* To inform the server whether the management session was initiated by the server (by sending a trigger in Package 0) or by the client (like end user selecting a menu item).<br/>
+通知服务器管理会话是否由服务器启动（通过在包0中发送触发器）或由客户端（如终端用户选择菜单项）。
+* To inform the server of any optional Client generated alert, for example Generic Alert or Client Event [REPPRO].<br/>
+通知服务器任何可选的客户端生成警报，例如通用警报或客户端事件[REPPRO]。
+
+[SYNCPRO]:“SyncML Data Sync Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-DS_Protocol-V1_2. URL:http://www.openmobilealliance.org
+
+[DMSTDOBJ]:“OMA Device Management Standardized Objects, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_StdObj-V1_2. URL:http://www.openmobilealliance.org
+
+[REPPRO]:“SyncML Representation Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-SyncML_RepPro-V1_2. URL:http://www.openmobilealliance.org
