@@ -2,9 +2,6 @@
 OMA DM Protocol consists of two parts: setup phase (authentication and device information exchange) and management phase. Management phase can be repeated as many times as the server wishes. Management sessions may start with Package 0 (the trigger). Trigger may be out-of-band depending on the environment and it is specified in DM Notification Initiated Session [DMNOTI].<br/>
 OMA DM协议由两部分组成：建立阶段（认证和设备信息交换）和管理阶段。 管理阶段可以重复服务器所希望的次数。 管理会话可以从软件包0（触发器）开始。 根据环境，触发可以是带外的，并且它在DM通知发起的会话[DMNOTI]中指定。
 
-[DMNOTI]:“OMA Device Management Notification Initiated Session, Version 1.2”. Open Mobile Alliance .
-OMA-TS-DM_Notification-V1_2. URL:http://www.openmobilealliance.org
-
 The following chart depicts the two phases.<br/>
 下图描述了两个阶段。
 
@@ -72,12 +69,6 @@ The setup phase is virtually identical to that described in the [SYNCPRO]. The p
 * To inform the server of any optional Client generated alert, for example Generic Alert or Client Event [REPPRO].<br/>
 通知服务器任何可选的客户端生成警报，例如通用警报或客户端事件[REPPRO]。
 
-[SYNCPRO]:“SyncML Data Sync Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-DS_Protocol-V1_2. URL:http://www.openmobilealliance.org
-
-[DMSTDOBJ]:“OMA Device Management Standardized Objects, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_StdObj-V1_2. URL:http://www.openmobilealliance.org
-
-[REPPRO]:“SyncML Representation Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-SyncML_RepPro-V1_2. URL:http://www.openmobilealliance.org
-
 
 The detailed requirements for the initialization package from the client to server (Package 1) are:<br/>
 从客户端到服务器（包1）的初始化包的详细要求是：
@@ -120,10 +111,6 @@ Data元素用于承载管理会话的可以是SERVER-INITIATED MGMT（1200）或
 
 The Final element MUST be used in the SyncBody for the message, which is the last in this package.<br/>
 Final元素必须在消息的SyncBody中使用，该消息是此包中的最后一个。
-
-[DMSTDOBJ]:“OMA Device Management Standardized Objects, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_StdObj-V1_2. URL:http://www.openmobilealliance.org
-
-[REPPRO]:“SyncML Representation Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-SyncML_RepPro-V1_2. URL:http://www.openmobilealliance.org
 
 ## 2.3.4 Package 2: Initialization from server to client 包2：从服务器到客户端的初始化
 The purpose of the initialization package sent by the server is to:<br/>
