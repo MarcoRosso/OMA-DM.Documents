@@ -270,3 +270,24 @@ PC代理应能够更改设备上的DM树并安装应用程序（用例 1.3.1.5�
 如果智能卡存在，智能卡可用于确保设备和DMS之间的会话的真实性，完整性和不可否认性。（用例1.3.4.1）
 9. The Smart Card MAY be used to store data in a secure fashion. (Use Case 1.3.4.1)<br/>
 智能卡可用于以安全的方式存储数据。（用例1.3.4.1）
+
+#### 1.4.3.2.1 Interface to Device Management Servers 设备管理服务器的接口
+1. The Device Management Server SHALL be able to establish a data link with a Smart Card installed in a Device. (Use Case 1.3.1.3)<br/>
+设备管理服务器应能够与安装在设备中的智能卡建立数据链路。（用例1.3.1.3）
+
+### 1.4.3.3 PC Agent PC代理
+1. The PC agent SHALL to be able to support discovery of Devices so that it can identify those that should receive access rights to Devices in the local security domain. The PC MUST be able to authenticate and authorize further Device interaction. The PC is responsible for granting access rights to Devices under its control via the user's decision. (Use Case 1.3.1.5)<br/>
+PC代理必须能够支持发现设备，以便它能够识别出应该接收对本地安全域中的设备的访问权限的那些设备。PC必须能够认证和授权进一步的设备交互。PC负责通过用户的决定授予对其控制下的设备的访问权限。（用例1.3.1.5）
+2. The mapping from friendly name to network unique name SHALL be the function of each user’s user interface in the case where the Device is shared. (Use Case 1.3.1.5)<br/>
+在设备共享的情况下，从友好名称到网络唯一名称的映射必须是每个用户的用户界面的功能。（用例1.3.1.5）
+3. The PC agent SHALL be capable of launching the browser with an appropriate URL. (Use Case 1.3.1.5)<br/>
+PC代理应能够使用适当的URL启动浏览器。（用例1.3.1.5）
+
+
+#### 1.4.3.3.1 Interface to Devices 设备接口
+1. Any interested PC Agent SHALL be capable of listening to the standard multicast address for notifications that new Devices are available. (Use Case 1.3.1.5)<br/>
+任何感兴趣的PC代理必须能够监听用于新设备可用的通知的标准多播地址。（用例1.3.1.5）
+2. Protocols used SHALL be generally accepted and standardized (e.g. TCP/IP, http, https, Universal Plug and Play, etc) (Use Case 1.3.1.5)<br/>
+使用的协议应该被普遍接受和标准化（例如TCP / IP，http，https，通用即插即用等）（用例1.3.1.5）
+3. Data links to Devices SHALL be over standardized, local and/or remote, wired and/or wireless bearers (e.g., Bluetooth, IR, USB, Ethernet, GPRS, etc.). (Use Case 1.3.1.5)<br/>
+到设备的数据链路应通过标准化的，本地和/或远程的，有线和/或无线承载（例如，蓝牙，IR，USB，以太网，GPRS等）。（用例1.3.1.5）
