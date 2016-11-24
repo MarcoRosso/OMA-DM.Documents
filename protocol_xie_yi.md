@@ -20,3 +20,7 @@ Each node has a type that determines what kind of management content can be set/
 
 In OMA DM Protocol, the target and source of a command are identified by the Target and Source elements respectively. Target refers to the recipient, and Source refers to the originator. Exceptions to this approach are mentioned in management commands requiring exception.<br/>
 在OMA DM协议中，命令的目标和源分别由目标和源元素标识。目标是指收件人，而源是指发起者。在需要异常的管理命令中提到了此方法的异常。
+
+[RFC2396]:“Uniform Resource Identifiers (URI): Generic Syntax”. T. Berners-Lee, et al. August 1998. URL:http://www.ietf.org/rfc/rfc2396.txt
+
+[DMTND]:“OMA Device Management Tree and Description, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_TND-V1_2. URL:http://www.openmobilealliance.org
