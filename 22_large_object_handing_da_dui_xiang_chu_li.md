@@ -3,7 +3,11 @@ The protocol provides a means to synchronize an object whose size exceeds that w
 协议提供了同步其大小超过可在一个消息内传输的对象的方法。这是通过将对象分割成适合消息内的块并使用<MoreData/>元素向接收者发信号通知数据项不完整并且具有更多块来实现的。
 
 Clients SHOULD support Large Objects and servers MUST support Large Objects.<br/>
-On receipt of a data object with the <MoreData/> element, the recipient MUST respond with a status response “213 – Chunked item accepted and buffered” and, if there are no other commands to be sent, ask for the next message using the Alert 1222 mechanism defined in section 6.<br/>
+客户端推荐支持大对象，服务器必须支持大对象。
+
+On receipt of a data object with the <MoreData/> element, the recipient MUST respond with a status response “213 – Chunked item accepted and buffered” and, if there are no other commands to be sent, ask for the next message using the Alert 1222 mechanism defined in section 2.1.<br/>
+在接收到具有<MoreData/>元素的数据对象时，接收者必须用状态响应“213-Chunked item accepted and buffered”进行响应，并且如果没有其他命令要发送，则使用在第2.1节中定义的警报1222机制。
+
 On receipt of the last chunk of the data object the recipient reconstructs the data object from its constituent chunks and applies the requested command. The appropriate status MUST then be sent to the originator. A command on a chunked object MUST implicitly be treated as atomic; i.e. the recipient can only commit the object once all chunks have been successfully received and reassembled.<br/>
 Data objects that fit within a single message MUST NOT be followed by the <MoreData/> element. Data objects that span multiple messages MUST have the <MoreData/> element after all chunks except the last chunk.
 A new data object MUST NOT be added by a sender to any message until the previous data object has been completed. If a data object is chunked across multiple messages the chunks MUST be sent in contiguous messages. New DM commands (i.e. Add, Replace, Delete, Copy, Atomic or Sequence) or new Items MUST NOT be placed between chunks of a data object.<br/>
