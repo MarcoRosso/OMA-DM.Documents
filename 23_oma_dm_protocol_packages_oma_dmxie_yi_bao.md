@@ -124,3 +124,32 @@ Final元素必须在消息的SyncBody中使用，该消息是此包中的最后�
 [DMSTDOBJ]:“OMA Device Management Standardized Objects, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_StdObj-V1_2. URL:http://www.openmobilealliance.org
 
 [REPPRO]:“SyncML Representation Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-SyncML_RepPro-V1_2. URL:http://www.openmobilealliance.org
+
+## 2.3.4 Package 2: Initialization from server to client 包2：从服务器到客户端的初始化
+The purpose of the initialization package sent by the server is to:<br/>
+服务器发送的初始化包的目的是：
+
+* Identify the server to the client according to the rules specified in Section 2.4.<br/>
+根据第2.4节中指定的规则识别到客户端的服务器。
+* Optionally, the server can send user interaction commands.<br/>
+（可选）服务器可以发送用户交互命令。
+* Optionally to send management data and commands.<br/>
+* Send status of Client Initiated Alerts if any of these was received from the client<br/>
+Package 2 MAY close the management session by containing only the <Final> element (any management command, user interaction command or client authentication challenge will continue the session). Alternately, the server may send the Session Abort Alert (1223) to force the close of the session in extreme situations.<br/>
+The detailed requirements for package 2 are:<br/>
+1. The requirements for the elements within the SyncHdr element.<br/>
+• The value of the VerDTD element MUST be '1.2'.<br/>
+• The value of the VerProto element MUST be ‘DM/1.2’ when complying with this specification.<br/>
+• SessionID MUST be included to indicate the ID of the management session.<br/>
+• MsgID MUST be used to unambiguously identify the message belonging to the management session from server to client.<br/>
+• The Target element MUST be used to identify the target device.<br/>
+• The Source element MUST be used to identify the source device.<br/>
+• Cred element MAY be included in the authentication message according to the rules described in Section 9. Server is always authenticated to the device but this authentication MAY be accomplished at the transport level.<br/>
+2. The Status MUST be returned in the SyncBody for the SyncHdr and Alerts sent by the client.<br/>
+3. Any management operation including user interaction in the SyncML document (e.g. Alert, Sequence, Replace) are placed into the SyncBody.<br/>
+• CmdID is REQUIRED.<br/>
+• Source MUST be used if URI is needed to further address the source dataset.<br/>
+• Target MUST be used if URI is needed to further address the target dataset.<br/>
+• The Data element inside Item is used to include the data itself unless the command does not require a Data element.<br/>
+• The Meta element inside an operation or inside an Item MUST be used when the Type or Format are not the default values [META].<br/>
+4. The Final element MUST be used in the SyncBody for the message, which is the last in this package.<br/>
