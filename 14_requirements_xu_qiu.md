@@ -300,23 +300,60 @@ PC代理应能够使用适当的URL启动浏览器。（用例1.3.1.5）
 3. The Device Management Server SHALL be capable of querying Devices for information about Device properties, configuration, and capabilities. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
 设备管理服务器必须能够查询设备以获取有关设备属性的信息，配置和功能。 （用例1.3.1.1, 1.3.1.3, 1.3.4.1）
 4. The Device Management Server SHALL be capable of querying the Smart Card for information about Device properties, configuration, and capabilities. (Use Case 1.3.1.3)<br/>
-5. The Device Management Server SHALL be capable of manipulating a Device’s Device Management Object. (Use Case 1.3.1.1,  1.3.1.3, 1.3.4.1)<br/>
-6. The Device Management Server SHALL be capable of manipulating a Management Object resident on a Smart Card’. (Use Case 1.3.1.3)<br/>
+设备管理服务器必须能够查询智能卡有关设备属性，配置和功能的信息。 （用例1.3.1.3）
+5. The Device Management Server SHALL be capable of manipulating a Device’s Device Management Object. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+设备管理服务器必须能够操纵设备的设备管理对象。（用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+6. The Device Management Server SHALL be capable of manipulating a Management Object resident on a Smart Card. (Use Case 1.3.1.3)<br/>
+设备管理服务器必须能够操纵智能卡上驻留的管理对象。（用例1.3.1.3）
 7. The Device Management Server SHALL be capable of capable of add/deleting/editing the fields of the Device’s Device Management Object. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+设备管理服务器必须能够添加/删除/编辑设备的设备管理对象的字段。 （用例1.3.1.1, 1.3.1.3, 1.3.4.1）
 8. The Device Management Server SHALL be capable of add/deleting/editing the values of the Management Object present on a Smart Card. (Use Case 1.3.1.3)<br/>
+设备管理服务器必须能够添加/删除/编辑智能卡上存在的管理对象的值。（用例1.3.1.3）
 9. The message from the Device acknowledging a device management operation SHALL contain an indication of success/failure of the operation. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+来自设备确认的设备管理操作的消息必须包含操作成功/失败的指示。 （用例1.3.1.1, 1.3.1.3, 1.3.4.1）
 10. The Message from the Device acknowledging a device management operation SHALL contain an indication of success/failure of the operation. (Use Case 1.3.1.3)<br/>
+来自设备确认的设备管理操作的消息必须包含操作成功/失败的指示。 （用例1.3.1.3）
 11. The DM Server SHALL be capable of sending a request for User confirmation to the Device, and accepting the response from the Device. (Use Case 1.3.4.1)<br/>
+DM服务器必须能够向设备发送用户确认的请求，并且接受来自设备的响应。（用例1.3.4.1）
 12. The DMS SHOULD be capable of receiving fault messages from a Device, and if supported the DMS SHALL provide a standardized mechanism for publishing the messages. (Use Case 1.3.4.1)<br/>
+推荐DMS能够从设备接收故障消息，并且如果支持，DMS应当提供用于发布消息的标准化机制。（用例1.3.4.1）
 13. The management server SHOULD be able to poll devices for faults. (Use Case 1.3.4.1)<br/>
+推荐管理服务器能够轮询设备的故障。（用例1.3.4.1）
 14. The Device Management Server SHALL be able to establish a secure data connection to the Device. (UC 1.3.1.3, 1.3.1.4, 1.3.2.1)<br/>
+设备管理服务器必须能够建立到设备的安全数据连接。（用例 1.3.1.3, 1.3.1.4, 1.3.2.1）
 15. The Device Management Server SHALL support group addressing of Devices in order to transfer the changed management objects for them. (UC 1.3.2.1)<br/>
+设备管理服务器应必须支持设备的组寻址，以便为其传输更改的管理对象。（用例 1.3.2.1）
 16. For the Device Management Server to be able to differentiate between the new and current configuration of a Device, Management Object data definitions SHALL specify canonical value representations and associated rules for unambiguous comparison. (UC 1.3.2.1)<br/>
+为了使设备管理服务器能够区分设备的新配置和当前配置，管理对象数据定义必须指定规范值表示和相关规则以进行明确比较。（用例 1.3.2.1）
 17. Management Object data definitions SHOULD be composed from a common set of basic data types rather than by specifying new data types.<br/>
+推荐管理对象数据定义由一组通用的基本数据类型组成，而不是通过指定新的数据类型。
 18. The Device Management Server SHOULD support at least one wireless data bearer. (Use Case 1.3.4.1)<br/>
+推荐设备管理服务器支持至少一个无线数据承载。（用例1.3.4.1）
 19. The Device Management transactions SHOULD be annotated with sufficient information to enable the Device Management Server to detect the lack of response of Device in a specified time interval. (Use Case 1.3.4.1)<br/>
+推荐设备管理事务注明足够的信息来启用设备管理服务器在指定时间间隔内检测设备的响应不足。（用例1.3.4.1）
 21. The Device Management Server MUST report errors in a standardized format. (Use Case 1.3.4.1)<br/>
+设备管理服务器必须以标准格式报告错误。（用例1.3.4.1）
 22. The Device Management Server MUST verify integrity of data prior to download to Device. (Use Case 1.3.4.1)<br/>
-23 The Device Management Server MUST be able to verify that software and/or data is from an approved Software Originator or agent thereof. (Use Case 1.3.5.1)<br/>
+设备管理服务器必须在下载到设备之前验证数据的完整性。（用例1.3.4.1）
+23. The Device Management Server MUST be able to verify that software and/or data is from an approved Software Originator or agent thereof. (Use Case 1.3.5.1)<br/>
+设备管理服务器必须能够验证软件和/或数据来自已批准的软件发起方或其代理。（用例1.3.5.1）
 24. The Device Management Server MUST be able to detect when a Device that needs a software and/or data update. (Use Case 1.3.5.1)<br/>
+设备管理服务器必须能够检测何时设备需要软件和/或数据的更新。（用例1.3.5.1）
 25. The Device Management Server MUST be capable of determining that the Device is authorized to receive the software and/or Data. (Use Case 1.3.5.1)<br/>
+设备管理服务器必须能够确定设备被授权接收软件和/或数据。（用例1.3.5.1）
+26. The Device Management Server MUST be capable of interrogating the Device as to its capabilities and to determine from this information if the Device is capable of receiving the software/data download using a mutually agreed upon method and format. (Use Case 1.3.5.1)<br/>
+设备管理服务器必须能够向设备询问其能力，并且根据该信息确定设备是否能够使用相互同意的方法和格式来接收软件/数据下载。（用例1.3.5.1）
+27. The Device Management Server MUST be capable of exchanging security credentials with the Device. (Use Case 1.3.5.1) <br/>
+设备管理服务器必须能够与设备交换安全凭证。（用例1.3.5.1）
+28. The Device Management Server MUST be capable of transmitting the software and/or data to the Device. (Use Case 1.3.5.1)<br/>
+设备管理服务器必须能够向设备发送软件和/或数据。（用例1.3.5.1）
+29. The Device Management Server SHOULD be able to verify, either independently or with the help of a Trusted Authority, the validity of the Software Originator of the Software and/or Data to be downloaded. (Use Case 1.3.5.1)<br/>
+推荐设备管理服务器能够独立地或在可信授权机构的帮助下验证要下载的软件和/或数据的软件发起者的有效性。（用例1.3.5.1）
+30. The Device Management Server SHOULD be able to verify that the downloaded Software and/or Data is targeted to a particular Device. (Use Case 1.3.5.1)<br/>
+推荐设备管理服务器能够验证所下载的软件和/或数据是否针对特定设备。（用例1.3.5.1）
+32. The Device Management Server SHALL be able to query a Device for an inventory of its installed software.<br/>
+设备管理服务器必须能够向设备查询其安装的软件的清单。
+33. The Device Management Server SHALL support group addressing of Devices in order to query multiple Devices for the purposes of a common update/upgrade to those Devices. (Use Case 1.3.3.1)<br/>
+设备管理服务器必须支持设备的组寻址，以便查询多个设备以对这些设备进行常见更新/升级。（用例1.3.3.1）
+34. The software inventory reported from the Device SHALL be in standardised format. (Use Case 1.3.3.1)<br/>
+从设备报告的软件清单必须采用标准化格式。（用例1.3.3.1）
