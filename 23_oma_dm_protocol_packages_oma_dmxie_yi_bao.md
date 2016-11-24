@@ -8,4 +8,4 @@ OMA-TS-DM_Notification-V1_2. URL:http://www.openmobilealliance.org
 The following chart depicts the two phases.<br/>
 下图描述了两个阶段。
 
-![](2.3.tiff)
+![](2.3.jpg)
