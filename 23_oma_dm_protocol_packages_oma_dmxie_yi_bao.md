@@ -104,3 +104,23 @@ MsgID必须用于明确标识从服务器到客户端的属于管理会话的消
   * CmdID is REQUIRED. CmdID是必需的。
   * The Data element is used to carry the management session type which can be either SERVER-INITIATED MGMT (1200) or CLIENT-INITIATED MGMT (1201).<br/>
 Data元素用于承载管理会话的可以是SERVER-INITIATED MGMT（1200）或CLIENT-INITIATED MGMT（1201）。
+
+3. The device information MUST be sent using the Replace command in the SyncBody. The requirement for the Replace command follows:<br/>
+必须使用SyncBody中的Replace命令发送设备信息。替换命令要求如下：
+  * CmdID is REQUIRED. CmdID是必需的。
+  * An Item element per node found from device information tree. Possible nodes in device information tree are specified in [DMSTDOBJ].<br/>
+  从设备信息树中找到的每个节点的项目元素。设备信息树中的可能节点在[DMSTDOBJ]中指定。
+  * The Source element in the Item element MUST have a value indicating URI of node.<br/>
+  Item元素中的Source元素必须具有指示节点的URI的值。
+  * The Data element is used to carry the device information data.<br/>
+  Data元素用于携带设备信息数据。
+  
+4. Client MAY include client-generated alerts such as Client Event [REPPRO] or Generic Alert.<br/>
+客户端可能包括客户端生成的警报，例如客户端事件[REPPRO]或通用警报。
+
+The Final element MUST be used in the SyncBody for the message, which is the last in this package.<br/>
+Final元素必须在消息的SyncBody中使用，该消息是此包中的最后一个。
+
+[DMSTDOBJ]:“OMA Device Management Standardized Objects, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_StdObj-V1_2. URL:http://www.openmobilealliance.org
+
+[REPPRO]:“SyncML Representation Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-SyncML_RepPro-V1_2. URL:http://www.openmobilealliance.org
