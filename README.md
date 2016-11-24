@@ -14,5 +14,7 @@ This document contains information applicable to Network Operators, terminal and
 
 This document covers the requirements needed to supply the core Device Management service. Additional, related functionality not described here may involve requirements outside the scope of this document. This additional functionality shall not interfere with the core service described in this document.<br/> 本文档涵盖提供核心设备管理服务所需的要求。 此外，此处未描述的相关功能可能涉及本文档范围之外的要求。 此附加功能不应干扰本文档中描述的核心服务。
 
-## 
+## 2. Protocol 协议
+This document describes a management protocol using the SyncML Representation Protocol [REPPRO]. This protocol is called the OMA Device Management Protocol, abbreviated as OMA DM Protocol, and it defines the protocol for various management procedures.<br/>
+本文档描述了使用SyncML表示协议[REPPRO]的管理协议。 该协议被称为OMA设备管理协议（缩写为OMA DM协议），并且其定义用于各种管理过程的协议。
 
