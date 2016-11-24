@@ -183,8 +183,11 @@ Requirements covered in other sections. <br/>
 12. The Device SHALL be capable of participating in a mutual authentication with the Device Management Server, using authentication credentials (e.g., a challenge response) stored on or derived from the Smart Card. (Use Case 1.3.1.3, 1.3.4.1)<br/>
 设备必须能够使用存储在智能卡上或从智能卡导出的认证证书（例如，质询响应）参与与设备管理服务器的相互认证。（用例1.3.1.3, 1.3.4.1）
 13. Device SHALL retrieve and incorporate relevant configuration data stored on the smart card into the Device's DM structure. (UC 1.3.1.3)<br/>
-14. Each Device MUST support standardized dynamic IP allocation when the Device is first connected to the network. If an IP address cannot be allocated from the network, then the Device MUST use automatic IP addressing (Auto-IP) to obtain an address. (Use Case 1.3.1.5)
+设备必须检索并将存储在智能卡上的相关配置数据合并到设备的DM结构中。(用例 1.3.1.3)
+14. Each Device MUST support standardized dynamic IP allocation when the Device is first connected to the network. If an IP address cannot be allocated from the network, then the Device MUST use automatic IP addressing (Auto-IP) to obtain an address. (Use Case 1.3.1.5)<br/>
+当设备首次连接到网络时，每个设备必须支持标准化的动态IP分配。如果无法从网络分配IP地址，则设备必须使用自动IP寻址（自动IP）来获取地址。（用例1.3.1.5）
 15. The Device SHOULD announce itself on the network to all control points it detects. The act of announcement does not imply the Device will receive rights, since assignment of rights is an expression of the user's decision. When the Device is added to the network, the discovery protocol allows that Device to advertise its services to control points on the network. The fundamental exchange in both cases is a discovery message containing a few, essential specifics about the Device e.g., its type, identifier, and a pointer to more detailed information. (Use Case 1.3.1.5)<br/>
+设备应该在网络上向自己检测到的所有控制点发布自己的消息。公告的行为并不意味着设备将接收权利，因为权利的分配是用户决定的表达。当设备添加到网络时，发现协议允许该设备向网络上的控制点通告其服务。在这两种情况下的基本交换是包含关于设备的几个基本细节的发现消息，例如其类型，标识符和指向更详细信息的指针。 （用例1.3.1.5）
 16. The Device MUST support the assignment of a friendly name in relation to a network unique name(Use Case 1.3.1.5)<br/>
 17. The mapping from friendly name to unique name MUST be the function of each user’s user interface in the case where
 the Device is shared. (Use Case 1.3.1.5)<br/>
@@ -200,4 +203,4 @@ the Device is shared. (Use Case 1.3.1.5)<br/>
 28. The Device MUST be capable of determining that the Server is authorized to provide the software and/or data. (Use Case
 1.3.5.1)<br/>
 29 The Device MUST be capable of exchanging security information with the Server. (Use Case 1.3.5.1) <br/>
-30. The Device MUST be capable of storing the software that is downloaded. (Use Case 1.3.5.1)
+30. The Device MUST be capable of storing the software that is downloaded. (Use Case 1.3.5.1)<br/>
