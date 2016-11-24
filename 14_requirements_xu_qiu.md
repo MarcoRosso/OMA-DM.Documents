@@ -357,3 +357,19 @@ DM服务器必须能够向设备发送用户确认的请求，并且接受来自
 设备管理服务器必须支持设备的组寻址，以便查询多个设备以对这些设备进行常见更新/升级。（用例1.3.3.1）
 34. The software inventory reported from the Device SHALL be in standardised format. (Use Case 1.3.3.1)<br/>
 从设备报告的软件清单必须采用标准化格式。（用例1.3.3.1）
+
+#### 1.4.3.4.1 Interface to Devices 设备接口
+1. Data links between the Device Management Server and Devices SHALL be over standardized, local and/or remote, wired and/or wireless bearers (e.g., Bluetooth, IR, USB, Ethernet, GPRS, etc.). (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+设备管理服务器和设备之间的数据链路必须是通过标准化的，本地和/或远程的，有线和/或无线承载（例如，蓝牙，IR，USB，以太网，GPRS等）。 （用例1.3.1.1,1.3.1.3,1.3.4.1
+2. Network/Device Management Server SHALL be capable to discover a new combination of Subscriber and Device attached in the Network (UC 1.3.1.4).<br/>
+网络/设备管理服务器必须够发现网络中附加的订户和设备的新组合（用例 1.3.1.4）。
+3. Interface supports traversal of corporate firewalls and Network Address Translators (Use Case 1.3.1.2) <br/>
+接口支持公司防火墙和网络地址转换器的穿越（用例1.3.1.2）
+4. The DMS MUST support secure connectivity via HTTPS. (Use Case 1.3.1.5)
+DMS必须支持通过HTTPS的安全连接。（用例1.3.1.5）
+5. Protocols used SHALL be generally accepted and standardized (e.g. TCP/IP, http, https, Universal Plug and Play, etc) (Use Case 1.3.1.5)<br/>
+使用的协议必须被普遍接受和标准化（例如TCP / IP，http，https，通用即插即用等）（用例1.3.1.5）
+7. The Device Management Server and the Device MUST be able to exchange their respective capabilities and select a set to be used for the download. (Use Case 1.3.5.1)<br/>
+设备管理服务器和设备必须能够交换它们各自的能力并选择一组用于下载。（用例1.3.5.1）
+9. The Device Management Server MUST be able to process the response from the Device indicating the success or failure of the download. (Use Case 1.3.5.1)<br/>
+设备管理服务器必须能够处理来自设备的指示下载成功或失败的响应。（用例1.3.5.1）
