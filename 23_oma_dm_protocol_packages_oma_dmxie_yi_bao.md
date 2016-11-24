@@ -77,3 +77,30 @@ The setup phase is virtually identical to that described in the [SYNCPRO]. The p
 [DMSTDOBJ]:“OMA Device Management Standardized Objects, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_StdObj-V1_2. URL:http://www.openmobilealliance.org
 
 [REPPRO]:“SyncML Representation Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-SyncML_RepPro-V1_2. URL:http://www.openmobilealliance.org
+
+
+The detailed requirements for the initialization package from the client to server (Package 1) are:<br/>
+从客户端到服务器（包1）的初始化包的详细要求是：
+
+1. The requirements for the elements within the SyncHdr element.
+SyncHdr元素中元素的要求。
+  * The value of the VerDTD element MUST be '1.2'.<br/>
+  VerDTD元素的值必须为“1.2”。
+  * The value of the VerProto element MUST be ‘DM/1.2’.<br/>
+  VerProto元素的值必须为“DM/1.2”。
+  * SessionID MUST be included to indicate the ID of the management session. If the client is responding to notification, with alert code SERVER-INITIATED MGMT (1200), then SessionID MUST be same as in notification. Otherwise, the client generates a SessionID which should be unique for that client. The same SessionID MUST be used throughout the whole session.<br/>
+  必须包括SessionID以指示管理会话的ID。如果客户端正在响应通知，具有警报代码SERVER-INITIATED MGMT（1200），则会话ID必须与通知中相同。否则，客户端必须生成对于该客户端是唯一的SessionID。在整个会话中必须使用相同的SessionID。
+ * MsgID MUST be used to unambiguously identify the message belonging to the management session from server to client.<br/>
+MsgID必须用于明确标识从服务器到客户端的属于管理会话的消息。
+ * The Target element MUST be used to identify the target server.<br/>
+ 目标元素必须用于标识目标服务器。
+ * The Source element MUST be used to identify the source device.<br/>
+ 源元素必须用于标识源设备。
+ * The Cred element MAY be included in the authentication message from the Device Management client to Device Management server as specified in Section 9.<br/>
+ Cred元素可以包含在从设备管理客户端到设备管理服务器的认证消息中，如第2.4节中所述。
+ 
+2. Alert MUST be sent whether the client or the server initiated the management session in the SyncBody. The requirement for the Alert command follows:<br/>
+无论客户端还是服务器发起SyncBody中的管理会话，都必须发送警报。 对警报命令的要求如下：
+  * CmdID is REQUIRED. CmdID是必需的。
+  * The Data element is used to carry the management session type which can be either SERVER-INITIATED MGMT (1200) or CLIENT-INITIATED MGMT (1201).<br/>
+Data元素用于承载管理会话的可以是SERVER-INITIATED MGMT（1200）或CLIENT-INITIATED MGMT（1201）。
