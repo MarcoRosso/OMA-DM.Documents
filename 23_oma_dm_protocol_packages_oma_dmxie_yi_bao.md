@@ -134,17 +134,26 @@ The purpose of the initialization package sent by the server is to:<br/>
 * Optionally, the server can send user interaction commands.<br/>
 （可选）服务器可以发送用户交互命令。
 * Optionally to send management data and commands.<br/>
+可选择发送管理数据和命令。
 * Send status of Client Initiated Alerts if any of these was received from the client<br/>
-Package 2 MAY close the management session by containing only the <Final> element (any management command, user interaction command or client authentication challenge will continue the session). Alternately, the server may send the Session Abort Alert (1223) to force the close of the session in extreme situations.<br/>
+如果从客户端接收到任何警报消息，则发送客户端启动警报的状态
+
+Package 2 MAY close the management session by containing only the `<Final>` element (any management command, user interaction command or client authentication challenge will continue the session). Alternately, the server may send the Session Abort Alert (1223) to force the close of the session in extreme situations.<br/>
+包2可以通过仅包含`<Final>`元素（任何管理命令，用户交互命令或客户端认证挑战将继续会话）来关闭管理会话。 或者，服务器可以发送会话中止警报（1223）以在极端情况下强制关闭会话。
+
 The detailed requirements for package 2 are:<br/>
+包2的详细要求是：
+
 1. The requirements for the elements within the SyncHdr element.<br/>
-• The value of the VerDTD element MUST be '1.2'.<br/>
-• The value of the VerProto element MUST be ‘DM/1.2’ when complying with this specification.<br/>
-• SessionID MUST be included to indicate the ID of the management session.<br/>
-• MsgID MUST be used to unambiguously identify the message belonging to the management session from server to client.<br/>
-• The Target element MUST be used to identify the target device.<br/>
-• The Source element MUST be used to identify the source device.<br/>
-• Cred element MAY be included in the authentication message according to the rules described in Section 9. Server is always authenticated to the device but this authentication MAY be accomplished at the transport level.<br/>
+   SyncHdr元素中元素的要求。
+   * The value of the VerDTD element MUST be '1.2'.<br/>
+   VerDTD元素的值必须为“1.2”。
+   * The value of the VerProto element MUST be ‘DM/1.2’ when complying with this specification.<br/>
+   * SessionID MUST be included to indicate the ID of the management session.<br/>
+   * MsgID MUST be used to unambiguously identify the message belonging to the management session from server to client.<br/>
+   * The Target element MUST be used to identify the target device.<br/>
+   * The Source element MUST be used to identify the source device.<br/>
+   * Cred element MAY be included in the authentication message according to the rules described in Section 9. Server is always authenticated to the device but this authentication MAY be accomplished at the transport level.<br/>
 2. The Status MUST be returned in the SyncBody for the SyncHdr and Alerts sent by the client.<br/>
 3. Any management operation including user interaction in the SyncML document (e.g. Alert, Sequence, Replace) are placed into the SyncBody.<br/>
 • CmdID is REQUIRED.<br/>
