@@ -31,10 +31,22 @@ The following chart shows an example of how multiple messages can be used.
 下图显示了如何使用多个消息的示例。
 ![](2.1.1.jpeg)
 ## 2.1.2  Requirements 需求
-If a SyncML package is transferred in multiple SyncML messages, the last message in the package MUST include the Final element [REPPRO]. Other messages belonging to the package MUST NOT include the Final element.
-The Final element MUST NOT be supplied by the client to close its package until the server has sent its Final element to close the previous package. For instance, the client MUST NOT supply the Final element to close package #2 or package #4 until the server has supplied the Final element which closes the previous package (#1 or #3, respectively). This is necessary because packages #2 and #4 constitute replies to the commands in packages #1 and #3.
-The recipient of a SyncML package containing multiple messages MUST be able to ask for more messages. This is done by sending an Alert command, with the alert code 1222, back to the sender. If there are SyncML commands to be sent as a response to a preceding message, i.e. Results, the Alert command with the 1222 alert code MAY be omitted.
-In the situation in which the server has sent the Final flag, and the client has not yet sent its Final flag, the server MUST respond to the client with the following "Next Message" response:
-The "Next Message" response contains Alert code 1222 (or 1223 to abort), status to the SyncHdr, no other commands, and no Final flag.
+If a SyncML package is transferred in multiple SyncML messages, the last message in the package MUST include the Final element [REPPRO]. Other messages belonging to the package MUST NOT include the Final element.<br/>
+如果SyncML包在多个SyncML消息中传输，则包中的最后一个消息必须包含Final元素[REPPRO]。属于包的其他消息必须不包含Final元素。
+
+The Final element MUST NOT be supplied by the client to close its package until the server has sent its Final element to close the previous package. For instance, the client MUST NOT supply the Final element to close package #2 or package #4 until the server has supplied the Final element which closes the previous package (#1 or #3, respectively). This is necessary because packages #2 and #4 constitute replies to the commands in packages #1 and #3.<br/>
+Final元素必须不由客户端提供以关闭其包，直到服务器发送其Final元素以关闭先前的包。例如，客户端不能提供Final元素来关闭包＃2或包＃4，直到服务器提供了关闭前一个包的Final元素（分别为＃1或＃3）。这是必要的，因为包＃2和＃4构成对包＃1和＃3中的命令的回复。
+
+The recipient of a SyncML package containing multiple messages MUST be able to ask for more messages. This is done by sending an Alert command, with the alert code 1222, back to the sender. If there are SyncML commands to be sent as a response to a preceding message, i.e. Results, the Alert command with the 1222 alert code MAY be omitted.<br/>
+包含多个消息的SyncML包的接收者必须能够请求更多消息。这是通过将具有警报代码的1222的警报命令发送回发送者来完成的。如果存在要作为对前一个消息（即结果）的响应而发送的SyncML命令，则可以省略具有1222警报代码的Alert命令。
+
+In the situation in which the server has sent the Final flag, and the client has not yet sent its Final flag, the server MUST respond to the client with the following "Next Message" response:<br/>
+在服务器已经发送Final标志并且客户机尚未发送其Final标志的情况下，服务器必须用下面的“下一消息”响应来响应客户机：
+
+The "Next Message" response contains Alert code 1222 (or 1223 to abort), status to the SyncHdr, no other commands, and no Final flag.<br/>
+“下一条消息”响应包含警报代码1222（或中止1223），状态到SyncHdr，没有其他命令，没有Final标志。
+
+A server MUST send the Final flag in every message, when possible. This is not possible during the sending of a Large Object (see Section 2.2), or when sending the "Next Message" response.<br/>
+如果可能，服务器必须在每个消息中发送Final标志。这在发送大对象（见第2.2节）或发送“下一条消息”响应时是不可能的。
 
 
