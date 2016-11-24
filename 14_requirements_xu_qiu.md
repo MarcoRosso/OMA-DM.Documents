@@ -373,3 +373,13 @@ DMS必须支持通过HTTPS的安全连接。（用例1.3.1.5）
 设备管理服务器和设备必须能够交换它们各自的能力并选择一组用于下载。（用例1.3.5.1）
 9. The Device Management Server MUST be able to process the response from the Device indicating the success or failure of the download. (Use Case 1.3.5.1)<br/>
 设备管理服务器必须能够处理来自设备的指示下载成功或失败的响应。（用例1.3.5.1）
+
+#### 1.4.3.4.2 Interface to other Device Management Servers 与其他设备管理服务器的接口
+1. Interface SHALL support traversal of corporate firewalls and Network Address Translators (Use Case 1.3.1.2)<br/>
+接口必须支持公司防火墙和网络地址转换器的遍历（用例1.3.1.2）
+2. Interface SHALL be discoverable (Use Case 1.3.1.2)<br/>
+接口必须可以被发现（用例1.3.1.2）
+3. The Device Management Server MUST support secure connectivity via HTTPS. (Use Case 1.3.1.5)<br/>
+设备管理服务器必须支持通过HTTPS的安全连接。（用例1.3.1.5）
+4. The Device Management Server SHALL expose a standard interface for obtaining Network parameters (Use Case 1.3.1.2)<br/>
+设备管理服务器必须提供用于获取网络参数的标准接口（用例1.3.1.2）
