@@ -291,3 +291,32 @@ PC代理应能够使用适当的URL启动浏览器。（用例1.3.1.5）
 使用的协议应该被普遍接受和标准化（例如TCP / IP，http，https，通用即插即用等）（用例1.3.1.5）
 3. Data links to Devices SHALL be over standardized, local and/or remote, wired and/or wireless bearers (e.g., Bluetooth, IR, USB, Ethernet, GPRS, etc.). (Use Case 1.3.1.5)<br/>
 到设备的数据链路应通过标准化的，本地和/或远程的，有线和/或无线承载（例如，蓝牙，IR，USB，以太网，GPRS等）。（用例1.3.1.5）
+
+### 1.4.3.3 Overall Device Management Server 整体设备管理服务器
+1. The Device Management Server SHALL be capable of discovering the presence of nearby, active Device Management clients if those elements are using compatible local bearers. (Use Case 1.3.1.1)<br/>
+如果这些元件使用兼容的本地承载，则设备管理服务器应该能够发现附近的活动设备管理客户端的存在。（用例1.3.1.1）
+2. The Device Management Server SHALL support mutual authentication with the Device. (Use Case 1.3.1.1,  1.3.1.3,  1.3.4.1)<br/>
+设备管理服务器必须支持与设备的相互身份验证。 （用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+3. The Device Management Server SHALL be capable of querying Devices for information about Device properties, configuration, and capabilities. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+设备管理服务器必须能够查询设备以获取有关设备属性的信息，配置和功能。 （用例1.3.1.1, 1.3.1.3, 1.3.4.1）
+4. The Device Management Server SHALL be capable of querying the Smart Card for information about Device properties, configuration, and capabilities. (Use Case 1.3.1.3)<br/>
+5. The Device Management Server SHALL be capable of manipulating a Device’s Device Management Object. (Use Case 1.3.1.1,  1.3.1.3, 1.3.4.1)<br/>
+6. The Device Management Server SHALL be capable of manipulating a Management Object resident on a Smart Card’. (Use Case 1.3.1.3)<br/>
+7. The Device Management Server SHALL be capable of capable of add/deleting/editing the fields of the Device’s Device Management Object. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+8. The Device Management Server SHALL be capable of add/deleting/editing the values of the Management Object present on a Smart Card. (Use Case 1.3.1.3)<br/>
+9. The message from the Device acknowledging a device management operation SHALL contain an indication of success/failure of the operation. (Use Case 1.3.1.1, 1.3.1.3, 1.3.4.1)<br/>
+10. The Message from the Device acknowledging a device management operation SHALL contain an indication of success/failure of the operation. (Use Case 1.3.1.3)<br/>
+11. The DM Server SHALL be capable of sending a request for User confirmation to the Device, and accepting the response from the Device. (Use Case 1.3.4.1)<br/>
+12. The DMS SHOULD be capable of receiving fault messages from a Device, and if supported the DMS SHALL provide a standardized mechanism for publishing the messages. (Use Case 1.3.4.1)<br/>
+13. The management server SHOULD be able to poll devices for faults. (Use Case 1.3.4.1)<br/>
+14. The Device Management Server SHALL be able to establish a secure data connection to the Device. (UC 1.3.1.3, 1.3.1.4, 1.3.2.1)<br/>
+15. The Device Management Server SHALL support group addressing of Devices in order to transfer the changed management objects for them. (UC 1.3.2.1)<br/>
+16. For the Device Management Server to be able to differentiate between the new and current configuration of a Device, Management Object data definitions SHALL specify canonical value representations and associated rules for unambiguous comparison. (UC 1.3.2.1)<br/>
+17. Management Object data definitions SHOULD be composed from a common set of basic data types rather than by specifying new data types.<br/>
+18. The Device Management Server SHOULD support at least one wireless data bearer. (Use Case 1.3.4.1)<br/>
+19. The Device Management transactions SHOULD be annotated with sufficient information to enable the Device Management Server to detect the lack of response of Device in a specified time interval. (Use Case 1.3.4.1)<br/>
+21. The Device Management Server MUST report errors in a standardized format. (Use Case 1.3.4.1)<br/>
+22. The Device Management Server MUST verify integrity of data prior to download to Device. (Use Case 1.3.4.1)<br/>
+23 The Device Management Server MUST be able to verify that software and/or data is from an approved Software Originator or agent thereof. (Use Case 1.3.5.1)<br/>
+24. The Device Management Server MUST be able to detect when a Device that needs a software and/or data update. (Use Case 1.3.5.1)<br/>
+25. The Device Management Server MUST be capable of determining that the Device is authorized to receive the software and/or Data. (Use Case 1.3.5.1)<br/>
