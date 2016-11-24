@@ -187,12 +187,15 @@ Requirements covered in other sections. <br/>
 14. Each Device MUST support standardized dynamic IP allocation when the Device is first connected to the network. If an IP address cannot be allocated from the network, then the Device MUST use automatic IP addressing (Auto-IP) to obtain an address. (Use Case 1.3.1.5)<br/>
 当设备首次连接到网络时，每个设备必须支持标准化的动态IP分配。如果无法从网络分配IP地址，则设备必须使用自动IP寻址（自动IP）来获取地址。（用例1.3.1.5）
 15. The Device SHOULD announce itself on the network to all control points it detects. The act of announcement does not imply the Device will receive rights, since assignment of rights is an expression of the user's decision. When the Device is added to the network, the discovery protocol allows that Device to advertise its services to control points on the network. The fundamental exchange in both cases is a discovery message containing a few, essential specifics about the Device e.g., its type, identifier, and a pointer to more detailed information. (Use Case 1.3.1.5)<br/>
-设备应该在网络上向自己检测到的所有控制点发布自己的消息。公告的行为并不意味着设备将接收权利，因为权利的分配是用户决定的表达。当设备添加到网络时，发现协议允许该设备向网络上的控制点通告其服务。在这两种情况下的基本交换是包含关于设备的几个基本细节的发现消息，例如其类型，标识符和指向更详细信息的指针。 （用例1.3.1.5）
+推荐设备在网络上向自己检测到的所有控制点发布自己的消息。公告行为并不意味着设备将接收权限，因为权限的分配是用户决定的表达。当设备添加到网络时，发现协议允许该设备向网络上的控制点通告其服务。在这两种情况下的基本交换信息包含的是关于设备的几个基本细节的发现消息，例如其类型，标识符和指向更详细信息的指针。（用例1.3.1.5）
 16. The Device MUST support the assignment of a friendly name in relation to a network unique name(Use Case 1.3.1.5)<br/>
-17. The mapping from friendly name to unique name MUST be the function of each user’s user interface in the case where
-the Device is shared. (Use Case 1.3.1.5)<br/>
+设备必须支持关于网络唯一名称的友好名称的分配。（用例1.3.1.5）
+17. The mapping from friendly name to unique name MUST be the function of each user’s user interface in the case where the Device is shared. (Use Case 1.3.1.5)<br/>
+从友好名称到唯一名称的映射必须是当设备已共享时每个用户的用户界面。 （用例1.3.1.5）
 18. A method SHOULD be available by which a Device MAY automatically configure an interface with an IPv6 link-local address, IPv4 address in the 169.254/16 range that is valid for link-local communication on that interface, or both. On top of this there is a requirement to be able to define the link-local configuration to enable hosts that support multi-homing (more than one active interface and/or, more than one active address per interface, both IPv4 and IPv6 addresses, or a combination of these).This requirement is especially valuable in environments where no other configuration mechanism such as DHCP is available. (Use Case 1.3.1.5)<br/>
+推荐使用一种方法，通过该方法设备可以自动配置具有IPv6链路的本地地址的接口，或在169.254/16范围内的IPv4的本地地址接口通信，或者同时配置两者。除此之外，需要能够定义链路本地配置以使得能支持多归属的主机（多于一个活动接口和/或每个接口多于一个活动地址，IPv4和IPv6地址，或这些的组合）。在没有诸如DHCP的其他配置机制可用的环境中，该要求是特别有价值的。（用例1.3.1.5）
 19. The Device SHOULD support IP based Device discovery based on the SSDP [http://www.upnp.org/download/draft_cai_ssdp_v1_03.txt]. The Device SHOULD support a 30 minute suggested timeout for when a Device is added or disappears from the network. (Use Case 1.3.1.5)<br/>
+设备应该支持基于SSDP的基于IP的设备发现[http://www.upnp.org/download/draft_cai_ssdp_v1_03.txt]。当设备添加或从网络中消失时，推荐设备支持30分钟超时。 （用例1.3.1.5）
 20. If end user confirmation is indicated by the Device Management Server, the Device will prompt for user confirmation before incorporation of configuration data. (Use Case 1.3.1.5)
 21. PC Agent SHALL be capable of changing the DM tree on the Device and install the application (Use Case 5.1.5) 
 22. The Device MAY support concurrent voice calls and data exchanges. (Use Case 1.3.4.1)<br/>
