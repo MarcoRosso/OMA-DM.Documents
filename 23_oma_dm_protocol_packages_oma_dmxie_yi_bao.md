@@ -24,8 +24,8 @@ If not enclosed by a Sequence or Atomic command, the client and server MAY freel
 Client MUST NOT send any commands other than Replace command containing DevInfo, Results and Alert to the server.<br/>
 客户端必须不向服务器发送除包含DevInfo，Results和Alert的Replace命令以外的任何命令。
 
-## 2.3 Session Abort 会话中止
-### 2.3.1 Description 描述
+## 2.3.1 Session Abort 会话中止
+### 2.3.1.1 Description 描述
 Either the client or the server may decide to abort the session at any time. Reasons for session abort may be server shutdown, client power-down, user interaction on the client, etc. In this case it is best if the aborting party sends a SESSION ABORT Alert. It is RECOMMENDED that the message also includes Status and Results of all the management commands that the aborting party executed before the abort operation.<br/>
 客户端或服务器可以决定在任何时候中止会话。会话中止的原因可以是服务器关闭，客户机关机，客户机上的用户交互等。在这种情况下，最好是中止方发送SESSION ABORT警报。推荐该消息还包括中止方在中止操作之前执行的所有管理命令的状态和结果。
 
@@ -38,7 +38,7 @@ Some cases of session aborts are not controllable, for example if the client goe
 Implementations are possible (e.g. OBEX) in which the request/response roles of the transport binding may be reversed, i.e. the SyncML Client is a transport-level server, and the SyncML Server is a transport-level client. In this case, the recommendation in Section 8.1.1 above may not apply.<br/>
 实现是可能的（例如OBEX），其中传输绑定的请求/响应角色可以颠倒，即SyncML客户端是传输级服务器，并且SyncML服务器是传输级客户端。在这种情况下，上述第2.3.1节中的建议可能不适用。
 
-### 2.3.2 Requirement 需求
+### 2.3.1.2 Requirement 需求
 
 Alert 1223 is used to signal an unexpected end to the device management session. The sender of the Session Abort alert MAY also include Status and Results of all the management commands that the aborting party executed before the abort operation. The sender MUST include a Final flag. A server receiving this alert SHOULD respond with a message that MUST contain status for the Alert and the SyncHdr and no new commands.<br/>
 警报1223用于用信号通知设备管理会话的意外结束。会话中止警报的发送者还可以包括中止方在中止操作之前执行的所有管理命令的状态和结果。 发送方必须包括一个Final标志。 接收此警报的服务器推荐回复一条消息，该消息必须包含警报和SyncHdr的状态，并且不包含新的命令。
@@ -46,3 +46,9 @@ Alert 1223 is used to signal an unexpected end to the device management session.
 A client receiving Alert 1223 SHOULD NOT respond.<br/>
 不推荐接收警报1223的客户端响应。
 
+## 2.3.2 Package 0: Management Initiation Alert from server to client 包0：管理启动从服务器到客户端的警报
+Many devices cannot continuously listen for connections from a management server. Other devices simply do not wish to “open a port” (i.e. accept connections) for security reasons. However, most devices can receive unsolicited messages, sometimes called “notifications”.<br/>
+许多设备不能连续侦听来自管理服务器的连接。出于安全原因，其他设备仅仅不希望“打开端口”（即接受连接）。然而，大多数设备可以接收未经请求的消息，有时称为“通知”。
+
+A management server can use this notification capability to cause the client to initiate a connection back to the management server. OMA DM Protocol specifies several Management Initiation notification bearers. Definition of bearers and notification content can be found from [DMNOTI] specification.<br/>
+Note that an identical effect to receiving a Management Initiation notification can be caused in other ways. For example, the user interface (UI) of the device may allow the user to tell the client to initiate a management session. Alternatively, the management client might initiate a session as the result of a timer expiring. A fault of some type in the device could also cause the management client to initiate a session.<br/>
