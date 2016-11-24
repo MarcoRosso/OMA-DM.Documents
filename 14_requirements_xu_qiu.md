@@ -193,17 +193,37 @@ Requirements covered in other sections. <br/>
 17. The mapping from friendly name to unique name MUST be the function of each user’s user interface in the case where the Device is shared. (Use Case 1.3.1.5)<br/>
 从友好名称到唯一名称的映射必须是当设备已共享时每个用户的用户界面。 （用例1.3.1.5）
 18. A method SHOULD be available by which a Device MAY automatically configure an interface with an IPv6 link-local address, IPv4 address in the 169.254/16 range that is valid for link-local communication on that interface, or both. On top of this there is a requirement to be able to define the link-local configuration to enable hosts that support multi-homing (more than one active interface and/or, more than one active address per interface, both IPv4 and IPv6 addresses, or a combination of these).This requirement is especially valuable in environments where no other configuration mechanism such as DHCP is available. (Use Case 1.3.1.5)<br/>
-推荐使用一种方法，通过该方法设备可以自动配置具有IPv6链路的本地地址的接口，或在169.254/16范围内的IPv4的本地地址接口通信，或者同时配置两者。除此之外，需要能够定义链路本地配置以使得能支持多归属的主机（多于一个活动接口和/或每个接口多于一个活动地址，IPv4和IPv6地址，或这些的组合）。在没有诸如DHCP的其他配置机制可用的环境中，该要求是特别有价值的。（用例1.3.1.5）
+推荐使用一种方法，通过该方法设备可以自动配置具有IPv6链路的本地地址的接口，或在169.254/16范围内的IPv4的本地地址接口通信，或者同时配置两者。除此之外，需要能够定义链路本地配置以使得其能支持多归属的主机（多于一个活动接口和/或每个接口多于一个活动地址，IPv4和IPv6地址，或这些的组合）。在没有诸如DHCP的其他配置机制可用的环境中，该要求是特别有价值的。（用例1.3.1.5）
 19. The Device SHOULD support IP based Device discovery based on the SSDP [http://www.upnp.org/download/draft_cai_ssdp_v1_03.txt]. The Device SHOULD support a 30 minute suggested timeout for when a Device is added or disappears from the network. (Use Case 1.3.1.5)<br/>
-设备应该支持基于SSDP的基于IP的设备发现[http://www.upnp.org/download/draft_cai_ssdp_v1_03.txt]。当设备添加或从网络中消失时，推荐设备支持30分钟超时。 （用例1.3.1.5）
-20. If end user confirmation is indicated by the Device Management Server, the Device will prompt for user confirmation before incorporation of configuration data. (Use Case 1.3.1.5)
-21. PC Agent SHALL be capable of changing the DM tree on the Device and install the application (Use Case 5.1.5) 
+设备应该支持基于SSDP的基于IP的设备发现。当设备添加或从网络中消失时，推荐设备支持30分钟超时。（用例1.3.1.5）
+20. If end user confirmation is indicated by the Device Management Server, the Device will prompt for user confirmation before incorporation of configuration data. (Use Case 1.3.1.5)<br/>
+如果设备管理服务器指示最终用户确认，则在合并配置数据之前，设备将提示用户确认。（用例1.3.1.5）
+21. PC Agent SHALL be capable of changing the DM tree on the Device and install the application (Use Case 1.3.1.5) 
+PC代理应能够更改设备上的DM树并安装应用程序（用例 1.3.1.5）
 22. The Device MAY support concurrent voice calls and data exchanges. (Use Case 1.3.4.1)<br/>
-23. The Device MUST support at least one wireless data bearer. (Use Case 5.4.1)<br/>
+设备可以支持并发语音呼叫和数据交换。（用例1.3.4.1）
+23. The Device MUST support at least one wireless data bearer. (Use Case 1.3.4.1)<br/>
+设备必须支持至少一个无线数据承载。（用例1.3.4.1）
 24. The Device MUST respond to query. (Use Case 1.3.4.1)<br/>
+设备必须响应查询。（用例1.3.4.1）
 26. The Device MUST verify integrity of data before execution. (Use Case 1.3.4.1)<br/>
+设备必须在执行之前验证数据的完整性。（用例1.3.4.1）
 27. The Device MUST report to Server errors that occur during the parameter or software download. (Use Case 1.3.4.1)<br/>
+设备必须报告参数或软件下载期间发生的服务器错误。（用例1.3.4.1）
 28. The Device MUST be capable of determining that the Server is authorized to provide the software and/or data. (Use Case
 1.3.5.1)<br/>
+设备必须能够确定服务器被授权提供软件和/或数据。（用例1.3.5.1）
 29 The Device MUST be capable of exchanging security information with the Server. (Use Case 1.3.5.1) <br/>
+设备必须能够与服务器交换安全信息。（用例1.3.5.1）
 30. The Device MUST be capable of storing the software that is downloaded. (Use Case 1.3.5.1)<br/>
+设备必须能够存储下载的软件。（用例1.3.5.1）
+31. The Device MUST be able to independently verify the validity of the Software Originator of the Software and/or Data downloaded. (Use Case 1.3.5.1)<br/>
+设备必须能够独立地验证软件和/或下载的数据的软件发起者的有效性。（用例1.3.5.1）
+32. The Device MAY be able to verify, with the help of a Trusted Authority, the validity of the Software Originator of the Software and/or Data downloaded. (Use Case 1.3.5.1)<br/>
+设备可以在受信任的机构的帮助下验证软件和/或下载的数据的软件发起者的有效性。（用例1.3.5.1）
+33. The Device MUST be able to verify that the downloaded Software and/or Data is targeted to the Device. (Use Case 1.3.5.1) <br/>
+设备必须能够验证下载的软件和/或数据是否针对设备。（用例1.3.5.1）
+34. The Device SHALL send an inventory of its installed software to the Device Management Server. (Use Case 1.3.3.1)<br/>
+设备必须将其安装的软件的清单发送到设备管理服务器。（用例1.3.3.1）
+40. The Device SHALL receive the software update/upgrade. (Use Case 1.3.3.1)<br/>
+设备必须接收软件更新/升级。（用例1.3.3.1）
