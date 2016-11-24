@@ -27,8 +27,20 @@ Client MUST NOT send any commands other than Replace command containing DevInfo,
 ## 2.3 Session Abort 会话中止
 ### 2.3.1 Description 描述
 Either the client or the server may decide to abort the session at any time. Reasons for session abort may be server shutdown, client power-down, user interaction on the client, etc. In this case it is best if the aborting party sends a SESSION ABORT Alert. It is RECOMMENDED that the message also includes Status and Results of all the management commands that the aborting party executed before the abort operation.<br/>
-If a recipient of a Session Abort sends a response to this message, the response is ignored.<br/>
 客户端或服务器可以决定在任何时候中止会话。会话中止的原因可以是服务器关闭，客户机关机，客户机上的用户交互等。在这种情况下，最好是中止方发送SESSION ABORT警报。推荐该消息还包括中止方在中止操作之前执行的所有管理命令的状态和结果。
 
+If a recipient of a Session Abort sends a response to this message, the response is ignored.<br/>
+如果会话中止的接收方向此消息发送响应，则忽略该响应。
+
 Some cases of session aborts are not controllable, for example if the client goes out of coverage or its battery runs down. Servers and clients must be prepared for non-signalled session aborts as well. The requirements stated above are intended to reduce situations in which one party times out on a response from the other.<br/>
+一些会话中止的情况是不可控的，例如，如果客户端超出覆盖范围或其电池耗尽。服务器和客户端也必须为非信号会话中止做好准备。上述要求旨在减少一方根据另一方的响应超时的情况。
+
 Implementations are possible (e.g. OBEX) in which the request/response roles of the transport binding may be reversed, i.e. the SyncML Client is a transport-level server, and the SyncML Server is a transport-level client. In this case, the recommendation in Section 8.1.1 above may not apply.<br/>
+实现是可能的（例如OBEX），其中传输绑定的请求/响应角色可以颠倒，即SyncML客户端是传输级服务器，并且SyncML服务器是传输级客户端。在这种情况下，上述第2.3.1节中的建议可能不适用。
+
+### 2.3.2 Requirement 需求
+
+Alert 1223 is used to signal an unexpected end to the device management session. The sender of the Session Abort alert MAY also include Status and Results of all the management commands that the aborting party executed before the abort operation. The sender MUST include a Final flag. A server receiving this alert SHOULD respond with a message that MUST contain status for the Alert and the SyncHdr and no new commands.<br/>
+警报1223用于用信号通知设备管理会话的意外结束。会话中止警报的发送者还可以包括中止方在中止操作之前执行的所有管理命令的状态和结果。 发送方必须包括一个Final标志。 接收此警报的服务器推荐回复一条消息，该消息必须包含警报和SyncHdr的状态，并且不包含新的命令。
+
+A client receiving Alert 1223 SHOULD NOT respond.<br/>
