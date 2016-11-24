@@ -44,3 +44,5 @@ Alert 1223 is used to signal an unexpected end to the device management session.
 警报1223用于用信号通知设备管理会话的意外结束。会话中止警报的发送者还可以包括中止方在中止操作之前执行的所有管理命令的状态和结果。 发送方必须包括一个Final标志。 接收此警报的服务器推荐回复一条消息，该消息必须包含警报和SyncHdr的状态，并且不包含新的命令。
 
 A client receiving Alert 1223 SHOULD NOT respond.<br/>
+不推荐接收警报1223的客户端响应。
+
