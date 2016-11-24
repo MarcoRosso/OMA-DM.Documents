@@ -383,3 +383,16 @@ DMS必须支持通过HTTPS的安全连接。（用例1.3.1.5）
 设备管理服务器必须支持通过HTTPS的安全连接。（用例1.3.1.5）
 4. The Device Management Server SHALL expose a standard interface for obtaining Network parameters (Use Case 1.3.1.2)<br/>
 设备管理服务器必须提供用于获取网络参数的标准接口（用例1.3.1.2）
+
+#### 1.4.3.4.3 Interface to External 外部接口
+1. Device Management Server SHALL provide an interface for receiving subscriber data remotely, which is needed to identify the Device or smart card of new subscriber. (UC 1.3.1.3)<br/>
+设备管理服务器必须提供用于远程接收用户数据的接口，其需要识别新用户的设备或智能卡。（用例 1.3.1.3）
+2. Device Management Server SHALL provide an interface that allows the user to trigger the transfer of configuration data (UC 1.3.1.4).<br/>
+设备管理服务器必须提供一个允许用户触发配置数据传输的接口。（用例 1.3.1.4）
+3. Device Management Server SHALL provide an interface that allows the Management Authority to initiate the transfer of (updated) configuration data. (UC 1.3.2.1)<br/>
+设备管理服务器应提供一个接口，允许管理机构启动（更新的）配置数据的传输。（用例 1.3.2.1）
+
+### 1.4.3.3 Network Interfaces 网络接口
+
+Requirements covered in other sections.<br/>
+需求已在其他部分描述。
