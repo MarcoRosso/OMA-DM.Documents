@@ -249,3 +249,24 @@ PC代理应能够更改设备上的DM树并安装应用程序（用例 1.3.1.5�
 设备管理服务器和设备必须能够交换它们各自的能力并选择一组用于下载。（用例1.3.5.1）
 8. The Device MUST be able to notify the server that it has accepted and successfully saved the downloaded software and/or data. (Use Case 1.3.5.1)
 设备必须能够通知服务器它已经接受并成功保存了下载的软件和/或数据。（用例1.3.5.1）
+
+
+### 1.4.3.2 Smart Card 智能卡
+1. The Smart Card SHALL be capable of storing Management Objects (e.g., network address(es)). (Use Case 1.3.1.3)<br/>
+智能卡必须能够存储管理对象（例如，网络地址）。（用例1.3.1.3）
+2. The Smart Card SHALL be able to securely store authentication parameters, such keys, encryption mechanisms, etc. (Use Case 1.3.4.1)<br/>
+智能卡必须能够安全地存储认证参数，例如密钥，加密机制等。（用例1.3.4.1）
+3. The smart card MAY store data allowing the establishment of a secure connection to the Device Management Server (UC 1.3.1.4).<br/>
+智能卡可以存储允许建立到设备管理服务器的安全连接的数据。（用例 1.3.1.4）
+4. Device Management Server SHALL be capable of manipulating a Device’s Management object (Use Case 1.3.1.3)<br/>
+设备管理服务器必须能够操纵设备的管理对象。（用例1.3.1.3）
+5. The data tree for containing Device management objects on the Smart Card SHALL be capable of being modified (i.e., nodes or data fields added or deleted), read from, and/or written to. (Use Case 1.3.1.3)<br/>
+用于存储智能卡上的设备管理对象的数据树必须能够被修改（即，添加或删除节点或数据字段），读取和/或写入。（用例1.3.1.3）
+6. The Device Management Server SHALL be capable of manipulating a Management object resident on a Smart Card (Use Case 1.3.1.3)<br/>
+设备管理服务器必须能够操作驻留在智能卡上的管理对象。（用例1.3.1.3）
+7. Smart card SHALL provide mechanism that allows efficient detection of its DM structure. (UC 1.3.1.3)<br/>
+智能卡必须提供允许有效检测其DM结构的机制。（用例 1.3.1.3）
+8. If the Smart Card is present, the Smart Card MAY be used to ensure authenticity, integrity and non-repudiation of session between Device and DMS. (Use Case 1.3.4.1)<br/>
+如果智能卡存在，智能卡可用于确保设备和DMS之间的会话的真实性，完整性和不可否认性。（用例1.3.4.1）
+9. The Smart Card MAY be used to store data in a secure fashion. (Use Case 1.3.4.1)<br/>
+智能卡可用于以安全的方式存储数据。（用例1.3.4.1）
