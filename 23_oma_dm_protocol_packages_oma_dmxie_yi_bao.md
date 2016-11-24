@@ -149,16 +149,74 @@ The detailed requirements for package 2 are:<br/>
    * The value of the VerDTD element MUST be '1.2'.<br/>
    VerDTD元素的值必须为“1.2”。
    * The value of the VerProto element MUST be ‘DM/1.2’ when complying with this specification.<br/>
+   符合本规范时，VerProto元素的值必须为“DM/1.2”。
    * SessionID MUST be included to indicate the ID of the management session.<br/>
+   必须包括SessionID以指示管理会话的ID。
    * MsgID MUST be used to unambiguously identify the message belonging to the management session from server to client.<br/>
+   MsgID必须用于明确标识从服务器到客户端的属于管理会话的消息。
    * The Target element MUST be used to identify the target device.<br/>
+   目标元素必须用于标识目标设备。
    * The Source element MUST be used to identify the source device.<br/>
+   源元素必须用于标识源设备。
    * Cred element MAY be included in the authentication message according to the rules described in Section 9. Server is always authenticated to the device but this authentication MAY be accomplished at the transport level.<br/>
+   Cred元素可以根据第2.4节中描述的规则包括在认证消息中。服务器始终对设备进行认证，但此认证可以在传输层完成。
 2. The Status MUST be returned in the SyncBody for the SyncHdr and Alerts sent by the client.<br/>
+必须在SyncBody中为客户端发送的SyncHdr和Alerts返回状态。
 3. Any management operation including user interaction in the SyncML document (e.g. Alert, Sequence, Replace) are placed into the SyncBody.<br/>
-• CmdID is REQUIRED.<br/>
-• Source MUST be used if URI is needed to further address the source dataset.<br/>
-• Target MUST be used if URI is needed to further address the target dataset.<br/>
-• The Data element inside Item is used to include the data itself unless the command does not require a Data element.<br/>
-• The Meta element inside an operation or inside an Item MUST be used when the Type or Format are not the default values [META].<br/>
+任何管理操作，包括SyncML文档中的用户交互（例如，Alert，Sequence，替换）在SyncBody中。
+  * CmdID is REQUIRED.<br/> CmdID是必需的
+  * Source MUST be used if URI is needed to further address the source dataset.<br/>
+  如果需要URI来进一步寻址源数据集，则必须使用源。
+  * Target MUST be used if URI is needed to further address the target dataset.<br/>
+  如果需要URI来进一步寻址目标数据集，必须使用目标。
+  * The Data element inside Item is used to include the data itself unless the command does not require a Data element.<br/>
+  Item中的Data元素用于包含数据本身，除非命令不需要Data元素。
+  * The Meta element inside an operation or inside an Item MUST be used when the Type or Format are not the default values [META].<br/>
+  当类型或格式不是默认值[META]时，必须使用操作中或项目内部的元元素。
 4. The Final element MUST be used in the SyncBody for the message, which is the last in this package.<br/>
+Final元素必须在消息的SyncBody中使用，这是此包中的最后一个。
+
+## 2.3.5 Package 3: Client response sent to server 包3：客户端响应发送到服务器
+The content of package 3 is:
+包3的内容是：
+* Results of management actions sent from server to client.<br/>
+从服务器发送到客户端的管理操作的结果。
+* Results of user interaction commands.<br/>
+用户交互命令的结果。
+* New optional Client generated alert, for example Generic Alert or Client Event [REPPRO] that was raised during the session.<br/>
+新的可选的客户端生成的警报，例如在会话期间引发的通用警报或客户端事件[REPPRO]。
+
+This package is sent by the client if Package 2 contained management commands that required a response from the client.<br/>
+如果包2包含需要来自客户端的响应的管理命令，则该包由客户端发送。
+
+The detailed requirements for package 3 are:<br/>
+包3的详细要求是：
+1. The requirements for the elements within the SyncHdr element.<br/>
+SyncHdr元素中的元素的要求
+   * The value of the VerDTD element MUST be '1.2'.<br/>
+   VerDTD元素的值必须为“1.2”。
+   * The value of the VerProto element MUST be ‘DM/1.2’.<br/>
+   VerProto元素的值必须为“DM/1.2”。
+   * SessionID MUST be included to indicate the ID of the management session.<br/>
+   必须包括SessionID以指示管理会话的ID。
+   * MsgID MUST be used to unambiguously identify the message belonging to the management session from server to client.<br/>
+   MsgID必须用于明确标识从服务器到客户端的属于管理会话的消息。
+   * The Target element MUST be used to identify the target device.<br/>
+   目标元素必须用于标识目标设备。
+   * The Source element MUST be used to identify the source device.<br/>
+   源元素必须用于标识源设备
+2. Status MUST be returned for the SyncHdr and Alert command sent by the device management server in the SyncBody.<br/>
+必须为SyncBody中的设备管理服务器发送的SyncHdr和Alert命令返回状态。
+3. Status MUST be returned in the SyncBody for management operations sent by the server in Package 2.<br/>
+必须在SyncBody中返回状态，以便在包2中由服务器发送管理操作。
+4. Results MUST be returned in the SyncBody for successful Get operations sent by the server in the previous package and the following requirements apply:<br/>
+必须在SyncBody中返回结果，以便成功获取由上一个程序包中的服务器发送的Get操作，并满足以下要求：
+   * Results MUST contain Meta element with Type and Format elements describing content of Data element, unless the Type and Format have the default values [META].<br/>
+   结果必须包含Meta元素，其中Type和Format元素描述Data元素的内容，除非Type和Format具有默认值[META]。
+   * Items in Results MUST contain the Source element that specifies the source URI.<br/>
+   结果中的项必须包含指定源URI的Source元素。
+5. Client MAY send client generated alerts, for example Client Event [REPPRO] or Generic Alert.<br/>
+   客户端可以发送客户端生成的警报，例如客户端事件[REPPRO]或通用警报。
+   
+The Final element MUST be used in the SyncBody for the message, which is the last in this package.<br/>
+Final元素必须在消息的SyncBody中使用，该消息是此程序包中的最后一个。
