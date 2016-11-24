@@ -17,3 +17,14 @@ For operationally critical resources it shall be possible to locally or remotely
 
 Management data may be set originally by OMA bootstrap methods, then read and maintained via Device Management. Subsequent to booting, resources may be created, added, deleted, or modified in accordance with any implementation of Device Management or OA&M mechanisms.<br/>
 管理数据可以由OMA引导方法最初设置，然后通过设备管理读取和维护。在引导之后，可以根据设备管理或OA＆M机制的任何实现来创建，添加，删除或修改资源。
+
+## 1.5.1 Applications Requiring Managed Resources 需要管理资源的应用程序
+Following is a non-exhaustive list of common mobile applications that are expected to be supported by managed resources. The list of applications may be appended and special requirements pertaining to their managed resources may be noted in this section. However, the categories of managed resources presented in a subsequent section are intended to be applicable to the Applications listed here as well as additional applications that are added. The addition or modification of managed resource parameters should reference back to specific applications or use cases as presented in this document. The current list of Applications are:<br/>
+以下是预期受管资源支持的常见移动应用程序的非详尽列表。 该列表可以增加，并且其与管理资源有关的特殊要求在本节中可以注明。 但是，后续章节中提供的管理资源类别旨在适用于此处列出的应用程序以及添加的其他应用程序。 管理资源参数的添加或修改应参考本文档中介绍的特定应用程序或用例。 当前应用程序列表是：
+
+* Multi-Media Messaging Service 多媒体消息
+* E-mail 电子邮件
+* Instant Messaging 即时消息
+* Internet Browser 网络浏览器
+* Device Synchronization 设备同步
+* Device Management Agents 设备管理代理
