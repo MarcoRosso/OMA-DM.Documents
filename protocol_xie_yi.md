@@ -21,6 +21,31 @@ Each node has a type that determines what kind of management content can be set/
 In OMA DM Protocol, the target and source of a command are identified by the Target and Source elements respectively. Target refers to the recipient, and Source refers to the originator. Exceptions to this approach are mentioned in management commands requiring exception.<br/>
 在OMA DM协议中，命令的目标和源分别由目标和源元素标识。目标是指收件人，而源是指发起者。在需要异常的管理命令中提到了此方法的异常。
 
-[RFC2396]:“Uniform Resource Identifiers (URI): Generic Syntax”. T. Berners-Lee, et al. August 1998. URL:http://www.ietf.org/rfc/rfc2396.txt
+# Reference 参考
+[DMNOTI]:“OMA Device Management Notification Initiated Session, Version 1.2”. Open Mobile Alliance .
+OMA-TS-DM_Notification-V1_2. URL:http://www.openmobilealliance.org
+
+[DMREPPRO]:“OMA Device Management Representation Protocol, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_RepPro-V1_2. URL:http://www.openmobilealliance.org
+
+[DMSEC]:“OMA Device Management Security, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_Security-V1_2. URL:http://www.openmobilealliance.org
+
+[DMSTDOBJ]:“OMA Device Management Standardized Objects, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_StdObj-V1_2. URL:http://www.openmobilealliance.org
 
 [DMTND]:“OMA Device Management Tree and Description, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_TND-V1_2. URL:http://www.openmobilealliance.org
+
+[IOPPROC]:“OMA Interoperability Policy and Process”, Version 1.1, Open Mobile AllianceTM, OMA-IOP-Process-V1_1, URL:http://www.openmobilealliance.org
+
+[META]:
+“SyncML Meta Information, version 1.2”. Open Mobile Alliance . OMA-TS-SyncML_MetaInfo-V1_2. URL:http://www.openmobilealliance.org
+
+[REPPRO]:“SyncML Representation Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-SyncML_RepPro-V1_2. URL:http://www.openmobilealliance.org
+
+[RFC2119]:“Key words for use in RFCs to Indicate Requirement Levels”. S. Bradner. March 1997.
+URL:http://www.ietf.org/rfc/rfc2119.txt
+
+[RFC2396]:“Uniform Resource Identifiers (URI): Generic Syntax”. T. Berners-Lee, et al. August 1998. URL:http://www.ietf.org/rfc/rfc2396.txt
+
+[RFC2616]:“Hypertext Transfer Protocol -- HTTP/1.1”. R. Fielding, et al. June 1999.
+URL:http://www.ietf.org/rfc/rfc2616.txt
+
+[SYNCPRO]:“SyncML Data Sync Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-DS_Protocol-V1_2. URL:http://www.openmobilealliance.org
