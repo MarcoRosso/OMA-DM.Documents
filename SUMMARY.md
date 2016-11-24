@@ -7,5 +7,5 @@
    * [1.3 Description of Use Cases (Informative) 用例描述（资料性）](13_description_of_use_cases_informative_yong_li_mi.md)
    * [1.4 Requirements 需求](14_requirements_xu_qiu.md)
    * [1.5 urces to be managed in the Device (Informative) 要在设备中管理的信息（信息）](15_urces_to_be_managed_in_the_device_informative_y.md)
-* Protocol 协议
+* [Protocol 协议](protocol_xie_yi.md)
 
