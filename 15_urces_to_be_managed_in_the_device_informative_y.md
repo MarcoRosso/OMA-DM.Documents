@@ -13,6 +13,7 @@ Time-sensitive resources shall be noted as such and their configurability specif
 对时间敏感的资源应该这样注意，指定其可配置性，确定何时应用这些设置。例如，一些设置只应用于一个或多个不同的时间段，它们拥有不同的开始和停止时间。其他此类设置只能在通过累计使用时间来决定是否处于活动状态。
 
 For operationally critical resources it shall be possible to locally or remotely revert the handset back to using a previously working value of the resources, should the new settings fail (e.g. software defined radio). Critical resources should be supported by adequate fault management on or off the Device as appropriate.<br/>
-对于操作上关键的资源，如果新的设置失败（例如软件定义的无线电），则可以本地或远程地将听筒恢复到使用资源的先前工作值。关键资源应通过适当的设备上的或关闭的充分的故障管理来支持。
+对于操作上关键的资源，如果新的设置失败（例如软件定义的无线电），则可以本地或远程地将手机恢复到使用该资源前的工作状态。关键资源的使用与否应通过适当的设备上的故障管理来支持。
 
 Management data may be set originally by OMA bootstrap methods, then read and maintained via Device Management. Subsequent to booting, resources may be created, added, deleted, or modified in accordance with any implementation of Device Management or OA&M mechanisms.<br/>
+管理数据可以由OMA引导方法最初设置，然后通过设备管理读取和维护。在引导之后，可以根据设备管理或OA＆M机制的任何实现来创建，添加，删除或修改资源。
