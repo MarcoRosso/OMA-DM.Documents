@@ -8,4 +8,5 @@
    * [1.4 Requirements 需求](14_requirements_xu_qiu.md)
    * [1.5 urces to be managed in the Device (Informative) 要在设备中管理的信息（信息）](15_urces_to_be_managed_in_the_device_informative_y.md)
 * [Protocol 协议](protocol_xie_yi.md)
+   * 2.1 Multiple Messages In Package 包中的多个信息
 
