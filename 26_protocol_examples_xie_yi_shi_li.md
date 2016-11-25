@@ -84,3 +84,77 @@ In this section an example is presented in which a WAP connectivity context is a
  </SyncML>
 
 ```
+### 2.6.1.2 Package 2: Initialization from server to client 包2：从服务器到客户端的初始化
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+     <VerDTD>1.2</VerDTD>
+     <VerProto>DM/1.2</VerProto>
+     <SessionID>1</SessionID>
+     <MsgID>1</MsgID>
+     <Target> 
+         <LocURI>IMEI:493005100592800</LocURI>
+     </Target>
+     <Source>
+        <LocURI>http://www.syncml.org/mgmt-server</LocURI>
+     </Source>
+     <Cred> <!-- Server credentials -->
+       <Meta>
+          <Type xmlns="syncml:metinf">syncml:auth-basic</Type>
+          <Format xmlns='syncml:metinf'>b64</Format> </Meta>
+          <Data><!-- base64 formatting of userid:password --></Data> 
+      </Cred>
+  </SyncHdr>
+  <SyncBody>
+    <Status>
+       <MsgRef>1</MsgRef><CmdRef>0</CmdRef>
+       <Cmd>SyncHdr</Cmd>
+       <CmdID>6</CmdID>
+       <TargetRef>http://www.syncml.org/mgmt-server</TargetRef> 
+       <SourceRef>IMEI:493005100592800</SourceRef>
+       <!-- Authenticated for the session -->
+       <Data>212</Data>
+    </Status>
+    <Status>
+      <MsgRef>1</MsgRef><CmdRef>1</CmdRef> 
+      <CmdID>7</CmdID>
+      <Cmd>Alert</Cmd> 
+      <Data>200</Data><!-- OK -->
+    </Status>
+    <Status>
+      <MsgRef>1</MsgRef><CmdRef>3</CmdRef>
+      <CmdID>8</CmdID>
+      <Cmd>Replace</Cmd> 
+      <Data>200</Data><!-- OK -->
+    </Status>
+    <Sequence>
+      <CmdID>1</CmdID>
+      <Alert>
+        <CmdID>2</CmdID>
+        <Data>1101</Data> <!-- User confirmation required --> 
+        <Item></Item>
+        <Item>
+          <Data>Do you want to add the CNN access point?</Data> 
+        </Item>
+      </Alert>
+      <Replace>
+        <CmdID>4</CmdID>
+        <Meta>
+          <Format xmlns="syncml:metinf">b64</Format> 
+          <Type xmlns="syncml:metinf">
+                application/vnd.wap.connectivity-wbxml </Type>
+         </Meta>
+         <Item>
+            <!-- CNN WAP settings object in the settings -->
+            <Target>
+            <LocURI>./settings/wap_settings/CNN</LocURI> 
+            </Target>
+            <Data><!-- Base64-coded WAP connectivity document --></Data> 
+         </Item>
+       </Replace>
+     </Sequence>
+     <Final/>
+  </SyncBody>
+</SyncML>
+```
+ 
