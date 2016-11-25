@@ -210,3 +210,31 @@ In this section an example is presented in which a WAP connectivity context is a
   </SyncBody> 
 </SyncML>
 ```
+ ### 2.6.1.4 Package 4: Acknowledgement of client status 确认客户状态
+This package is now empty as no actions are sent and client does not continue the protocol.<br/>
+此包现在为空，因为未发送任何操作，并且客户端不继续协议。
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+     <VerDTD>1.2</VerDTD>
+     <VerProto>DM/1.2</VerProto>
+     <SessionID>1</SessionID>
+     <MsgID>2</MsgID>
+     <Target> 
+       <LocURI>IMEI:493005100592800</LocURI>
+     </Target>
+     <Source>
+       <LocURI>http://www.syncml.org/mgmt-server</LocURI> </Source>
+  </SyncHdr>
+<SyncBody>
+     <Status>
+       <MsgRef>2</MsgRef>
+       <CmdID>1</CmdID>
+       <CmdRef>0</CmdRef>
+       <Cmd>SyncHdr</Cmd>
+       <Data>200</Data>
+      </Status>
+     <Final/>
+  </SyncBody>
+</SyncML>
+```
