@@ -288,3 +288,5 @@ Example: 范例：
 ```
 <!-- Wait maximum 20 seconds for the user --> <Item><Data>MAXDT=20</Data></Item>
 ```
+ ### 2.5.3.3 DR (Default Response) 默认响应
+ 
