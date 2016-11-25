@@ -317,3 +317,10 @@ Example of two valid alert types:<br/>
 • “Content-Type: application/samplealert”
 • “Reversed-Domain-Name: org.openmobilealliance.dm.samplealert”
 ```
+### 2.3.7.1.7 Format
+The Format element MUST be specified. Format MUST contain a SyncML identifier of the Format of the following Data element.<br/>
+必须指定Format元素。格式必须包含以下Data元素的格式的SyncML标识符。
+
+### 2.3.7.1.8 Mark
+The Mark element MAY be specified. Mark will define the importance level of the alert message. The following levels are allowed in Generic Alert: fatal, critical, minor, warning, informational, harmless and indeterminate. There the order indicates the importance level with fatal as most important and indeterminate as least important. If the Mark element is omitted then the default importance level “informational” is assumed.<br/>
+可以指定Mark元素。Mark将定义警报消息的重要性级别。通用警报中允许以下级别：致命，关键，次要，警告，信息，无害和不确定。它有顺序地表示了重要性水平，致命是最重要，不确定最不重要。如果省略Mark元素，则假定默认重要性级别为“信息性”。
