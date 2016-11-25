@@ -150,3 +150,72 @@ The user selection is returned in Status message. The selected item is returned 
 
 One possible implementation could be a list and each Data member of the Alert could be displayed as a row in the list. The user could select a list item then he or she would push the "Ok" button and the ID of the selected list item is sent back in a Status message.<br/>
 一个可能的实现可以是列表，并且提醒的每个Data成员可以在列表中显示为一行。用户可以选择列表项目，然后他或她将点击“确定”按钮，并且在状态消息中发回所选择的列表项目的ID。
+
+Example for a single-choice Alert: 单选提醒示例：
+```
+<Alert>
+  <CmdID>2</CmdID>
+  <Data>1103</Data> 
+  <Item><Data>MINDT=10</Data></Item>
+  <Item>
+    <Data>Select service to configure</Data> 
+  </Item>
+  <Item>
+     <Data>CNN</Data>
+  </Item>
+  <Item>
+     <Data>Mobilbank</Data>
+  </Item>
+  <Item>
+     <Data>Game Channel</Data>
+  </Item>
+</Alert>
+```
+Response to this Alert returns the selected item. <br/>
+对此提醒的响应将返回所选项目。
+```
+<Status>
+  <MsgRef>1</MsgRef>
+  <CmdRef>2</CmdRef>
+  <Cmd>Alert</Cmd>
+  <Data>200</Data> <!-- Successful, user selected an item -->
+  <Item>
+    <Data>2</Data> <!-- User selected MobilBank -->
+  </Item>
+</Status>
+```
+Example to multiple-choice Alert<br/>
+多选项提醒的示例
+```
+<Alert>
+  <CmdID>2</CmdID>
+  <Data>1104</Data>
+  <Item></Item>
+  <Item><Data>Select service to configure</Data></Item> 
+  <Item>
+     <Data>CNN</Data>
+  </Item>
+  <Item>
+     <Data>Mobilbank</Data>
+  </Item>
+  <Item>
+    <Data>Game Channel</Data>
+  </Item>
+</Alert>
+```
+Response to this Alert returns the selected item. The number of the selected items can be returned in arbitrary order by the client.<br/>
+对此提醒的响应将返回所选项目。所选项目的数量可以由客户端以任意顺序返回。
+```
+<Status>
+  <MsgRef>1</MsgRef>
+  <CmdRef>2</CmdRef>
+  <Cmd>Alert</Cmd>
+  <Data>200</Data> <!-- Successful, user selected an item --> 
+  <Item>
+     <Data>3</Data>
+  </Item>
+  <Item>
+    <Data>2</Data> <!-- User selected Mobilbank and Game Channel -->
+  </Item>
+</Status>
+```
