@@ -207,3 +207,40 @@ SyncHdr元素中的元素的要求
    
 The Final element MUST be used in the SyncBody for the message, which is the last in this package.<br/>
 Final元素必须在消息的SyncBody中使用，该消息是此程序包中的最后一个。
+
+## 2.3.6 Package 4: Further server management operations 包4：进一步的服务器管理操作
+Package 4 is used to close the management session. If the server sends any operation in Package 4 that needs response from the client, the protocol restarts from Package 3 with a new protocol iteration. Server sends results of Client Initiated Alerts if any of these was received from the client in previous package. The detailed requirements for package 4 are:<br/>
+包4用于关闭管理会话。如果服务器在包4中发送需要来自客户端的响应的任何操作，则协议以新的协议从包3重新开始重复。服务器发送客户端发起的警报的结果（如果这些警报中的任何一个是从先前包中的客户端接收的）。包4的详细要求是：
+
+1. The requirements for the elements within the SyncHdr element. <br/>
+ SyncHdr元素中的元素的要求。
+  * The value of the VerDTD element MUST be '1.2'.<br/>
+  VerDTD元素的值必须为“1.2”。
+  * The value of the VerProto element MUST be ‘DM/1.2’.<br/>
+  VerProto元素的值必须为“DM/1.2”。
+  * SessionID MUST be included to indicate the ID of the management session.<br/>
+  必须包括SessionID以指示管理会话的ID。
+ * MsgID MUST be used to unambiguously identify the message belonging to the management session from server to client.<br/>
+ MsgID必须用于明确标识从服务器到客户端的属于管理会话的消息。
+ * The Target element MUST be used to identify the target device.<br/>
+ Target元素必须用于标识目标设备
+ * The Source element MUST be used to identify the source device.<br/>
+ Source元素必须用于标识源设备。
+2. Status MUST be returned for the SyncHdr sent by the device management server in the SyncBody and if any Alerts were sent by the client then the server MUST send Status for these Alerts.<br/>
+必须为SyncBody中的设备管理服务器发送的SyncHdr返回状态，并且如果客户端发送了任何警报，则服务器必须为这些警报发送状态。
+
+3. Any management operation including user interaction in the SyncML document (e.g. Alert, Sequence, Replace) placed into the SyncBody. <br/>
+包括置于SyncBody中的SyncML文档（例如，Alert，Sequence，Replace）中的用户交互的任何管理操作。
+  * CmdID is REQUIRED.<br/>
+CmdID是必需的。
+  * Source MUST be used if URI is needed to further address the source dataset.<br/>
+ 如果需要URI来进一步寻址源数据集，则必须使用Source。
+  * Target MUST be used if URI is needed to further address the target dataset.<br/>
+ 如果需要URI来进一步寻址目标数据集，必须使用Target。
+  * The Data element inside Item is used to include the data itself unless the command does not require a Data element.<br/>
+ Item中的Data元素用于包含数据本身，除非命令不需要Data元素。
+  * The Meta element inside an operation or inside an Item MUST be used when the Type or Format are not the default values [META].<br/>
+  当类型或格式不是默认值[META]时，必须使用操作中或项目内部的Meta元素。
+
+The Final element MUST be used in the SyncBody for the message, which is the last in this package. Package 4 MAY close the management session by containing only the `<Final>` element (any management command or user interaction command will continue the session). Alternately, the server may send the Session Abort Alert (1223) to force the close of the session in extreme situations.<br/>
+Final元素必须在消息的SyncBody中使用，该消息是此程序包中的最后一个。`<Final>`元素（任何管理命令或用户交互命令将继续会话）关闭管理会话。或者，服务器可以发送会话中止警报（1223）以在极端情况下强制会话的关闭。
