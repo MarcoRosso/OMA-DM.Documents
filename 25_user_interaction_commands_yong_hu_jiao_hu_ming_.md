@@ -386,3 +386,4 @@ Status消息作为响应传递到服务器
   </Item>
 </Status>
 ```
+ ### 2.5.3.6 ET (Echo Type) 回声类型
