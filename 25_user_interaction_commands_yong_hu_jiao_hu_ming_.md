@@ -39,4 +39,38 @@ SyncML DISPLAY提醒在OMA DM协议中略有更改。警报有两个项目。
 第二个Item正好有一个Data元素，其中包含要显示给用户的文本。
 
 Example: 范例
+```
+<Alert>
+  <CmdID>2</CmdID>
+  <Data>1100</Data> 
+  <Item><Data>MINDT=10</Data></Item>
+  <Item>
+      <Data>Management in progress</Data>
+  </Item>
+</Alert>
+```
+## 2.5.2.2 Confirmation 确认
+Confirmation is a binary decision: the user either approves or rejects the option. A new Alert code is introduced for this purpose, the CONFIRM_OR_REJECT. When the client receives this Alert, it displays the Alert text then enables the user to select "Yes" or "No". If the answer is "Yes", the status code 200: “Yes” is returned and the processing of the package continues without change in processing. If the answer is "No", the status code 304: “No” is returned and the processing of the package ceases. If the UI allows the user to cancel, status 214: “Operation cancelled” should be returned for the Alert.<br/>
+确认是一个二元决策：用户允许或拒绝该选项。为此目的引入了一个新的提醒代码CONFIRM_OR_REJECT。当客户端接收到此提醒时，它显示提醒文本，然后使用户选择“是”或“否”。如果答案为“是”，则返回状态代码200：“Yes”，并且包没有改变地继续处理。如果答案为“否”，则返回状态代码304：“No”，并且包的处理停止。如果UI允许用户取消，则应当针对提醒返回状态214：“Operation cancelled”。
 
+If user answers "No", then package processing will change according to placement of confirmation Alert in package as follows.<br/>
+如果用户回答“否”，则包处理将根据包中的确认提醒的位置而改变，如下。
+
+* If confirmation Alert is inside Atomic, then Atomic fails and all executed commands have to be rolled back.<br/>
+如果确认提醒在Atomic中，则Atomic将失败，并且必须回滚所有已执行的命令。
+
+* If confirmation Alert is inside Sequence, then commands in Sequence after confirmation Alert are bypassed.<br/>
+如果确认提醒在Sequence中，则确认提醒后Sequence中的命令被绕过。
+
+* If confirmation Alert is not inside Atomic or Sequence i.e. it is directly in SyncBody, then user response has no effect to package processing. In this way server can query user opinion before sending actual management commands to client device.<br/>
+如果确认警报不在Atomic或Sequence内，即它直接位于SyncBody中，则用户响应对包处理没有影响。通过这种方式，服务器可以在向客户端设备发送实际管理命令之前询问用户意见。
+
+Statuscode(215) Not Executed will be sent back for the commands whose execution was bypassed as result of user interaction.<br/>
+状态代码（215）Not Executed 将返回用户交互后跳过执行的指令。
+
+The Alert contains two Items.<br/>
+警报包含两个Item。
+* The first Item contains the optional parameters as specified in Section 10.3.<br/>
+第一个Item包含第2.5.3节中指定的可选参数。
+*  The second Item has exactly one Data element containing the text to be displayed to the user.<br/>
+第二个项目正好有一个Data元素，其中包含要显示给用户的文本。
