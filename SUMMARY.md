@@ -12,5 +12,5 @@
    * [2.2 Large Object Handing 大对象处理](22_large_object_handing_da_dui_xiang_chu_li.md)
    * [2.3 OMA DM Protocol packages OMA DM协议包](23_oma_dm_protocol_packages_oma_dmxie_yi_bao.md)
    * [2.4 Authentication 验证](24_authentication_yan_zheng.md)
-   * 2.5 User interaction commands 用户交互命令
+   * [2.5 User interaction commands 用户交互命令](25_user_interaction_commands_yong_hu_jiao_hu_ming_.md)
 
