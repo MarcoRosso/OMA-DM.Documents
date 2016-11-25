@@ -45,6 +45,6 @@ Cred元素必须包括在请求（消息或命令）中，如果请求被重复�
 
 ## 2.4.3 Application Layer Authentication 应用层认证
 The authentication on the application layer is accomplished by using the Cred element in SyncHdr and the Status command associated with SyncHdr. Within the Status command, the challenge for the authentication is carried as defined earlier. The authentication can happen both directions, i.e., the client can authenticate itself to the server and the server can authenticate itself to the client.<br/>
-应用层上的认证通过使用SyncHdr中的Cred元素和与SyncHdr相关联的Status命令来实现。在状态命令中，如先前定义的那样进行认证的挑战。 认证可以在两个方向发生，即，客户端可以向服务器认证自身，并且服务器可以向客户端认证自身。
+应用层上的认证通过使用SyncHdr中的Cred元素和与SyncHdr相关联的Status命令来实现。在状态命令中，如先前定义的那样进行认证的挑战。认证可以在两个方向发生，即，客户端可以向服务器认证自身，并且服务器可以向客户端认证自身。
 
 ## 2.4.4 Authentication Examples 验证示例
