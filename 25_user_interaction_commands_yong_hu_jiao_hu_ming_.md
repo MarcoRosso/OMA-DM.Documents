@@ -326,10 +326,63 @@ Examples: 范例：
 ```
  ### 2.5.3.4 MAXLEN (Maximum length of user input)  最大用户输入长度
 MAXLEN value is evaluated to a positive integer and determines the maximum number of characters that can be typed into the text input user interaction widget. The optional parameter MUST be ignored in all other kind of user interaction widget. If the specified maximum length of input string exceeds the capability of the client, the client MAY ignore the parameter.<br/>
-MAXLEN值计算为正整数，并确定可以输入到文本输入用户交互窗口小部件的最大字符数。 必须在所有其他类型的用户交互窗口小部件中忽略可选参数。 如果指定的输入字符串的最大长度超过客户端的能力，则客户端可以忽略该参数。
+MAXLEN值为正整数，其代表可以输入到文本输入用户交互窗口小部件的最大字符数。必须在所有其他类型的用户交互窗口小部件中忽略可选参数。如果指定的输入字符串的最大长度超过客户端的能力，则客户端可以忽略该参数。
 
 Examples: 范例：
 ```
 <!-- Maximum string length is 30 --> 
 <Item><Data>MAXLEN=30</Data></Item>
+```
+ ### 2.5.3.5 IT (Input Type) 输入类型
+IT specifies what kind of characters are allowed in the text input user interaction widget. Based on this information a client with limited keyboard MAY display user interaction elements that allow easy input of characters not present on the keyboard. The optional parameter MUST be ignored in user interaction widgets other than text input. Allowed values:<br/>
+IT指定在文本输入用户交互窗口小部件中允许使用什么样的字符。基于该信息，具有有限键盘的客户端可以显示允许输入不存在于键盘上的字符的用户交互元件。在用户交互窗口小部件中，除了文本输入之外，必须忽略可选参数。允许值：
+
+IT=A - Alphanumeric input, client SHOULD allow input of all alphanumeric characters. This is the default behaviour.<br/> 
+IT = A - 字母数字输入，客户端应允许输入所有字母数字字符。这是默认行为。 
+
+IT=N - Numeric input, client SHOULD allow input of all numeric characters, decimal point and sign character.<br/>
+IT = N - 数字输入，客户端应允许输入所有数字字符，小数点和符号字符。
+
+IT=D - Date input, client SHOULD allow input of all numeric characters. User input is delivered to server in following text string format "DDMMYYYY", where;<br/>
+IT = D - 日期输入，客户端应该允许输入所有数字字符。用户输入以以下文本字符串格式“DDMMYYYY”传递到服务器，其中;
+  * DD is day with possible leading zero.<br/>
+  DD是第一位可能为零的日期。
+  * MM is month with possible leading zero.<br/>
+  MM是第一位可能为零的月份。
+  * YYYY is year presented with four digits.<br/>
+  YYYY年份提供四位数字。
+  
+IT=T - Time input, client SHOULD allow input of all numeric characters. User input is delivered to server in following text string format "hhmmss", where;<br/>
+IT = T - 时间输入，客户端应允许输入所有数字字符。用户输入以下面的文本字符串格式“hhmmss”传递到服务器，其中;
+
+* hh is hours with possible leading zero.<br/>
+hh是第一位可能为零的小时。
+* mm is minutes with possible leading zero.<br/>
+mm是第一位可能为零的分钟。
+* ss is seconds with possible leading zero.<br/>
+ss是第一位可能为零的秒数。
+
+IT=P - Phone number input, client SHOULD allow input of all numeric characters, "+", "p", "w" and "s". "+" MUST be first if present in phone number.<br/>
+IT = P - 电话号码输入，客户端应允许输入所有数字字符，“+”，“p”，“w”和“s”。 “+”必须是第一，如果存在于电话号码。
+
+IT=I - IP address input, client SHOULD allow input of all numeric characters. User input is delivered to server in following text string format "xxx.yyy.zzz.www"<br/>
+IT = I - IP地址输入，客户端应允许输入所有数字字符。用户输入以以下文本字符串格式“xxx.yyy.zzz.www”传送到服务器
+
+Examples: 范例：
+```
+<!-- Numeric text input -->
+<Item><Data>IT=N</Data></Item>
+```
+Status message delivered to server as response<br/>
+状态消息作为响应传递到服务器
+```
+<Status>
+  <MsgRef>1</MsgRef>
+  <CmdRef>2</CmdRef>
+  <Cmd>Alert</Cmd>
+  <Data>200</Data> <!-- Successful, entered a number --> 
+  <Item>
+     <Data>-1.23</Data>
+  </Item>
+</Status>
 ```
