@@ -270,10 +270,21 @@ This parameter is a hint to the user agent of the minimum time that the user int
 此参数是向用户代理提示用户交互应显示给用户的最短时间的提示。这对于保证通知消息可读的是重要的。
 
 MINDT parameter MUST have a value that can be evaluated as a positive, integer number. Value of MINDT is interpreted as notification display time to user in seconds.<br/>
-MINDT参数必须有一个可以作为正整数计算的值。MINDT的值被解释为用户的通知显示时间（以秒为单位）。
+MINDT参数必须有一个可以作为正整数计算的值。MINDT的值被解释为用户的通知显示时间的秒数。
 
 Example: 范例：
 ```
 <!-- Display this message for at least 10 seconds -->
 <Item><Data>MINDT=10</Data></Item>
+```
+ ### 2.5.3.2 MAXDT (Maximum Display Time) 最大显示时间
+ This parameter is a hint to the user agent for how long the client should wait for the user to execute the user interaction. If the user does not act within MAXDT time, the action is considered to be cancelled and a timeout status package or default response package is sent back to the server.<br/>
+此参数提示用户代理客户端应等待用户执行用户交互的时间。如果用户在MAXDT时间内没有动作，则认为该操作被取消，并且超时状态包或默认响应包被发送回服务器。
+
+MAXDT parameter MUST have a value that can be evaluated as a positive, integer number. Value of MAXDT is interpreted as seconds to wait for user action.<br/>
+MAXDT参数必须有一个可以作为正整数计算的值。MAXDT的值被解释为等待用户操作的秒数。
+
+Example: 范例：
+```
+<!-- Wait maximum 20 seconds for the user --> <Item><Data>MAXDT=20</Data></Item>
 ```
