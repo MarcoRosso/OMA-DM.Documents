@@ -50,9 +50,6 @@ Many devices cannot continuously listen for connections from a management server
 A management server can use this notification capability to cause the client to initiate a connection back to the management server. OMA DM Protocol specifies several Management Initiation notification bearers. Definition of bearers and notification content can be found from [DMNOTI] specification.<br/>
 管理服务器可以使用该通知能力来使得客户端发起到管理服务器的连接。OMA DM协议指定了几个管理发起通知承载。承载和通知内容的定义可以从[DMNOTI]规范中找到。
 
-[DMNOTI]:“OMA Device Management Notification Initiated Session, Version 1.2”. Open Mobile Alliance .
-OMA-TS-DM_Notification-V1_2. URL:http://www.openmobilealliance.org
-
 Note that an identical effect to receiving a Management Initiation notification can be caused in other ways. For example, the user interface (UI) of the device may allow the user to tell the client to initiate a management session. Alternatively, the management client might initiate a session as the result of a timer expiring. A fault of some type in the device could also cause the management client to initiate a session.<br/>
 注意，可以以其他方式引起与接收管理发起通知相同的效果。例如，设备的用户界面（UI）可以允许用户告诉客户端发起管理会话。或者，管理客户端可以作为定时器到期的结果来发起会话。设备中某种类型的故障也可能导致管理客户端发起会话。
 
@@ -84,9 +81,9 @@ SyncHdr元素中元素的要求。
  * MsgID MUST be used to unambiguously identify the message belonging to the management session from server to client.<br/>
 MsgID必须用于明确标识从服务器到客户端的属于管理会话的消息。
  * The Target element MUST be used to identify the target server.<br/>
- 目标元素必须用于标识目标服务器。
+ Target元素必须用于标识目标服务器。
  * The Source element MUST be used to identify the source device.<br/>
- 源元素必须用于标识源设备。
+ Source元素必须用于标识源设备。
  * The Cred element MAY be included in the authentication message from the Device Management client to Device Management server as specified in Section 9.<br/>
  Cred元素可以包含在从设备管理客户端到设备管理服务器的认证消息中，如第2.4节中所述。
  
@@ -142,9 +139,9 @@ The detailed requirements for package 2 are:<br/>
    * MsgID MUST be used to unambiguously identify the message belonging to the management session from server to client.<br/>
    MsgID必须用于明确标识从服务器到客户端的属于管理会话的消息。
    * The Target element MUST be used to identify the target device.<br/>
-   目标元素必须用于标识目标设备。
+   Target元素必须用于标识目标设备。
    * The Source element MUST be used to identify the source device.<br/>
-   源元素必须用于标识源设备。
+   Source元素必须用于标识源设备。
    * Cred element MAY be included in the authentication message according to the rules described in Section 9. Server is always authenticated to the device but this authentication MAY be accomplished at the transport level.<br/>
    Cred元素可以根据第2.4节中描述的规则包括在认证消息中。服务器始终对设备进行认证，但此认证可以在传输层完成。
 2. The Status MUST be returned in the SyncBody for the SyncHdr and Alerts sent by the client.<br/>
@@ -153,13 +150,13 @@ The detailed requirements for package 2 are:<br/>
 任何管理操作，包括SyncML文档中的用户交互（例如，Alert，Sequence，替换）在SyncBody中。
   * CmdID is REQUIRED.<br/> CmdID是必需的
   * Source MUST be used if URI is needed to further address the source dataset.<br/>
-  如果需要URI来进一步寻址源数据集，则必须使用源。
+  如果需要URI来进一步寻址源数据集，则必须使用Source。
   * Target MUST be used if URI is needed to further address the target dataset.<br/>
-  如果需要URI来进一步寻址目标数据集，必须使用目标。
+  如果需要URI来进一步寻址目标数据集，必须使用Target。
   * The Data element inside Item is used to include the data itself unless the command does not require a Data element.<br/>
   Item中的Data元素用于包含数据本身，除非命令不需要Data元素。
   * The Meta element inside an operation or inside an Item MUST be used when the Type or Format are not the default values [META].<br/>
-  当类型或格式不是默认值[META]时，必须使用操作中或项目内部的元元素。
+  当Type或Format不是默认值[META]时，必须使用操作中或Item内部的元元素。
 4. The Final element MUST be used in the SyncBody for the message, which is the last in this package.<br/>
 Final元素必须在消息的SyncBody中使用，这是此包中的最后一个。
 
@@ -189,13 +186,13 @@ SyncHdr元素中的元素的要求
    * MsgID MUST be used to unambiguously identify the message belonging to the management session from server to client.<br/>
    MsgID必须用于明确标识从服务器到客户端的属于管理会话的消息。
    * The Target element MUST be used to identify the target device.<br/>
-   目标元素必须用于标识目标设备。
+   Target元素必须用于标识目标设备。
    * The Source element MUST be used to identify the source device.<br/>
-   源元素必须用于标识源设备
+   Source元素必须用于标识源设备。
 2. Status MUST be returned for the SyncHdr and Alert command sent by the device management server in the SyncBody.<br/>
-必须为SyncBody中的设备管理服务器发送的SyncHdr和Alert命令返回状态。
+必须为SyncBody中的设备管理服务器发送的SyncHdr和Alert命令返回Status。
 3. Status MUST be returned in the SyncBody for management operations sent by the server in Package 2.<br/>
-必须在SyncBody中返回状态，以便在包2中由服务器发送管理操作。
+必须在SyncBody中返回Status，以便在包2中由服务器发送管理操作。
 4. Results MUST be returned in the SyncBody for successful Get operations sent by the server in the previous package and the following requirements apply:<br/>
 必须在SyncBody中返回结果，以便成功获取由上一个程序包中的服务器发送的Get操作，并满足以下要求：
    * Results MUST contain Meta element with Type and Format elements describing content of Data element, unless the Type and Format have the default values [META].<br/>
