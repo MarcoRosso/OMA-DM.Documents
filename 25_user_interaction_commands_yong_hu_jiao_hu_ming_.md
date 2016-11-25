@@ -387,3 +387,18 @@ Status消息作为响应传递到服务器
 </Status>
 ```
  ### 2.5.3.6 ET (Echo Type) 回声类型
+ET specifies how text input user interaction widget echoes the characters that the user types in. The optional parameter MUST be ignored in user interaction widgets other than text input. Allowed values:<br/>
+ET指定文本输入用户交互窗口小部件如何回显用户键入的字符。可选参数必须在用户交互窗口小部件而不是文本输入中被忽略。 允许值：
+
+ET=T - Text input. The client SHOULD allow the user to see the character the user typed into the text input user interaction widget. This is the default behaviour.<br/>
+ET = T - 文本输入。客户端应该允许用户看到用户键入到文本输入用户交互小部件中的字符。 这是默认行为。
+
+ET=P - Password input. The client SHOULD hide the character the user typed into the text input user interaction widget. One way of doing it MAY be writing an asterisk instead of the character itself.<br/>
+ET = P - 密码输入。客户端应该隐藏用户键入到文本输入用户交互窗口小部件中的字符。一种方法是写一个星号而不是字符本身。
+
+Examples: 范例：
+```
+<!-- Numeric text input -->
+<Item><Data>ET=T</Data></Item>
+```
+
