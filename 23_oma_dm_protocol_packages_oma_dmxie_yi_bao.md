@@ -261,3 +261,59 @@ The optional parameter Mark MUST contain the importance level. If the parameter 
 
 The server MUST respond with status 200 “OK” or 202 “Accepted for processing” if the server has received the Alert without any errors, in other case the server MUST use one of the following error status codes: 401, 407, 412, 415 and 500.<br/>
 如果服务器已经接收到警报而没有任何错误，则服务器必须响应状态200“OK”或202 “Accepted for processing”，否则服务器必须使用以下错误状态代码之一：401, 407, 412, 415和500。
+## 2.3.7.1 Generic Alert Message 通用警报消息
+
+This is the basic design of a Generic Alert message:<br/>
+这是通用警报消息的基本设计：
+```
+<Alert>
+  <CmdID>2</CmdID>
+  <Data>1226</Data> <!-- Generic Alert --!>
+  <Correlator>abc123</Correlator>
+  <Item>
+    <Source><LocURI>./SyncML/Sample</LocURI></Source> 
+    <Meta>
+      <Type xmlns="syncml:metinf"> Reversed-Domain-Name: org.domain.samplealert
+      </Type>
+      <Format xmlns="syncml:metinf">xml</Format> 
+      <Mark xmlns="syncml:metinf">critical</Mark> <!-- Optional -->
+    </Meta>
+    <Data>
+       <!-- Client Alert Data Goes Here -->
+    </Data>
+  </Item>
+</Alert>
+```
+### 2.3.7.1.1 CmdID
+This MUST be specified in the same way as all commands.<br/>
+这必须以与所有命令相同的方式指定。
+### 2.3.7.1.2 Data
+This MUST be specified with the value 1226 [DMREPPRO] for Generic Alert.<br/>
+这必须用通用警报的值1226[DMREPPRO]指定。
+### 2.3.7.1.3 Item
+This is a REQUIRED parameter. Item MUST be repeated for each alert of type Generic Alert if the device will send them together inside the same Alert message.<br/>
+这是一个必须的参数。如果设备将在同一警报消息中将它们一起发送，则Item必须为类型为通用警报的每个警报重复。
+### 2.3.7.1.4 LocURI within Source
+This is an optional parameter. If the Alert is generated from a Management Object and the definition of that Management Object mandates this parameter, then it MUST be included.<br/>
+这是一个可选参数。如果警报是从管理对象生成的，并且该管理对象的定义要求此参数，则必须包括该参数。
+### 2.3.7.1.5 Meta
+The Meta element MUST be specified for the Type and Format of the Alert Data.<br/>
+必须为警报数据的类型和格式指定Meta元素。
+### 2.3.7.1.6 Type
+The Type element MUST be specified and specifies the media type of the content information in the Data element. The content information for this element type MUST be a URN. If it is a MIME-type, then it MUST use “Content-Type” as namespace identifier and the content SHOULD be a registered MIME content-type. If it is a reverse domain name then the namespace identifier “Reversed-Domain-Name” MUST be specified. No other namespace identifiers than these two are allowed. The ABNF syntax for the content of reverse domain name MUST be:<br/>
+必须指定Type元素并指定Data元素中内容信息的媒体类型。此元素类型的内容信息必须是URN。 如果它是MIME类型，那么它必须使用“Content-Type”作为命名空间标识符，并且内容应该是注册的MIME内容类型。如果它是反向域名，则必须指定命名空间标识符“Reversed-Domain-Name”。不允许使用除这两个之外的其他命名空间标识符。反向域名的内容的ABNF语法必须是：
+```
+<URN> ::= <domain> [/<name>]* 
+<domain> ::= “reversed domain name” 
+<name> ::= alphanum
+```
+Notes:
+1. For simplicity and portability, each name element is currently restricted to alphanumeric characters. (Alphanum is defined in [RFC2396].)<br/>
+笔记：为了简单和可移植性，每个名称元素限于字母数字字符。（Alphanum在[RFC2396]中定义。）
+
+Example of two valid alert types:<br/>
+两种有效的警报类型示例：
+```
+• “Content-Type: application/samplealert”
+• “Reversed-Domain-Name: org.openmobilealliance.dm.samplealert”
+```
