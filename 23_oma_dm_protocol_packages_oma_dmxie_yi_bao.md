@@ -324,3 +324,11 @@ The Format element MUST be specified. Format MUST contain a SyncML identifier of
 ### 2.3.7.1.8 Mark
 The Mark element MAY be specified. Mark will define the importance level of the alert message. The following levels are allowed in Generic Alert: fatal, critical, minor, warning, informational, harmless and indeterminate. There the order indicates the importance level with fatal as most important and indeterminate as least important. If the Mark element is omitted then the default importance level “informational” is assumed.<br/>
 可以指定Mark元素。Mark将定义警报消息的重要性级别。通用警报中允许以下级别：致命，关键，次要，警告，信息，无害和不确定。它有顺序地表示了重要性水平，致命是最重要，不确定最不重要。如果省略Mark元素，则假定默认重要性级别为“信息性”。
+
+### 2.3.7.1.9 Data (Inside `<Item>` )
+The Data element MUST be specified. Data MUST use the Format and Type specified in the Meta tag.<br/>
+必须指定Data元素。数据必须使用Meta标签中指定的格式和类型。
+
+### 2.3.7.1.10 Correlator
+The Correlator is an optional field and is used when the alert is an asynchronous response to an Exec command. Typically, the Correlator field in the alert echoes the Correlator value from an Exec command and is omitted in all other instances. Registered Generic Alerts SHOULD specify how the Correlator field is used.<br/>
+Correlator是一个可选字段，在警报对Exec命令的异步响应时使用。通常，警报中的Correlator字段从Exec命令中回显Correlator值，并在所有其他实例中省略。推荐注册的通用警报指定如何使用相关器字段。
