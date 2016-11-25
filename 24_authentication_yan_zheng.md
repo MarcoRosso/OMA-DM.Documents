@@ -49,4 +49,24 @@ The authentication on the application layer is accomplished by using the Cred el
 
 ## 2.4.4 Authentication Examples 验证示例
 ### 9.4.1 Basic authentication with a challenge使用质询进行基本身份验证
+At this example, the client tries to initiate with the server without any credentials (Pkg #1). The server challenges the client (Pkg #2) for the application layer authentication. The client MUST send Pkg #1 again with the credentials. The server accepts the credentials and the session is authenticated (Pkg #2). In the example, commands in SyncBody are not shown although in practice, they would be there.<br/>
+在此示例中，客户端尝试使用服务器启动而不使用任何凭据（Pkg＃1）。服务器向客户端（Pkg＃2）询问应用程序层认证。客户端必须再次使用凭证发送Pkg＃1。服务器接受凭据，并且会话已通过身份验证（Pkg＃2）。在该示例中，SyncBody中的命令不显示，虽然在实践中，他们将存在。
+
+Pkg #1 from Client:  客户端发送的包1:
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+    <VerDTD>1.2</VerDTD>
+    <VerProto>DM/1.2</VerProto>
+    <SessionID>1</SessionID>
+    <MsgID>1</MsgID> 
+      <Target><LocURI>http://www.syncml.org/mgmt-server</LocURI></Target> 
+      <Source><LocURI>IMEI:493005100592800</LocURI></Source>
+  </SyncHdr>
+  <SyncBody>
+     ...
+  </SyncBody>
+</SyncML>
+```
+
 
