@@ -73,4 +73,26 @@ The Alert contains two Items.<br/>
 * The first Item contains the optional parameters as specified in Section 10.3.<br/>
 第一个Item包含第2.5.3节中指定的可选参数。
 *  The second Item has exactly one Data element containing the text to be displayed to the user.<br/>
-第二个项目正好有一个Data元素，其中包含要显示给用户的文本。
+第二个Item正好有一个Data元素，其中包含要显示给用户的文本。
+
+Example: 范例
+```
+<Alert>
+  <CmdID>2</CmdID>
+  <Data>1101</Data>
+  <Item></Item> <!-- no optional parameters -->
+  <Item>
+    <Data>Do you want to add the CNN access point?</Data> 
+  </Item>
+</Alert>
+```
+Result if user responds "No": 如果用户响应“否”的结果：
+```
+<Status>
+  <CmdID>2</CmdID>
+  <MsgRef>1</MsgRef>
+  <CmdRef>2</CmdRef>
+  <Cmd>Alert</Cmd>
+  <Data>304</Data> <!-- Not modified -->
+</Status>
+```
