@@ -374,7 +374,7 @@ Examples: 范例：
 <Item><Data>IT=N</Data></Item>
 ```
 Status message delivered to server as response<br/>
-状态消息作为响应传递到服务器
+Status消息作为响应传递到服务器
 ```
 <Status>
   <MsgRef>1</MsgRef>
