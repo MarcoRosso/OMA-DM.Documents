@@ -248,3 +248,5 @@ Example of an antivirus data file download with Size Meta Information.
   </Item>
 </Add>
 ```
+Progress indicator will be displayed during the execution of the Add command and it will be scaled so that the total length of data to be downloaded is supposed to be 37214 bytes.<br/>
+在执行添加命令期间将显示进度指示器，并且它将被缩放，要下载的数据的总长度应为37214字节。
