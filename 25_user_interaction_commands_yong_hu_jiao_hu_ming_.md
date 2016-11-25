@@ -250,3 +250,30 @@ Example of an antivirus data file download with Size Meta Information.
 ```
 Progress indicator will be displayed during the execution of the Add command and it will be scaled so that the total length of data to be downloaded is supposed to be 37214 bytes.<br/>
 在执行添加命令期间将显示进度指示器，并且它将被缩放，要下载的数据的总长度应为37214字节。
+## 2.5.3 User interaction options 用户交互选项
+Alert's MAY have optional User interaction parameters in the first Item. Optional parameters are represented as one text string inside the Data element. If the User interaction Alert does not have optional parameters, the first Item is empty. The optional parameter string conforms to the URL encoding format specified in [RFC2396].<br/>
+提醒可以在第一个Item中有可选的用户交互参数。可选参数在Data元素中表示为一个文本字符串。 如果用户交互警报没有可选参数，则第一个项目为空。可选参数字符串符合[RFC2396]中指定的URL编码格式。
+
+The following example uses two optional parameters:<br/>
+以下示例使用两个可选参数：
+
+ `MAXDT=30&DR=1`
+ 
+ The client MUST skip without error message all the optional parameters that it is not able to process. <br/>
+ 客户端必须没有错误消息地跳过它不能处理所有可选参数。
+ 
+ The following optional parameters are currently defined.<br/>
+ 以下可选参数当前已定义。
+ 
+ ### 2.5.3.1 MINDT (Minimum Display Time) 最小显示时间
+This parameter is a hint to the user agent of the minimum time that the user interaction should be displayed to the user. This can be important to guarantee that a notification message is readable.<br/>
+此参数是向用户代理提示用户交互应显示给用户的最短时间的提示。这对于保证通知消息可读的是重要的。
+
+MINDT parameter MUST have a value that can be evaluated as a positive, integer number. Value of MINDT is interpreted as notification display time to user in seconds.<br/>
+MINDT参数必须有一个可以作为正整数计算的值。MINDT的值被解释为用户的通知显示时间（以秒为单位）。
+
+Example: 范例：
+```
+<!-- Display this message for at least 10 seconds -->
+<Item><Data>MINDT=10</Data></Item>
+```
