@@ -238,3 +238,9 @@ This package is now empty as no actions are sent and client does not continue th
   </SyncBody>
 </SyncML>
 ```
+## 2.6.2 Two-step protocol initiated by the server 由服务器启动的两步协议
+
+Operator initiates a regular antivirus software update on PDA clients. The server checks the installed version in the first management section then updates the antivirus data in the second step.<br/>
+操作员在PDA客户端上启动常规防病毒软件更新。服务器在第一管理部分中检查已安装的版本，然后在第二步骤中更新防病毒数据。
+
+ ### 2.6.2.1 Package 1: Initialization from client to server 包1:从客户端到服务器的初始化
