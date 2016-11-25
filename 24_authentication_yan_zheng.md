@@ -176,3 +176,34 @@ Pkg #1 from Client:  客户端发送的包1:
 </SyncML>
 ```
 Pkg #2 from Server:  服务器发送的包2:
+``` 
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+    <VerDTD>1.2</VerDTD>
+    <VerProto>DM/1.2</VerProto>
+    <SessionID>1</SessionID>
+    <MsgID>2</MsgID> 
+    <Target><LocURI>IMEI:493005100592800</LocURI></Target> 
+    <Source><LocURI>http://www.syncml.org/mgmt-server</LocURI></Source>
+  </SyncHdr>
+  <SyncBody>
+    <Status>
+      <CmdID>1</CmdID>
+      <MsgRef>1</MsgRef>
+      <CmdRef>0</CmdRef>
+      <Cmd>SyncHdr</Cmd> 
+      <TargetRef>http://www.syncml.org/mgmt-server</TargetRef> 
+      <SourceRef>IMEI:493005100592800</SourceRef>
+      <Chal>
+        <Meta>
+          <Type xmlns=’syncml:metinf’>syncml:auth-md5</Type>
+          <Format xmlns=’syncml:metinf’>b64</Format>
+          <NextNonce xmlns=’syncml:metinf’>LG3iZQhhdmKNHg==</NextNonce> 
+          <!-- This nonce is used at the next session -->
+        </Meta>
+     </Chal>
+     <Data>212</Data> <!-- Authenticated for session --> </Status>
+     ...
+  </SyncBody>
+</SyncML>
+```
