@@ -96,4 +96,28 @@ Pkg #2 from Server:  服务器发送的包1:
   </SyncBody>
 </SyncML>
 ```
+Pkg #1 (with credentials) from Client:  客户端发送的包1（有凭据）:
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+    <VerDTD>1.2</VerDTD>
+    <VerProto>DM/1.2</VerProto>
+    <SessionID>1</SessionID>
+    <MsgID>2</MsgID> 
+    <Target><LocURI>http://www.syncml.org/mgmt-server</LocURI></Target> 
+    <Source><LocURI>IMEI:493005100592800</LocURI></Source>
+    <Cred>
+      <Meta>
+      <Type xmlns=’syncml:metinf’>syncml:auth-basic</Type> 
+      <Format xmlns='syncml:metinf'>b64</Format>
+      </Meta>
+      <Data>QnJ1Y2UyOk9oQmVoYXZl</Data>
+      <!-- base64 formatting of “userid:password” --> 
+    </Cred>
+  </SyncHdr>
+  <SyncBody>
+     ...
+  </SyncBody>
+</SyncML>
+```
 
