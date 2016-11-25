@@ -48,7 +48,7 @@ The authentication on the application layer is accomplished by using the Cred el
 应用层上的认证通过使用SyncHdr中的Cred元素和与SyncHdr相关联的Status命令来实现。在状态命令中，如先前定义的那样进行认证的质询。认证可以在两个方向发生，即，客户端可以向服务器认证自身，并且服务器可以向客户端认证自身。
 
 ## 2.4.4 Authentication Examples 验证示例
-### 9.4.1 Basic authentication with a challenge使用质询进行基本身份验证
+### 2.4.4.1 Basic authentication with a challenge 使用质询进行基本身份验证
 At this example, the client tries to initiate with the server without any credentials (Pkg #1). The server challenges the client (Pkg #2) for the application layer authentication. The client MUST send Pkg #1 again with the credentials. The server accepts the credentials and the session is authenticated (Pkg #2). In the example, commands in SyncBody are not shown although in practice, they would be there.<br/>
 在此示例中，客户端尝试使用服务器启动而不使用任何凭据（Pkg＃1）。服务器向客户端（Pkg＃2）询问应用程序层认证。客户端必须再次使用凭证发送Pkg＃1。服务器接受凭据，并且会话已通过身份验证（Pkg＃2）。在该示例中，SyncBody中的命令不显示，虽然在实践中，他们将存在。
 
@@ -68,7 +68,7 @@ Pkg #1 from Client:  客户端发送的包1:
   </SyncBody>
 </SyncML>
 ```
-Pkg #2 from Server:  服务器发送的包1:
+Pkg #2 from Server:  服务器发送的包2:
 ```
 <SyncML xmlns='SYNCML:SYNCML1.2'>
   <SyncHdr>
@@ -120,4 +120,59 @@ Pkg #1 (with credentials) from Client:  客户端发送的包1（有凭据）:
   </SyncBody>
 </SyncML>
 ```
+Pkg #2 from Server:  服务器发送的包2:
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+    <VerDTD>1.2</VerDTD>
+    <VerProto>DM/1.2</VerProto>
+    <SessionID>1</SessionID>
+    <MsgID>2</MsgID> 
+    <Target><LocURI>IMEI:493005100592800</LocURI></Target> <Source>
+    <LocURI>http://www.syncml.org/mgmt-server</LocURI></Source>
+  </SyncHdr>
+  <SyncBody>
+     <Status>
+     <CmdID>1</CmdID> 
+     <MsgRef>2</MsgRef><CmdRef>0</CmdRef><Cmd>SyncHdr</Cmd> 
+     <TargetRef>http://www.syncml.org/mgmt-server</TargetRef> 
+     <SourceRef>IMEI:493005100592800</SourceRef>
+     <Data>212</Data> <!-- Authenticated for session -->
+      </Status>
+     ...
+  </SyncBody>
+</SyncML>
 
+```
+### 2.4.4.2 MD5 digest access authentication with a challenge MD5摘要访问认证与质询
+At this example, assume (as in 9.4.1 above) the client tries to initiate with the server without any credentials (Pkg #1 is omitted here for brevity). The server challenges the client as above (Pkg #2 is also omitted from this example) for the application layer authentication. The authentication type is now syncml:auth-md5 (MD5 digest access authentication). The client MUST resend Pkg #1 this time with the MD5 credentials (as shown below in Pkg #1). The server accepts the credentials and the session is authenticated (Pkg#2 below). Also, the server sends the next nonce to the client, which the client MUST use when the next DM session is started. In the example, commands in SyncBody are not shown although in practice, they would be there.<br/>
+在这个示例中，假设（如在上面2.4.4.2中）客户端尝试使用没有任何凭证的服务器发起连接（为了简洁，这里省略Pkg＃1）。服务器通过如上所述的方式向客户端发起应用层认证的质询，（Pkg＃2也从本示例中省略）。认证类型现在为syncml：auth-md5（MD5摘要访问认证）。客户端必须使用MD5凭据重新发送Pkg＃1（如下面的Pkg＃1所示）。服务器接受凭据，并且会话通过身份验证（下面的Pkg＃2）。此外，服务器向客户端发送下一个nonce，客户端必须在下一个DM会话开始时使用它。 在示例中，SyncBody中的命令不显示，虽然在实践中，他们会存在。
+
+Pkg #1 from Client:  客户端发送的包1:
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+    <VerDTD>1.2</VerDTD>
+    <VerProto>DM/1.2</VerProto>
+    <SessionID>1</SessionID>
+    <MsgID>2</MsgID> 
+    <Target><LocURI>http://www.syncml.org/mgmt-server</LocURI></Target> 
+    <Source>
+      <LocURI>IMEI:493005100592800</LocURI> 
+      <LocName>Bruce2</LocName> <!-- userid --> 
+    </Source>
+    <Cred>
+     <Meta>
+       <Type xmlns=’syncml:metinf’>syncml:auth-md5</Type>
+       <Format xmlns=’syncml :metinf’>b64</Format>
+     </Meta>
+    <Data>Zz6EivR3yeaaENcRN6lpAQ==</Data>
+    <!-- Base64 coded MD5 for user “Bruce2”, password “OhBehave”, nonce “Nonce” -->
+    </Cred>
+  </SyncHdr>
+  <SyncBody>
+     ...
+  </SyncBody>
+</SyncML>
+```
+Pkg #2 from Server:  服务器发送的包2:
