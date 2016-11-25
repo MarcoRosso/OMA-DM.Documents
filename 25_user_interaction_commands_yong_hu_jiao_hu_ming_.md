@@ -286,7 +286,50 @@ MAXDT参数必须有一个可以作为正整数计算的值。MAXDT的值被解�
 
 Example: 范例：
 ```
-<!-- Wait maximum 20 seconds for the user --> <Item><Data>MAXDT=20</Data></Item>
+<!-- Wait maximum 20 seconds for the user --> <Item>
+<Data>MAXDT=20</Data></Item>
 ```
  ### 2.5.3.3 DR (Default Response) 默认响应
- 
+ DR optional parameter specifies the initial state of the user interaction control widget. Other than setting the initial state of the user interaction control widget, DR has no other influence on the user interaction control widget. Interpretation for different user interaction types is the following:<br/>
+DR可选参数指定用户交互控件窗口小部件的初始状态。除了设置用户交互控件小部件的初始状态之外，DR对用户交互控件小部件没有其他影响。不同用户交互类型的解释如下：
+
+* If the user interaction is Notification, this optional parameter is ignored.<br/>
+如果用户交互是通知，则忽略此可选参数。
+* If the user interaction is a confirmation, 0 means that the reject user interface element is highlighted by default, 1 means that the accept user interface element is highlighted by default. Highlighted user interface element means that the "default" user interaction (like pressing Enter button) will select the highlighted user interface element. If the client user interface has no notion of highlighted user interface element, this parameter MAY be ignored.<br/>
+如果用户交互是确认，0表示拒绝用户界面元素默认突出显示，1表示默认情况下突出显示接受用户界面元素。突出显示的用户界面元素意味着“默认”用户交互（如按Enter按钮）将选择突出显示的用户界面元素。如果客户端用户界面没有突出显示的用户界面元素的概念，则可以忽略此参数。
+
+* If the user interaction is user input, DR value specifies the original text in the text input user interface element. This text MUST conform to the optional parameter syntax rules.<br/>
+如果用户交互是用户输入，DR值指定文本输入用户界面元素中的原始文本。此文本必须符合可选参数语法规则。
+* If the user interaction is single-choice, the DR value is the originally highlighted choice item; e.g. value between 1 and the number of items in the selection list.<br/>
+如果用户交互是单选项，则DR值是原始突出显示的选项项目；例如值介于1和选择列表中的项目数之间。
+* If the user interaction is a multi-choice, the DR value is a minus sign-separated list of originally highlighted values (for example: 2-3).<br/>
+* 如果用户交互是多选项，则DR值是以原始高亮显示的值的减号分隔列表（例如：2-3）。
+例子：
+
+Examples: 范例：
+```
+<!-- Accept by default in a Confirmation action --> 
+<Item><Data>DR=1</Data></Item>
+
+```
+```
+<!-- Default user entry of "John Doe" in an user input action --> 
+<Item><Data>DR=John+Doe</Data></Item>
+```
+```
+<!-- Default selection of item 3 in a single-choice action --> 
+<Item><Data>DR=3</Data></Item>
+```
+```
+<!-- Default selection of item 2 and 3 in a multi-choice action -->
+<Item><Data>DR=2-3</Data></Item>
+```
+ ### 2.5.3.4 MAXLEN (Maximum length of user input)  最大用户输入长度
+MAXLEN value is evaluated to a positive integer and determines the maximum number of characters that can be typed into the text input user interaction widget. The optional parameter MUST be ignored in all other kind of user interaction widget. If the specified maximum length of input string exceeds the capability of the client, the client MAY ignore the parameter.<br/>
+MAXLEN值计算为正整数，并确定可以输入到文本输入用户交互窗口小部件的最大字符数。 必须在所有其他类型的用户交互窗口小部件中忽略可选参数。 如果指定的输入字符串的最大长度超过客户端的能力，则客户端可以忽略该参数。
+
+Examples: 范例：
+```
+<!-- Maximum string length is 30 --> 
+<Item><Data>MAXLEN=30</Data></Item>
+```
