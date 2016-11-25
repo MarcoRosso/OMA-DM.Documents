@@ -250,7 +250,7 @@ Anytime after the Client or Server Initiated Management Alert, the client MAY se
 在客户端或服务器启动管理警报之后的任何时间，客户端可以向服务器发送通用警报消息。通用警报消息必须只能从客户端发送到服务器。服务器接收到通用警报后，服务器必须响应服务器如何处理所有项目的状态。
 
 The client MAY send multiple Alert messages of code “Generic Alert” or combine them together with multiple Items inside one or multiple Alert message of code “Generic Alert”. The Data in the Generic Alert message is not specified in the protocol, the protocol will specify how the client can inform the server what Type and Format it is. The server MUST support the Generic Alert Format but not all Types of the alert data. The Server MUST respond with status 415 “Unsupported media Type or Format” if the Type and Format are unsupported by the server. If the device does not support Large Object then the Alert message MUST NOT exceeds the message size.<br/>
-客户端可以发送代码“通用警报”的多个警报消息，或者将它们与代码“通用警报”的一个或多个警报消息中的多个项目组合在一起。通用警报消息中的数据未在协议中指定，协议将指定客户端如何通知服务器其类型和格式。服务器必须支持通用警报格式，但不支持所有类型的警报数据。如果服务器不支持类型和格式，则服务器必须响应状态415“不支持的媒体类型或格式”。如果设备不支持大对象，则警报消息不得超过消息大小。
+客户端可以发送代码“通用警报”的多个警报消息，或者将它们与代码“通用警报”的一个或多个警报消息中的多个项目组合在一起。通用警报消息中的数据未在协议中指定，协议将指定客户端如何通知服务器其类型和格式。服务器必须支持通用警报格式，但不支持所有类型的警报数据。如果服务器不支持类型和格式，则服务器必须响应状态415“Unsupported media Type or Format”。如果设备不支持大对象，则警报消息不得超过消息大小。
 
 This specification only specifies what is required from the protocol perspective, some registered Generic Alerts MAY have additional requirements for different Types of Generic Alert Data. For example, one registered Type of Alert may define that a reference to a Management Object is mandatory and the Format must be of Type Integer and the Alert Data must be included inside the Data.<br/>
 
