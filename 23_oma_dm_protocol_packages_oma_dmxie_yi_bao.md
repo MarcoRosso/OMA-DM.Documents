@@ -227,7 +227,7 @@ Package 4 is used to close the management session. If the server sends any opera
  * The Source element MUST be used to identify the source device.<br/>
  Source元素必须用于标识源设备。
 2. Status MUST be returned for the SyncHdr sent by the device management server in the SyncBody and if any Alerts were sent by the client then the server MUST send Status for these Alerts.<br/>
-必须为SyncBody中的设备管理服务器发送的SyncHdr返回状态，并且如果客户端发送了任何警报，则服务器必须为这些警报发送状态。
+必须为SyncBody中的设备管理服务器发送的SyncHdr返回Status，并且如果客户端发送了任何警报，则服务器必须为这些警报发送状态。
 
 3. Any management operation including user interaction in the SyncML document (e.g. Alert, Sequence, Replace) placed into the SyncBody. <br/>
 包括置于SyncBody中的SyncML文档（例如，Alert，Sequence，Replace）中的用户交互的任何管理操作。
