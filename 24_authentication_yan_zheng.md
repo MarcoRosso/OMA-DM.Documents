@@ -39,3 +39,12 @@ In case of authentication failure (either the userid and/or password was wrong o
   * In case the session is continued, the next message containing the proper credentials MUST contain a Status for the SyncHdr, MUST have the same SessionID as the previous messages and the message MUST be sent to the RespURI, if it was specified in the response indicating the authentication failure.<br/>
 在会话继续的情况下，包含适当证书的下一个消息必须包含SyncHdr的状态，必须具有与先前消息相同的SessionID，并且消息必须发送到RespURI，如果它在响应中指定认证失败。
 
+## 2.4.2 Authorization 授权
+The Cred element MUST be included in requests (message or command), which are sent after receiving the 401 or 407 responses if the request is repeated. In addition, it can be sent in the first request from a device if the authentication is mandated through pre-configuration. The content of the Cred element is specified in [DMREPPRO]. The authentication type is dependent on the challenge (See the previous chapter) or the pre-configuration.<br/>
+Cred元素必须包括在请求（消息或命令）中，如果请求被重复，它们在接收401或407响应之后发送。此外，如果通过预配置强制认证，则可以在来自设备的第一请求中发送它。 Cred元素的内容在[DMREPPRO]中指定。 认证类型取决于挑战（参见前一章）或预配置。
+
+## 2.4.3 Application Layer Authentication 应用层认证
+The authentication on the application layer is accomplished by using the Cred element in SyncHdr and the Status command associated with SyncHdr. Within the Status command, the challenge for the authentication is carried as defined earlier. The authentication can happen both directions, i.e., the client can authenticate itself to the server and the server can authenticate itself to the client.<br/>
+应用层上的认证通过使用SyncHdr中的Cred元素和与SyncHdr相关联的Status命令来实现。在状态命令中，如先前定义的那样进行认证的挑战。 认证可以在两个方向发生，即，客户端可以向服务器认证自身，并且服务器可以向客户端认证自身。
+
+## 2.4.4 Authentication Examples 验证示例
