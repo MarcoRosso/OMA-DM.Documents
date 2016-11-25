@@ -219,3 +219,32 @@ Response to this Alert returns the selected item. The number of the selected ite
   </Item>
 </Status>
 ```
+## 2.5.2.5 Progress notification (object download) 进度通知（对象下载）
+Users SHOULD be able to track the progress of a longer management operation like a file or object download. OMA Device Management Protocol will not provide a separate mechanism for progress notification but it will entirely reuse the SyncML Size Meta-Information tag defined in SyncML Meta-Information DTD [META] and will make a recommendation for device manufacturers to use this tag for displaying progress notification.<br/>
+推荐用户能够跟踪较长的管理操作（如文件或对象下载）的进度。OMA设备管理协议不会为进度通知提供单独的机制，但它将完全重用SyncML元信息DTD[META]中定义的SyncML大小元信息标签，并且将建议设备制造商使用此标签显示进度通知。
+
+According to SyncML Meta-Information DTD, any Item can be tagged by Size meta-information that indicates the size of the object. When the device encounters a Size meta-information tag in a received Item, it MAY display a progress notification on the user interface if the device decides that the item with the given size will take a longer time to download. The progress notification bar is scaled according to the length information conveyed in the Size element. If the size information is not sent by the server, the client is not able to display a scaled progress bar so it is recommended that servers send this information if the object to be downloaded by the client is reasonably large.<br/>
+根据SyncML元信息DTD，任何Item可以由指示对象的大小的Size元信息来标记。当设备在所接收的项目中遇到Size元信息标签时，如果设备确定具有给定大小的项目将花费较长时间下载，则其可以在用户界面上显示进度通知。进度通知栏根据Size元素中传达的长度信息进行缩放。如果服务器未发送大小信息，则客户端无法显示缩放的进度条，因此如果客户端要下载的对象相当大，建议服务器发送此信息。
+
+Example of an antivirus data file download with Size Meta Information.
+使用Size元信息下载防病毒数据文件的示例。
+```
+<Add>
+  <CmdID>2</CmdID>
+  <Meta>
+  <Format xmlns="syncml:metinf">b64</Format> 
+  <Type xmlns="syncml:metinf">
+      application/antivirus-inc.virusdef </Type>
+  </Meta>
+  <Item>
+    <Meta>
+      <!-- Size of the data item to download --> 
+      <Size xmlns='syncml:metinf'>37214</Size>
+      </Meta>
+      <Target><LocURI>./antivirus_data</LocURI></Target>
+      <Data>
+      <!-- Base64-coded antivirus file -->
+      </Data>
+  </Item>
+</Add>
+```
