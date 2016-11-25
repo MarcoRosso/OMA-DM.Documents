@@ -243,4 +243,6 @@ CmdID是必需的。
   当类型或格式不是默认值[META]时，必须使用操作中或项目内部的Meta元素。
 
 The Final element MUST be used in the SyncBody for the message, which is the last in this package. Package 4 MAY close the management session by containing only the `<Final>` element (any management command or user interaction command will continue the session). Alternately, the server may send the Session Abort Alert (1223) to force the close of the session in extreme situations.<br/>
-Final元素必须在消息的SyncBody中使用，该消息是此程序包中的最后一个。`<Final>`元素（任何管理命令或用户交互命令将继续会话）关闭管理会话。或者，服务器可以发送会话中止警报（1223）以在极端情况下强制会话的关闭。
+Final元素必须在消息的SyncBody中使用，该消息是此程序包中的最后一个。包4可以通过只包含`<Final>`元素（任何管理命令或用户交互命令将继续会话）关闭管理会话。或者，服务器可以发送会话中止警报（1223）以在极端情况下强制会话的关闭。
+
+## 2.3.7 Generic Alert 通用警报
