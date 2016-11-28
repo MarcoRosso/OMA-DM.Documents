@@ -13,8 +13,33 @@ Each node has a type that determines what kind of management content can be set/
 
 In OMA DM Protocol, the target and source of a command are identified by the Target and Source elements respectively. Target refers to the recipient, and Source refers to the originator. Exceptions to this approach are mentioned in management commands requiring exception.<br/>
 在OMA DM协议中，命令的目标和源分别由目标和源元素标识。目标是指收件人，而源是指发起者。在需要异常的管理命令中提到了此方法的异常。
+## Conventions 约定
+All sections and appendixes, except “Scope” and “Introduction”, are normative, unless they are explicitly indicated to be informative.<br/>
+除了“范围”和“简介”之外，所有章节和附录都是规范性的，除非明确指出它们是信息性的。
 
-# Reference 参考
+Any reference to components of the DTD's or XML snippets are specified in this “typeface”.<br/>
+在此typeface中指定对DTD或XML片段的组件的任何引用。
+
+## Definitions 定义
+See SyncML Representation Protocol [REPPRO] and SyncML Synchronization Protocol [SYNCPRO] for definitions of SyncML terms used within this specification.<br/>
+有关本规范中使用的SyncML术语的定义，请参阅SyncML表示协议[REPPRO]和SyncML同步协议[SYNCPRO]。
+
+See the DM Tree and Description document [DMTND] for definitions of terms related to the management tree.<br/>
+有关与管理树相关的术语的定义，请参阅DM树和描述文档[DEMAND]。
+
+Full device URI: Full path to a device resource specified in the device's context. It is always a URI relative to the devices’ root node. Full device URI must always be used in the present specification.<br/>
+完整设备URI: 在设备上下文中指定的设备资源的完整路径。 它总是一个相对于设备根节点的URI。 在本规范中必须始终使用完整设备URI。
+
+Message: Atomic unit in OMA DM Protocol, one packet that the bearer network is able to accept. One OMA DM Protocol package could be divided into many messages.<br/>
+消息：OMA DM协议中的原子单元，承载网能够接受的一个分组。 一个OMA DM协议包可以被分成许多消息。
+
+Package: Package is a conceptual set of commands that could be spread over multiple messages.<br/>
+包：包是可以分布在多个消息上的一组概念性命令。
+
+Resource: A network data object or service that can be identified by a URI, as defined in Hypertext Transfer Protocol [RFC2616]. Resources may be available in multiple representations (e.g. multiple languages, data formats, size, and resolutions) or vary in other ways.<br/>
+资源：可由超文本传输协议[RFC2616]中定义的URI标识的网络数据对象或服务。 资源可以以多种表示（例如，多种语言，数据格式，大小和分辨率）或以其它方式。
+
+## Reference 参考
 [DMNOTI]:“OMA Device Management Notification Initiated Session, Version 1.2”. Open Mobile Alliance .
 OMA-TS-DM_Notification-V1_2. URL:http://www.openmobilealliance.org
 
