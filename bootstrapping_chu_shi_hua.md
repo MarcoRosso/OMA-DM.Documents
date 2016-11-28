@@ -171,3 +171,49 @@ OMA DM服务器不能期望引导程序包中的命令有任何状态。当客�
 
 A typical bootstrap message will set the values for the DMAcc management object defined in [DMSTDOBJ].<br/>
 典型的初始化消息将设置[DMSTDOBJ]中定义的DMAcc管理对象的值。
+
+###3.1.4.5 Processing of the Bootstrap 初始化处理
+A Bootstrap message is processed just like a normal DM message, except that a response MUST NOT be sent back.<br/>
+初始化消息的处理与正常的DM消息相同，只是必须不发送回应。
+
+The device MAY rename a new MO. In the case of the Connectivity MO the device SHOULD also rename the values of the corresponding connectivity references to the new name for all MO’s encoded within the same TNDS object.<br/>
+设备可以重命名新的MO。在连接MO的情况下，推荐设备将对应连接性引用的值重命名为在同一TNDS对象内编码的所有MO的新名称。
+
+When a TNDS object contains a MO where connectivity references are linked to a Connectivity or Proxy MO that also are included in the same TNDS object, then the values of those connectivity references MAY contain a URI that starts with “./Inbox”. In that case the URI MUST have the value of “./Inbox/” plus the URI of that Connectivity MO’s location in the same TNDS object.<br/>
+当TNDS对象包含MO，其中连接性引用链接到也包括在同一TNDS对象中的连接或代理MO时，那些连接引用的值可以包含以“./Inbox”开头的URI。 在这种情况下，URI必须具有值“./Inbox/”加上该连接MO在同一TNDS对象中的位置的URI。
+
+This is an example of a TNDS object where only part of the TNDS object is shown:<br/>
+这是一个TNDS对象的示例，其中仅显示部分TNDS对象：
+```
+<MgmtTree>
+      <VerDTD>1.2</VerDTD> 
+      <Node>
+         <NodeName>OperatorX</NodeName> <!--- DM Account MO --->
+         <RTProperties>
+            <Format> 
+                <node/>
+            </Format>
+            <Type><DDFName>org.openmobilealliance/1.0/w7</DDFName></Type> 
+         </RTProperties>
+         <Node> 
+             <NodeName>PrefConRef</NodeName> 
+             <RTProperties>
+                <Format> 
+                      <chr/>
+                </Format>
+                <Type><MIME>text/plain</MIME></Type> 
+             </RTProperties>
+             <Value>./Inbox/Internet</Value> 
+         </Node>
+          ...
+          <NodeName>Internet</NodeName> <!--- Connectivity MO --->
+          <RTProperties>
+              <Format> 
+                  <node/>
+              </Format>
+              <Type><DDFName>org.openmobilealliance/1.0/ConnMO</DDFName></Type> 
+          </RTProperties>          
+          ... 
+                  </Node>
+</MgmtTree>I
+```
