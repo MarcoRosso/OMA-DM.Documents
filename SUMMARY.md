@@ -16,5 +16,5 @@
    * [2.6 Protocol examples 协议示例](26_protocol_examples_xie_yi_shi_li.md)
 * [Bootstrap 初始化](bootstrap_chu_shi_hua.md)
    * [3.1 Bootstrapping 初始化](bootstrapping_chu_shi_hua.md)
-   * 3.2 Appendix 附录
+   * [3.2 Appendix 附录](32_appendix_fu_lu.md)
 
