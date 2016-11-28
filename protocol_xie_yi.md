@@ -5,13 +5,6 @@ OMA设备管理协议允许在节点上执行管理命令。 它使用类似于S
 Actions are represented by OMA Device Management Protocol Commands, which are described in [REPPRO] and Device Management Representation Protocol [DMREPPRO]. The commands and message structure used correspond identically to that of the [SYNCPRO]. Thus, the DTD for the Management Protocol is the DTD from [SYNCPRO].<br/>
 可执行操作由在[REPPRO]和设备管理表示协议[DMREPPRO]中描述的OMA设备管理协议命令表示。 所使用的命令和消息结构与[SYNCPRO]的命令和消息结构相同。 因此，管理协议的DTD是来自[SYNCPRO]的DTD。
 
-
-[SYNCPRO]:“SyncML Data Sync Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-DS_Protocol-V1_2. URL:http://www.openmobilealliance.org
-
-[REPPRO]: “SyncML Representation Protocol, version 1.2”. Open Mobile Alliance . OMA-TS-SyncML_RepPro-V1_2. URL:http://www.openmobilealliance.org
-
-[DMREPPRO]:“OMA Device Management Representation Protocol, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_RepPro-V1_2. URL:http://www.openmobilealliance.org
-
 Each node MUST be addressed by a unique full device URI. URIs MUST follow requirements specified in Uniform Resource Identifiers (URI) [RFC2396] with the restrictions as specified in OMA Device Management Tree and Descriptions [DMTND]. Node addressing is defined in [DMTND].<br/>
 每个节点必须通过唯一的完整设备URI来寻址。 URI必须遵循具有在OMA设备管理树和描述[DMTND]中指定的有限制的统一资源标识符（URI）[RFC2396]中指定的要求。节点寻址在[DMTND]中定义.
 
