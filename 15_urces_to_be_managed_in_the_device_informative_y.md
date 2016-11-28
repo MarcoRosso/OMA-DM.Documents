@@ -29,14 +29,29 @@ Following is a non-exhaustive list of common mobile applications that are expect
 * Device Synchronization 设备同步
 * Device Management Agents 设备管理代理
 
-## 1.5.2 Applications Requiring Managed Resources 应用程序和服务资源类别
+## 1.5.2 Application and Service Resource Categories 应用程序和服务资源类别
 The categories of Managed Resources required by some or all of these Applications are detailed in this section and are comprised of:<br/>
 这些部分或全部应用程序所需的管理资源类别在本节中详细介绍，包括：
 
 * Connectivity 连接
 * Device Physical 物理设备
-• Security 安全
-• Performance 性能
-• Billing 计费
-• User Preferences & Customization 用户首选项和自定义
-• Other 其它
+* Security 安全
+* Performance 性能
+* Billing 计费
+* User Preferences & Customization 用户首选项和自定义
+* Other 其它
+
+In the following tables the Default Actor “Management Authority” is abbreviated MA. <br/>
+在下面的表中，默认动作者“管理权限”缩写为MA。
+
+Change Policy has generic settings as follows:<br/>
+更改策略具有如下的通用设置：
+
+Without Authorization, implying no or weak authentication. Usually applies to User or Subscriber modifiable resources – abbreviated W/O A<br/>
+没有授权，意味着没有或较弱的身份验证。通常适用于用户或订户可修改的资源（缩写为W/O A）
+  
+With Authorization, implying data integrity required, authentication with cryptographic means. Usually associated with Network or Service Provider Management Authorities, Enterprise/IT Administrators, or other MA Delegates. – abbreviated W/A<br/>
+使用授权，意味着需要数据完整性，使用加密方法进行身份验证。通常与网络或服务提供商管理机构，企业/IT管理员或其他MA代表相关联。-缩写为W/A
+  
+Unknown (which may mean it’s ambiguous) – abbreviated Unk<br/>
+未知（这可能意味着它的模棱两可） -缩写Unk
