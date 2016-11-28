@@ -47,4 +47,45 @@ Figure gives an overview of this scenario.<br/>
 ####3.1.1.2.1.1 Bootstrap from smartcard 从智能卡的初始化
 This is a convenient way to bootstrap a device from an end user perspective because the user does not have to do anything. In this scenario the DM client is able to obtain the information necessary to bootstrap it from the smartcard. There is no need to transport sensitive bootstrap commands and information, e.g. shared secrets, over the air. The smartcard is secure, ensuring that the bootstrapping commands have been authorized. A device supporting the smartcard can be bootstrapped for DM without necessarily being purchased from the operator. In this scenario, either the DM Server or the Client initiates an OMA DM session after user bootstraps and personalizes the Device. If Server initiates management session, the Server is informed about Device address or phone number previously.<br/>
 这是从最终用户角度初始化设备的方便方法，因为用户不必做任何事情。 在这种情况下，DM客户端能够从智能卡获得初始化它所需的信息。不需要传输敏感的初始化命令和信息，例如在空下载中传输机密数据。智能卡是安全的，可以确保引导命令已被授权。支持智能卡的设备可以为DM初始化而不必从运营商处购买。在这种情况下，DM服务器或客户端在用户初始化和个性化设备后启动OMA DM会话。如果服务器启动管理会话，则设备地址或电话号码在之前告知服务器。
+
+Figure gives an overview of this scenario.<br/>
+图给出了这种情况的概述。
 ![](3.1.1.2.1.1.jpeg)
+###3.1.1.2.2 Server initiated bootstrap 服务器启动的引导
+
+In this scenario, the devices leave the assembly line in a clean and empty state. Once a user acquires a device and personalizes it, e.g. by inserting a SIM, the prerequisites for this process are in place. The problem is now to inform the server of the identity, address or phone number of the device and this can be achieved in many ways.<br/>
+在这种情况下，设备在干净和空的状态离开装配线。一旦用户获取设备并对其进行个性化，例如，插入SIM，则该过程的先决条件满足。现在的问题是通知服务器设备的身份，地址或电话号码，这可以以许多方式实现。
+
+* It could be done at the point-of-sales where a sales system ties in with the management system and delivers the information.<br/>
+可以在销售点，销售系统与管理系统结合提供信息。
+* It could be done through a self-service web site where the user enters her own phone number.<br/>
+可以通过自助服务网站完成，用户输入自己的电话号码。
+* It could be done by the network the first time the device registers to the network. When this happens a trigger could be sent from the core network to the management server with the number used by the device.<br/>
+它可以由设备首次注册到网络时完成。当这种情况发生时，触发器可以从核心网络发送到具有设备使用的号码的管理服务器。
+* It could be done with a voice prompt system where the user is prompted to key in her phone number using DTMF.<br/>
+可以使用语音提示系统完成，即提示用户使用DTMF键入她的电话号码。
+
+Regardless of how the phone number or device address reaches the management server, the server is now in a position where it can send out an OMA DM bootstrap message. This bootstrap message, whose structure and content are defined in this document, contains enough information for the device to be able to initiate a management session with the device management server that sent out the bootstrap message.<br/>
+不管电话号码或设备地址如何到达管理服务器，服务器现在处于可以发送OMA DM初始化消息的状态。此初始化消息（其结构和内容在本文档中定义）包含足够的信息，以使设备能够发起与发送初始化消息的设备管理服务器的管理会话。
+
+It is important that DM clients accept bootstrapping commands only from authorized servers [DMSecurity].<br/>
+重要的是，DM客户端只接受来自授权服务器[DMSecurity]的引导命令。
+
+Figure gives an overview of this scenario.<br/>
+图给出了这种情况的概述。
+
+![](3.1.1.2.2.jpeg)
+##3.1.2 Bootstrap profiles 初始化配置文件
+OMA DM has been designed to meet the management requirements of many different types of devices. For some of these device types there already exists a bootstrap or provisioning mechanism. In these cases OMA DM leverages the existing mechanisms so that backwards compatibility and simple deployment can be achieved. To define how different kinds of devices can be bootstrapped and to specify how OMA DM leverages existing standards this document introduces the concept of bootstrap profiles. Each profile defines its own security, transport and data format. Support for any particular profile is OPTIONAL.<br/>
+OMA DM已经被设计为满足许多不同类型的设备的管理要求。对于这些设备类型中的一些，已经存在初始化或配置机制。 在这些情况下，OMA DM利用现有机制，以便可以实现向后兼容性和简单部署。要定义如何初始化不同类型的设备，并指定OMA DM如何利用现有标准，本文档介绍了初始化配置文件的概念。每个配置文件定义其自身的安全性，传输和数据格式。支持任何特定的配置文件是可选的。
+
+Currently two profiles are planned, but as interest in OMA DM grows and usage of it increases more profiles can be added. The two profiles are:<br/>
+目前在计划中的有两个配置文件，但随着对OMA DM的兴趣的增加和使用的增多更多的配置文件可以被添加。这两个配置文件是：
+
+* OMA Client Provisioning OMA客户端配置<br/>
+This profile specifies alignment of two existing enablers – OMA Client Provisioning [ERELDCP] and OMA Device Management [ERELDDM]. The profile defines how the information provisioned using OMA Client Provisioning can be transferred to the management tree specified in the OMA Device Management. In this profile at least the mapping of w7 (DM account) information to the management tree needs to be supported, but other provisioning information can also be mapped to the management tree.
+此配置文件指定两个现有启用程序（OMA客户端配置[ERELDCP]和OMA设备管理[ERELDDM]）的对齐。配置文件定义如何将使用OMA客户端配置提供的信息传输到OMA设备管理中指定的管理树。在此配置文件中，至少需要支持w7（DM帐户）信息到管理树的映射，但是其他配置信息也可以映射到管理树。
+
+* OMA Device Management OMA设备管理<br/>
+This profile defines how the OMA Device Management [ERELDDM] can be used for bootstrapping.<br/>
+此配置文件定义如何使用OMA设备管理[ERELDDM]进行引导。
