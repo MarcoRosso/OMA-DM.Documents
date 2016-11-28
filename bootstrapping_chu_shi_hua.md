@@ -98,7 +98,7 @@ OMA客户端配置启用程序[ERELDCP]旨在向设备提供初始配置信息�
 The content of the Bootstrap message is based on the OMA Provisioning Content Specification [PROVCONT]. In order to enable the usage of the OMA Provisioning Content Specification within the OMA Device Management framework, the DM application registration document w7 [ACw7DM] is released by DM group to provide information how the APPLICATION characteristic in OMA Provisioning content [PROVCONT] is used to provision OMA Device Management enabler [ERELDDM] parameters.<br/>
 初始化消息的内容基于OMA初始化内容规范[PROVCONT]。为了能够在OMA设备管理框架内使用OMA配置内容规范，DM组发布DM应用程序注册文档w7 [ACw7DM]，以提供如何使用OMA配置内容[PROVCONT]中的APPLICATION特性配置OMA设备管理启用程序[ERELDDM]参数。
 
-###3.1.3.1 Transports 运输
+###3.1.3.1 Transports 传输
 Bootstrapping using OMA Client Provisioning profile is done as defined in the OMA Provisioning Bootstrap specification [PROVBOOT].<br/>
 使用OMA客户端配置文件初始化是按照OMA配置初始化规范[PROVBOOT]中的定义完成的。
 
@@ -144,3 +144,18 @@ Devices supporting both Client Provisioning and Device Management MAY decide to 
 支持客户端配置和设备管理的设备可以决定将客户端配置消息中配置的其他信息映射到管理树。 一般映射在附录中描述，但是是在管理对象文档中描述的必须遵循的特定机制的情况下。
 
 ##3.1.4 OMA Device Management Profile OMA设备管理配置文件
+The content of the Bootstrap message is a standard OMA DM message that MUST be encoded into [WBXML1.1], [WBXML1.2], [WBXML1.3]. Clients MUST support embedded WBXML encoded TNDS objects [DMTNDS] and MUST support the inbox. In order to be bootstrapped successfully the DM client requires both DM account information and connectivity information. It is RECOMMENDED to use standardized connectivity MOs to represent the connectivity information.<br/>
+初始化消息的内容是必须编码为[WBXML1.1]，[WBXML1.2]，[WBXML1.3]的标准的OMA DM消息。客户端必须支持嵌入的WBXML编码的TNDS对象[DMTNDS]，并且必须支持收件箱。为了成功初始化，DM客户端需要DM帐户信息和连接信息。推荐使用标准化连通性MO来表示连接信息。
+
+###3.1.4.1 Transport 传输
+Any transport MAY be used to send the Bootstrap message to the DM client. Security appropriate for bootstrapping a device securely, and appropriate for the transport used MUST be employed. Otherwise, transport neutral security MUST be employed. See the security document for further information [DMSecurity].<br/>
+任何传输都可以用于向DM客户端发送初始化消息。它必须使用适合于安全地初始化设备并且适合于所使用的传输的安全性。 否则，必须使用运输中性安全。 更多有关信息，请参阅安全文档[DMSecurity]。
+
+###3.1.4.2 Management tree ACL and bootstrap 管理树ACL和初始化
+The policy that the device consults to decide if a bootstrap message will be accepted and what access rights to be granted for the new management authority is outside the scope of this specification. If a bootstrap message is accepted it MUST be processed according to the conditions described in section 3.1.4.5, in order for the bootstrap to be successful.<br/>
+设备参考以决定是否接受初始化消息以及为新管理权限授予什么访问权限的策略不在本规范的范围之内。 如果接受初始化消息，它必须根据3.1.4.5节中描述的条件进行处理，以便初始化成功。
+
+###3.1.4.3 Management Object Access Rights 管理对象访问权限
+When a DM boostrap message adds new TNDS objects - any ACL values that are to be set for these objects MUST be included in the TNDS data as ACL property data for the applicable nodes.<br/>
+当DM初始化消息添加新的TRENDS对象时 - 要为这些对象设置的任何ACL值必须作为适用节点的ACL属性数据包含在TNDS数据中。
+
