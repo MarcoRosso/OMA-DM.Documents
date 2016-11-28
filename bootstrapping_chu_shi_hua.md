@@ -140,3 +140,7 @@ Client device MUST give the names for the dynamic nodes as described in Section 
 客户端设备必须给出动态节点的名称，如第3.1.3.2节所述。
 
 ###3.1.3.7 Other Client Provisioning information其他客户端配置信息
+Devices supporting both Client Provisioning and Device Management MAY decide to map other information provisioned in the Client Provisioning message to the management tree. A general mapping is described in Appendix, but in case a specific mechanism is described in the Management Object document that MUST be followed.<br/>
+支持客户端配置和设备管理的设备可以决定将客户端配置消息中配置的其他信息映射到管理树。 一般映射在附录中描述，但是是在管理对象文档中描述的必须遵循的特定机制的情况下。
+
+##3.1.4 OMA Device Management Profile OMA设备管理配置文件
