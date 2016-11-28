@@ -28,3 +28,15 @@ Following is a non-exhaustive list of common mobile applications that are expect
 * Internet Browser 网络浏览器
 * Device Synchronization 设备同步
 * Device Management Agents 设备管理代理
+
+## 1.5.2 Applications Requiring Managed Resources 应用程序和服务资源类别
+The categories of Managed Resources required by some or all of these Applications are detailed in this section and are comprised of:<br/>
+这些部分或全部应用程序所需的管理资源类别在本节中详细介绍，包括：
+
+* Connectivity 连接
+* Device Physical 物理设备
+• Security 安全
+• Performance 性能
+• Billing 计费
+• User Preferences & Customization 用户首选项和自定义
+• Other 其它
