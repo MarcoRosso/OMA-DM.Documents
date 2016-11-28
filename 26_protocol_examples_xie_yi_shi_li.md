@@ -383,5 +383,55 @@ Operator initiates a regular antivirus software update on PDA clients. The serve
     <Final/>
   </SyncBody>
 </SyncML>
-
+```
+  ### 2.6.2.3 Package 3: Client response 包3:客户端响应
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+     <VerDTD>1.2</VerDTD>
+     <VerProto>DM/1.2</VerProto>
+     <SessionID>1</SessionID>
+     <MsgID>2</MsgID>
+     <Target> 
+         <LocURI>http://www.syncml.org/mgmt-server</LocURI>
+     </Target>
+     <Source>
+        <LocURI>IMEI:493005100592800</LocURI> </Source>
+     </SyncHdr>
+  <SyncBody>
+    <Status>
+      <MsgRef>1</MsgRef>
+      <CmdID>1</CmdID>
+      <Cmd>SyncHdr</Cmd>
+      <Data>212</Data>
+    </Status>
+    <Status>
+      <MsgRef>1</MsgRef>
+      <CmdRef>2</CmdRef>
+      <CmdID>2</CmdID>
+      <Cmd>Alert</Cmd>
+      <Data>200</Data><!-- User notification OK -->
+    </Status>
+    <Status>
+      <MsgRef>1</MsgRef>
+      <CmdRef>4</CmdRef>
+      <CmdID>4</CmdID>
+      <Cmd>Get</Cmd> 
+      <TargetRef>./antivirus_data/version</TargetRef> 
+      <Data>200</Data><!-- Get OK -->
+    </Status>
+    <!-- Results for the Get: antivirus version number --> 
+    <Results>
+      <MsgRef>1</MsgRef><CmdRef>4</CmdRef> 
+      <CmdID>3</CmdID>
+    <Item>
+      <Source> 
+      <LocURI>./antivirus_data/version</LocURI>
+      </Source>
+      <Data>antivirus-inc/20010522b/5</Data> 
+    </Item>
+    </Results>
+    <Final/>
+  </SyncBody>
+</SyncML>
 ```
