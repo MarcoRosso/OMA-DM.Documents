@@ -513,3 +513,30 @@ application/antivirus-inc.virusdef
   </SyncBody>
 </SyncML>
 ```
+  ### 2.6.2.6 Package 4: Finish the protocol, no continuation 包4：完成协议，不继续
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+     <VerDTD>1.2</VerDTD>
+     <VerProto>DM/1.2</VerProto>
+     <SessionID>1</SessionID>
+     <MsgID>3</MsgID>
+     <Target> 
+       <LocURI>IMEI:493005100592800</LocURI>
+     </Target>
+     <Source>
+        <LocURI>http://www.syncml.org/mgmt-server</LocURI> 
+     </Source>
+  </SyncHdr>
+<SyncBody>
+   <Status>
+     <MsgRef>3</MsgRef>
+     <CmdID>1</CmdID>
+     <CmdRef>0</CmdRef>
+     <Cmd>SyncHdr</Cmd>
+     <Data>200</Data>
+    </Status>
+  <Final/>
+</SyncBody>
+</SyncML>
+ ```
