@@ -133,4 +133,50 @@ SIM GSM Subscriber Identity Module GSM用户识别模块
 WAP Wireless Application Protocol 无线应用协议
 
 
+##Reference 参考
+[ACw7DM]: “OMA DM w7 Application Characteristic”. Working file in AC directory:
+http://www.openmobilealliance.org/tech/omna/dm-ac/ac_w7_dm-v1_0.txt
 
+[C.S0023-B_v1.0]: “Removable User Identity Module For Spread Spectrum Systems”, 3GPP2 C.S0023-B version 1.0, URL:http://www.3gpp2.org/Public_html/specs/C.S0023-B_v1.0_040426.pdf
+
+[DMSecurity]: “OMA Device Management Security, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_Security-V1_2. URL:http://www.openmobilealliance.org
+
+[DMSTDOBJ]: “OMA Device Management Standardized Objects, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_StdObj-V1_2. URL:http://www.openmobilealliance.org
+
+[DMTND]: “OMA Device Management Tree and Description, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_TND-V1_2. URL:http://www.openmobilealliance.org
+
+[DMTNDS]: “OMA Device Management Tree and Description Serialization, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_TNDS-V1_2. URL:http://www.openmobilealliance.org
+
+[ERELDCP]: “Enabler Release Definition for OMA Client Provisioning Specifications, version 1.1”. Open Mobile Alliance  . OMA-ERELD-ClientProvisioning-V1_1. URL:http://www.openmobilealliance.org
+
+[ERELDDM]: “Enabler Release Definition for OMA Device Management Specifications, version 1.2”. Open Mobile Alliance . OMA-ERELD-DM-V1_2. URL:http//:www.openmobilealliance.org
+
+[IOPPROC]:“OMA Interoperability Policy and Process”, Version 1.1, Open Mobile AllianceTM, OMA-IOP- Process-V1_1, URL:http://www.openmobilealliance.org
+
+[ISO7816-4]: ISO/IEC 7816-4 (1995): "Information technology - Identification cards - Integrated circuit(s) cards with contacts - Part 4: Inter-industry commands for interchange".
+
+[PKCS#15]: PKCS #15 v1.1: Cryptographic Token Information Syntax Standard”, RSA Laboratories, June 6, 2000. URL: ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-15/pkcs-15v1_1.pdf
+
+[PROVBOOT]: “Provisioning Bootstrap 1.1”. Open Mobile Alliance . OMA-WAP-ProvBoot-v1_1. URL:http://www.openmobilealliance.org
+
+[PROVCONT]:“Provisioning Content 1.1”. Open Mobile Alliance . OMA-WAP-ProvCont-v1_1. URL:http://www.openmobilealliance.org
+
+[PROVSC]: “Provisioning Smart Card Specification Version 1.1”. Open Mobile Alliance . OMA-WAP-ProvSC-v1_1. URL:http://www.openmobilealliance.org
+
+[RFC2119]: “Key words for use in RFCs to Indicate Requirement Levels”, S. Bradner, March 1997,
+URL:http://www.ietf.org/rfc/rfc2119.txt
+
+[TS102.221]: “Smart Cards; UICC-Terminal interface; Physical and logical characteristics”, (ETSI TS 102 221 release 6), URL:http://www.etsi.org/
+
+[TS131.102]:“Characteristics of the USIM application”, (ETSI TS 131.102), URL:http://www.etsi.org/ 
+
+[TS151.011]:“Specification of the Subscriber Identity Module - Mobile Equipment (SIM-ME) interface”,
+(ETSI TS 151 011), URL:http://www.etsi.org/
+
+[WBXML1.1]:“WAP Binary XML Content Format Specification”, WAP Forum . SPEC-WBXML-
+19990616.pdf. URL:http://www.openmobilealliance.org
+
+[WBXML1.2]:“WAP Binary XML Content Format Specification”, WAP Forum . WAP-154-WBXML.
+URL:http://www.openmobilealliance.org
+
+[WBXML1.3]:“WAP Binary XML Content Format Specification”, WAP Forum . WAP-192-WBXML. URL:http://www.openmobilealliance.org
