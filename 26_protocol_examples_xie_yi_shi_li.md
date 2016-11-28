@@ -435,3 +435,46 @@ Operator initiates a regular antivirus software update on PDA clients. The serve
   </SyncBody>
 </SyncML>
 ```
+  ### 2.6.2.4 Package 4: Continue with management operations 包4:继续管理操作
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+     <VerDTD>1.2</VerDTD>
+     <VerProto>DM/1.2</VerProto>
+     <SessionID>1</SessionID>
+     <MsgID>2</MsgID>
+     <Target>
+     <LocURI>IMEI:493005100592800</LocURI>
+     </Target>
+     <Source> 
+     <LocURI>http://www.syncml.org/mgmt-server</LocURI> 
+     </Source>
+  </SyncHdr>
+<SyncBody>
+     <Status>
+       <MsgRef>2</MsgRef>
+       <CmdID>1</CmdID>
+       <Cmd>SyncHdr</Cmd>
+       <Data>212</Data>
+     </Status>
+     <!-- Send now antivirus updates -->
+     <Replace>
+       <CmdID>2</CmdID>
+       <Meta>
+          <Format xmlns="syncml:metinf">b64</Format> 
+          <Type xmlns="syncml:metinf">
+application/antivirus-inc.virusdef 
+          </Type>
+       </Meta>
+       <Item>
+        <Target> 
+           <LocURI>./antivirus_data</LocURI>
+        </Target>
+        <Data><!-- Base64-coded antivirus file --></Data> 
+       </Item>
+      </Replace>
+     <Final/>
+  </SyncBody>
+</SyncML>
+
+```
