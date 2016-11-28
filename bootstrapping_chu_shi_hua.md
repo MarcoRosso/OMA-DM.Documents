@@ -106,6 +106,7 @@ Bootstrapping using OMA Client Provisioning profile is done as defined in the OM
 When device receives Client Provisioning document the device creates a management object for that information to the management tree in order to enable the subsequent management. Management object can have two different types of name space identifiers (Property Name described in [DMTND]) - One where the name is already given in the DDF [DMTND] and another where the name is dynamic separating the instances of the child nodes.<br/>
 当设备接收到客户端配置文档时，设备为管理树创建该信息的管理对象，以便启用后续管理。管理对象可以有两种不同类型的名称空间标识符（[DMTND]中描述的属性名称）-其中名称已经在DDF [DMTND]中给出，另一个名称是动态分隔子节点的实例。
 ![](3.1.3.2.jpeg)
+
 The name identifiers for named nodes are already given in the management object DDF. Also, the parameter mapping between Client Provisioning parameters and Management Object parameters MAY be specified in the Management Object specification. In addition a general rule that SHOULD be followed to map named information between Client Provisioning APPLICATION characteristic and standardized Application Connectivity Management Object template structure is given in Appendix .<br/>
 命名节点的名称标识符已经在管理对象DDF中给出。此外，客户端配置参数和管理对象参数之间的参数映射可以在管理对象规范中指定。此外，在附录中给出了在客户端配置APPLICATION特性和标准化应用连接管理对象模板结构之间推荐遵循的映射命名信息的一般规则。
 
@@ -217,3 +218,14 @@ This is an example of a TNDS object where only part of the TNDS object is shown:
                   </Node>
 </MgmtTree>I
 ```
+If a device encounters an item with a URI of the EXT sub-tree that it is not prepared to handle, the device MAY ignore that item in order that the bootstrap may succeed.<br/>
+果设备遇到具有其不准备处理的EXT子树的URI的项目，则设备可以忽略该项目，以便初始化可以成功。
+
+After successfully processing the bootstrap, the OMA DM client SHOULD automatically initiate a client-initiated session to any DM server configured in the bootstrap at the next practical opportunity (i.e., when network connectivity and other factors would allow such a connection).<br/>
+在成功处理初始化之后，推荐OMA DM客户端应当在下一个实际机会（即，当网络连接和其他因素将允许这种连接时）自动地向在初始化中配置的任何DM服务器发起客户端发起的会话。
+
+If the bootstrap message contains a MO that the device does not support, the device MAY ignore this MO, so the bootstrap can continue normally.<br/>
+如果初始化消息包含设备不支持的MO，则设备可以忽略此MO，因此引导可以正常继续。
+
+If the bootstrap message contains multiple versions of a MO, the device SHOULD use the latest version of that MO that it supports and ignore the other versions, so the bootstrap can continue normally.<br/>
+如果初始化消息包含MO的多个版本，则设备应该使用其支持的该MO的最新版本，并忽略其他版本，以此初始化可以正常继续。
