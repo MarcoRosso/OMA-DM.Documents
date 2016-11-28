@@ -18,3 +18,6 @@ This document covers the requirements needed to supply the core Device Managemen
 This document describes a management protocol using the SyncML Representation Protocol [REPPRO]. This protocol is called the OMA Device Management Protocol, abbreviated as OMA DM Protocol, and it defines the protocol for various management procedures.<br/>
 本文档描述了使用SyncML表示协议[REPPRO]的管理协议。 该协议被称为OMA设备管理协议（缩写为OMA DM协议），并且其定义用于各种管理过程的协议。
 
+## 3. Bootstrap 初始化
+This document defines how an OMA DM device is brought from a ‘clean’ state, to a state where it is capable to initiate a management session with a provisioned management server.<br/>
+本文档定义了OMA DM设备如何从“干净”状态进入其能够发起与预配置管理服务器的管理会话的状态。
