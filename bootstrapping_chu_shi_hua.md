@@ -159,3 +159,15 @@ The policy that the device consults to decide if a bootstrap message will be acc
 When a DM boostrap message adds new TNDS objects - any ACL values that are to be set for these objects MUST be included in the TNDS data as ACL property data for the applicable nodes.<br/>
 当DM初始化消息添加新的TRENDS对象时 - 要为这些对象设置的任何ACL值必须作为适用节点的ACL属性数据包含在TNDS数据中。
 
+###3.1.4.4 Bootstrap Message Content 初始化消息内容
+The content of a bootstrap message is an OMA DM message. However, it is a special package in many ways since it is not part of an ongoing OMA DM session but rather a one-time transfer of information. Hence, many of the elements needed to manage the session are superfluous in the context of bootstrapping, but they must still be included so that the message may be processed by the normal OMA DM client.<br/>
+引导消息的内容是OMA DM消息。 然而，它在许多方面是一个特殊的包，因为它不是正在进行的OMA DM会话的一部分，而是一次性的信息传递。 因此，在初始化的上下文中管理会话所需的许多元素是多余的，但是它们仍然必须被包括，使得消息可以由正常OMA DM客户端处理。
+
+All OMA DM bootstrap messages MUST be [WBXML1.1], [WBXML1.2], [WBXML1.3] encoded.<br/>
+所有OMA DM引导消息必须是[WBXML1.1]，[WBXML1.2]，[WBXML1.3]编码。
+
+OMA DM servers MUST NOT expect any Status for the command in a bootstrap package. An implicit acknowledgement of successful bootstrap can be concluded when the client connects to the server for the first management session.<br/>
+OMA DM服务器不能期望引导程序包中的命令有任何状态。当客户端连接到服务器进行第一个管理会话时，成功初始化的隐式确认可以被结束。
+
+A typical bootstrap message will set the values for the DMAcc management object defined in [DMSTDOBJ].<br/>
+典型的初始化消息将设置[DMSTDOBJ]中定义的DMAcc管理对象的值。
