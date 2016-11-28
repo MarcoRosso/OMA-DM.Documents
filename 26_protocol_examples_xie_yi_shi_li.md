@@ -478,3 +478,38 @@ application/antivirus-inc.virusdef
 </SyncML>
 
 ```
+  ### 2.6.2.5 Restart protocol iteration with Package 3: Client response 重新启动协议迭代与包3：客户端响应
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+     <VerDTD>1.2</VerDTD>
+     <VerProto>DM/1.2</VerProto>
+     <SessionID>1</SessionID>
+     <MsgID>3</MsgID>
+     <Target> 
+         <LocURI>http://www.syncml.org/mgmt-server</LocURI>
+     </Target>
+     <Source>
+        <LocURI>IMEI:493005100592800</LocURI> 
+     </Source>
+  </SyncHdr>
+  <SyncBody>
+     <Status>
+       <MsgRef>2</MsgRef>
+       <CmdID>1</CmdID>
+       <Cmd>SyncHdr</Cmd>
+       <Data>200</Data>
+     </Status>
+     <Status>
+        <MsgRef>1</MsgRef>
+        <CmdRef>2</CmdRef>
+        <CmdID>2</CmdID>
+        <Cmd>Replace</Cmd> 
+        <TargetRef>./antivirus_data</TargetRef> 
+        <!-- OK, antivirus update loaded --> 
+        <Data>200</Data>
+      </Status>
+     <Final/>
+  </SyncBody>
+</SyncML>
+```
