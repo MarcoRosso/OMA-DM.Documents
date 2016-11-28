@@ -229,3 +229,11 @@ If the bootstrap message contains a MO that the device does not support, the dev
 
 If the bootstrap message contains multiple versions of a MO, the device SHOULD use the latest version of that MO that it supports and ignore the other versions, so the bootstrap can continue normally.<br/>
 如果初始化消息包含MO的多个版本，则设备应该使用其支持的该MO的最新版本，并忽略其他版本，以此初始化可以正常继续。
+
+
+###3.1.4.6 Smartcard 智能卡
+If the Device supports a smartcard, the DM Client MUST support detection, retrieval, and processing of bootstrap data from the smartcard as described in Appendix. The DM Client MAY include configurable security policy to disable smartcard bootstrap functions. If the smartcard bootstrap function is enabled and the smartcard has not been rejected by the device (for example, because of a SIM-locking mechanism), the DM Client SHALL retrieve bootstrap data from the smartcard when the device is switched on and apply it to the device configuration.<br/>
+如果设备支持智能卡，DM客户端必须支持检测，检索和处理来自智能卡的初始化数据，如附录所述，DM客户端可以利用可配置的安全策略以禁用智能卡引导功能。如果启用智能卡初始化功能并且智能卡未被设备拒绝（例如，由于SIM锁定机制），则DM客户端在设备开启时必须从智能卡检索引导数据并将其应用于该设备配置。
+
+The device SHOULD check that the bootstrap data for all DM servers previously bootstrapped from the smartcard are still available from the smartcard when the device is switched on; if not, the account information for any DM Servers that were previously bootstrapped from the smartcard but are no longer stored on the smartcard SHOULD be removed from the Device Management tree.<br/>
+推荐设备检查当设备被打开时，先前从智能卡初始化的所有DM服务器的初始化数据在智能卡中仍然可用; 如果不是，推荐先前从智能卡初始化但不再存储在智能卡上的任何DM服务器的帐户信息从设备管理树中移除。
