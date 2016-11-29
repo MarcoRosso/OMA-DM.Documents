@@ -385,7 +385,7 @@ application/vnd.syncml.dm+wbxml (for binary, WBXML representation).<br/>
 
 Example: 示例
 ```
-<SyncML xmlns=’SYNCML:SYNCML1.2’> 
+*<SyncML xmlns=’SYNCML:SYNCML1.2’>* 
   <SyncHdr>
      <VerDTD>1.2</VerDTD>
      <VerProto>DM/1.2</VerProto>
@@ -401,5 +401,70 @@ Example: 示例
   <SyncBody>
      ...blah, blah...
   </SyncBody>
+*</SyncML>*
+```
+
+### 4.1.2.2 SyncHdr
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
+Example: 示例
+``` 
+<SyncML xmlns=’SYNCML:SYNCML1.2’>
+  *<SyncHdr>*
+     <VerDTD>1.2</VerDTD>
+     <VerProto>DM/1.2</VerProto>
+     <SessionID>1</SessionID>
+     <MsgID>1</MsgID>
+     <Target>
+        <LocURI>http://www.syncml.org/mgmt-server</LocURI> 
+     </Target>
+     <Source> 
+        <LocURI>IMEI:493005100592800</LocURI>
+     </Source>
+  *</SyncHdr>*
+  <SyncBody>
+     ...blah, blah...
+  </SyncBody>
 </SyncML>
+```
+
+### 4.1.2.3 SyncBody
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
+Example: 示例
+```
+<SyncML xmlns=’SYNCML:SYNCML1.2’>
+  <SyncHdr>
+      ...blah, blah... 
+  </SyncHdr> 
+  *<SyncBody>*
+     <Status>
+       <MsgRef>2</MsgRef>
+       <CmdID>1</CmdID>
+       <CmdRef>0</CmdRef>
+       <Cmd>SyncHdr</Cmd>
+       <Data>200</Data>
+     </Status>
+     <Alert>
+     <CmdID>2</CmdID>
+     <Data>1100</Data> <!—- User displayable notification --> 
+     <Item></Item>
+     <Item>
+        <Data>Your antivirus software is being updated.</Data> 
+     </Item>
+     </Alert>
+     <Get>
+       <CmdID>3</CmdID>
+       <Item>
+       <Target> 
+         <LocURI>./antivirus_data/version</LocURI>
+         </Target>
+       </Item>
+    </Get>
+  <Final/>
+  *</SyncBody>*
+</SyncML>
+
 ```
