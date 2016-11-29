@@ -11,3 +11,15 @@ One of these two MIME content types MUST be used for identifying OMA Device Mana
 
 All clients and servers MUST expect any 1.x version of WBXML, and all clients and servers MUST use any of the following versions of WBXML [WBXML1.1], [WBXML1.2], [WBXML1.3].<br/>
 所有客户端和服务器必须支持任何1.x版本的WBXML，并且所有客户端和服务器必须使用以下任何版本的WBXML [WBXML1.1]，[WBXML1.2]，[WBXML1.3]。
+
+## Definitions 定义
+See SyncML Representation Protocol [REPPRO] and OMA Device Management Protocol [DMPRO] for definitions of terms used within this specification.<br/>
+有关本规范中使用的术语的定义，请参见SyncML表示协议[REPPRO]和OMA设备管理协议[DMPRO]。
+
+See the DM Tree and Description document [DMTND] for definitions of terms related to the management tree.<br/>
+有关与管理树相关的术语的定义，请参阅DM树和描述文档[DEMAND]。
+
+## Abbreviations 缩写
+OMA Open Mobile Alliance 开放移动联盟
+
+WAP Wireless Application Protocol 无线应用协议
