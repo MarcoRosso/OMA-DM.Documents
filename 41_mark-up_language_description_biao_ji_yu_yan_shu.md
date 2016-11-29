@@ -119,7 +119,7 @@ Restrictions: This element is not used in OMA Device Management Protocol.<br/>
 Restrictions: Used for sending userid for MD5 authentication.<br/>
 限制：用于发送MD5认证的用户ID。
 
-### 4.1.1.10 LocName
+### 4.1.1.10 LocURI
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
 Example: 示例
@@ -136,4 +136,111 @@ Example: 示例
      *<LocURI>*IMEI:493005100592800*</LocURI>*
   </Source>
 </SyncHdr>
+```
+### 4.1.1.11 MoreData
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<Add>
+  <CmdID>15</CmdID>
+  <Meta>
+    <Type xmlns=’syncml:metinf’>bin</Type> 
+    <Format xmlns=’syncml:metinf’>b64</Format> 
+    <Size xmlns=’syncml:metinf’>3000</Size>
+  </Meta>
+  <Item>
+     <Target>
+       <LocURI>./</LocURI>
+     </Target>
+     <Data>
+       <!-- First chunk of data file -->
+     </Data>
+     *<MoreData/>*
+  </Item>
+</Add>
+```
+### 4.1.1.12 MsgID
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<SyncHdr>
+  <VerDTD>1.2</VerDTD>
+  <VerProto>DM/1.2</VerProto> 
+  <SessionID>1</SessionID> 
+  *<MsgID>*1*</MsgID>*
+  <Target>
+      <LocURI>http://www.syncml.org/mgmt-server</LocURI> 
+  </Target>
+  <Source> 
+      <LocURI>IMEI:493005100592800</LocURI>
+  </Source>
+</SyncHdr>
+```
+### 4.1.1.13 MsgRef
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<Status>
+  *<MsgRef>*1*</MsgRef>*
+  <CmdRef>2</CmdRef>
+  <CmdID>1234</CmdID>
+  <Cmd>Replace</Cmd> 
+  <TargetRef>./antivirus_data</TargetRef> 
+  <!-- OK, antivirus update loaded--> 
+  <Data>200</Data>
+</Status>
+```
+### 4.1.1.14 NoResp
+Restrictions: This element is not used in OMA Device Management Protocol.<br/>
+限制：此元素不在OMA设备管理协议中使用。
+### 4.1.1.15 NoResults
+Restrictions: This element is not used in OMA Device Management Protocol.<br/>
+限制：此元素不在OMA设备管理协议中使用。
+### 4.1.1.16 NumberOfChanges
+Restrictions: This element is not used in OMA Device Management Protocol.<br/>
+限制：此元素不在OMA设备管理协议中使用。
+### 4.1.1.17 RespURI
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<SyncHdr>
+  <VerDTD>1.2</VerDTD>
+  <VerProto>DM/1.2</VerProto>
+  <SessionID>1</SessionID>
+  <MsgID>1</MsgID>
+  <Target>
+     <LocURI>http://www.syncml.org/mgmt-server</LocURI> 
+  </Target>
+  <Source> 
+     <LocURI>IMEI:493005100592800</LocURI>
+  </Source>
+  *<RespURI>*http://www.deviceman.org/servlet/manageit/bruce1?user=jsmith&af ter=20000512T133000Z*</RespURI>*
+</SyncHdr>
+```
+### 4.1.1.18 SessionID
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<SyncML xmlns=’SYNCML:SYNCML1.2’ >
+  <SyncHdr>
+    <VerDTD>1.2</VerDTD> 
+    <VerProto>DM/1.2</VerProto> 
+    <SessionID>1</SessionID> 
+    <MsgID>1</MsgID>
+    <Target> 
+        <LocURI>http://www.syncml.org/mgmt-server</LocURI>
+    </Target>
+    <Source>
+        <LocURI>IMEI:493005100592800</LocURI> 
+    </Source>
+  </SyncHdr>
+  <SyncBody>
+     ...blah, blah...
+  </SyncBody>
+</SyncML>
 ```
