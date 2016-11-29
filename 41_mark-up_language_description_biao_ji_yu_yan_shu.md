@@ -559,3 +559,45 @@ If any parent interior node along the path of the Target LocURI doesn’t exist,
 In case the Add operation fails because the device fails to implicitly add a missing interior node, the status code SHOULD be the same as if the device had tried to add the interior node explicitly. Additionally, the returned Status element in such a failure case SHOULD include an Item element. The Item element, if present, MUST contain a Target element which includes the LocURI of the interior node that the device failed to add.<br/>
 如果因为设备无法隐式添加一个缺少的内部节点而导致Add操作失败，则推荐使状态代码与设备尝试显式添加内部节点时相同。此外，推荐这种故障情况下返回的Status元素应包含一个Item元素。Item元素（如果存在）必须包含目标元素，其包括设备未能添加的内部节点的LocURI。
 
+If the MIME-Type is as defined in [DMTNDS] then multiple nodes MAY be created with one Add command. Client MUST send status code 415, “Unsupported media type or format”, if the device does not support DMTNDS objects. The device can only report one status for all created nodes if the DMTNDS object contains multiple nodes. If the creation of any nodes from the DMTNDS object fails then the client MUST return the same error status code as if that failure node was created with a normal Add command and the devices Management Tree SHOULD not be changed as result of this operation. ACL values MAY be included in the DMTNDS object and these values MUST follow the rules specified in [DMTND] §7.7.1.<br/>
+如果MIME类型是在[DMTNDS]中定义的，则可以使用一个Add命令创建多个节点。如果设备不支持DMTNDS对象，客户端必须发送状态码415，“Unsupported media type or format”。 如果DMTNDS对象包含多个节点，则设备只能报告所有已创建节点的一个状态。 如果从DMTNDS对象创建任何节点失败，那么客户端必须返回就像使用正常的Add命令创建失败节点一样的错误状态代码，并且推荐设备管理树不因为这个操作而改变。ACL值可以包括在DMTNDS对象中，并且这些值必须遵循[DMTND]§7.7.1中指定的规则。
+
+Paths in DMTNDS objects are interpreted relative to the target URI in the Add command.<br/>
+DMTNDS对象中的路径相对于Add命令中的目标URI进行解释。
+
+The mandatory CmdID element type specifies the message-unique identifier for the command.<br/>
+强制CmdID元素类型指定命令的消息唯一标识符。
+
+The Cred element MUST NOT be used at command level.<br/>
+Cred元素必须不在命令级别使用。
+
+Meta element type specifies meta-information to be used for the command. Specifying the node type in the meta-information is REQUIRED as specified in [DMTND]. For example, the common media type or format for all the items can be specified. The scope of the meta-information is limited to the command. The Size meta element MAY be used to notify the recipient about the size of the data item being added.<br/>
+Meta元素类型指定要用于命令的元信息。在元信息中指定节点类型是[DMTND]中指定的必须的。 例如，可以指定所有项目的通用介质类型或格式。元信息的范围限于命令。Size元素可以用于通知收件人要添加的数据项的大小。
+
+One or more Item element types MUST be specified. The Item element type specifies the data items to be transferred to the recipient. The Target specified within the Item element type MUST be a full device URI.<br/>
+必须指定一个或多个Item元素类型。Item元素类型指定要传输到收件人的数据项。在Item元素类型中指定的Target必须是完整的设备URI。
+
+The command MUST return a valid status code as defined in [REPPRO], Status codes listed here are for implementation guidance only:<br/>
+命令必须返回[REPAIR]中定义的有效状态代码，此处列出的状态代码仅供实施指导：
+
+| Status code 状态码 | Meaning 含义 |
+| -- | -- |
+| (200) OK | The command accessed leaf node and it completed successfully.<br/> 该命令访问了叶节点，并成功完成。 |
+| 0:3 | 1:3 |
+| 0:4 | 1:4 |
+| 0:5 | 1:5 |
+| 0:6 | 1:6 |
+| 0:7 | 1:7 |
+| 0:8 | 1:8 |
+| 0:9 | 1:9 |
+| 0:10 | 1:10 |
+| 0:11 | 1:11 |
+| 0:12 | 1:12 |
+| 0:13 | 1:13 |
+| 0:14 | 1:14 |
+| 0:15 | 1:15 |
+| 0:16 | 1:16 |
+| 0:17 | 1:17 |
+| 0:18 | 1:18 |
+
+
