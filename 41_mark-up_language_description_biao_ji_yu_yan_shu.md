@@ -622,4 +622,50 @@ Example: 范例
 *</Add>*
 ```
 ### 4.1.6.2 Alert
+Restrictions: The Alert command is specifically used to convey notifications, such as device management session requests, to the recipient. For example, a mobile device will use this command to initiate a "client-initiated, management session" with a network server. The mandatory CmdID element type specifies the message-unique identifier for the command.<br/>
+限制：Alert命令专门用于向接收方传送通知，如设备管理会话请求。例如，移动设备将使用该命令来发起与网络服务器的“客户端发起的管理会话”。强制CmdID元素类型指定命令的消息唯一标识符。
 
+The Cred element MUST NOT be used at command level.<br/>
+Cred元素必须不在命令级别使用。
+
+The Data element type MUST be used to specify the type of alert.<br/>
+Data元素类型必须用于指定的提醒类型。
+
+The Correlator element type MUST be identical to the Correlator value of an Exec command if the alert is sent as an asynchronous response to that Exec command.<br/>
+如果提醒作为异步响应发送到该Exec命令，则Correlator元素类型必须与Exec命令的Correlator值相同。
+
+Optionally, one or more Item element types MAY be specified. For example, Alert 1224, which is used to send client event information to a server, requires the use of one or more Item elements. Each Item conveys an independent event. Each Item MUST contain a Meta element indicating the Type and Format of the event data.<br/>
+可选地，可以指定一个或多个Item元素类型。例如，用于向服务器发送客户端事件信息的警报1224需要使用一个或多个Item元素。每个项目传达独立事件。每个项必须包含指示事件数据的类型和格式的Meta元素。
+
+Currently, any valid DM Type and Format (e.g. “text/plain” and “xml”, respectively) are allowed.<br/>
+目前，允许任何有效的DM类型和格式（例如，分别为“text/plain”和“xml”）。
+
+A server MUST send back status 200 (Ok) when it is capable of processing the Data in the Alert.A server MUST send back status 406 (Optional Feature Not Supported)when it is not able to process the Data in the Alert.<br/>
+当服务器能够处理警报中的数据时，服务器必须发送回状态200（Ok）。当服务器不能在警报中处理数据时，服务器必须发送回状态406（Optional Feature Not Supported）。
+
+The Item element type specifies parameters for the Alert command. The command returns one of the following status
+codes.<br/>
+Item元素类型指定Alert命令的参数。该命令返回以下状态代码之一。
+
+The command MUST return a valid status code as defined in [REPPRO], Status codes listed here are for implementation guidance only:<br/>
+命令必须返回[REPAIR]中定义的有效状态代码，此处列出的状态代码仅供实施指导：
+
+| Status code 状态码 | Meaning 含义 |
+| -- | -- |
+| (200) OK | The command accessed leaf node and it completed successfully.<br/> 该命令访问了叶节点，并成功完成。 |
+| (213) Chunked item accepted | Chunked item accepted and buffered <br/> 分块项目被接受和缓冲|
+| (215) Not executed | Command was not executed, as a result of user interaction and user chose to abort or cancel.<br/> 命令未执行，由于用户交互，用户选择中止或取消。 |
+| (216) Atomic roll back OK | Command was inside Atomic element and Atomic failed. This command was rolled back successfully.<br/> 命令在原子元素内，原子失败。此命令已成功回滚。 |
+| (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
+| (404) Not Found | The specified data item doesn't exist on the recipient. This may also imply that the stated URI for the location of the new management object cannot be resolved.<br/> 指定的数据项不存在于收件人。这还可能意味着无法解析所述新管理对象的位置的URI。 |
+| (405) Command not allowed | Command not allowed.The requested command is not allowed on the target.<br/> 命令不允许。目标不允许请求的命令。 |
+| (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned.<br/> 未指定验证凭证。也可以返回合适的质询。 |
+| (413) Request entity too large | The data item to be transferred is too large (e.g., there are restrictions on the size of data items transferred to the recipient). <br/> 要传送的数据项过大（例如，对传送到接收方的数据项的大小有限制）。|
+| (414) URI too long | URI in command is too long. Either string presenting URI or segment in URI is too long or URI has too many segments.<br/>命令中的URI太长。在URI中显示URI或段的字符串太长，或者URI的段太多。 |
+| (415) Unsupported media type or format | The media type or format for the data item is not supported by the recipient.<br/> 收件人不支持数据项的介质类型或格式。 |
+| (418) Already exists | The requested Add command failed because the target already exists.<br/> 请求的Add命令失败，因为目标已存在。 |
+| (420) Device full | The recipient device storage is full. <br/> 接收方设备存储已满。 |
+| (424) Size mismatch | The chunked object was received, but the size of the received object did not match the size declared within the first chunk.<br/> 接收到分块对象，但接收的对象的大小与第一个块中声明的大小不匹配。 |
+| (425) Permission denied | The server does not have the proper ACL permissions.<br/> 服务器没有正确的ACL权限。 |
+| (500) Command failed | Non-specific errors created by the recipient while attempting to complete the command.<br/> 尝试完成命令时接收者发生的非特定错误。|
+| (516) Atomic roll back failed | Command was inside Atomic element and Atomic failed. This command was not rolled back successfully. Server should take action to try to recover client back into original state. <br/> 命令在原子元素内，原子失败。此命令未成功回滚。服务器应采取措施尝试恢复客户端回到原始状态。|
