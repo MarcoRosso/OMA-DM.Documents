@@ -40,6 +40,7 @@ Example: The following is an example of a "MD-5" authentication challenge. The p
 ### 4.1.1.3 cmd
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <Status>
@@ -56,6 +57,7 @@ Example: 示例
 ### 4.1.1.4 CmdID
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <Status>
@@ -72,6 +74,7 @@ Example: 示例
 ### 4.1.1.5 CmdRef
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <Status>
@@ -102,6 +105,7 @@ Example: The following is an example of an MD5 digest authentication credential 
 ### 4.1.1.7 Final
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <SyncML xmlns=’SYNCML:SYNCML1.2’> <SyncHdr>
@@ -122,6 +126,7 @@ Restrictions: Used for sending userid for MD5 authentication.<br/>
 ### 4.1.1.10 LocURI
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <SyncHdr>
@@ -140,6 +145,7 @@ Example: 示例
 ### 4.1.1.11 MoreData
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <Add>
@@ -163,6 +169,7 @@ Example: 示例
 ### 4.1.1.12 MsgID
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <SyncHdr>
@@ -181,6 +188,7 @@ Example: 示例
 ### 4.1.1.13 MsgRef
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <Status>
@@ -205,6 +213,7 @@ Restrictions: This element is not used in OMA Device Management Protocol.<br/>
 ### 4.1.1.17 RespURI
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <SyncHdr>
@@ -224,6 +233,7 @@ Example: 示例
 ### 4.1.1.18 SessionID
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <SyncML xmlns=’SYNCML:SYNCML1.2’ >
@@ -251,6 +261,7 @@ Restrictions: This element is not used in OMA Device Management Protocol.<br/>
 ### 4.1.1.20 Source
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <SyncHdr>
@@ -269,6 +280,7 @@ Example: 示例
 ### 4.1.1.21 SourceRef
 Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
 限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
 Example: 示例
 ```
 <Status>
@@ -301,3 +313,46 @@ Example: The following is an example of the usage in a SyncHdr element type.<br/
   </Source>
 </SyncHdr>
 ```
+
+### 4.1.1.23 TargetRef
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
+Example: 示例
+```
+<Status>
+  <CmdID>4321</CmdID>
+  <MsgRef>1</MsgRef>
+  <CmdRef>1234</CmdRef>
+  <Cmd>Copy</Cmd> 
+  *<TargetRef>*./DM/WAPSetting/1*</TargetRef>*
+  <SourceRef>./Common/WAP/1</SourceRef> 
+  <Data>200</Data>
+</Status>
+```
+
+### 4.1.1.24 VerDTD
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
+Example: 示例
+```
+<SyncHdr>
+  *<VerDTD>1.2</VerDTD>*
+  <VerProto>DM/1.2</VerProto>
+  <SessionID>1</SessionID>
+  <MsgID>1</MsgID>
+  <Target>
+     <LocURI>http://www.syncml.org/mgmt-server</LocURI> 
+  </Target>
+  <Source> 
+      <LocURI>IMEI:493005100592800</LocURI>
+  </Source>
+</SyncHdr>
+```
+### 4.1.1.25 VerProto
+Restrictions: Major revisions of the specification create incompatible changes that may require a new management client. Minor revisions involve changes that do not impact basic compatibility of existing management clients.<br/>
+限制：规范的主要修订版会导致不兼容的更改，可能需要新的管理客户端。次要修订涉及的更高不影响现有管理客户端的基本兼容性。
+
+When the DM message conforms to this revision of the OMA Device Management protocol specification the value MUST be 'DM/1.2’.
+当DM消息符合OMA设备管理协议规范的此修订版时，值必须是“DM/1.2”。
