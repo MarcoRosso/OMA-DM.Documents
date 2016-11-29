@@ -725,3 +725,54 @@ Example: 范例
   </Replace>
 *</Atomic>*
 ```
+### 4.1.6.4 Copy
+Restrictions: Implementation MUST treat the data of the copy and the data of the original independently after the copy is complete. It is implementation dependent when a physical copy of the item is made in the recipient.<br/>
+限制：实施必须在复制完成后独立处理副本的数据和原始数据。当在接收者中创建项目的物理副本时，它是实现相关的。
+
+The Copy command in this version of the specification is NOT intended to be used to attempt to change the media type of a data item, compress the data item or otherwise transform a target data item. It is intended to provide a facility for duplicating or moving data (as can be obtained by using Copy followed by a Delete of the original) on the client without having to send this data to a server and back to achieve the same effect.<br/>
+此版本的规范中的“复制”命令不用于尝试更改数据项的媒体类型，压缩数据项或以其他方式转换目标数据项。它旨在提供用于在客户端上复制或移动数据（如可以通过使用复制然后删除原件而获得）的设施，而不必将该数据发送到服务器并返回以实现相同的效果。
+
+The mandatory CmdID element type specifies the message-unique identifier for the command. The Cred element MUST NOT be used at command level.<br/>
+强制CmdID元素类型指定命令的消息唯一标识符。Cred元素必须不能在命令级别使用。
+
+The optional Meta element type specifies meta-information to be used for the command. For example, the common media type or format for all the items can be specified. The scope of the meta-information is limited to the command.<br/>
+可选的Meta元素类型指定要用于命令的元信息。例如，可以指定所有项目的通用介质类型或格式。元信息的范围限于命令。
+
+One or more Item element types MUST be specified. The Item element type specifies the data item to be copied on the recipient's management tree. Copy MUST be specified within an Atomic, Sequence or SyncBody element type and the Target and Source specified within the Item element type in the Copy command MUST be a full device URI.<br/>
+必须指定一个或多个Item元素类型。Item元素类型指定要在接收者的管理树上复制的数据项。复制必须在Atomic，Sequence或SyncBody元素类型中指定，并且Copy命令中的Item元素类型中指定的Target和Source必须是完整的设备URI。
+
+In this version, the source and the destination nodes MUST be both leaf nodes. Assuming both nodes are leaves, the value of the source node overwrites the value of the target node. If the Copy command cannot be executed because the target node can not be over written with the value of the source node for reasons other than access control rights, (403) Forbidden status MUST be sent back.
+在此版本中，源节点和目标节点必须都是叶节点。假设两个节点都是叶节点，则源节点的值将覆盖目标节点的值。如果因为目标节点由于访问控制权之外的其他原因而无法用源节点的值重写导致无法执行复制命令，必须返回（403）Forbidden状态。
+
+The command MUST return a valid status code as defined in [REPPRO], Status codes listed here are for implementation guidance only:<br/>
+命令必须返回[REPAIR]中定义的有效状态代码，此处列出的状态代码仅供实施指导：
+
+| Status code 状态码 | Meaning 含义 |
+| -- | -- |
+| (200) OK | The command and the associated Alert action are completed successfully.<br/> 命令和相关联的警报操作已成功完成。 |
+| (215) Not executed | Command was not executed, as a result of user interaction and user chose to abort or cancel.<br/> 命令未执行，由于用户交互，用户选择中止或取消。 |
+| (216) Atomic roll back OK | Command was inside Atomic element and Atomic failed. This command was rolled back successfully.<br/> 命令在原子元素内，原子失败。此命令已成功回滚。 |
+| (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
+| (403) Forbidden | Forbidden. The command could not be executed because the source cannot be copied to the destination URI for reasons other than access control rights.<br/> 禁止。 无法执行命令，因为除了访问控制权限以外，源不能复制到目标URI。 |
+| (405) Command not allowed | The requested command is not allowed on the target.<br/> 目标不允许请求的命令。|
+| (406) Optional feature not supported | The specified Copy command is not supported by the recipient. <br/> 收件人不支持指定的复制命令。|
+| (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned.<br/> 未指定验证凭证。也可以返回合适的质询。 |
+| (414) URI too long | URI in command is too long. Either string presenting URI or segment in URI is too long or URI has too many segments.<br/>命令中的URI太长。在URI中显示URI或段的字符串太长，或者URI的段太多。 |
+| (418) Already exists | The requested Add command failed because the target already exists.<br/> 请求的Add命令失败，因为目标已存在。 |
+| (420) Device full | The recipient device storage is full. <br/> 接收方设备存储已满。
+| (425) Permission denied | The server does not have the proper ACL permissions.<br/> 服务器没有正确的ACL权限。 |
+| (500) Command failed | Non-specific errors created by the recipient while attempting to complete the command.<br/> 尝试完成命令时接收者发生的非特定错误。|
+| (500) Command failed | Nested Atomic command was detected.<br/> 检测到嵌套Atomic命令。|
+| (510) Data store failure | Error occurs while the recipient copying the data item within the recipient's management tree.<br/> 接收者在接收者的管理树中复制数据项时发生错误。|
+| (516) Atomic roll back failed | Command was inside Atomic element and Atomic failed. This command was not rolled back successfully. Server should take action to try to recover client back into original state. <br/> 命令在原子元素内，原子失败。此命令未成功回滚。服务器应采取措施尝试恢复客户端回到原始状态。|
+
+Example: 范例
+```
+*<Copy>*
+  <CmdID>4</CmdID>
+  <Item>
+     <Target>./DM/WAPSetting/1</Target>
+     <Source>./Common/WAP/1</Source>
+  </Item>
+*</Copy>*
+```
