@@ -487,3 +487,67 @@ Restrictions: When an Item contains information for a managed node, and the meta
 限制：当项目包含受管节点的信息，并且元格式不为空时，必须指定Data元素。
 
 Example: 示例
+```
+*<Item>* 
+  <Data>MINDT=10</Data>
+*</Item>* 
+```
+
+### 4.1.3.3 Meta
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
+Example: 示例
+```
+<Cred>
+  *<Meta>*
+    <Type xmlns=’syncml:metinf’>syncml:auth-md5</Type>
+    <Format xmlns=’syncml:metinf’>b64</Format>
+  *</Meta>*
+  <Data>Zz6EivR3yeaaENcRN6lpAQ==</Data>
+<Cred>
+```
+
+### 4.1.3.4 Correlator
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
+Example: 示例
+```
+*<Correlator>*
+    abc1234
+*</Correlator>*
+```
+
+## 4.1.4 Meta Information Elements 元信息元素
+The following specifies the SyncML Common Meta-Information [META] element types that are used in DM protocol. Use of the elements not listed in this table is implementation specific decision and is not defined by this specification.<br/>
+以下指定在DM协议中使用的SyncML常见元信息[META]元素类型。使用本表中未列出的元素是用于实现特定的决定，并且本规范没有定义。
+![](6.4.jpeg)
+## 4.1.5 Protocol Management Elements 协议管理元素
+The following element types are used to support the DM protocol.<br/>
+以下元素类型用于支持DM协议。
+![](6.5.jpeg)
+### 4.1.5.1 Status
+Restrictions: A Status command MUST NOT be sent in response to a Results command if the Status code is 200 otherwise a Status command MUST be sent. In the case of sending or receiving a large object, Alert 1222 (More Messages) MUST be used to continue the message exchange.<br/>
+
+限制：如果状态码为200，则必须不发送Status命令以响应Results命令，否则必须发送Status命令。 在发送或接收大对象的情况下，必须使用警报1222（更多消息）来继续消息交换。
+
+Example: 示例
+```
+*<Status>*
+  <MsgRef>2</MsgRef>
+  <CmdID>1</CmdID>
+  <CmdRef>0</CmdRef>
+  <Cmd>SyncHdr</Cmd>
+  <Data>200</Data> 
+*</Status>*
+```
+## 4.1.6 Protocol Command Elements 协议命令元素
+The following element types are used to represent device management commands in a DM Message.<br/>
+以下元素类型用于表示DM消息中的设备管理命令。
+![](4.1.6.jpeg)
+### 4.1.6.1 Add
+Restrictions: Add creates a new node and returns error if there is an existing node, is not allowed to create node at the Add target URI, or if the specified URI cannot be resolved.<br/>
+限制：如果存在现有节点，或不允许在Add目标URI创建节点，或指定的URI无法解析，则Add一个新节点时会返回错误。
+
+Nodes MUST be added as children of existing interior nodes. The root (.) interior node MUST exist, device manufacturers MAY provide additional existing leaf or interior nodes.
