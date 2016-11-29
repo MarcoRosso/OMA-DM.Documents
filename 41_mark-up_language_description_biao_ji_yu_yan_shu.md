@@ -600,4 +600,27 @@ The command MUST return a valid status code as defined in [REPPRO], Status codes
 | (500) Command failed | Non-specific errors created by the recipient while attempting to complete the command.<br/> 尝试完成命令时接收者发生的非特定错误。|
 | (516) Atomic roll back failed | Command was inside Atomic element and Atomic failed. This command was not rolled back successfully. Server should take action to try to recover client back into original state. <br/> 命令在原子元素内，原子失败。此命令未成功回滚。服务器应采取措施尝试恢复客户端回到原始状态。|
 
+Example: 范例
+```
+*<Add>*
+  <CmdID>2</CmdID>
+  <Meta>
+    <Format xmlns="syncml:metinf">b64</Format> 
+    <Type xmlns="syncml:metinf">
+          application/antivirus-inc.virusdef 
+    </Type>
+  </Meta>
+  <Item>
+  <Meta>
+    <Size xmlns='syncml:metinf'>37214</Size>
+  </Meta> 
+  <Target><LocURI>./antivirus_data</LocURI></Target>
+  <Data>
+       <!—Base64-coded antivirus file -->
+     </Data>
+  </Item>
+*</Add>*
+```
+### 4.1.6.2 Alert
+
 
