@@ -26,13 +26,76 @@ Example: The following is an example of a "MD-5" authentication challenge. The p
   <Cmd>SyncHdr</Cmd> 
   <TargetRef>http://www.datamgr.org/servlet/manageit</TargetRef> 
   <SourceRef>IMEI:001004FF1234567</SourceRef>
-  <Chal>
+ *<Chal>*
     <Meta>
       <Type xmlns=’syncml:metinf’>syncml:auth-md5</Type>
       <Format xmlns=’syncml:metinf’>b64</Format>
       <NextNonce xmlns=’syncml:metinf’>ZG9iZWhhdmUNCg==</NextNonce>
     </Meta>
-  </Chal>
+  *</Chal>*
   <Data>401</Data>
 </Status>
+```
+
+### 4.1.1.3 cmd
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<Status>
+  <MsgRef>1</MsgRef>
+  <CmdRef>2</CmdRef>
+  <CmdID>1234</CmdID>
+ * <Cmd>*Replace*</Cmd>* 
+  <TargetRef>./antivirus_data</TargetRef> 
+  <!-- OK, antivirus update loaded--> 
+  <Data>200</Data>
+</Status>
+```
+
+### 4.1.1.4 CmdID
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<Status>
+  <MsgRef>1</MsgRef>
+  <CmdRef>2</CmdRef>
+  *<CmdID>*1234*</CmdID>*
+  <Cmd>Replace</Cmd> 
+  <TargetRef>./antivirus_data</TargetRef> 
+  <!-- OK, antivirus update loaded--> 
+  <Data>200</Data>
+</Status>
+```
+
+### 4.1.1.5 CmdRef
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<Status>
+  <MsgRef>1</MsgRef>
+  *<CmdRef>*2*</CmdRef>*
+  <CmdID>1234</CmdID>
+  <Cmd>Replace</Cmd> 
+  <TargetRef>./antivirus_data</TargetRef> 
+  <!-- OK, antivirus update loaded--> 
+  <Data>200</Data>
+</Status>
+```
+### 4.1.1.6 Cred
+Restrictions: Same restriction defined in [REPPRO]. In addition, OMA DM restricts the usage of the Cred element to within the sync header element: SyncHdr. The originator MUST NOT supply credentials within individual commands. When using syncml:auth-md5, the Meta Format for the Cred element MUST be specified and it MUST be b64.<br/>
+限制：在[REPPRO]中定义的限制相同。此外，OMA DM将Cred元素的使用限制在同步头元素：SyncHdr内。发起者必须不在单个命令中提供凭证。当使用syncml：auth-md5时，必须指定Cred元素的元格式，并且必须是b64。
+
+Example: The following is an example of an MD5 digest authentication credential scheme consisting of the character string Bruce2: OhBehave: Nonce. The MD5 Digest is also Base64 character encoded. The type and format of the credential, as well as the next nonce are specified by the meta-information in the Meta element type.
+示例：以下是由字符串Bruce2组成的MD5摘要认证凭证方案示例：OhBehave：Nonce MD5摘要也是Base64字符编码。凭证的类型和格式以及下一个nonce由Meta元素类型中的元信息指定。
+```
+*<Cred>*
+  <Meta>
+    <Type xmlns=’syncml:metinf’>syncml:auth-md5</Type> 
+    <Format xmlns=’syncml:metinf’>b64</Format>
+  </Meta>
+  <Data>Zz6EivR3yeaaENcRN6lpAQ==</Data>
+*</Cred>*
 ```
