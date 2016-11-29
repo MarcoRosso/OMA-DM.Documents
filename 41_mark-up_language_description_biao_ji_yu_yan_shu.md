@@ -466,5 +466,10 @@ Example: 示例
   <Final/>
   *</SyncBody>*
 </SyncML>
-
 ```
+
+## 4.1.3 Data Description Elements 数据描述元素
+The following element types are used as data description elements for data exchanged in a DM Message.<br/>
+以下元素类型被用作DM消息中交换的数据的数据描述元素。
+![](4.1.3.jpeg)
+### 4.1.3.1 Data
