@@ -266,3 +266,18 @@ Example: 示例
  *</Source>*
 </SyncHdr>
 ```
+### 4.1.1.21 SourceRef
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<Status>
+  <CmdID>4321</CmdID>
+  <MsgRef>1</MsgRef>
+  <CmdRef>1234</CmdRef>
+  <Cmd>Copy</Cmd> 
+  <TargetRef>./DM/WAPSetting/1</TargetRef> 
+  *<SourceRef>*./Common/WAP/1*</SourceRef> *
+  <Data>200</Data>
+</Status>
+```
