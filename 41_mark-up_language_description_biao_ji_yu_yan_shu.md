@@ -281,3 +281,23 @@ Example: 示例
   <Data>200</Data>
 </Status>
 ```
+### 4.1.1.22 Target
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+
+Example: The following is an example of the usage in a SyncHdr element type.<br/>
+示例：以下是SyncHdr元素类型中的用法示例。
+```
+<SyncHdr> 
+  <VerDTD>1.2</VerDTD> 
+  <VerProto>DM/1.2</VerProto> 
+  <SessionID>1</SessionID> 
+  <MsgID>1</MsgID>
+  *<Target>*
+    <LocURI>http://www.syncml.org/mgmt-server</LocURI>
+  *</Target>*
+  <Source> 
+    <LocURI>IMEI:493005100592800</LocURI>
+  </Source>
+</SyncHdr>
+```
