@@ -552,3 +552,10 @@ Restrictions: Add creates a new node and returns error if there is an existing n
 
 Nodes MUST be added as children of existing interior nodes. The root (.) interior node MUST exist, device manufacturers MAY provide additional existing leaf or interior nodes.<br/>
 节点必须作为现有内部节点的子节点添加。 根（.）内部节点必须存在，设备制造商可以提供附加的现有叶或内部节点。
+
+If any parent interior node along the path of the Target LocURI doesn’t exist, the device MAY add it implicitly. When adding interior nodes implicitly, the ACLs of the implicitly created nodes SHALL be empty, e.g. `<Data/>`, to allow each such node to inherit the ACL from its parent node. However the exception to this rule, as specified in [DMTND] §7.7.1.1 SHALL apply to implicitly added nodes: If a server is adding an interior node and does not have Replace access rights on the parent of the new node then the device MUST automatically set the ACL of the new node so that the creating server has Add, Delete and Replace rights on the new node.<br/>
+如果沿着目标LocURI的路径的任何父内部节点不存在，则设备可以隐式地添加它。当隐式地添加内部节点时，隐式创建的节点的ACL必须为空。如`<Data/>`，以允许每个此类节点从其父节点继承ACL。但是，如[DMTND]§7.7.1.1中规定的，此规则的例外必须适用于隐式添加的节点：如果服务器添加内部节点，并且没有对新节点的父节点具有Replace访问权限，则设备必须自动设置新节点的ACL，以便创建服务器在新节点上具有添加，删除和替换权限。
+
+In case the Add operation fails because the device fails to implicitly add a missing interior node, the status code SHOULD be the same as if the device had tried to add the interior node explicitly. Additionally, the returned Status element in such a failure case SHOULD include an Item element. The Item element, if present, MUST contain a Target element which includes the LocURI of the interior node that the device failed to add.<br/>
+如果因为设备无法隐式添加一个缺少的内部节点而导致Add操作失败，则推荐使状态代码与设备尝试显式添加内部节点时相同。此外，推荐这种故障情况下返回的Status元素应包含一个Item元素。Item元素（如果存在）必须包含目标元素，其包括设备未能添加的内部节点的LocURI。
+
