@@ -822,3 +822,55 @@ Example: 范例
 <Target>./DM/WAPSetting/1</Target> </Item>
 *</Delete>*
 ```
+### 4.1.6.6 Exec
+Restrictions: Implementations MUST behave as if the execution were synchronous, i.e. as if the target were executed and returned a value. When used to start a long-running process, such as a service, Exec SHOULD be implemented to return a status code indicating whether the process was successfully launched, and perhaps a local identifier for that process as well.<br/>
+限制：实现必须表现为执行是同步的，即好像目标被执行并返回一个值。当用于启动长时间运行的进程（如服务）时，推荐执行Exec以返回指示进程是否已成功启动的状态代码，以及可能还有该进程的本地标识符。
+
+The mandatory CmdID element type specifies the message-unique identifier for the command.<br/>
+强制的CmdID元素类型指定命令的消息唯一标识符。
+
+The Cred element MUST NOT be used at command level.<br/>
+Cred元素不能在命令级别使用。
+
+The Correlator SHOULD be used if the server is expecting an asynchronous response to an Exec command.<br/>
+如果服务器正在等待对Exec命令的异步响应，则推荐使用相关器。
+
+The optional Meta element type specifies meta-information to be used for the command. For example, the common media type or format for all the items can be specified. The scope of the meta-information is limited to the command.<br/>
+可选的Meta元素类型指定要用于命令的元信息。例如，可以指定所有项目的通用介质类型或格式。元信息的范围限于命令。
+
+At least one Item element type MUST be specified. The Item element type specifies a data item to be used as an argument to the executed process. Exec MUST be specified within a Sequence or SyncBody element type and the Target specified within the Item element type in the Exec command MUST be a full device URI.<br/>
+必须至少指定一个Item元素类型。Item元素类型指定要用作所执行进程的参数的数据项。Exec必须在Sequence或SyncBody元素类型中指定，并且Exec命令中的Item元素类型中指定的Target必须是完整的设备URI。
+
+Note that the nature of the target of the Exec command, how it interprets arguments, and how it returns values are all dependent upon the node description for the target.<br/>
+注意，Exec命令的目标的性质，即它如何解释参数以及它如何返回值都取决于目标的节点描述。
+
+The command MUST return a valid status code as defined in [REPPRO], Status codes listed here are for implementation guidance only:<br/>
+命令必须返回如[REPPRO]中定义的有效状态代码，此处列出的状态代码仅供实施指导：
+
+| Status code 状态码 | Meaning 含义 |
+| -- | -- |
+| (200) OK | The command and the associated Alert action are completed successfully.<br/> 命令和相关联的警报操作已成功完成。 |
+| (202) Accepted for processing | The request to either run a remote execution of an application or to alert a user or application was successfully received.<br/> 已成功接收到运行应用程序的远程执行或警告用户或应用程序的请求。 |
+| (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
+| (403) Forbidden | Forbidden. The command could not be executed because the source cannot be copied to the destination URI for reasons other than access control rights.<br/> 禁止。无法执行命令，除了访问控制权限以外的原因，源不能复制到目标URI。 |
+| (404) Not Found | The recipient determines that the data item doesn't exist on the recipient's management tree.<br/> 接收者确定数据项不存在于接收者的管理树上。 |
+| (405) Command not allowed | The requested command is not allowed on the target.<br/> 目标不允许请求的命令。|
+| (406) Optional feature not supported | The specified Exec command is not allowed on the target. <br/> 目标不允许指定的Exec命令。|
+| (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned.<br/> 未指定验证凭证。也可以返回合适的质询。 |
+| (414) URI too long | URI in command is too long. Either string presenting URI or segment in URI is too long or URI has too many segments.<br/>命令中的URI太长。在URI中显示URI或段的字符串太长，或者URI的段太多。 |
+| (420) Device full | The recipient device storage is full. <br/> 接收方设备存储已满。
+| (425) Permission denied | The server does not have the proper ACL permissions.<br/> 服务器没有正确的ACL权限。 |
+| (500) Command failed | Non-specific errors created by the recipient while attempting to complete the command.<br/> 尝试完成命令时接收者遇到非特定错误。|
+| (510) Data store failure | Error occurs while the recipient copying the data item within the recipient's management tree.<br/> 接收者在接收者的管理树中复制数据项时发生错误。|
+Example: 范例
+```
+*<Exec>*
+  <CmdID>3</CmdID>
+  <Item>
+     <Target>
+       <LocURI>./bin/shutdown</LocURI>
+     </Target>
+     <Data>argument</Data>
+  </Item>
+*</Exec>*
+```
