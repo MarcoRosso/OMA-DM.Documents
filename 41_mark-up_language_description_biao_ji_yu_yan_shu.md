@@ -776,3 +776,49 @@ Example: 范例
   </Item>
 *</Copy>*
 ```
+### 4.1.6.5 Delete
+Restrictions: The Delete command deletes a node, and the entire sub-tree beneath that node if one exists, subject to access rights and the AccessType status of the node. The purpose of the Delete command is to delete nodes. To delete node values, use the Replace command.<br/>
+限制：Delete命令删除一个节点，以及该节点下面的整个子树（如果存在），命令能否成功取决于访问权限和节点的AccessType状态。删除命令的目的是删除节点。要删除节点值，请使用Replace命令。
+
+The following rules apply when deleting nodes that has child nodes.<br/>
+删除具有子节点的节点时，以下规则适用。
+1. If all the child nodes along with the target node can be deleted, a "complete delete" was achieved, and the (200) OK status is returned to indicate this.<br/>
+如果可以删除与目标节点一起的所有子节点，则“完全删除”可以实现，并且返回（200）OK状态以指示这一点。
+2. Permanent nodes cannot be deleted. If attempt to delete a permanent node is made, (405) Command not allowed status is returned.<br/>
+永久节点不能被删除。如果尝试删除永久节点，则（405）Command not allowed状态将被返回。
+3. The root node (.) cannot be deleted. Attempts to do so always return the (405) Command not allowed status.<br/>
+根节点（.）不能被删除。尝试这样做总是返回（405）Command not allowed状态。
+
+The mandatory CmdID element type specifies the message-unique identifier for the command.<br/>
+强制的CmdID元素类型指定命令的消息唯一标识符。
+
+The Cred element MUST NOT be used at command level.<br/>
+Cred元素必须不在命令级别使用。
+
+One or more Item element types MUST be specified. The Item element type specifies the data item deleted from the management tree.The Target specified within the Item element type MUST be a full device URI.<br/>
+必须指定一个或多个Item元素类型。Item元素类型指定从管理树中删除的数据项。在Item元素类型中指定的目标必须是完整设备URI。
+
+The command MUST return a valid status code as defined in [REPPRO], Status codes listed here are for implementation guidance only:
+命令必须返回如[REPPRO]中定义的有效状态代码，此处列出的状态代码仅供实施指导：
+
+| Status code 状态码 | Meaning 含义 |
+| -- | -- |
+| (200) OK | The command and the associated Alert action are completed successfully.<br/> 命令和相关联的警报操作已成功完成。 |
+| (215) Not executed | Command was not executed, as a result of user interaction and user chose to abort or cancel.<br/> 命令未执行，由于用户交互，用户选择中止或取消。 |
+| (216) Atomic roll back OK | Command was inside Atomic element and Atomic failed. This command was rolled back successfully.<br/> 命令在原子元素内，原子失败。此命令已成功回滚。 |
+| (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
+| (403) Forbidden | Forbidden. The command could not be executed because the source cannot be copied to the destination URI for reasons other than access control rights.<br/> 禁止。无法执行命令，除了访问控制权限以外的原因，源不能复制到目标URI。 |
+| (404) Not Found | The recipient determines that the data item doesn't exist on the recipient's management tree.<br/> 接收者确定数据项不存在于接收者的管理树上。 |
+| (405) Command not allowed | The requested command is not allowed on the target.<br/> 目标不允许请求的命令。|
+| (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned.<br/> 未指定验证凭证。也可以返回合适的质询。 |
+| (414) URI too long | URI in command is too long. Either string presenting URI or segment in URI is too long or URI has too many segments.<br/>命令中的URI太长。在URI中显示URI或段的字符串太长，或者URI的段太多。 |
+| (425) Permission denied | The server does not have the proper ACL permissions.<br/> 服务器没有正确的ACL权限。 |
+| (516) Atomic roll back failed | Command was inside Atomic element and Atomic failed. This command was not rolled back successfully. Server should take action to try to recover client back into original state. <br/> 命令在原子元素内，原子失败。此命令未成功回滚。服务器应采取措施尝试恢复客户端回到原始状态。|
+Example: 范例
+```
+*<Delete>*
+  <CmdID>5</CmdID>
+  <Item>
+<Target>./DM/WAPSetting/1</Target> </Item>
+*</Delete>*
+```
