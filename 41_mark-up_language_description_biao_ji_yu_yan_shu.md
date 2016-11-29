@@ -473,3 +473,12 @@ The following element types are used as data description elements for data excha
 以下元素类型被用作DM消息中交换的数据的数据描述元素。
 ![](4.1.3.jpeg)
 ### 4.1.3.1 Data
+Restrictions: It is REQUIRED that either the mark-up characters of the Data element content are properly escaped according to [XML] specification rules or that the CDATA sections are used.<br/>
+限制：要求根据[XML]规范规则正确转义Data元素内容的标记字符，或者使用CDATA节。
+
+Example: 示例
+```
+<Item> 
+  *<Data>*MINDT=10*</Data>*
+</Item> 
+```
