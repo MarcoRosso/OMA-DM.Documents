@@ -21,3 +21,7 @@ This document describes a management protocol using the SyncML Representation Pr
 ## 3. Bootstrap 初始化
 This document defines how an OMA DM device is brought from a ‘clean’ state, to a state where it is capable to initiate a management session with a provisioned management server.<br/>
 本文档定义了OMA DM设备如何从“干净”状态进入其能够发起与预配置管理服务器的管理会话的状态。
+
+## 4. Representation Protocol 表示协议
+This document covers the Device Management usage of the SyncML Representation Protocol.<br/>
+本文档介绍了SyncML表示协议的设备管理使用。
