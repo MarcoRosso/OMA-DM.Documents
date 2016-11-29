@@ -244,3 +244,25 @@ Example: 示例
   </SyncBody>
 </SyncML>
 ```
+### 4.1.1.19 SftDel
+Restrictions: This element is not used in OMA Device Management Protocol.<br/>
+限制：此元素不在OMA设备管理协议中使用。
+
+### 4.1.1.20 Source
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<SyncHdr>
+  <VerDTD>1.2</VerDTD>
+  <VerProto>DM/1.2</VerProto>
+  <SessionID>1</SessionID>
+  <MsgID>1</MsgID>
+  <Target>
+    <LocURI>http://www.syncml.org/mgmt-server</LocURI> 
+  </Target>
+ *<Source>*
+    <LocURI>IMEI:493005100592800</LocURI>
+ *</Source>*
+</SyncHdr>
+```
