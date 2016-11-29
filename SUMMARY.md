@@ -18,5 +18,5 @@
    * [3.1 Bootstrapping 初始化](bootstrapping_chu_shi_hua.md)
    * [3.2 Appendix 附录](32_appendix_fu_lu.md)
 * [Representation Protocol 表示协议](representation_protocol_biao_shi_xie_yi.md)
-   * 4.1 Mark-up Language Description 标记语言说明
+   * [4.1 Mark-up Language Description 标记语言说明](41_mark-up_language_description_biao_ji_yu_yan_shu.md)
 
