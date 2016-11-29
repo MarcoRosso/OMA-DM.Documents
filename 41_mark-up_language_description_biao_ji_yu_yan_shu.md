@@ -482,3 +482,8 @@ Example: 示例
   *<Data>*MINDT=10*</Data>*
 </Item> 
 ```
+### 4.1.3.2 Item
+Restrictions: When an Item contains information for a managed node, and the meta format is not null, the Data element MUST be specified.<br/>
+限制：当项目包含受管节点的信息，并且元格式不为空时，必须指定Data元素。
+
+Example: 示例
