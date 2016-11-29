@@ -583,21 +583,21 @@ The command MUST return a valid status code as defined in [REPPRO], Status codes
 | Status code 状态码 | Meaning 含义 |
 | -- | -- |
 | (200) OK | The command accessed leaf node and it completed successfully.<br/> 该命令访问了叶节点，并成功完成。 |
-| 0:3 | 1:3 |
-| 0:4 | 1:4 |
-| 0:5 | 1:5 |
-| 0:6 | 1:6 |
-| 0:7 | 1:7 |
-| 0:8 | 1:8 |
-| 0:9 | 1:9 |
-| 0:10 | 1:10 |
-| 0:11 | 1:11 |
-| 0:12 | 1:12 |
-| 0:13 | 1:13 |
-| 0:14 | 1:14 |
-| 0:15 | 1:15 |
-| 0:16 | 1:16 |
-| 0:17 | 1:17 |
-| 0:18 | 1:18 |
+| (213) Chunked item accepted | Chunked item accepted and buffered <br/> 分块项目被接受和缓冲|
+| (215) Not executed | Command was not executed, as a result of user interaction and user chose to abort or cancel.<br/> 命令未执行，由于用户交互，用户选择中止或取消。 |
+| (216) Atomic roll back OK | Command was inside Atomic element and Atomic failed. This command was rolled back successfully.<br/> 命令在原子元素内，原子失败。此命令已成功回滚。 |
+| (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
+| (404) Not Found | 1:7 |
+| (405) Command not allowed | 1:8 |
+| (407) Authentication required | 1:9 |
+| (413) Request entity too large | 1:10 |
+| (414) URI too long | 1:11 |
+| (415) Unsupported media type or format | 1:12 |
+| (418) Already exists | 1:13 |
+| (420) Device full | 1:14 |
+| (424) Size mismatch | 1:15 |
+| (425) Permission denied | 1:16 |
+| (500) Command failed | 1:17 |
+| (516) Atomic roll back failed | 1:18 |
 
 
