@@ -23,3 +23,27 @@ See the DM Tree and Description document [DMTND] for definitions of terms relate
 OMA Open Mobile Alliance 开放移动联盟
 
 WAP Wireless Application Protocol 无线应用协议
+
+## References 参考
+[DMPRO]: “OMA Device Management Protocol, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_Protocol-V1_2. URL:http://www.openmobilealliance.org
+
+[DMTND]:“OMA Device Management Tree and Description, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_TND-V1_2. URL:http://www.openmobilealliance.org
+
+[DMTNDS]:“OMA Device Management Tree and Description Serialization Specification, Version 1.2”. Open Mobile Alliance .
+OMA-TS-DM_TNDS-V1_2. URL:http://www.openmobilealliance.org/
+
+[META]:“SyncML Meta Information Specification, version 1.2. Open Mobile Alliance . OMA-TS-SyncML_MetaInfo-V1_2. URL:http://www.openmobilealliance.org/
+
+[REPPRO]:“SyncML Representation Protocol, version 1.2”. Open Mobile Alliance . OMA-SyncML-RepPro-V1_2. URL:http://www.openmobilealliance.org
+
+[RFC2119]:“Key words for use in RFCs to Indicate Requirement Levels”. S. Bradner. March 1997.
+URL:http://www.ietf.org/rfc/rfc2119.txt
+
+[WBXML1.1]:“WAP Binary XML Content Format Specification”, WAP Forum , SPEC-WBXML- 19990616.pdf, URL:http://www.openmobilealliance.org
+
+[WBXML1.2]:“WAP Binary XML Content Format Specification”, WAP Forum , WAP-154-WBXML, URL:http://www.openmobilealliance.org
+
+[WBXML1.3]:“WAP Binary XML Content Format Specification”, WAP Forum , WAP-192-WBXML, URL:http://www.openmobilealliance.org
+
+[XML]:“Extensible Markup Language (XML) 1.0”, World Wide Web Consortium Recommendation,
+http://www.w3.org/TR/REC-xml
