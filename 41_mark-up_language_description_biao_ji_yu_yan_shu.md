@@ -676,3 +676,52 @@ Example: 范例
   <Data>1200</Data> <!-- Server-initiated session -->
 *</Alert>*
 ``` 
+
+### 4.1.6.3 Atomic
+Restrictions: The set of commands inside Atomic MUST be processed in the same way as commands inside Sequence (as described in Section 4.1.6.14, below), with all subordinate commands to be executed as a set or not at all.<br/>
+Atomic中的命令集必须以与Sequence中的命令相同的方式处理（如下面的第4.1.6.14节所述），所有下级命令都将作为集合执行或根本不执行。
+
+If a client can execute all the atomic commands together (and thus guarantee the result) then a client MAY split the responses up over multiple messages.<br/>
+如果客户端可以一起执行所有的原子命令（从而保证结果），则客户端可以将响应拆分成多个消息。
+
+If a client cannot execute all the atomic commands together (and thus cannot guarantee the results of commands not executed) and status responses would go into multiple messages, then the Atomic command MUST fail with status code 517 - Atomic response too large to fit in message. Previously executed commands in Atomic command MUST be rolled back.<br/>
+如果客户端不能一起执行所有的原子命令（因此不能保证未执行的命令的结果），并且状态响应将进入多个消息，那么原子命令必须失败，并发送状态代码517 - 原子响应太大而不适合消息。原子命令中以前执行的命令必须回滚。
+
+If a command within an atomic fails, the failure response code MUST be returned.<br/>
+如果原子中的命令失败，则必须返回失败响应代码。
+
+The mandatory CmdID element type specifies the message-unique identifier for the command.<br/>
+强制CmdID元素类型指定命令的消息唯一标识符。
+
+The remainder of the command consists of one or more Add, Alert, Delete, Copy, or Replace commands that are the scope of the Atomic functionality.
+命令的其余部分包含一个或多个作为Atomic功能范围的Add，Alert，Delete，Copy或Replace命令。
+
+Nested Atomic commands and Get commands are not legal. A nested Atomic command or Get command will generate an error(500) Command failed.<br/>
+嵌套原子命令和Get命令不合法。嵌套的Atomic命令或Get命令将生成错误（500）Command failed。
+
+The command MUST return a valid status code as defined in [REPPRO], Status codes listed here are for implementation guidance only:<br/>
+命令必须返回如[REPPRO]中定义的有效状态代码，此处列出的状态代码仅供实施指导：
+
+| Status code 状态码 | Meaning 含义 |
+| -- | -- |
+| (200) OK | The command and the associated Alert action are completed successfully.<br/> 命令和相关联的警报操作已成功完成。 |
+| (215) Not executed | Command was not executed, as a result of user interaction and user chose to abort or cancel.<br/> 命令未执行，由于用户交互，用户选择中止或取消。 |
+| (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
+| (406) Optional feature not supported | The specified Atomic command is not supported by the recipient. <br/> 收件人不支持指定的Atomic命令。|
+| (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned.<br/> 未指定验证凭证。也可以返回合适的质询。 |
+| (500) Command failed | Nested Atomic command was detected.<br/> 检测到嵌套Atomic命令。|
+| (507) Atomic failed | Error occurs while performing an individual command specified in an Atomic element type.<br/> 执行Atomic元素类型中指定的单个命令时发生错误。|
+| (517) Atomic Response too large to fit. | The response to an atomic command was too large to fit in a single message. <br/> 对原子命令的响应太大，无法适应单个消息。|
+
+Example: 范例
+```
+*<Atomic>*
+  <CmdID>42</CmdID>
+  <Alert>
+     <!—User confirmation -->
+  </Alert>
+  <Replace>
+     ... blah, blah ...
+  </Replace>
+*</Atomic>*
+```
