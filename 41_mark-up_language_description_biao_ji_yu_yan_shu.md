@@ -356,3 +356,18 @@ Restrictions: Major revisions of the specification create incompatible changes t
 
 When the DM message conforms to this revision of the OMA Device Management protocol specification the value MUST be 'DM/1.2’.
 当DM消息符合OMA设备管理协议规范的此修订版时，值必须是“DM/1.2”。
+
+```
+<SyncHdr>
+  <VerDTD>1.2</VerDTD> 
+  *<VerProto>*DM/1.2*</VerProto> *
+  <SessionID>1</SessionID> 
+  <MsgID>1</MsgID>
+  <Target>
+    <LocURI>http://www.syncml.org/mgmt-server</LocURI> 
+  </Target>
+  <Source> 
+    <LocURI>IMEI:493005100592800</LocURI>
+  </Source> 
+</SyncHdr>
+```
