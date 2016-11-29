@@ -6,7 +6,7 @@ Examples in this section make use of XML snippets. They are not intended to be c
 Restrictions listed in this document are in addition to the restrictions listed in [REPPRO].<br/>
 本文档中列出的限制是除[REPPRO]中列出的限制外的限制。
 
-### 4.1.1 Common Use Elements 常用元素
+## 4.1.1 Common Use Elements 常用元素
 The following are common element types used by numerous other element types. The table lists the mandatory and optional elements that servers and clients send and receive.<br/>
 以下是许多其他元素类型使用的常见元素类型。该表列出了服务器和客户端发送和接收的必需和可选元素。
 ![](4.1.1.jpeg)
@@ -370,4 +370,36 @@ When the DM message conforms to this revision of the OMA Device Management proto
     <LocURI>IMEI:493005100592800</LocURI>
   </Source> 
 </SyncHdr>
+```
+
+## 4.1.2 Message Container Elements 消息容器元素
+The following element types provide the basic container support for the DM message.<br/>
+以下元素类型为DM消息提供了基本的容器支持。
+![](4.1.2.jpeg)
+
+## 4.1.2.1 SyncML
+Restrictions: Within transports that support MIME content-type identification, this object MUST be identified as
+application/vnd.syncml.dm+xml (for clear-text, XML representation) or
+application/vnd.syncml.dm+wbxml (for binary, WBXML representation).<br/>
+限制：在支持MIME内容类型标识的传输中，此对象必须标识为application/vnd.syncml.dm +xml（对于明文，XML表示）或 application/vnd.syncml.dm+wbxml（用于二进制，WBXML表示)。
+
+Example: 示例
+```
+<SyncML xmlns=’SYNCML:SYNCML1.2’> 
+  <SyncHdr>
+     <VerDTD>1.2</VerDTD>
+     <VerProto>DM/1.2</VerProto>
+     <SessionID>1</SessionID>
+       <MsgID>1</MsgID>
+     <Target>
+        <LocURI>http://www.syncml.org/mgmt-server</LocURI> 
+     </Target>
+     <Source> 
+        <LocURI>IMEI:493005100592800</LocURI>
+     </Source>
+  </SyncHdr>
+  <SyncBody>
+     ...blah, blah...
+  </SyncBody>
+</SyncML>
 ```
