@@ -629,10 +629,10 @@ The Cred element MUST NOT be used at command level.<br/>
 Cred元素必须不在命令级别使用。
 
 The Data element type MUST be used to specify the type of alert.<br/>
-Data元素类型必须用于指定的提醒类型。
+Data元素类型必须用于指定的警报类型。
 
 The Correlator element type MUST be identical to the Correlator value of an Exec command if the alert is sent as an asynchronous response to that Exec command.<br/>
-如果提醒作为异步响应发送到该Exec命令，则Correlator元素类型必须与Exec命令的Correlator值相同。
+如果警报作为异步响应发送到该Exec命令，则Correlator元素类型必须与Exec命令的Correlator值相同。
 
 Optionally, one or more Item element types MAY be specified. For example, Alert 1224, which is used to send client event information to a server, requires the use of one or more Item elements. Each Item conveys an independent event. Each Item MUST contain a Meta element indicating the Type and Format of the event data.<br/>
 可选地，可以指定一个或多个Item元素类型。例如，用于向服务器发送客户端事件信息的警报1224需要使用一个或多个Item元素。每个项目传达独立事件。每个项必须包含指示事件数据的类型和格式的Meta元素。
@@ -652,20 +652,27 @@ The command MUST return a valid status code as defined in [REPPRO], Status codes
 
 | Status code 状态码 | Meaning 含义 |
 | -- | -- |
-| (200) OK | The command accessed leaf node and it completed successfully.<br/> 该命令访问了叶节点，并成功完成。 |
-| (213) Chunked item accepted | Chunked item accepted and buffered <br/> 分块项目被接受和缓冲|
+| (200) OK | The command and the associated Alert action are completed successfully.<br/> 命令和相关联的警报操作已成功完成。 |
+| (202) Accepted for processing| The command was accepted successfully, but the Alert action has not yet been executed successfully. A subsequent exception condition can be created to relate the eventual completion status of the associated Alert action.<br/> 该命令已成功接受，但警报操作尚未成功执行。可以创建后续异常条件以关联相关的警报操作的最终完成状态。|
+| (214) Operation Cancelled | The user cancelled the user interaction Alert. <br/> 用户取消了用户交互报警。|
 | (215) Not executed | Command was not executed, as a result of user interaction and user chose to abort or cancel.<br/> 命令未执行，由于用户交互，用户选择中止或取消。 |
 | (216) Atomic roll back OK | Command was inside Atomic element and Atomic failed. This command was rolled back successfully.<br/> 命令在原子元素内，原子失败。此命令已成功回滚。 |
 | (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
-| (404) Not Found | The specified data item doesn't exist on the recipient. This may also imply that the stated URI for the location of the new management object cannot be resolved.<br/> 指定的数据项不存在于收件人。这还可能意味着无法解析所述新管理对象的位置的URI。 |
-| (405) Command not allowed | Command not allowed.The requested command is not allowed on the target.<br/> 命令不允许。目标不允许请求的命令。 |
-| (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned.<br/> 未指定验证凭证。也可以返回合适的质询。 |
-| (413) Request entity too large | The data item to be transferred is too large (e.g., there are restrictions on the size of data items transferred to the recipient). <br/> 要传送的数据项过大（例如，对传送到接收方的数据项的大小有限制）。|
-| (414) URI too long | URI in command is too long. Either string presenting URI or segment in URI is too long or URI has too many segments.<br/>命令中的URI太长。在URI中显示URI或段的字符串太长，或者URI的段太多。 |
+| (405) Command not allowed | The device management protocol does not allow the Alert command to be specified at within the current DM package.<br/> 设备管理协议不允许在当前DM包内指定报警命令。 |
+| (406) Optional feature not supported | The specified Alert command is not supported by the recipient. <br/> 收件人不支持指定的报警命令。|
+| (408) Request timeout | The user didn't respond to the user interaction Alert within the timeout period.<br/> 用户在超时期限内没有响应用户交互警报。 |
+| (412) Incomplete command | The Alert command didn’t include all the correct parameters in the Item element type.<br/>Alert命令未包含Item元素类型中的所有正确参数。 |
 | (415) Unsupported media type or format | The media type or format for the data item is not supported by the recipient.<br/> 收件人不支持数据项的介质类型或格式。 |
-| (418) Already exists | The requested Add command failed because the target already exists.<br/> 请求的Add命令失败，因为目标已存在。 |
-| (420) Device full | The recipient device storage is full. <br/> 接收方设备存储已满。 |
-| (424) Size mismatch | The chunked object was received, but the size of the received object did not match the size declared within the first chunk.<br/> 接收到分块对象，但接收的对象的大小与第一个块中声明的大小不匹配。 |
-| (425) Permission denied | The server does not have the proper ACL permissions.<br/> 服务器没有正确的ACL权限。 |
+| (416) Requested range not satisfiable | The client is not able to display the user interaction Alert because of a device limitation (like too long choice).<br/> 由于设备限制（如过长的选择），客户端无法显示用户交互提醒。|
 | (500) Command failed | Non-specific errors created by the recipient while attempting to complete the command.<br/> 尝试完成命令时接收者发生的非特定错误。|
 | (516) Atomic roll back failed | Command was inside Atomic element and Atomic failed. This command was not rolled back successfully. Server should take action to try to recover client back into original state. <br/> 命令在原子元素内，原子失败。此命令未成功回滚。服务器应采取措施尝试恢复客户端回到原始状态。|
+See alert codes in Section 4.2 of this document.<br/>
+请参阅本文档第4.2节中的警报代码。
+
+Example: 范例
+```
+*<Alert>*
+  <CmdID>2</CmdID>
+  <Data>1200</Data> <!-- Server-initiated session -->
+*</Alert>*
+```
