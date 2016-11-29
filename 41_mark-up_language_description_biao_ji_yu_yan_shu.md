@@ -583,21 +583,21 @@ The command MUST return a valid status code as defined in [REPPRO], Status codes
 | Status code 状态码 | Meaning 含义 |
 | -- | -- |
 | (200) OK | The command accessed leaf node and it completed successfully.<br/> 该命令访问了叶节点，并成功完成。 |
-| 0:3 | 1:3 |
-| 0:4 | 1:4 |
-| 0:5 | 1:5 |
-| 0:6 | 1:6 |
-| 0:7 | 1:7 |
-| 0:8 | 1:8 |
-| 0:9 | 1:9 |
-| 0:10 | 1:10 |
-| 0:11 | 1:11 |
-| 0:12 | 1:12 |
-| 0:13 | 1:13 |
-| 0:14 | 1:14 |
-| 0:15 | 1:15 |
-| 0:16 | 1:16 |
-| 0:17 | 1:17 |
-| 0:18 | 1:18 |
+| (213) Chunked item accepted | Chunked item accepted and buffered <br/> 分块项目被接受和缓冲|
+| (215) Not executed | Command was not executed, as a result of user interaction and user chose to abort or cancel.<br/> 命令未执行，由于用户交互，用户选择中止或取消。 |
+| (216) Atomic roll back OK | Command was inside Atomic element and Atomic failed. This command was rolled back successfully.<br/> 命令在原子元素内，原子失败。此命令已成功回滚。 |
+| (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
+| (404) Not Found | The specified data item doesn't exist on the recipient. This may also imply that the stated URI for the location of the new management object cannot be resolved.<br/> 指定的数据项不存在于收件人。这还可能意味着无法解析所述新管理对象的位置的URI。 |
+| (405) Command not allowed | Command not allowed.The requested command is not allowed on the target.<br/> 命令不允许。目标不允许请求的命令。 |
+| (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned.<br/> 未指定验证凭证。也可以返回合适的质询。 |
+| (413) Request entity too large | The data item to be transferred is too large (e.g., there are restrictions on the size of data items transferred to the recipient). <br/> 要传送的数据项过大（例如，对传送到接收方的数据项的大小有限制）。|
+| (414) URI too long | URI in command is too long. Either string presenting URI or segment in URI is too long or URI has too many segments.<br/>命令中的URI太长。在URI中显示URI或段的字符串太长，或者URI的段太多。 |
+| (415) Unsupported media type or format | The media type or format for the data item is not supported by the recipient.<br/> 收件人不支持数据项的介质类型或格式。 |
+| (418) Already exists | The requested Add command failed because the target already exists.<br/> 请求的Add命令失败，因为目标已存在。 |
+| (420) Device full | The recipient device storage is full. <br/> 接收方设备存储已满。 |
+| (424) Size mismatch | The chunked object was received, but the size of the received object did not match the size declared within the first chunk.<br/> 接收到分块对象，但接收的对象的大小与第一个块中声明的大小不匹配。 |
+| (425) Permission denied | The server does not have the proper ACL permissions.<br/> 服务器没有正确的ACL权限。 |
+| (500) Command failed | Non-specific errors created by the recipient while attempting to complete the command.<br/> 尝试完成命令时接收者发生的非特定错误。|
+| (516) Atomic roll back failed | Command was inside Atomic element and Atomic failed. This command was not rolled back successfully. Server should take action to try to recover client back into original state. <br/> 命令在原子元素内，原子失败。此命令未成功回滚。服务器应采取措施尝试恢复客户端回到原始状态。|
 
 
