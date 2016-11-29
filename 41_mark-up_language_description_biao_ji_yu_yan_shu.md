@@ -99,3 +99,15 @@ Example: The following is an example of an MD5 digest authentication credential 
   <Data>Zz6EivR3yeaaENcRN6lpAQ==</Data>
 *</Cred>*
 ```
+### 4.1.1.7 Final
+Restrictions: No additional restrictions beyond those defined in [REPPRO].<br/>
+限制：除了[REPPRO]中定义的限制外，没有其他限制。
+Example: 示例
+```
+<SyncML xmlns=’SYNCML:SYNCML1.2’> <SyncHdr>
+  </SyncHdr>...blah, blah...</SyncBody>
+  ...blah, blah...
+  *<Final/>*
+  </SyncBody>
+</SyncML>
+```
