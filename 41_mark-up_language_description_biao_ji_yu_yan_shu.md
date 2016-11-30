@@ -659,7 +659,7 @@ The command MUST return a valid status code as defined in [REPPRO], Status codes
 | (216) Atomic roll back OK | Command was inside Atomic element and Atomic failed. This command was rolled back successfully.<br/> 命令在原子元素内，原子失败。此命令已成功回滚。 |
 | (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
 | (405) Command not allowed | The device management protocol does not allow the Alert command to be specified at within the current DM package.<br/> 设备管理协议不允许在当前DM包内指定报警命令。 |
-| (406) Optional feature not supported | The specified Alert command is not supported by the recipient. <br/> 收件人不支持指定的报警命令。|
+| (406) Optional feature not supported | The specified Alert command is not supported by the recipient. <br/> 不支持指定的报警命令。|
 | (408) Request timeout | The user didn't respond to the user interaction Alert within the timeout period.<br/> 用户在超时期限内没有响应用户交互警报。 |
 | (412) Incomplete command | The Alert command didn’t include all the correct parameters in the Item element type.<br/>Alert命令未包含Item元素类型中的所有正确参数。 |
 | (415) Unsupported media type or format | The media type or format for the data item is not supported by the recipient.<br/> 收件人不支持数据项的介质类型或格式。 |
@@ -707,7 +707,7 @@ The command MUST return a valid status code as defined in [REPPRO], Status codes
 | (200) OK | The command and the associated Alert action are completed successfully.<br/> 命令和相关联的警报操作已成功完成。 |
 | (215) Not executed | Command was not executed, as a result of user interaction and user chose to abort or cancel.<br/> 命令未执行，由于用户交互，用户选择中止或取消。 |
 | (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
-| (406) Optional feature not supported | The specified Atomic command is not supported by the recipient. <br/> 收件人不支持指定的Atomic命令。|
+| (406) Optional feature not supported | The specified Atomic command is not supported by the recipient. <br/> 接收者不支持指定的Atomic命令。|
 | (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned.<br/> 未指定验证凭证。也可以返回合适的质询。 |
 | (500) Command failed | Nested Atomic command was detected.<br/> 检测到嵌套Atomic命令。|
 | (507) Atomic failed | Error occurs while performing an individual command specified in an Atomic element type.<br/> 执行Atomic元素类型中指定的单个命令时发生错误。|
@@ -755,7 +755,7 @@ The command MUST return a valid status code as defined in [REPPRO], Status codes
 | (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
 | (403) Forbidden | Forbidden. The command could not be executed because the source cannot be copied to the destination URI for reasons other than access control rights.<br/> 禁止。 无法执行命令，因为除了访问控制权限以外，源不能复制到目标URI。 |
 | (405) Command not allowed | The requested command is not allowed on the target.<br/> 目标不允许请求的命令。|
-| (406) Optional feature not supported | The specified Copy command is not supported by the recipient. <br/> 收件人不支持指定的复制命令。|
+| (406) Optional feature not supported | The specified Copy command is not supported by the recipient. <br/> 接收者不支持指定的复制命令。|
 | (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned.<br/> 未指定验证凭证。也可以返回合适的质询。 |
 | (414) URI too long | URI in command is too long. Either string presenting URI or segment in URI is too long or URI has too many segments.<br/>命令中的URI太长。在URI中显示URI或段的字符串太长，或者URI的段太多。 |
 | (418) Already exists | The requested Add command failed because the target already exists.<br/> 请求的Add命令失败，因为目标已存在。 |
@@ -874,3 +874,65 @@ Example: 范例
   </Item>
 *</Exec>*
 ```
+
+### 4.1.6.7 Get
+Restrictions: Data returned from a Get command is returned in a Results element type in a subsequent message. The mandatory CmdID element type specifies the message-unique identifier for the command.<br/>
+限制：从Get命令返回的数据在后续消息中的Result元素类型中返回。强制的CmdID元素类型指定命令的消息唯一标识符。
+
+Path element values in DMTNDS objects are interpreted relative to the target URI in the Get command.<br/>
+DMTNDS对象中的路径元素值在Get命令中相对于目标URI进行解释。
+
+If the client does not support DMTNDS and the target of Get command is an interior node, list of the children node names MUST be returned in the Results element. The child list type is defined in [DMTND]. The Cred element MUST NOT be used at command level.<br/>
+如果客户端不支持DMTNDS，并且Get命令的目标是内部节点，则列出子节点名称必须在结果元素中返回。子列表类型在[DMTND]中定义。Cred元素不能在命令级别使用。
+
+One or more Item element types MUST be specified. The Item element type specifies the data items to be returned from the recipient. The Target specified within the Item element type MUST be a full device URI.<br/>
+必须指定一个或多个Item元素类型。Item元素类型指定要从接收者返回的数据项。在Item元素类型中指定的Target必须是完整的设备URI。
+
+The command MUST return a valid status code as defined in [REPPRO], Status codes listed here are for implementation guidance only:
+命令必须返回如[REPPRO]中定义的有效状态代码，此处列出的状态代码仅供实施指导：
+
+| Status code 状态码 | Meaning 含义 |
+| -- | -- |
+| (200) OK | The command and the associated Alert action are completed successfully.<br/> 命令和相关联的警报操作已成功完成。 |
+| (215) Not executed | Command was not executed, as a result of user interaction and user chose to abort or cancel.<br/> 命令未执行，由于用户交互，用户选择中止或取消。 |
+| (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
+| (404) Not Found | The specified data item doesn't exist on the recipient. <br/> 指定的数据项不存在于接收者上。 |
+| (406) Optional feature not supported | The requested command is not allowed on the target. <br/> 目标不允许请求的命令。|
+| (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned.<br/> 未指定验证凭证。也可以返回合适的质询。 |
+| (413) Request entity too large | The data item to be transferred is too large. <br/> 要传送的数据项过大。|
+| (414) URI too long | URI in command is too long. Either string presenting URI or segment in URI is too long or URI has too many segments.<br/>命令中的URI太长。在URI中显示URI或段的字符串太长，或者URI的段太多。 |
+| (415) Unsupported media type or format | The media type or format for the data item is not supported by the recipient.<br/> 收件人不支持数据项的介质类型或格式。 |
+| (425) Permission denied | The server does not have the proper ACL permissions.<br/> 服务器没有正确的ACL权限。 |
+| (500) Command failed | Non-specific errors created by the recipient while attempting to complete the command.<br/> 尝试完成命令时接收者发生的非特定错误。|
+Example: 范例
+```
+*<Get>*
+  <CmdID>4</CmdID>
+  <Item>
+      <Target> 
+          <LocURI>./antivirus_data/version</LocURI>
+     </Target>
+  </Item>
+*</Get>*
+```
+### 4.1.6.8 Map
+Restrictions: This element is not used in OMA Device Management Protocol.<br/>
+限制：此元素不在OMA设备管理协议中使用。
+### 4.1.6.9 MapItem
+Restrictions: This element is not used in OMA Device Management Protocol.<br/>
+限制：此元素不在OMA设备管理协议中使用。
+### 4.1.6.10 Put
+Restrictions: This element is not used in OMA Device Management Protocol.<br/>
+限制：此元素不在OMA设备管理协议中使用。
+### 4.1.6.11 Replace
+Restrictions: The Replace command is used to overwrite the value of an existing node. If the node does not exist, it MUST NOT be created and status code 404 is returned. Replace will return the status (418) Already Exists if the new name is identical to one of the nodes siblings.<br/>
+限制：Replace命令用于覆盖现有节点的值。如果节点不存在，则不得创建该节点，并返回状态代码404。Replace将返回状态（418）Already Exists 如果新名称与节点兄弟之一相同。
+
+The originator of the command SHOULD determine what features/properties of the data item are supported by the recipient and only send supported properties. The device information document on the recipient contains this information.<br/>
+推荐命令的发起者确定收件人支持数据项的什么功能/属性，并且只发送支持的属性。接收者上的设备信息文档包含此信息。
+
+If the MIME-Type is as defined in [DMTNDS] then a complete sub-tree MAY be replaced at once. A device MUST NOT replace any nodes if the device does not support the format of data in one (or more) of the DMTNDS node(s), or if the data of a node is out of range (either enumeration or size). If the device accepts the replacement of a complete sub tree then the complete sub tree in the DMTNDS object MUST replace all existing sub nodes in the device. If some of the nodes in the DMTNDS object are new compared to the existing ones in the device then the device MUST create these nodes. If some of the old nodes are not included in the DMTNDS object then the old nodes MUST be deleted. ACL values MAY be included in the DMTNDS object and these values MUST follow the rules specified in [DMTND] §7.7.1.<br/>
+如果MIME类型是在[DMTNDS]中定义的，则可以立即替换完整的子树。如果设备不支持一个（或多个）DMTNDS节点中的数据格式，或者如果节点的数据超出范围（枚举或大小），则设备必须不替换任何节点。如果设备接受完整子树的替换，则DMTNDS对象中的完整子树必须替换设备中的所有现有子节点。如果DMTNDS对象中的一些节点与设备中的现有节点相比是新的，则设备必须创建这些节点。如果一些旧节点不包括在DMTNDS对象中，则旧节点必须被删除。ACL值可以包括在DMTNDS对象中，并且这些值必须遵循[DMTND]§7.7.1中指定的规则。
+
+Client MUST send status code 415, “Unsupported media type or format”, if the device does not support DMTNDS.<br/>
+如果设备不支持DMTNDS，客户端必须发送状态码415，“Unsupported media type or format”。
