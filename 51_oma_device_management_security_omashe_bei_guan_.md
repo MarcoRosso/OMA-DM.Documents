@@ -370,3 +370,32 @@ The security type SHALL be specified as ”USERPIN”.<br/>
 
 OMA DM compliant Devices and Servers MUST support the USERPIN method.<br/>
 符合OMA DM的设备和服务器必须支持USERPIN方法。
+
+##### 5.1.7.2.3.3 USERPIN_NETWORKID
+This is a combination of the NETWORKID and USERPIN methods. It requires the use of a secret shared between the network provider and the Device and a user PIN.<br/>
+这是NETWORKID和USERPIN方法的组合。它需要使用在网络提供商和设备之间共享的密匙和用户PIN。
+
+The USERPIN_NETWORKID method requires:<br/>
+USERPIN_NETWORKID方法需要：
+
+A HMAC value to be calculated using this PIN combined with the secret shared between the network provider and the Device (with the PIN and secret combined as “PIN:secret”) and the bootstrap message, to be sent with the message. See section 5.1.7.2.1.<br/>
+使用此PIN与网络提供商和设备（具有组合为“PIN：secret”的PIN和密匙）之间共享的密匙计算的HMAC值并与初始化消息通过消息发送。见第5.1.7.2.1节。
+
+The protocol used to send the bootstrap message must be capable of transporting both the HMAC value and the OMA DM bootstrap package.<br/>
+用于发送初始化消息的协议必须能够传输HMAC值和OMA DM引导程序包。
+
+The security type SHALL be specified as ”USERPIN_NETWORKID”.<br/>
+安全类型必须指定为“USERPIN_NETWORKID”
+
+OMA DM compliant Devices and Servers MAY support the USERPIN_NETWORKID method.<br/>
+符合OMA DM的设备和服务器可以支持USERPIN_NETWORKID方法。
+
+#### 5.1.7.2.4 Smartcards 智能卡
+While not a transport, per se, smartcards allow for a very secure delivery of bootstrap information.<br/>
+虽然不是传输，智能卡本身允许非常安全地传递引导信息。
+
+Smartcard is a generic name for a set of specific specifications: [GSM11.11], [TS151.011], [TS102.221], [TS131.102], [C.S0023-B_v1.0].<br/>
+智能卡是一组特定规范的通用名称：[GSM11.11]，[TS151.011]，[TS102.221]，[TS131.102]，[C.S0023-B_v1.0]。
+
+Bootstrap data MAY be stored on the smartcard. The behaviour of a DM Client regarding bootstrap data is specified in [DMBOOT].<br/>
+初始化数据可以存储在智能卡上。有关初始化数据的DM客户端的行为在[DMBOOT]中指定。
