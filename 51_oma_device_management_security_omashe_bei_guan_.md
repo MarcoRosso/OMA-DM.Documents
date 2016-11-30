@@ -73,3 +73,38 @@ MD-5认证[RFC1321]通过在SyncHdr的Cred元素中提供原始userid：password
   </SyncBody>
 </SyncML>
 ```
+## 5.1.3.2 Computation of the MD-5 Digest 计算MD-5摘要
+The digest supplied in the Cred element is computed as follows: 
+在Cred元素中提供的摘要计算如下：
+
+Let H = the MD5 Hashing function.<br/>
+令H = MD5哈希函数。
+
+Let Digest = the output of the MD5 Hashing function. <br/>
+令Digest = MD5哈希函数的输出。
+
+Let B64 = the base64 encoding function.<br/>
+令B64 = base64编码函数。
+
+Digest = H(B64(H(username:password)):nonce)
+
+This computation allows the authenticator to authenticate without having knowledge of the password. The password is neither sent as part of the Cred element, nor is it required to be known explicitly by the authenticator, since the authenticator need only store a pre-computed hash of the username:password string.
+此计算允许认证者在不知道密码的情况下进行认证。 码既不作为Cred元素的一部分发送，也不需要由认证者明确地知道，因为认证者仅需要存储username：password字符串的预先计算的散列。
+
+## 5.1.3.3 Password and nonce usage 密码和随机数使用
+
+Both password and nonce are RECOMMENDED to be at least 128 bits (16 random octets) in length.<br/>
+密码和随机数都推荐为至少128位（16个随机字节）长度。
+
+The nonce value MUST be issued in a challenge from either the Device or the Device Management Server. In the case of the credentials being sent prior to a challenge being issued, then the last nonce used shall be reused. The authenticator must be aware that the issuer of the credentials may be using a stale nonce (that is to say, a nonce that is invalid due to some previous communications failure or a loss of data). Because of this, if authentication fails, one more challenge, along with the supply of a new nonce, MUST be made.<br/>
+必须在来自设备或设备管理服务器的质询中发出随机数。 在证书在发出质询之前发送的情况下，所使用的最后一个随机数将被重用。认证者必须知道凭证的发行者可能使用过时的随机数（也就是说，由于某些先前的通信故障或数据丢失）。因此，如果认证失败，必须进行另一个质询以及提供新的随机数。
+
+A new nonce SHOULD be used for each new session. The sequence of nonce values (as seen across sessions) SHOULD be difficult to predict.<br/>
+推荐为每个新会话使用新的随机数。推荐使随机数值序列（如会话中看到的）很难预测。
+
+## 5.1.3.4 Challenges from non-authenticated agents 来自未认证代理的质询
+In some scenarios, it might be necessary for client and Server to accept challenges from agents that have not yet been successfully authenticated. For example, consider the case in which both client and Server have outdated nonces, and MD5 or HMAC authentication is used. If they both discard the Chal element, they will not have a chance to update their nonce and they will never be able to authenticate each other. To avoid this situation it is RECOMMENDED that client and Server use the latest received nonce to build the content of the Cred element, even when the nonce is received from a non- authenticated agent. It is also RECOMMENDED that client and Server do not over-write the stored copy of the next nonce with one received from a non-authenticated agent, as that would allow malicious agents to replace good nonces with bad ones.<br/>
+在某些情况下，客户端和服务器可能需要接受来自尚未成功验证的代理的挑战。 例如，考虑客户端和服务器都具有过时的随机数，并且使用MD5或HMAC认证的情况。 如果他们都抛弃Chal元素，他们将没有机会更新其随机数，他们将永远不能够彼此认证。为了避免这种情况，建议客户端和服务器使用最新接收的随机数来构建Cred元素的内容，即使当从非认证代理接收到随机数时。还建议客户端和服务器不用从未认证代理接收的一个随机数的覆盖下一个随机数的存储副本，因为这将允许恶意代理用坏的随机数代替好的随机数。
+
+
+
