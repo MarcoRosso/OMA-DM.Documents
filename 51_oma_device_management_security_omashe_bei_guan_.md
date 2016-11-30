@@ -106,5 +106,86 @@ A new nonce SHOULD be used for each new session. The sequence of nonce values (a
 In some scenarios, it might be necessary for client and Server to accept challenges from agents that have not yet been successfully authenticated. For example, consider the case in which both client and Server have outdated nonces, and MD5 or HMAC authentication is used. If they both discard the Chal element, they will not have a chance to update their nonce and they will never be able to authenticate each other. To avoid this situation it is RECOMMENDED that client and Server use the latest received nonce to build the content of the Cred element, even when the nonce is received from a non- authenticated agent. It is also RECOMMENDED that client and Server do not over-write the stored copy of the next nonce with one received from a non-authenticated agent, as that would allow malicious agents to replace good nonces with bad ones.<br/>
 在某些情况下，客户端和服务器可能需要接受来自尚未成功验证的代理的挑战。 例如，考虑客户端和服务器都具有过时的随机数，并且使用MD5或HMAC认证的情况。 如果他们都抛弃Chal元素，他们将没有机会更新其随机数，他们将永远不能够彼此认证。为了避免这种情况，建议客户端和服务器使用最新接收的随机数来构建Cred元素的内容，即使当从非认证代理接收到随机数时。还建议客户端和服务器不用从未认证代理接收的一个随机数的覆盖下一个随机数的存储副本，因为这将允许恶意代理用坏的随机数代替好的随机数。
 
+## 5.1.4 Integrity 完整性
+Integrity of OMA DM messages is achieved using a HMAC-MD5 [RFC2104].<br/>
+OMA DM消息的完整性使用HMAC-MD5[RFC2104]来实现。
 
+This is a Hashed Message Authentication Code that MUST be used on every message transferred between the Device and the Device Management Server (if requested to do so by either entity). The use of integrity checking is OPTIONAL.
+这是一个散列消息认证码，必须用于在设备和设备管理服务器之间传输的每个消息（如果任一实体请求这样做）。使用完整性检查是可选的。
 
+### 5.1.4.1 How integrity checking is requested 如何请求完整性检查
+Integrity checking is requested in the same way and at the same time as authentication challenges in [DMPRO]. A challenge issued for syncml:auth-MAC will use the same Meta data for Type, Format, and NextNonce as syncml:auth- md5. A new authentication type, syncml:auth-MAC, may be requested by either the client or the Device Management Server (or simply supplied prior to a challenge ever being issued). When used, this authentication type MUST be specified in the transport header and MUST NOT be specified using the Cred element.<br/>
+完整性检查在[DMPRO]中以与身份验证相同的方式和相同的时间进行请求。 对syncml发出的质询：auth-MAC将对Type，Format和NextNonce使用与syncml：auth-md5相同的Meta数据。 新的认证类型syncml：auth-MAC可以由客户端或设备管理服务器请求（或者在发出质询之前简单地提供）。 使用时，必须在传输头中指定此认证类型，且必须不使用Cred元素指定。
+
+Note that the recipient of a challenge MUST respond with the requested authentication type, else the session MUST be terminated. For example, a challenge requesting the HMAC engenders a reply with valid Basic Authentication credentials, the session will be terminated despite the validity of the authentication credentials that were actually supplied.<br/>
+注意，质询的接收者必须用所请求的认证类型来响应，否则会话必须终止。例如，请求HMAC收到有效的基本认证凭证的答复的质询，尽管实际提供的认证凭证有效，会话仍将被终止。
+
+### 5.1.4.2 How the HMAC is computed 如何计算HMAC
+The HMAC is computed as described below, and uses MD-5 as its hashing function. The HMAC relies upon the use of a shared secret (or key), which in this application is itself a hash (denoted below as H(username:password)).<br/>
+HMAC的计算如下所述，并且使用MD-5作为其散列函数。HMAC依赖于共享秘密（或密钥）的使用，在本应用中，共享秘密本身是哈希（以下表示为H(username:password)）。
+
+The HMAC value MUST be computed by encoding in base64 the result of the digest algorithm applied as follows:<br/>
+HMAC值必须通过在base64中编码，通过如下摘要算法来计算：
+
+H(B64(H(username:password)):nonce:B64(H(message body)))<br/>
+
+where H(X) is the result of the selected digest algorithm (MD-5) applied to octet stream X, and B64(Y) is the base64 encoding of the octet stream Y.<br/>
+其中H（X）是应用于八位字节流X的所选择的摘要算法（MD-5）的结果，并且B64（Y）是八位字节流Y的base64编码。
+
+### 5.1.4.3 How the HMAC is specified in the OMA DM message 如何在OMA DM消息中指定HMAC
+The HMAC itself MUST be transported along with the original OMA DM message. This is achieved by inserting the HMAC into a transport header called x-syncml-hmac. This technique works identically on HTTP, WAP, and OBEX. The HMAC is calculated initially by the sender using the entire message body, either in binary form (WBXML) or text form (XML). The receiver applies the same technique to the incoming message.<br/>
+HMAC本身必须与原始OMA DM消息一起传送。这是通过将HMAC插入到称为x-syncml-hmac的传输头中实现的。此技术在HTTP，WAP和OBEX上的工作原理相同。HMAC最初由发送方使用整个消息体（二进制形式（WBXML）或文本形式（XML））来计算。 接收方对输入消息应用相同的技术。
+
+The header x-syncml-hmac contains multiple parameters, including the HMAC itself, the user or Server identifier, and an optional indication of which HMAC algorithm is in use (the only one currently defined is MD-5).<br/>
+报头x-syncml-hmac包含多个参数，包括HMAC本身，用户或服务器标识符，以及使用哪个HMAC算法的可选指示（仅有一个当前定义的是MD-5）。
+
+The value of the x-syncml-hmac header is defined as a comma separated list of attribute-values pairs. The rule "#rule" and the terms "token" and "quoted-string" are used in accordance to their definition in the HTTP 1.1 specifications [RFC2616].<br/>
+x-syncml-hmac头的值定义为以逗号分隔的属性值对列表。 规则“#rule”和术语“token”和“quoted-string”根据它们在HTTP 1.1规范[RFC2616]中的定义使用。
+
+Here is the formal definition:<br/>
+这里是正式的定义：
+`syncml-hmac = #syncml-hmac-param`<br/>
+
+where:其中
+
+`syncml-hmac-param = (algorithm | username | mac)`
+
+The following parameters are defined:
+定义以下参数：
+```
+algorithm = "algorithm" "=" ("MD5" | token)
+username = "username" "=" username-value
+mac = "mac" "=" mac-value
+```
+where:其中
+```
+username-value = quoted-string
+mac-value = base64-string
+```
+The parameter algorithm can be omitted, in that case MD5 is assumed. The parameter username MUST be specified. The parameter mac MUST be specified.<br/>
+可以省略参数algorithm，在这种情况下假定为MD5。必须指定参数username。必须指定参数mac。
+
+Note that a base64-string is any concatenation of the characters belonging to the base64 Alphabet,as defined in [RFC1521].
+注意，base64字符串是属于base64 Alphabet的字符的任何级联，如[RFC1521]中定义。
+
+Example:范例
+```
+x-syncml-hmac: algorithm=MD5, username="Robert Jordan",
+mac=NTI2OTJhMDAwNjYxODkwYmQ3NWUxN2RhN2ZmYmJlMzk
+```
+The username-value is the identical string from the LocName of the Source element of the SyncHdr, and represents the identity of the sender of the message. The presence of the username in the message header allows the calculation and validation of the HMAC to be independent of the parsing of the message itself.<br/>
+username-value是来自SyncHdr的Source元素的LocName的相同字符串，并且表示消息的发送者的标识。在消息报头中存在的用户名允许HMAC的计算和验证独立于消息本身的解析。
+
+Upon receiving a message, the steps are:<br/>
+收到消息后，步骤如下：
+1. Check for the HMAC in the message header; extract it and the username.<br/>
+检查消息头中的HMAC; 提取它和用户名。
+2. Using the username, look up the secret key from storage. This key is itself a hash, which incorporates the username and password, as described earlier.<br/>
+使用用户名，从存储中查找密钥。 这个密钥本身是一个哈希，它包含用户名和密码，如前所述。
+3. Either parse the message;<br/>
+解析消息
+4. Or, validate the digest.<br/>
+或者，验证摘要
+
+In either sequence of steps, the digest is calculated based on the entire message body, which is either a binary XML document (WBXML) or a text XML document.<br/>
+在任一一步骤序列中，基于整个消息体来计算摘要，消息体是二进制XML文档（WBXML）或文本XML文档。
