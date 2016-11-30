@@ -281,3 +281,7 @@ No restrictions are placed upon the encryption technique used, since this is ind
 ### 5.1.5.2 Confidentiality of information between Device Management Servers 设备管理服务器之间的信息保密性
 OMA DM offers the ability for a Device Management Server to make private any data that is stored under Device Management control from another Device Management Servers. This is facilitated by the use of an ACL (Access Control List) that allows the protection of any group, or any individual Device Management object.<br/>
 OMA DM使设备管理服务器能够将存储在设备管理控制下的任何数据从另一个设备管理服务器进行私有化。这通过使用允许保护任何组或任何单独的设备管理对象的ACL（访问控制列表）来实现。
+
+#### 5.1.5.2.1 The Access Control List 访问控制列表
+The Access Control List allows a hierarchical assignment of Access Rights based upon Device Management Server Identifiers’s (Unique identifiers for the Device Management Servers [DMTND]). A detailed description of the ACL can be found in [DMTND].<br/>
+访问控制列表允许基于设备管理服务器标识符（设备管理服务器[DMTND]的唯一标识符）的访问权限的分级分配。有关ACL的详细说明，请参见[DMTND]。
