@@ -189,3 +189,95 @@ Upon receiving a message, the steps are:<br/>
 
 In either sequence of steps, the digest is calculated based on the entire message body, which is either a binary XML document (WBXML) or a text XML document.<br/>
 在任一一步骤序列中，基于整个消息体来计算摘要，消息体是二进制XML文档（WBXML）或文本XML文档。
+
+After the HMAC is computed by the receiver (if it was present), the supplied HMAC and the computed HMAC can be compared in order to establish the authenticity of the sender, and also the integrity of the message.<br/>
+在接收方计算HMAC（如果它存在）之后，可以比较所提供的HMAC和所计算的HMAC，以便建立发送者的真实性以及消息的完整性。
+
+If the HMAC was expected (e.g. if a challenge for it had been issued) and either it or the userid are not supplied in the correct transport header, then an authentication failure results (as if they had been supplied, and were incorrect).<br/>
+如果HMAC是预期的（例如，如果已经发出了对其的质询），并且它或者用户ID没有在正确的传输头中提供，则导致认证失败（正如它们已经被提供但是是不正确的）。
+
+If the value of the username or secret is changed during a session (e.g. when the AAuthName or AAuthSecret element in [DMSTDOBJ] is replaced), the new value of secret will only be used for subsequent sessions.<br/>
+如果在会话期间改变了用户名或秘密的值（例如，当[DMSTDOBJ]中的AAuthName或AAuthSecret元素被替换时），秘密的新值将仅用于后续会话。
+
+Once the HMAC technique is used, it MUST be used for all subsequent messages until the end of the OMA DM session. The Status code sent back for the SyncHdr MUST be 200 to indicate authenticated for this message. In addition, the NextNonce element MUST be sent and used for the next HMAC credential check. Failure to meet these requirements MUST result in a termination of the session.<br/>
+一旦使用HMAC技术，它必须用于所有后续消息，直到OMA DM会话结束。为SyncHdr发送回的状态码必须为200，以指示对此消息进行身份验证。此外，NextNonce元素必须被发送并用于下一个HMAC凭证检查。不能满足这些要求的会话必须终止。
+
+### 5.1.4.4 HMAC and nonce value HMAC和随机数值
+A new nonce MUST be used for every message. The new nonce will be obtained via the NextNonce value in the previous message. In addition, since HMAC credentials MUST be verified for each message, the SyncHdr status code for an authenticated message MUST be 200.<br/>
+必须为每个消息使用新的随机数。 新的随机数将通过上一个消息中的NextNonce值获得。 此外，由于必须为每个消息验证HMAC凭证，所以已验证消息的SyncHdr状态代码必须为200。
+
+### 5.1.4.5 Use of transport protocols providing authentication and integrity 使用传输协议提供认证和完整性保证
+Note that the static conformance requirements for the HMAC feature is independent of its use. Neither client nor Server need supply the HMAC, unless challenged for it. For example, if it is deemed that an already authenticated transport protocol connection has already been established, then the Device or the Device Management Server MAY choose not to authenticate. In this particular situation, neither Server nor client is expected to issue a challenge for it. According to the general techniques specified in [DMPRO], a DM client that supports mutual authentication at the transport layer MAY choose not to support OMA DM authentication mechanisms. In this particular case, the Server MAY still issue a HMAC challenge, but the session MUST end if the client does not respond with the requested authentication type. The use of transport layer protocols is specified further in Section 5.5.1.1. The provisioning of credentials/certificates for transport layer authentication however, is beyond the scope of OMA DM Security.<br/>
+请注意，HMAC特性的静态一致性要求与其使用无关。客户端和服务器都不需要提供HMAC，除非对它有质询。例如，如果认为已经建立了已经认证的传输协议连接，则设备或设备管理服务器可以选择不进行认证。在这种特殊情况下，服务器和客户端都不会对其发出质询。根据[DMPRO]中规定的一般技术，在传输层支持相互认证的DM客户端可以选择不支持OMA DM认证机制。在这种特殊情况下，服务器可能仍然发出HMAC质询，但是如果客户端没有用请求的认证类型响应，会话必须结束。传输层协议的使用在5.1.5.1.1节中进一步说明。然而，为传输层认证配置凭证/证书超出了OMA DM安全性的范围。
+
+## 5.1.5 Confidentiality 保密性
+Confidentiality in OMA DM has two major aspects; the confidentiality of information being transferred over a transport protocol, and the confidentiality of information between Device Management Servers.<br/>
+OMA DM中的保密性有两个主要方面：通过传输协议传输的信息的机密性以及设备管理服务器之间的信息的机密性。
+### 5.1.5.1 Confidentiality of information during transport 传输期间信息的保密性
+Currently there is no inbuilt ability for the OMA DM protocol itself to provide confidentiality of the data being transferred between the Device and the Device Management Server. However, there are a number of techniques that OMA DM is compatible with that do provide this ability:<br/>
+目前，对于OMA DM协议本身没有内置的能力来提供在设备和设备管理服务器之间传送的数据的保密性。 然而，有许多技术，他们与OMA DM兼容，并提供这种能力：
+
+#### 5.1.5.1.1 Transport protocols that support encryption 支持加密的传输协议
+The use of a transport layer protocol that supports encryption is RECOMMENDED for use where the exposure of the data to third party could have significantly negative consequences. Note that it is possible to use transports, which give confidentiality, without also having authentication. In these cases, confidentiality may be at risk.<br/>
+支持加密的传输层协议的使用被推荐用于将数据暴露给第三方可能具有显着负面后果的用途。注意，可以使用给予保密性的传输，而不具有认证。在这些情况下，保密性可能有风险。
+
+When using OMA DM over HTTP:
+当使用OMA DM在HTTP上时：
+
+
+* The Device Management Server MUST support both TLS 1.0 [TLS] and SSL3.0 [SSL3.0]
+设备管理服务器必须支持TLS 1.0 [TLS]和SSL3.0 [SSL3.0]
+
+* The Device Management Server MUST use TLS 1.0 or SSL3.0
+设备管理服务器务必使用TLS 1.0或SSL3.0
+
+* The device management client MUST use TLS 1.0 or SSL3.0
+设备管理客户端必须使用TLS 1.0或SSL3.0
+
+* The device management client MUST identify that the Device Management Server is using TLS1.0 or SSL3.0
+设备管理客户端必须标识设备管理服务器正在使用TLS1.0或SSL3.0
+
+* A device management session SHALL NOT take place over SSL2.0 or less.
+设备管理会话必须不在SSL2.0或更低版本上发生。
+
+* The Device Management Server MUST support all of the following cipher suites, all of which provide authentication, confidentiality and integrity, when using a TLS1.0 session<br/>
+设备管理服务器必须支持所有以下密码套件，所有这些套件在使用TLS1.0会话时都提供身份验证，机密性和完整性
+  * TLS_RSA_WITH_AES_128_CBC_SHA-1
+  * TLS_RSA_WITH_3DES_EDE_CBC_SHA
+  * TLS_RSA_WITH_RC4_128_SHA
+* The device management client MUST support at least one of the following cipher suites, all of which provide authentication, confidentiality and integrity, when using a TLS1.0 session<br/>
+设备管理客户端必须支持以下密码套件中的至少一个，当使用TLS1.0会话时，它们都提供认证，机密性和完整性
+  * TLS_RSA_WITH_AES_128_CBC_SHA-1
+  * TLS_RSA_WITH_3DES_EDE_CBC_SHA
+  * TLS_RSA_WITH_RC4_128_SHA
+* The Device Management Server MUST support both of the following cipher suites, both of which provide authentication, confidentiality and integrity, when using an SSL3.0 session<br/>
+当使用SSL3.0会话时，设备管理服务器必须支持以下两种密码套件，这两种套件都提供身份验证，机密性和完整性
+  * SSL_RSA_WITH_RC4_128_SHA
+  * SSL_RSA_WITH_3DES_EDE_CBC_SHA
+* The device management client MUST support at least one of the following cipher suites, both of which provide authentication, confidentiality and integrity, when using an SSL3.0 session<br/>
+当使用SSL3.0会话时，设备管理客户端必须支持以下密码套件中的至少一个，它们都提供认证，机密性和完整性
+  * SSL_RSA_WITH_RC4_128_SHA
+  * SSL_RSA_WITH_3DES_EDE_CBC_SHA
+  
+The Device Management Server MAY accept the usage of other cipher suites with at least 128 bit symmetric keys when using an SSL3.0 or TLS1.0 session.<br/>
+当使用SSL3.0或TLS1.0会话时，设备管理服务器可以接受使用具有至少128位对称密钥的其他密码套件。
+
+The Device Management Server MUST support the requirements relating to certificates and certificate processing in section 6.3 and 6.4 of the WAP TLS Profile and Tunneling, [WAP-219-TLS].<br/>
+设备管理服务器必须支持WAP TLS配置文件和隧道[WAP-219-TLS]第6.3和6.4节中与证书和证书处理相关的要求。
+
+If the device management client supports TLS1.0, it MUST support the requirements relating to certificates and certificate processing in section 6.3 and 6.4 of the WAP TLS Profile and Tunneling, [WAP-219-TLS].<br/>
+如果设备管理客户端支持TLS1.0，它必须支持WAP TLS配置文件和隧道[WAP-219-TLS]第6.3节和第6.4节中与证书和证书处理相关的要求。
+
+#### 5.1.5.1.2 Management object encryption 管理对象加密
+OMA DM fully supports the use of encrypted management objects, which may remain encrypted within the Device Management tree, or be decrypted upon receipt by the Device or Device Management Server.<br/>
+OMA DM完全支持使用加密的管理对象，其可以在设备管理树内保持加密，或者在设备或设备管理服务器接收时被解密。
+
+Depending upon implementation, an object may be encrypted prior to transmission over a non encrypted transport layer, and remain encrypted in storage space within either the Device Management Server or the Device, or, it may be decrypted immediately after receipt, and stored internally in unencrypted format.<br/>
+根据实现，对象可以在通过非加密传输层传输之前被加密，并且在设备管理服务器或设备内的存储空间中保持加密，或者它可以在接收之后立即解密，并且以未加密格式在内部存储。
+
+No restrictions are placed upon the encryption technique used, since this is independent of the OMA DM protocol itself.<br/>
+对所使用的加密技术没有限制，因为这独立于OMA DM协议本身。
+
+### 5.1.5.2 Confidentiality of information between Device Management Servers 设备管理服务器之间的信息保密性
+OMA DM offers the ability for a Device Management Server to make private any data that is stored under Device Management control from another Device Management Servers. This is facilitated by the use of an ACL (Access Control List) that allows the protection of any group, or any individual Device Management object.<br/>
+OMA DM使设备管理服务器能够将存储在设备管理控制下的任何数据从另一个设备管理服务器进行私有化。这通过使用允许保护任何组或任何单独的设备管理对象的ACL（访问控制列表）来实现。
