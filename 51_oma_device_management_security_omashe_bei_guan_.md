@@ -280,8 +280,76 @@ No restrictions are placed upon the encryption technique used, since this is ind
 
 ### 5.1.5.2 Confidentiality of information between Device Management Servers 设备管理服务器之间的信息保密性
 OMA DM offers the ability for a Device Management Server to make private any data that is stored under Device Management control from another Device Management Servers. This is facilitated by the use of an ACL (Access Control List) that allows the protection of any group, or any individual Device Management object.<br/>
-OMA DM使设备管理服务器能够将存储在设备管理控制下的任何数据从另一个设备管理服务器进行私有化。这通过使用允许保护任何组或任何单独的设备管理对象的ACL（访问控制列表）来实现。
+OMA DM使设备管理服务器能够将存储在设备管理控制下的任何数据从另一个设备管理服务器进行私有化。这通过使用允许保护任何组或任何单独设备的管理对象的ACL（访问控制列表）来实现。
 
 #### 5.1.5.2.1 The Access Control List 访问控制列表
 The Access Control List allows a hierarchical assignment of Access Rights based upon Device Management Server Identifiers’s (Unique identifiers for the Device Management Servers [DMTND]). A detailed description of the ACL can be found in [DMTND].<br/>
 访问控制列表允许基于设备管理服务器标识符（设备管理服务器[DMTND]的唯一标识符）的访问权限的分级分配。有关ACL的详细说明，请参见[DMTND]。
+
+## 5.1.6 Notification Initiated Session 通知启动会话
+OMA DM offers the ability for a Device Management Server to make a request to a Device to establish a Management Session. The security of this message depends upon a digest. The specification of this message can be found in [DMNOTI].<br/>
+OMA DM提供了设备管理服务器向设备请求建立管理会话的能力。此消息的安全性取决于摘要。该消息的规范可以在[DMNOTI]中找到。
+
+## 5.1.7 Security for Bootstrap Operation 初始化操作的安全性
+Bootstrapping is a sensitive process that may involve communication between two parties without any previous relationship or knowledge about each other. In this context, security is very important. The receiver of a bootstrap message needs to know that the information originates from the correct source and that it has not been tampered with en-route. It is important that DM clients accept bootstrapping commands only from authorized DM or CP servers.<br/>
+初始化是一种敏感的过程，它可能涉及两方之间的通信，而彼此之间没有任何先前的关系或知识。 在这方面，安全是非常重要的。初始化消息的接收器需要知道信息源自正确的源并且它没有被经过篡改。 重要的是，DM客户端只接受来自授权的DM或CP服务器的引导命令。
+
+### 5.1.7.1 Bootstrap via CP 通过CP初始化
+The CP bootstrap mechanism is defined in [PROVBOOT].
+CP初始化机制在[PROVBOOT]中定义。
+
+#### 5.1.7.1.1 Smartcard 智能卡
+The CP Bootstrap mechanism from the smartcard is defined in [PROVSC].<br/>
+来自智能卡的CP初始化机制在[PROVSC]中定义。
+
+### 5.1.7.2 Bootstrap via DM 通过DM初始化
+#### 5.1.7.2.1 HMAC Computation for Bootstrap 初始化的HMAC计算
+The HMAC is calculated in the following way:<br/>
+HMAC以下列方式计算：
+
+First, the bootstrap document is encoded in the WBXML format [WBXML1.1], [WBXML1.2], [WBXML1.3]. The encoded document and the shared secret are then input as the data and key, respectively, for the HMAC calculation [RFC2104], based on the SHA-1 algorithm [SHA], as defined in the WTLS specification [WTLS]. The output of the HMAC (M = HMAC- SHA(K, A)) calculation is encoded as a string of hexadecimal digits where each pair of consecutive digits represent a byte. The hexadecimal encoded output from the HMAC calculation is then included in the security information.<br/>
+首先，引导文档以WBXML格式[WBXML1.1]，[WBXML1.2]，[WBXML1.3]编码。 然后，基于如WTLS规范[WTLS]中定义的SHA-1算法[SHA]，将编码文档和共享秘密分别作为HMAC计算的数据和密钥[RFC2104]输入。 HMAC（M = HMAC-SHA（K，A））计算的输出被编码为十六进制数字串，其中每对连续数字代表一个字节。HMAC计算的十六进制编码的输出被包括在安全信息中。
+
+The security method and HMAC are then passed as parameters to the content type in the format like this: <br/>
+然后将安全方法和HMAC作为参数传递到内容类型，格式如下：
+
+Content-Type: MIME type; SEC=type; MAC=digest
+
+Where:其中
+
+MIME type is application/vnd.syncml.dm+wbxml (cannot use XML for bootstrap)
+SEC = “NETWORKID”, “USERPIN”, or “USERPIN_NETWORKID”. Other types MAY also be used. Digest is the computed HMAC value as stated above.<br/>
+MIME类型是application/vnd.syncml.dm + wbxml（不能使用XML进行初始化）
+SEC =“NETWORKID”，“USERPIN”或“USERPIN_NETWORKID” 也可以使用其他类型。摘要是如上所述的计算的HMAC值。
+
+#### 5.1.7.2.2 Transports 传输
+Since any transport MAY be used to send the Bootstrap message to the DM client, appropriate security for bootstrapping a Device securely MUST be employed. If the transport has this appropriate security, it MUST be employed, otherwise, transport neutral security MUST be employed.<br/>
+由于可以使用任何传输来向DM客户端发送初始化消息，因此必须采用用于安全地初始化设备的适当安全性措施。如果传输具有这种适当的安全性，必须使用，否则，必须使用运输中性安全。
+
+Transport specific security is documented in the transport binding documents [SYNCHTTP], [SYNCOBEX], [SYNCWSP].
+传输特定安全性记录在传输绑定文档[SYNCHTTP]，[SYNCOBEX]，[SYNCWSP]中。
+
+#### 5.1.7.2.3 Transport Neutral Security 传输中性安全
+The following subsections show some methods of transport neutral security. While the Server and client MUST support NETWORKID and USERPIN, they are not limited to just those – other methods MAY be used as long as they employ a level of security appropriate for bootstrap. The combined security of the secret (e.g., randomness, difficulty of obtaining, etc.), the transport and the environment of use needs to be among the considerations when a bootstrapping service is being implemented.<br/>
+以下小节显示了一些传输工具中性安全的方法。虽然服务器和客户端必须支持NETWORKID和USERPIN，但是它们不仅限于那些 - 其他方法可以使用，只要它们的使用适合于初始化的安全级别。 当实现初始化服务时，秘密（例如，随机性，获得难度等），传输和使用环境的组合安全性需要考虑在内。
+
+##### 5.1.7.2.3.1 NETWORKID
+This method relies on some kind of shared secret that the Device and the network provider both know before the bootstrap process starts. This could be things like IMSI (for GSM) or ESN (for CDMA). What the shared secret actually is depends on the network provider and the particular Device. One advantage with this method is that is can be used without user intervention.<br/>
+该方法依赖于设备和网络提供商在初始化过程开始之前都知道的某种共享秘密。这可以是诸如IMSI（用于GSM）或ESN（用于CDMA）的东西。共享秘密实际上取决于网络提供商和特定设备。 该方法的一个优点是可以在没有用户干预的情况下使用。
+
+The NETWORKID method requires:<br/>
+NETWORKID方法需要：
+
+A HMAC value to be calculated using this shared secret and the DM bootstrap message, to be sent along with the message. See section 5.1.7.2.1.<br/>
+要使用此共享密钥和DM初始化消息计算的HMAC值与消息一起发送。见第5.1.7.2.1节。
+
+The protocol used to send the bootstrap message must be capable of transporting both the HMAC value and the OMA DM bootstrap package.<br/>
+用于发送初始化消息的协议必须能够传输HMAC值和OMA DM引导程序包。
+
+The security type SHALL be specified as ”NETWORKID”.<br/>
+安全类型必须指定为“NETWORKID”。
+
+OMA DM compliant Devices and Servers MUST support the NETWORKID method.<br/>
+符合OMA DM的设备和服务器必须支持NETWORKID方法。
+
+##### 5.1.7.2.3.2 USERPIN
