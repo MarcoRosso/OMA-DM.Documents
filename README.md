@@ -25,3 +25,7 @@ This document defines how an OMA DM device is brought from a ‘clean’ state, 
 ## 4. Representation Protocol 表示协议
 This document covers the Device Management usage of the SyncML Representation Protocol.<br/>
 本文档介绍了SyncML表示协议的设备管理使用。
+
+## 5. Security 安全
+This document describes OMA-DM security requirements in general, and provides description of transport layer security, application layer security, etc. It also describes security mechanisms that are used to provide for integrity, confidentiality and authentication.<br/>
+本文档总体描述OMA-DM安全要求，并提供传输层安全性，应用层安全性等的描述。它还描述了用于提供完整性，机密性和认证的安全机制。
