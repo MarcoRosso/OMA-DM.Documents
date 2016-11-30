@@ -197,7 +197,7 @@ If the HMAC was expected (e.g. if a challenge for it had been issued) and either
 如果HMAC是预期的（例如，如果已经发出了对其的质询），并且它或者用户ID没有在正确的传输头中提供，则导致认证失败（正如它们已经被提供但是是不正确的）。
 
 If the value of the username or secret is changed during a session (e.g. when the AAuthName or AAuthSecret element in [DMSTDOBJ] is replaced), the new value of secret will only be used for subsequent sessions.<br/>
-如果在会话期间改变了用户名或秘密的值（例如，当[DMSTDOBJ]中的AAuthName或AAuthSecret元素被替换时），秘密的新值将仅用于后续会话。
+如果在会话期间改变了用户名或密匙的值（例如，当[DMSTDOBJ]中的AAuthName或AAuthSecret元素被替换时），密匙的新值将仅用于后续会话。
 
 Once the HMAC technique is used, it MUST be used for all subsequent messages until the end of the OMA DM session. The Status code sent back for the SyncHdr MUST be 200 to indicate authenticated for this message. In addition, the NextNonce element MUST be sent and used for the next HMAC credential check. Failure to meet these requirements MUST result in a termination of the session.<br/>
 一旦使用HMAC技术，它必须用于所有后续消息，直到OMA DM会话结束。为SyncHdr发送回的状态码必须为200，以指示对此消息进行身份验证。此外，NextNonce元素必须被发送并用于下一个HMAC凭证检查。不能满足这些要求的会话必须终止。
@@ -331,11 +331,11 @@ Transport specific security is documented in the transport binding documents [SY
 
 #### 5.1.7.2.3 Transport Neutral Security 传输中性安全
 The following subsections show some methods of transport neutral security. While the Server and client MUST support NETWORKID and USERPIN, they are not limited to just those – other methods MAY be used as long as they employ a level of security appropriate for bootstrap. The combined security of the secret (e.g., randomness, difficulty of obtaining, etc.), the transport and the environment of use needs to be among the considerations when a bootstrapping service is being implemented.<br/>
-以下小节显示了一些传输工具中性安全的方法。虽然服务器和客户端必须支持NETWORKID和USERPIN，但是它们不仅限于那些 - 其他方法可以使用，只要它们的使用适合于初始化的安全级别。 当实现初始化服务时，秘密（例如，随机性，获得难度等），传输和使用环境的组合安全性需要考虑在内。
+以下小节显示了一些传输工具中性安全的方法。虽然服务器和客户端必须支持NETWORKID和USERPIN，但是它们不仅限于那些 - 其他方法可以使用，只要它们的使用适合于初始化的安全级别。 当实现初始化服务时，密匙（例如，随机性，获得难度等），传输和使用环境的组合安全性需要考虑在内。
 
 ##### 5.1.7.2.3.1 NETWORKID
 This method relies on some kind of shared secret that the Device and the network provider both know before the bootstrap process starts. This could be things like IMSI (for GSM) or ESN (for CDMA). What the shared secret actually is depends on the network provider and the particular Device. One advantage with this method is that is can be used without user intervention.<br/>
-该方法依赖于设备和网络提供商在初始化过程开始之前都知道的某种共享秘密。这可以是诸如IMSI（用于GSM）或ESN（用于CDMA）的东西。共享秘密实际上取决于网络提供商和特定设备。 该方法的一个优点是可以在没有用户干预的情况下使用。
+该方法依赖于设备和网络提供商在初始化过程开始之前都知道的某种共享密匙。这可以是诸如IMSI（用于GSM）或ESN（用于CDMA）的东西。共享密匙实际上取决于网络提供商和特定设备。 该方法的一个优点是可以在没有用户干预的情况下使用。
 
 The NETWORKID method requires:<br/>
 NETWORKID方法需要：
@@ -353,3 +353,20 @@ OMA DM compliant Devices and Servers MUST support the NETWORKID method.<br/>
 符合OMA DM的设备和服务器必须支持NETWORKID方法。
 
 ##### 5.1.7.2.3.2 USERPIN
+This method relies on a PIN that must be communicated to the user out-of-band, or agreed to before the bootstrap process starts.<br/>
+此方法依赖于必须在带外与用户通信或在初始化过程开始之前同意的PIN。
+
+The USERPIN method requires:<br/>
+USERPIN方法需要：
+
+A HMAC value to be calculated using this shared secret and the DM bootstrap message, to be sent along with the message. See section 5。1.7.2.1.
+要使用此共享密钥和DM初始化消息计算的HMAC值并与消息一起发送。见第5.1.7.2.1节。
+
+The protocol used to send the bootstrap message must be capable of transporting both the HMAC value and the OMA DM bootstrap package.<br/>
+用于发送初始化消息的协议必须能够传输HMAC值和OMA DM引导程序包。
+
+The security type SHALL be specified as ”USERPIN”.<br/>
+安全类型必须指定为“USERPIN”。
+
+OMA DM compliant Devices and Servers MUST support the USERPIN method.<br/>
+符合OMA DM的设备和服务器必须支持USERPIN方法。
