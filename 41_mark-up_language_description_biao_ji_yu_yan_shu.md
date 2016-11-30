@@ -992,3 +992,67 @@ Example: 范例
   </Item>
 *</Replace>*
 ```
+### 4.1.6.12 Results
+Restrictions: Results to a command MUST be sent after the Status to the same command.<br/>
+限制：命令的Results必须在Status之后发送到相同的命令。
+Example: 范例
+```
+*<Results>*
+  <MsgRef>1</MsgRef><CmdRef>4</CmdRef> 
+  <CmdID>3</CmdID>
+  <Item>
+    <Source> 
+    <LocURI>./antivirus_data/version</LocURI>
+    </Source>
+    <Data>antivirus-inc/20010522b/5</Data> 
+  </Item>
+*</Results>*
+```
+### 4.1.6.13 Search
+Restrictions: This element is not used in OMA Device Management Protocol.<br/>
+限制：此元素不在OMA设备管理协议中使用。
+
+### 4.1.6.14 Sequence
+Restrictions: The mandatory CmdID element type specifies the message-unique identifier for the command.<br/>
+限制：强制的CmdID元素类型指定命令的消息唯一标识符。
+
+One or more Add, Replace, Delete, Copy, Get, Exec or Alert element types MUST be specified. These element types MUST be processed in the specified sequence.<br/>
+必须指定一个或多个Add，Replace，Delete，Copy，Get，Exec或Alert元素类型。这些元素类型必须按指定的顺序处理。
+
+Status code(215) Not Executed MUST be sent back for the commands within the Sequence whose execution was aborted. The status code for the Sequence itself MUST be 200 if you begin executing the Sequence.<br/>
+状态代码（215）Not Executed 必须发送回中止执行的序列中的命令。如果开始执行序列，则序列本身的状态代码必须为200。
+
+The command MUST return a valid status code as defined in [REPPRO], Status codes listed here are for implementation guidance only:
+命令必须返回[REPAIR]中定义的有效状态代码，此处列出的状态代码仅供实施指导：
+
+| Status code 状态码 | Meaning 含义 |
+| -- | -- |
+| (200) OK | The command accessed an existing leaf node and it completed successfully.<br/> 该命令访问了一个现有的叶节点，并成功完成。|
+| (401) Unauthorized | The originator's authentication credentials specify a principal with insufficient rights to complete the command.<br/> 发起方的身份验证凭据指定了具有完全命令权限不足的主体。 |
+| (407) Authentication required | No authentication credentials were specified. A suitable challenge can also be returned. <br/> 未指定验证凭证。也可以返回合适的质询。 |
+| (500) Command failed | Non-specific errors created by the recipient while attempting to complete the command.<br/> 尝试完成命令时接收者发生的非特定错误。|
+
+Example: The following is an incomplete (i.e., Add and Delete commands only include skeleton content) example for a Sequence command containing two Add commands, followed by a Delete command.<br/>
+示例：以下是包含两个Add命令的Sequence命令的后续删除命令的不完整（即，添加和删除命令仅包括骨架内容）示例。
+
+```
+*<Sequence>*
+  <CmdID>1234</CmdID>
+  <Add>
+     <CmdID>1235</CmdID>
+     ...blah, blah...
+  </Add>
+  <Add>
+     <CmdID>1236</CmdID>
+     ...blah, blah...
+  </Add>
+  <Delete>
+     <CmdID>1237</CmdID>
+     ...blah, blah...
+  </Delete>
+*</Sequence>*
+```
+### 4.1.6.15 Sync
+
+Restrictions: This element is not used in OMA Device Management Protocol.<br/>
+限制：此元素不在OMA设备管理协议中使用。
