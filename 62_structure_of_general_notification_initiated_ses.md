@@ -70,13 +70,19 @@ Notification messages conforming to this version of the specification MUST have 
 
 ### 6.2.2.7 User Interaction Mode 用户交互模式
 The `<ui-mode>` field specifies the server recommendations whether the server wants the management session to be executed in background or show a notification to the user. A client SHOULD follow this recommendation.<br/>
+`<ui-mode>`字段指定服务器建议，即服务器是否希望在后台执行管理会话，或向用户显示通知。客户端应该遵循此建议。
 
 The values the User Interaction mode can have:<br/>
+用户交互模式可以具有的值：
 
 * Not specified – The `<not-specified>` field in `<user-interaction>` field specifies that the server doesn’t have a recommendation to this element. This value is specified by using the 2 bits and the bit value for not specified action is “00”.<br/>
+未指定 - `<user-interaction>`字段中的`<not-specified>`字段指定服务器没有对此元素的建议。该值由2位指定，未指定动作的位值为“00”。
 
 * Background management action – The `<background>` field specifies that the server recommends the management action SHOULD be done as a background event. This value is specified by using the 2 bits and the bit value for background action is “01”.<br/>
+后台管理操作 - `<background>`字段指定服务器建议管理操作应作为后台事件完成。该值由2位指定，背景操作的位值为“01”。
 
 * Informative management action – The `<informative>` field specifies that the server recommends the client to display an informative notification or maybe emitting a beep sound announcing the beginning of the provisioning session to the device user. This value is specified by using the 2 bits and the bit value for informative notification is “10”.<br/>
- 
+信息性管理行动 - `<informative>`字段指定服务器建议客户端显示信息性通知，或者可能向设备用户发出通知配置会话开始的嘟嘟声。该值由2位指定，信息通知的位值为“10”。
+
 * User Interaction before the management action – The `<user-interaction>` field specifies that the server recommends the client to prompt the device user for acceptance of the offered management session before the management session takes place. This value is specified by using the 2 bits and the bit value for user displayable notification is “11”.<br/>
+管理操作之前的用户交互 - `<user-interaction>`字段指定服务器建议客户端在管理会话发生之前提示设备用户接受所提供的管理会话。该值由2位指定，用户可显示通知的位值为“11”。
