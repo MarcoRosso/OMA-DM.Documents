@@ -224,6 +224,78 @@ c14n#"/>
      </SyncML>
 ```
 
+## Content Confidentiality 内容机密性
+XML-encryption [XMLENC] offers the encryption mechanism to achieve Content Confidentiality. Because the messaging between the Source of the Content and Device is not possible in most of the cases, we must agree the mandatory algorithms beforehand. The algorithms that must be supported for Confidentiality are RSA and AES128 as specified in [XMLENC]. MIME type for XML-encryption data is application/xenc+xml.<br/>
+XML加密[XMLENC]提供了实现内容机密性的加密机制。因为在大多数情况下内容和设备的源之间的不可能互发消息，所以我们必须事先同意强制性算法。机密性必须支持的算法是[XMLENC]中指定的RSA和AES128。XML加密数据的MIME类型为application/xenc + xml。
+
+If content is signed and encrypted the signature must be done first and the encryption must be placed over the entire signed content.<br/>
+如果内容被签名和加密，则必须首先完成签名，并且必须对整个签名的内容进行加密。
+
+Rules for XML-encryption elements used for XML-encryption [XMLENC] in OMA DM Content Encryption context:<br/>
+用于XML加密的XML加密元素的规则[XMLENC]在OMA DM内容加密上下文：
+
+• XML-Encryption tree must be placed as a child of a `<Data>` element (whose content we want to encrypt) in `<SyncBody>`. <br/>
+XML加密树必须作为`<SyncBody>`中`<Data>`元素（其内容我们要加密）的子元素。
+
+• OMA DM Content must be encrypted using a symmetric key AES128, i.e. outer `<EncryptionMethod>` element must have algorithm attribute set to a symmetric keying method.<br/>
+OMA DM内容必须使用对称密钥AES128加密，即外部`<EncryptionMethod>`元素必须将算法属性设置为对称密钥方法
+
+• Symmetric key must be encrypted by an asymmetric key RSA-1_5, i.e. inner `<EncryptionMethod>` element must have algorithm attribute set to an asymmetric keying method (i.e. receiver’s public key).<br/>
+对称密钥必须通过非对称密钥RSA-1_5加密，即内部`<EncryptionMethod>`元素必须将算法属性设置为非对称密钥方法（即接收方的公钥）。
+
+• `<KeyInfo>` must be included in `<EncryptedData>` and in `<EncryptedKey>` for receiver to inform encryption keys. 
+`<KeyInfo>`必须包含在`<EncryptedData>`和`<EncryptedKey>`中，以便通知接收方加密密钥。
+
+Example of OMA DM message with encrypted content:<br/>
+具有加密内容的OMA DM消息的示例：
+```
+<SyncML xmlns='SYNCML:SYNCML1.2'>
+  <SyncHdr>
+  ...
+  </SyncHdr>
+  <SyncBody>
+  ... 
+    <Replace>
+      <CmdID>3</CmdID>
+      <Meta>
+        <Format xmlns="syncml:metinf">xml</Format>
+        <Type xmlns="syncml:metinf">application/xenc+xml</Type> 
+      </Meta>
+      <Item>
+        <Target>
+          <LocURI>./my_mgmt_obj/file</LocURI> 
+        </Target>
+        <Data>
+          <![CDATA[
+          <xenc:EncryptedData
+          Type=http://www.w3.org/2001/04/xmlenc#Element> 
+          <EncryptionMethod
+              Algorithm='http://www.w3.org/2001/04/xmlenc#aes128-cbc'/> 
+          <KeyInfo>
+          <EncryptedKey>
+          <EncryptionMethod
+                Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5"/> 
+          <KeyInfo>
+              <KeyName>rsaKey</KeyName>
+             </KeyInfo>
+             <CipherData>
+               <CipherValue>
+                  xyzabc
+               </CipherValue>
+               </CipherData>
+             </EncryptedKey>
+             </KeyInfo>
+             <xenc:CipherData>
+                  <xenc:CipherValue>...</xenc:CipherValue> 
+             </xenc:CipherData>
+          </xenc:EncryptedData>
+]]> 
+        </Data>
+      </Item>
+    </Replace>
+  </SyncBody>
+</SyncML>
+```
 
 
 
