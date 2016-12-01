@@ -39,11 +39,31 @@ The following ABNF [RFC2234] defines the syntax for the message. The order and t
 ```  
 
 ## 6.2.2 Description of the fields 字段说明
-### 6.2.2.1 Trigger Message
+### 6.2.2.1 Trigger Message 触发消息
 
 The `<trigger-message>` field specifies the message causing the client to connect to the server.<br/>
 <trigger-message>字段指定使客户端连接到服务器的消息。
 
-### 6.2.2.2 Digest
+### 6.2.2.2 Digest 摘要
 The `<digest>` field specifies the MD5 Digest authentication. The Digest is computed as Digest = H(B64(H(server- identifier:password)):nonce:B64(H(trigger))). Length of MD5 Digest is 128 bits.<br/>
 `<digest>`字段指定MD5摘要认证。Digest计算为Digest = H(B64(H(server- identifier:password)):nonce:B64(H(trigger)))。MD5摘要的长度为128位。
+
+### 6.2.2.3 Trigger 触发
+The `<trigger>` field is container for the trigger-hdr and trigger-body fields.<br/>
+`<trigger>`字段是trigger-hdr和trigger-body字段的容器。
+
+### 6.2.2.4 Header of the Trigger Message 触发消息的标题
+The `<trigger-hdr>` field specifies the header of the Trigger Message.
+`<trigger-hdr>`字段指定触发消息的标题。
+
+### 6.2.2.5 Body of the Trigger Message 触发消息的主体
+The `<trigger-body>` field specifies the body of the Trigger Message.
+`<trigger-body>`字段指定触发消息的主体。
+
+### 6.2.2.6 Version Information 版本信息
+The `<version>` field specifies the version of the OMA Device Management Notification message sent by the OMA DM server. This value is specified by using the 10 bits in the Trigger Message. The supported version is counted as `<notification message version> = DEC (version)/10`, i.e. first the bit value is transferred to the numeric and then divided by ten. Therefore the biggest possible version is ‘102.3’ and the version ‘1.0’ is specified as ‘0000001010’.<br/>
+
+`<version>`字段指定由OMA DM服务器发送的OMA设备管理通知消息的版本。 该值通过使用触发消息中的10位来指定。 支持的版本计数为`<notification message version> = DEC（version）/10`，即首先将位值传输到数字，然后除以十。因此，最大可能的版本是“102.3”，版本“1.0”被指定为“0000001010”。
+
+Notification messages conforming to this version of the specification MUST have <version> field 10-bit binary value ‘0000001011’.<br/>
+符合此版本规范的通知消息必须具有`<version>`字段10位二进制值“0000001011”。
