@@ -67,3 +67,16 @@ The `<version>` field specifies the version of the OMA Device Management Notific
 
 Notification messages conforming to this version of the specification MUST have <version> field 10-bit binary value ‘0000001011’.<br/>
 符合此版本规范的通知消息必须具有`<version>`字段10位二进制值“0000001011”。
+
+### 6.2.2.7 User Interaction Mode 用户交互模式
+The `<ui-mode>` field specifies the server recommendations whether the server wants the management session to be executed in background or show a notification to the user. A client SHOULD follow this recommendation.<br/>
+
+The values the User Interaction mode can have:<br/>
+
+* Not specified – The `<not-specified>` field in `<user-interaction>` field specifies that the server doesn’t have a recommendation to this element. This value is specified by using the 2 bits and the bit value for not specified action is “00”.<br/>
+
+* Background management action – The `<background>` field specifies that the server recommends the management action SHOULD be done as a background event. This value is specified by using the 2 bits and the bit value for background action is “01”.<br/>
+
+* Informative management action – The `<informative>` field specifies that the server recommends the client to display an informative notification or maybe emitting a beep sound announcing the beginning of the provisioning session to the device user. This value is specified by using the 2 bits and the bit value for informative notification is “10”.<br/>
+ 
+* User Interaction before the management action – The `<user-interaction>` field specifies that the server recommends the client to prompt the device user for acceptance of the offered management session before the management session takes place. This value is specified by using the 2 bits and the bit value for user displayable notification is “11”.<br/>
