@@ -27,6 +27,28 @@ Arrow: Represents a message, or transaction.<br/>
 
 ## Abbreviations 缩写
 MSC Message Sequence Chart 消息序列图
+
 OMA Open Mobile Alliance 开放移动联盟
 
 
+## References 参考
+[IANA]:Internet Assigned Numbers Authority. URL:http://www.iana.org
+
+[PROVARCH]:“Provisioning Architecture Overview 1.1”. Open Mobile Alliance .
+OMA-WAP-ProvArch-v1_1. URL:http://www.openmobilealliance.org
+
+[PUSHMSG]:“Push Message”. Open Mobile Alliance . OMA-WAP-251-PushMessage.
+URL:http://www.openmobilealliance.org
+
+[PUSHOTA]:“WAP Push OTA Specification”. Open Mobile Alliance . OMA-WAP-235-PushOTA. URL:http://www.openmobilealliance.org
+
+[RFC2119]:“Key words for use in RFCs to Indicate Requirement Levels”. S. Bradner. March 1997.
+URL:http://www.ietf.org/rfc/rfc2119.txt
+
+[RFC2234]:“Augmented BNF for Syntax Specifications: ABNF”. D. Crocker, Ed., P. Overell. November 1997. URL:http://www.ietf.org/rfc/rfc2234.txt
+
+[SYNCOBEX]:“SyncML OBEX Binding Specification”, Open Mobile AllianceTM, OMA-TS- SyncML_OBEXBinding-V1_2, URL:http://www.openmobilealliance.org
+
+[WSP]:“Wireless Session Protocol Specification”. Open Mobile Alliance . OMA-WAP-WSP-1_0. URL:http://www.openmobilealliance.org
+
+[SYNCPRO]:“SyncML Synchronization Protocol”, Open Mobile Alliance , OMA-TS-DS_Protocol-V1_2, URL:http://www.openmobilealliance.org
