@@ -26,4 +26,5 @@
 * [Notification Initiated Session 通知启动的会话](notification_initiated_session_tong_zhi_qi_dong_de.md)
    * [6.1 Server Alerted Management Session 服务器报警的管理会话](61_server_alerted_management_session_fu_wu_qi_bao_.md)
    * [6.2 Structure of General Notification Initiated Session Alert 一般通知启动会话提醒的结构](62_structure_of_general_notification_initiated_ses.md)
+   * 6.3 OMA Device Management Transport Dependant Profiles OMA设备管理传输依赖配置文件
 
