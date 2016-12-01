@@ -23,4 +23,5 @@
 * [Security 安全](security_an_quan.md)
    * [5.1 OMA Device Management Security OMA设备管理安全](51_oma_device_management_security_omashe_bei_guan_.md)
    * [Appendix 附录](appendix_fu_lu.md)
+* Notification Initiated Session 通知启动的会话
 
