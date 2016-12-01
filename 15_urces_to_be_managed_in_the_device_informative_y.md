@@ -96,3 +96,16 @@ Security Resources listed here are assumed to be generic, Device-wide attributes
 | Authentication Profile - Authentication is used to verify the identity of the user or application. Base resource to be re-used by Applications, Services, or protocols. Multiple authentication mechanisms and associated parameters are anticipated.<br/> 认证配置文件 - 认证用于验证用户或应用程序的身份。要由应用程序，服务或协议重用的基本资源。预期多种认证机制和相关参数。| Authentication level (specify the authentication is for which layer: app layer, transport layer, etc),Authentication Protocol (specify the auth protocol, such as Kerberos v5, NTLM, RADIUS, EAP, HTTP BASIC Auth, etc Note: different layer could have different auth protocols.<br/>认证级别（指定认证是针对哪个层：应用层，传输层等），认证协议（指定认证协议，如Kerberos v5，NTLM，RADIUS，EAP，HTTP BASIC Auth等。 注意：不同层有不同认证协议。 | MA | W/A | -- |
 | Policy - Policies around how the security features of the Device are used. For instance, what level of trust is required for certain transactions or for different connections.<br/> 策略 - 关于如何使用设备的安全功能的策略。 例如，某些事务或不同连接需要什么级别的信任。 |Trust Policy,Transaction Policy,Updates Policy, Connections Policy<br/>信任政策，事务策略，更新策略，连接策略| MA, User | W/A |  |
 | Authorization and Access Control – covers access to other resources at various levels in Device Management from applications and services to the managed resources themselves<br/>授权和访问控制 - 涵盖设备管理的从应用程序和服务到被管理资源本身各个级别的其他资源的访问 | Managed Resource ACLs, White List, Black List<br/>托管资源ACL，白名单，黑名单 | MA | W/A | For particular applications there may be the need to allow (whitelist) or block (blacklist) connections explicitly, e.g. allowing only a predefined SMSC sender number for WAP Push.<br/>对于特定应用，可能需要明确地允许（白名单）或阻塞（黑名单）连接，例如， 仅允许用于WAP推送的预定义SMSC发送者号码。 |
+
+### 1.5.2.5 Performance 性能
+Performance measurements can take multiple forms. For example, they may be high or low-water marks, accumulators, discrete samples, etc.<br/>
+性能测量可以采取多种形式。例如，它们可以是高或低水印，累积器，离散样品等。
+
+| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy  更改政策| Notes 备注|
+| -- | -- | -- | -- | -- |
+| Alarm Log - Reports on recent Device alarms<br/>报警日志 - 报告最近的设备报警 | Log ID, Subscribers, Policy, Enabled Flag, Reports<br/>日志ID，订阅者，策略，启用标志，报告 | MA | W/A | Local policy may be defined to account for retention or storage limits.<br/>可以定义本地策略以考虑保留或存储限制。 |
+| Fault Log - Reports on recent Device faults<br/>故障日志 - 报告最近的设备故障 | Log ID, Subscribers, Policy, Enabled Flag, Reports, Severity Counts, Metrics<br/>日志ID，订阅者，策略，启用标志，报告，严重性计数，指标 | MA | W/A | Local policy may be defined to account for retention or storage limits.<br/> 可以定义本地策略以考虑保留或存储限制。|
+| Connectivity Bandwidth<br/>连接带宽 | Unit of Measure, Available,Preferred, Actual<br/>计量单位，可用，优先，实际 | MA | W/A |  |
+| Traffic Load - Measurement(s) of network activity (bytes, packets, etc.)<br/>流量负载 - 网络活动的测量（字节，数据包等） |Unit of measure (bytes, packets, ...), Current Load, Historical Load, Dropped Packets<br/>计量单位（字节，数据包，...），当前负载，历史负载，丢弃的数据包 | MA | W/A |  |
+| Application Load - Measurement indicating relative application usage of the Device<br/>应用程序负载 - 指示设备的相对应用程序使用量的测量 | Number of Apps, Processor Utilization<br/>应用程序数量，处理器利用率 | MA | W/A |  |
+| Policy - One or more policies governing performance monitoring or acquisition<br/>策略 - 一个或多个管理性能监控或采集的策略 | Schedules, Sample Rates, Logging Policy<br/>时间表，采样率，记录策略 | MA | W/A |  |
