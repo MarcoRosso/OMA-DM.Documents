@@ -109,3 +109,19 @@ Performance measurements can take multiple forms. For example, they may be high 
 | Traffic Load - Measurement(s) of network activity (bytes, packets, etc.)<br/>流量负载 - 网络活动的测量（字节，数据包等） |Unit of measure (bytes, packets, ...), Current Load, Historical Load, Dropped Packets<br/>计量单位（字节，数据包，...），当前负载，历史负载，丢弃的数据包 | MA | W/A |  |
 | Application Load - Measurement indicating relative application usage of the Device<br/>应用程序负载 - 指示设备的相对应用程序使用量的测量 | Number of Apps, Processor Utilization<br/>应用程序数量，处理器利用率 | MA | W/A |  |
 | Policy - One or more policies governing performance monitoring or acquisition<br/>策略 - 一个或多个管理性能监控或采集的策略 | Schedules, Sample Rates, Logging Policy<br/>时间表，采样率，记录策略 | MA | W/A |  |
+
+### 1.5.2.6 Accounting and Billing 会计和计费
+| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy  更改政策| Notes 备注|
+| -- | -- | -- | -- | -- |
+| Billing Information - Settings and data that are relevant both to the Device user’s account with Network and Service Providers as well as billing descriptions utilized by such Providers.<br/>帐单信息 - 与网络和服务提供商的设备用户帐户相关的设置和数据，以及此类提供商使用的帐单说明。 | Service Name, Trust Policy, Rate Name, Basis (time, volume, usage, etc.), Measurement Unit,Rate, Rate Unit<br/>服务名称，信任策略，速率名称，基准（时间，卷，使用等），测量单位，价格，速率单位 | MA, User | W/A | For example, for handset based prepay solutions, re- sources may be defined to allow update of minutes re- maining and the purchase thereof.See use case: 1.3.1.5.4. There may be different sets of data, some visible by user, some only by MA.<br/>例如，对于基于手机的预付解决方案，可以定义资源以允许更新剩余分钟和购买分钟。参见用例：1.3.1.5.4。可能有不同的数据集，一些由用户可见，一些只有MA可见。 |
+
+### 1.5.2.7 User Preferences & Customization 用户首选项和自定义
+
+| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy 更改政策| Notes 备注|
+| -- | -- | -- | -- | -- |
+| Background Picture<br/>背景图片 | Picture File<br/>图片文件 | User | W/O A |  |
+| Background Lighting<br/>背景亮度 | Color, Intensity<br/>颜色，强度 | User | W/O A |  |
+| Audio<br/>音频 | Volume, Tone, Output Component<br/>音量，音调，输出组件 | User | W/O A |  |
+| Signature<br/>签名 | Signature List, Application List, Current Choice<br/>签名列表，应用程序列表，当前选择 | User | W/O A |  |
+| Language<br/>语言 | Language List, Current Choice<br/>语言列表，当前选择 | User | W/O A | -- |
+| Ring Tone<br/>铃声 | Ring Tones, Current Choice<br/>铃声，当前选择 | User | W/O A | -- |
