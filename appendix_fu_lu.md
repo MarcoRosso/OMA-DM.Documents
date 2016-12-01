@@ -164,9 +164,66 @@ Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
   </Replace>
  </SyncBody>
 </SyncML>
-
-
 ```
+Example of OMA DM message with signed content (enveloped signature method):<br/>
+具有签名内容的OMA DM消息的示例（包封签名方法）：
+```
+ <SyncML xmlns='SYNCML:SYNCML1.2'>
+   <SyncHdr>
+   ...
+   </SyncHdr>
+   <SyncBody>
+   ... 
+    <Replace>
+    <CmdID>4</CmdID>
+    <Meta>
+      <Format xmlns="syncml:metinf">xml</Format>
+      <Type xmlns="syncml:metinf">application/xml</Type> 
+    </Meta>
+    <Item>
+      <Target>
+        <LocURI>./my_mgmt_obj/file</LocURI> 
+      </Target>
+      <Data>
+      <![CDATA[
+      <MyObject ID=MY_ID>
+         <MY_XML_CONTENT_HEADER />
+         <MY_XML_CONTENT_DATA />
+      </MyObject>
+      <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <SignedInfo>
+           <CanonicalizationMethod
+                Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+           <SignatureMethod
+                Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+           <Reference>
+              <Transforms>
+                  <Transform 
+                  Algorithm="http://www.w3.org/2001/10/xml-exc-
+c14n#"/>
+              </Transforms>
+              <DigestMethod
+                      Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+              <DigestValue> LyLsF094hPi4wPU... </DigestValue>
+             </Reference URI=”#MY_ID”>
+             </SignedInfo>
+             <SignatureValue>
+               Hp1ZkmFZ/2kQLXDJbchm5gK...
+             </SignatureValue>
+             <KeyInfo>
+                 <KeyValue xmlns="http://www.w3.org/2000/09/xmldsig#"> 
+                  ...
+                 </KeyValue>
+             </KeyInfo>
+             </Signature>
+]]> 
+            </Data>
+           </Item>
+         </Replace>
+       </SyncBody>
+     </SyncML>
+```
+
 
 
 
