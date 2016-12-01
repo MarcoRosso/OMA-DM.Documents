@@ -54,4 +54,119 @@ Rules for XML-signature elements used for enveloping XML-signature [XMLSIGN] in 
 * The digest value (in `<DigestValue>`) is encrypted with sender’s private key to produce `<SignatureValue>`. The receiver then decrypts the signature with the sender’s public key (in KeyInfo/KeyValue) to produce digest value (which sender computed), This hash value is compared to the digest value computed by the receiver.<br/>
 摘要值（在`<DigestValue>`中）使用发送者的私钥进行加密，以生成`<SignatureValue>`。然后，接收者用发送者的公共密钥（在KeyInfo/KeyValue中）解密签名以产生摘要值（发送者计算的）。将该散列值与由接收者计算的摘要值进行比较。
 
+Example of OMA DM message with signed content (recommended, detached signature method):<br/>
+具有签名内容的OMA DM消息的示例（推荐，分离签名方法）：
+
+```
+ <SyncML xmlns='SYNCML:SYNCML1.2'>
+   <SyncHdr>
+    ...
+   </SyncHdr>
+   <SyncBody>
+    ... 
+    <Replace>
+    <CmdID>4</CmdID>
+    <Meta>
+      <Format xmlns="syncml:metinf">xml</Format>
+      <Type xmlns="syncml:metinf">application/xml</Type> 
+    </Meta>
+    <Item>
+      <Target>
+        <LocURI>./my_mgmt_obj/file</LocURI> 
+      </Target>
+      <Data>
+        <![CDATA[
+        <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+           <SignedInfo>
+             <CanonicalizationMethod
+                  Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+                      <SignatureMethod
+                      Algorithm="http://www.w3.org/2000/09/xmldsig#rsa- sha1"/>
+                      <Reference>
+                         <Transforms>
+                         <Transform
+                         Algorithm="http://www.w3.org/2001/10/xml-exc- c14n#"/>
+                         </Transforms>
+                         <DigestMethod
+        Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+            <DigestValue> LyLsF094hPi4wPU... </DigestValue>
+                          </Reference>
+                        </SignedInfo>
+                        <SignatureValue>
+                          Hp1ZkmFZ/2kQLXDJbchm5gK...
+                        </SignatureValue>
+                        <KeyInfo>
+                            <KeyValue xmlns="http://www.w3.org/2000/09/xmldsig#"> ...
+                          </KeyValue>
+                        </KeyInfo>
+</Signature>
+]]> 
+    MY_SIGNED_BINARY_OR_XML_CONTENT...
+                    </Data>
+                  </Item>
+                </Replace>
+             </SyncBody>
+</SyncML>
+```
+Example of OMA DM message with signed content (enveloping signature method):<br/>
+具有签名内容的OMA DM消息的示例（包络签名方法）：
+```
+ <SyncML xmlns='SYNCML:SYNCML1.2'>
+   <SyncHdr>
+   ...
+   </SyncHdr>
+   <SyncBody>
+    ... 
+    <Replace>
+    <CmdID>4</CmdID>
+    <Meta>
+      <Format xmlns="syncml:metinf">xml</Format>
+      <Type xmlns="syncml:metinf">application/xml</Type> 
+    </Meta>
+    <Item>
+     <Target>
+        <LocURI>./my_mgmt_obj/file</LocURI> 
+     </Target>
+    <Data>
+      <![CDATA[
+      <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <SignedInfo>
+          <CanonicalizationMethod
+              Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/> 
+          <SignatureMethod
+              Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <Reference>
+         <Transforms>
+          <Transform
+              Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+         </Transforms>
+         <DigestMethod
+
+Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/> 
+         <DigestValue> LyLsF094hPi4wPU... </DigestValue>
+      </Reference>
+     </SignedInfo>
+    <SignatureValue>
+       Hp1ZkmFZ/2kQLXDJbchm5gK...
+    </SignatureValue>
+    <KeyInfo>
+        <KeyValue xmlns="http://www.w3.org/2000/09/xmldsig#"> 
+        ...
+        </KeyValue>
+       </KeyInfo>
+       <Object>
+         ASDFASDFASDFASDG...
+       </Object>
+    </Signature>
+    ]]> 
+    </Data>
+   </Item>
+  </Replace>
+ </SyncBody>
+</SyncML>
+
+
+```
+
+
 
