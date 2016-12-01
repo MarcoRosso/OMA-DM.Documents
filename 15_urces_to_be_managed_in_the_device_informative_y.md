@@ -59,9 +59,39 @@ Unknown (which may mean it’s ambiguous) – abbreviated Unk<br/>
 ![](r01.jpeg)
 ![](r02.jpeg)
 ### 1.5.2.1 Application Data Resources 应用数据资源
-| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy (Easy, Hard, Unknown) 更改政策（简单，困难，未知） | Notes |
+| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy (Easy, Hard, Unknown) 更改政策（简单，困难，未知） | Notes 备注|
 | -- | -- | -- | -- | -- |
 | Device Management settings<br/> 设备管理设置 | TBD | MA | W/A |  |
 | Data Synchronization settings<br/> 数据同步设置 | Application Service Access Point<br/>应用程序服务访问点<br/>Server Name<br/>服务器名称<br/>Access Point Link<br/>接入点链路<br/>Proxy Information Link<br/>代理信息链接 | User, Subscriber 用户，订户 | W/O A |  |
 
 ### 1.5.2.2 Connectivity 连接性
+The following resources are mainly based on the OMA client provisioning data.<br/>
+以下资源主要基于OMA客户端配置数据。
+
+| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy  更改政策| Notes 备注|
+| -- | -- | -- | -- | -- |
+| Supported packet bearer settings - The information model associated with GPRS bearer settings is described in the OMA client provisioning Network Access Point parameter, for the case where the bearer relates to GPRS.<br/> 支持的分组承载设置 - 在承载与GPRS相关的情况下，在OMA客户端配置网络接入点参数中描述与GPRS承载设置相关联的信息模型。| Packet Bearer (e.g. GPRS, SMS, ...)<br/>分 组承载（例如GPRS，SMS，...）| MA | W/A |The management authority may, for example, use this object to modify or add an APN definition in the Device.<br/> 管理权限可以使用此对象来修改或在设备中添加APN定义。|
+| Circuit switched data settings - The information model associated with circuit switched data settings is described in the OMA client provisioning Network Access Point parameter, for the case where the bearer relates to circuit switched data.<br/>电路交换数据设置 - 在承载涉及电路交换数据的情况下，在OMA客户端配置网络接入点参数中描述与电路交换数据设置相关联的信息模型。 |  | MA | W/A |  |
+| Proxy settings - The information model associated with this resource is described in the OMA client provisioning PXLOGICAL parameter.<br/>代理设置-与此资源关联的信息模型在OMA客户端配置PXLOGICAL参数中描述。 | WAP Gateway<br/>WAP网关 | MA | W/A |  |
+| Application connectivity data - Application-specific protocol connectivity parameters are specified in Sec.1.5.2.1<br/>应用程序连接数据-特定于应用程序的协议连接参数在1.5.2.1节 | Application Service Access Point (address and port), Bearer, Server Name, Access Point Information Link, Proxy Information Link, URI Domain<br/>应用服务接入点（地址和端口），承载，服务器名称，接入点信息链路，代理信息链路，URI域 | MA | W/A | The Device may support fallback connectivity parameters in case the preferred connectivity profile fails. (See OMA- REQ-2002-0078, LS from MSIG).For any combination of: (a) application, (b) port number and (c) requested URI domain it shall be possible to specify the network access point (including bearer) and/or proxy to be used.Reference the information model in the OMA client provisioning APPLICATIONand ACCESS parameters.<br/>在优选连接性配置文件失败的情况下，设备可以支持回退连接参数。（参见OMA-REQ-2002-0078，来自MSIG的LS）。对于（a）应用，（b）端口号和（c）请求的URI域的任何组合，应当可以指定要使用的网络接入点（包括承载）和/或代理。在OMA客户端配置APPLICATION和ACCESS参数中引用信息模型。|
+
+### 1.5.2.3 Device Physical 设备物理
+| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy  更改政策| Notes 备注|
+| -- | -- | -- | -- | -- |
+| Device information - Device information gives a view on the parameters which identify and describe the Device.<br/> 设备信息 - 设备信息提供了识别和描述设备的参数视图。 | Device Make, Device Model, OS Version, Memory Configuration, Display Characteristics, IMEI, IMSI, Phone Number, Connectivity Supported (e.g. GPRS, BlueTooth, 802.11x, etc.), Current Connectivity <br/> 设备品牌，设备型号，操作系统版本，存储器配置，显示特性，IMEI，IMSI，电话号码，支持的连接（例如GPRS，蓝牙，802.11x等）| MA | Unknown | Reference existing Device information management object defined by SyncML.<br/> 引用由SyncML定义的现有设备信息管理对象。 |
+| Time and Date - Needed to allow authorised parties to set the time and date on behalf of the customer.<br/>时间和日期 - 需要允许授权方代表客户设置时间和日期。 | Time Zone,Time,Time Format,Date,Date Format<br/>时区，时间，时间格式，日期，日期格式 | MA, User | W/A, W/O A? | Useful in those cases where network identification and time zone is not supported by the visited network.<br/>在受访网络不支持网络标识和时区的情况下很有用。 |
+| Peripheral Profile - List of peripheral support and their current usage<br/>外设配置文件 - 外设支持列表及其当前使用情况 | Peripheral List, Usage <br/>  外设列表，用法 | MA, User | W/A, W/O A |  |
+
+### 1.5.2.4 Security 安全
+Security Resources listed here are assumed to be generic, Device-wide attributes, whereas it is presumed that any Device Management system will define security models for the manipulation of the actual managed objects representing the resources.<br/>
+此处列出的安全资源假定为通用的设备范围属性，而假定任何设备管理系统将定义用于操纵代表资源的实际受管对象的安全模型。
+
+| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy  更改政策| Notes 备注|
+| -- | -- | -- | -- | -- |
+| Certificate – A list of parameters that are required in order to provision the Device with security certificates: <br/> 证书 - 为设备配置安全证书所需的参数列表：| Base64 Encoded Certificate, Certificate hash (used as the ID to identify the cert), Private key (If it is a client cert, the private key of the cert need to be specified separately when being transmitted to the Device together with the certificate), Owner (define who logically own this certificate, operator, corp, end user, etc), Certificate category (specify whether this is a root cert, a cert for application execution, a personal cert, etc)<br/> Base64编码证书，证书哈希（用作ID来标识证书），私钥（如果是客户端证书，当与证书一起传输到设备时，需要单独指定证书的私钥），所有者（定义谁在逻辑上拥有此证书，运营商，公司，最终用户等），证书类别（指定这是根证书，应用程序执行的证书，个人证书等） | MA | W/A | -- |
+| Keys - One or more keys as required by Device, Applications, or Management Authority in general <br/> 密钥 - 设备，应用程序或管理机构一般要求的一个或多个密钥 |  | MA | W/A | Separate keys per usage are possible.<br/> 可以单独使用每个密匙。 |
+| Cryptographic Algorithms - Available cryptographic algorithms (and specification of how to access them)<br/>加密算法 - 可用的加密算法（以及如何访问它们的规范） | Crypto Algorithm List<br/>加密算法列表 | MA | W/A | |
+| Trust Levels - Specification of the available trust level available and/or desired on the Device as a whole, useful for authentication choices <br/> 信任级别 - 在整个设备上可用和/或期望的可用信任级别的规范，对于认证选择是有用的 | Available Trust Levels, Current Trust Level<br/> 可用的信任级别，当前信任级别 | MA | W/A |  |
+| Hardware Security Support - Identification of non-software security support, such as a built-in random number generator<br/>硬件安全支持 - 识别非软件安全支持，例如内置的随机数生成器 | Hardware Security List<br> 硬件安全列表| MA | W/A | Some question about how this may map to other Security parameters such as Trust Level (what does it enable?)<br/> 一些问题，如何将这映射到其他安全参数，如信任级别（它启用了什么？） |
+| Authentication Profile - Authentication is used to verify the identity of the user or application. Base resource to be re-used by Applications, Services, or protocols. Multiple authentication mechanisms and associated parameters are anticipated.<br/> 认证配置文件 - 认证用于验证用户或应用程序的身份。要由应用程序，服务或协议重用的基本资源。预期多种认证机制和相关参数。| Authentication level (specify the authentication is for which layer: app layer, transport layer, etc),Authentication Protocol (specify the auth protocol, such as Kerberos v5, NTLM, RADIUS, EAP, HTTP BASIC Auth, etc Note: different layer could have different auth protocols.<br/>认证级别（指定认证是针对哪个层：应用层，传输层等），认证协议（指定认证协议，如Kerberos v5，NTLM，RADIUS，EAP，HTTP BASIC Auth等。 注意：不同层有不同认证协议。 | MA | W/A | -- |
+| -- | -- | -- | -- | -- |
