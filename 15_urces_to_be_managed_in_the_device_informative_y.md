@@ -55,3 +55,7 @@ With Authorization, implying data integrity required, authentication with crypto
   
 Unknown (which may mean it’s ambiguous) – abbreviated Unk<br/>
 未知（这可能意味着它的模棱两可） -缩写Unk
+
+![](r01.jpeg)
+![](r02.jpeg)
+### 1.5.2.1 Application Data Resources 应用数据资源
