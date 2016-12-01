@@ -59,3 +59,9 @@ Unknown (which may mean it’s ambiguous) – abbreviated Unk<br/>
 ![](r01.jpeg)
 ![](r02.jpeg)
 ### 1.5.2.1 Application Data Resources 应用数据资源
+| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy (Easy, Hard, Unknown) 更改政策（简单，困难，未知） | Notes |
+| -- | -- | -- | -- | -- |
+| Device Management settings<br/> 设备管理设置 | TBD | MA | W/A |  |
+| Data Synchronization settings<br/> 数据同步设置 | Application Service Access Point<br/>应用程序服务访问点<br/>Server Name<br/>服务器名称<br/>Access Point Link<br/>接入点链路<br/>Proxy Information Link<br/>代理信息链接 | User, Subscriber 用户，订户 | W/O A |  |
+
+### 1.5.2.2 Connectivity 连接性
