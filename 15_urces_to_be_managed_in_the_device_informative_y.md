@@ -125,3 +125,8 @@ Performance measurements can take multiple forms. For example, they may be high 
 | Signature<br/>签名 | Signature List, Application List, Current Choice<br/>签名列表，应用程序列表，当前选择 | User | W/O A |  |
 | Language<br/>语言 | Language List, Current Choice<br/>语言列表，当前选择 | User | W/O A | -- |
 | Ring Tone<br/>铃声 | Ring Tones, Current Choice<br/>铃声，当前选择 | User | W/O A | -- |
+
+### 1.5.2.8 Non-applications software and firmware 非应用软件和固件
+| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy 更改政策| Notes 备注|
+| -- | -- | -- | -- | -- |
+| System software<br/>系统软件 | Operating system firmware, middleware, libraries and drivers<br/>操作系统固件，中间件，库和驱动程序 | User | W/O A | These are resources that can be managed with standardized software download protocols, mechanisms and interfaces coupled with proprietary software to actually manage the Device.<br/>这些是可以利用标准化软件下载协议，机制和接口连同专有软件来管理实际管理设备的资源。 |
