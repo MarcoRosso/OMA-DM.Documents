@@ -29,3 +29,7 @@ This document covers the Device Management usage of the SyncML Representation Pr
 ## 5. Security 安全
 This document describes OMA-DM security requirements in general, and provides description of transport layer security, application layer security, etc. It also describes security mechanisms that are used to provide for integrity, confidentiality and authentication.<br/>
 本文档总体描述OMA-DM安全要求，并提供传输层安全性，应用层安全性等的描述。它还描述了用于提供完整性，机密性和认证的安全机制。
+
+## 6. Notification Initiated Session 通知启动会话
+This document specifies the OMA Device Management Notification Initiation package from the server. A management server can use this notification capability to cause the DM client to initiate a connection back to the management server.<br/>
+本文档从服务器指定OMA设备管理通知启动包。管理服务器可以使用该通知能力来使得DM客户端发起到管理服务器的连接。
