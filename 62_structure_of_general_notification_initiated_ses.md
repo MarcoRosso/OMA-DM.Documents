@@ -86,3 +86,42 @@ The values the User Interaction mode can have:<br/>
 
 * User Interaction before the management action – The `<user-interaction>` field specifies that the server recommends the client to prompt the device user for acceptance of the offered management session before the management session takes place. This value is specified by using the 2 bits and the bit value for user displayable notification is “11”.<br/>
 管理操作之前的用户交互 - `<user-interaction>`字段指定服务器建议客户端在管理会话发生之前提示设备用户接受所提供的管理会话。该值由2位指定，用户可显示通知的位值为“11”。
+
+### 6.2.2.8 Initiator of the Management Action 管理行动的发起人
+The `<initiator>` field specifies how the server has interpreted the initiation of the management action, either because the end user requested it or because the server has management actions to perform. A client SHOULD follow this recommendation.<br/>
+`<initiator>`字段指定服务器如何解释管理操作的启动，因为最终用户请求它或者因为服务器有管理操作要执行。客户端应该遵循此建议。
+
+The values the Initiator of the Management action can have:<br/>
+管理行动发起人可以具有的价值：
+
+* Client (End User) Initiated management action – The `<client>` field specifies that the end user caused the device management session to start. This value is specified by using 1 bit and the bit value for end user initiated management session is “0”.
+客户端（最终用户）启动的管理操作 - `<client>`字段指定最终用户启动设备管理会话。该值由1位指定，最终用户发起的管理会话的位值为“0”。
+
+* Server Initiated management action – The `<server>` field specifies that the server (operator, enterprise) caused the device management session to start. This value is specified by using 1 bit and the bit value for Server initiated management session is “1”.<br/>
+服务器启动的管理操作 - `<server>`字段指定服务器（操作员，企业）导致设备管理会话启动。此值使用1位指定，服务器启动的管理会话的位值为“1”。
+
+The `<client>` and `<server>` values do not convey any information related to “sync type” (for more information about Sync Types see the SyncML Synchronization protocol document [SYNCPRO] for details of Sync Types).<br/>
+<client>和<server>值不传达任何与“同步类型”相关的信息（有关同步类型的更多信息，请参阅SyncML同步协议文档[SYNCPRO]了解同步类型的详细信息）。
+
+### 6.2.2.9 Future Use of the Device Management 设备管理的未来使用
+The `<future-use>` field is reserved for the future fields for OMA Device Management. The reserved space is 27 bits long and the bit value for bits not yet in use MUST be “0”.<br/>
+`<future-use`>字段保留用于OMA设备管理的未来使用。保留空间为27位长，未使用位的位值必须为“0”。
+
+### 6.2.2.10 Session Identifier 会话标识符
+The <sessionid> field specifies the identifier of the OMA DM session associated with the DM Message. This value is specified by using the 16 bits in the Trigger Message. The Session ID MUST be different between different management session Trigger Messages and the Client MUST use this Session ID when it connects to the OMA DM Server. If the server triggers the same management session several times, it is RECOMMENDED that the same Session ID be used. If client receives the same Session ID several times it is enough for a client to initiate only one management session.<br/>
+`<sessionid>`字段指定与DM消息相关联的OMA DM会话的标识符。该值通过使用触发消息中的16位来指定。不同的管理会话触发消息的会话ID必须不同，并且客户端在连接到OMA DM服务器时必须使用该会话ID。如果服务器多次触发相同的管理会话，则建议使用相同的会话ID。如果客户端多次接收到相同的会话ID，则客户端只启动一个管理会话就足够了。
+
+When preparing the OMA DM Message for connection to the DM server, the binary session ID value from the trigger message, in the unsigned hexadecimal range of 1 through FFFF, SHALL be mapped to a string of hexadecimal digits (chosen from the numeric digits “0”-“9” and the upper-case letters “A”-“F”) of between one and four characters in length, inclusive, and placed in the SessionID element of the OMA DM message. Leading zeros MUST NOT be included.<br/>
+当准备用于连接到DM服务器的OMA DM消息时，触发消息中的二进制会话ID值（在无符号十六进制范围1到FFFF中）应映射到一串十六进制数字（从数字“0“-”9“和大写字母”A“-”F“），该数字长度在一个和四个字符之间，并放置在OMA DM消息的SessionID元素中。前导零必须不包括在内。
+
+### 6.2.2.11 Length of the Identifier 标识符的长度
+The `<length-identifier>` field specifies the length of the Server Identifier of the management server. The value of the Length Identifier is counted as Length of the server-identifier = DEC (length-identifier).<br/>
+`<length-identifier>`字段指定管理服务器的服务器标识符的长度。长度标识符的值被计数为server-identifier=DEC（length-identifier）的长度。
+
+### 6.2.2.12 Server Identifier 服务器标识符
+The `<server-identifier>` field specifies the Server Identifier of the management server. Length of `<server-identifier>` is specified in the `<length-identifier>` field.
+`<server-identifier>`字段指定管理服务器的服务器标识符。 在`<length-identifier>`字段中指定`<server-identifier>`的长度。
+
+### 6.2.2.13 Vendor Specific Information 供应商特定信息
+可选的`<vendor specific>`字段用于指定供应商特定信息。该字段跟在`<server-identifier>`字段之后，触发消息大小的其余部分可以用供应商特定信息打包。
+
