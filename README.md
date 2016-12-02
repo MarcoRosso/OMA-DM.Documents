@@ -33,3 +33,7 @@ This document describes OMA-DM security requirements in general, and provides de
 ## 6. Notification Initiated Session 通知启动会话
 This document specifies the OMA Device Management Notification Initiation package from the server. A management server can use this notification capability to cause the DM client to initiate a connection back to the management server.<br/>
 本文档从服务器指定OMA设备管理通知启动包。管理服务器可以使用该通知能力来使得DM客户端发起到管理服务器的连接。
+
+## 7. Standardized Objects 标准化对象
+This document defines a set of management objects. Some of these are mandatory for all OMA DM compliant devices and others are optional. The objects are defined using the OMA DM Device Description Framework.<br/>
+本文档定义了一组管理对象。 其中一些对所有符合OMA DM的设备是强制性的，而其他是可选的。 使用OMA DM设备描述框架定义对象。
