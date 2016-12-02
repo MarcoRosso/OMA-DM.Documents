@@ -28,4 +28,5 @@
    * [6.2 Structure of General Notification Initiated Session Alert 一般通知启动会话提醒的结构](62_structure_of_general_notification_initiated_ses.md)
    * [6.3 OMA Device Management Transport Dependant Profiles OMA设备管理传输依赖配置文件](63_oma_device_management_transport_dependant_profi.md)
    * [Appendix 附录](appendix_fu_lu1.md)
+* Standardized Objects 标准化对象
 
