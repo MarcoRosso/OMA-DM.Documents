@@ -483,3 +483,9 @@ The complete DDF description of this management object can be found in [DevDetai
 #### 7.1.3.5 The Inbox URI 收件箱URI
 Management object identifier: urn:oma:mo:oma-dm-inbox:1.0<br/>
 管理对象标识符：urn：oma：mo：oma-dm-inbox：1.0 <br/>
+![](7.1.3.4.jpeg)
+The node has the following meaning:<br/>
+该节点具有以下含义：
+
+Inbox: An optional, interior node.<br/>
+收件箱：可选的内部节点。
