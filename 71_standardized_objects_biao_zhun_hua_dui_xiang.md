@@ -419,3 +419,21 @@ URI/MaxTotLen: 指定用于寻址节点或节点属性的任何URI的最大总�
 
 * URI/MaxSegLen: Specifies the maximum total length of any URI segment in a URI used to address a node or node property. The maximum total length of a URI segment is defined as the largest number of characters which the device can support in a single URI segment. Note that depending on the used character set this might not be the same as the number of bytes. The value is a 16 bit, unsigned integer encoded as a numerical string. The value ‘0’ means that the device supports URI segments of ‘unlimited’ length.<br/>
 URI/MaxSegLen: 指定用于寻址节点或节点属性的URI中任何URI段的最大总长度。URI段的最大总长度被定义为设备在单个URI段中可以支持的最大字符数。请注意，根据使用的字符集，这可能与字节数不同。该值是作为数字字符串编码的16位无符号整数。值'0'表示设备支持'无限'长度的URI段。
+
+* DevTyp: Device type, e.g. PDA, pager, or phone.<br/>
+DevTyp: 设备类型，例如 PDA，寻呼机或电话。
+
+* OEM: Original Equipment Manufacturer of the device.<br/>
+OEM: 设备的原始设备制造商。
+
+* FwV: Firmware version of the device.<br/>
+FwV: 原始设备设备的制造商。
+
+* SwV: Software version of the device.<br/>
+SwV: 设备的软件版本。
+
+* HwV: Hardware version of the device.<br/>
+HwV: 设备的硬件版本。
+
+* LrgObj: Indicates whether the device supports the OMA DM Large Object Handling specification, as defined in [DMPRO].<br/>
+LrgObj: 指示设备是否支持[DMPRO]中定义的OMA DM大对象处理规范。
