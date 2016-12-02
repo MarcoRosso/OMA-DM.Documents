@@ -480,10 +480,24 @@ It is RECOMMENDED that the combination of HwV, SwV, FwV, Man, Mod, and OEM provi
 The complete DDF description of this management object can be found in [DevDetailDDF].<br/>
 此管理对象的完整DDF描述可以在[DevDetailDDF]中找到。
 
-#### 7.1.3.5 The Inbox URI 收件箱URI
+#### 7.1.3.4 The Inbox URI 收件箱URI
 Management object identifier: urn:oma:mo:oma-dm-inbox:1.0<br/>
 管理对象标识符：urn：oma：mo：oma-dm-inbox：1.0 <br/>
+
+In some circumstances a Management Object’s URI is not the preferred addressing method and the management object identifier is enough information for the device to resolve a suitable location for that Management Object. In that case the URI: “./Inbox” is a reserved location for this purpose.<br/>
+在一些情况下，管理对象的URI不是优选的寻址方法，并且管理对象标识符对于设备解析该管理对象的合适位置来说足够了。在这种情况下，URI：“./Inbox”是为此目的的保留位置。
+
+For example a device’s DDF description MAY indicate if that device is supporting the “./Inbox” concept. In that definition it is possible to define the only access type “Add”. Then a server MAY send a Management Object to that device with the URI: “./Inbox” and then the device SHOULD use the management object identifier to resolve the correct location in the management tree to add that Management Object. In this case the server can not Get that object from the URI: “./Inbox” after it is added. The client’s ACL for “./Inbox” MAY also set access rights so only some servers are allowed to use this feature.<br/>
+例如，设备的DDF描述可以指示该设备是否支持“./Inbox”概念。在该定义中，可以定义唯一的访问类型“Add”。然后服务器可以向该设备发送具有URI：“./Inbox”的管理对象，然后设备应该使用管理对象标识符来解析管理树中的正确位置以添加该管理对象。在这种情况下，服务器不能在URI添加后从“./Inbox”URI获取该对象。客户端的“./Inbox”ACL也可以设置访问权限，只允许某些服务器使用此功能。
+
+DM Clients MUST NOT permit a Get operation on the “./Inbox”. A DM Client SHALL return the status code “Command not allowed” (405) in response to a Get which targets “./Inbox” or any direct or indirect child node of “./Inbox”.<br/>
+DM客户端不得在“./Inbox”上允许Get操作。DM客户端响应于Get目标“./Inbox”或“./Inbox”的任何直接或间接子节点时，返回状态代码“Command not allowed”（405）。
+
+The following figure shows an overview of the Inbox URI:<br/>
+下图显示了收件箱URI的概述：
+
 ![](7.1.3.4.jpeg)
+
 The node has the following meaning:<br/>
 该节点具有以下含义：
 
