@@ -479,3 +479,7 @@ It is RECOMMENDED that the combination of HwV, SwV, FwV, Man, Mod, and OEM provi
 
 The complete DDF description of this management object can be found in [DevDetailDDF].<br/>
 此管理对象的完整DDF描述可以在[DevDetailDDF]中找到。
+
+#### 7.1.3.5 The Inbox URI 收件箱URI
+Management object identifier: urn:oma:mo:oma-dm-inbox:1.0<br/>
+管理对象标识符：urn：oma：mo：oma-dm-inbox：1.0 <br/>
