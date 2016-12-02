@@ -325,7 +325,7 @@ This node specifies the authentication level.<br/>
 
 |  | Status 状态 | Interpretation 解释 |
 | -- | -- | -- |
-| 0:2 | 1:2 | 2:2 |
+| CLCRED | Optional | Credentials client uses to authenticate itself to the OMA DM Server at the DM protocol level.<br/> 凭据客户端用于在DM协议级别向OMA DM服务器认证自身。|
 | 0:3 | 1:3 | 2:3 |
 | 0:4 | 1:4 | 2:4 |
 | 0:5 | 1:5 | 2:5 |
