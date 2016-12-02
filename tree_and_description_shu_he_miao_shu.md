@@ -12,3 +12,15 @@ Access Control List: A list of identifiers and access rights associated with eac
 
 Description Framework: A specification for how to describe the management syntax and semantics for a particular device type.<br/>
 描述框架：如何描述特定设备类型的管理语法和语义的规范。
+
+Dynamic Node: A Node is dynamic if the DDF property Scope is set to Dynamic, or if the Scope property is unspecified.<br/>
+动态节点：如果DDF属性“范围”设置为“动态”，或如果未指定“范围”属性，则节点是动态的。<br/>
+
+Interior Node: A Node that may have child Nodes, but cannot store any value. The Format property of an Interior Node is node.<br/>
+内部节点：可能有子节点但不能存储任何值的节点。内部节点的Format属性是节点。
+
+Leaf Node: A Node that can store a value, but cannot have child Nodes. The Format property of a Leaf Node is not node.<br/>
+叶节点：可以存储值但不能具有子节点的节点。叶节点的Format属性不是节点。
+
+Management Object: A Management Object is a subtree of the Management Tree which is intended to be a (possibly singleton) collection of Nodes which are related in some way. For example, the ./DevInfo Nodes form a Management Object. A simple Management Object may consist of one single Node.<br/>
+管理对象：管理对象是管理树的子树，其旨在成为以某种方式相关的节点的集合（可能是单例）。 例如，./DevInfo节点形成管理对象。 一个简单的管理对象可以由一个单一的节点组成。
