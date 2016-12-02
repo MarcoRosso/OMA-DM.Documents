@@ -97,3 +97,37 @@ Parameters are also described in Device Management Application Characteristic re
 The complete DDF description of this management object can be found in [DMAccDDF].<br/>
 此管理对象的完整DDF描述可在[DMAccDDF]中找到。
 
+##### 7.1.3.1.1 Node: `<X>`
+This interior node acts as a placeholder for one or more accounts or for a fixed node.<br/>
+此内部节点充当一个或多个帐户或固定节点的占位符。
+* Occurrence: OneOrMore<br/>
+出现次数：一次或多次
+* Format: Node<br/>
+形式：点
+* Access Types: Get
+访问类型：Get
+* Values: N/A
+值：无
+
+##### 7.1.3.1.2 Node: `<X>`/AppID
+This node specifies the application ID for device management account object.<br/>此节点指定设备管理帐户对象的应用程序ID。
+* Occurrence: One<br/>
+出现次数：一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values: w7<br/>
+值：w7
+
+##### 7.1.3.1.3 Node: `<X>`/ServerID
+This node specifies a server identifier for management server used in the management session.<br/>此节点指定管理会话中使用的管理服务器的服务器标识符。
+* Occurrence: One<br/>
+出现次数：一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values: `<Server identifier>`<br/>
+值：<Server identifier>
+
