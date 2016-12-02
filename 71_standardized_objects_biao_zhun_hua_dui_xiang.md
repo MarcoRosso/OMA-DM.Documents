@@ -312,5 +312,22 @@ This interior node acts as a placeholder for separating one or more authenticati
 * Values: N/A<br/>
 值：无
 
+##### 7.1.3.1.19 Node: `<X>`/AppAuth/`<X>`/AAuthLevel
+This node specifies the authentication level.<br/>
+此节点指定认证级别。
+* Occurrence: One<br/>
+出现次数：一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values: 值：
+
+|  | Status 状态 | Interpretation 解释 |
+| -- | -- | -- |
+| 0:2 | 1:2 | 2:2 |
+| 0:3 | 1:3 | 2:3 |
+| 0:4 | 1:4 | 2:4 |
+| 0:5 | 1:5 | 2:5 |
 
 
