@@ -325,9 +325,97 @@ This node specifies the authentication level.<br/>
 
 |  | Status 状态 | Interpretation 解释 |
 | -- | -- | -- |
-| CLCRED | Optional | Credentials client uses to authenticate itself to the OMA DM Server at the DM protocol level.<br/> 凭据客户端用于在DM协议级别向OMA DM服务器认证自身。|
-| 0:3 | 1:3 | 2:3 |
-| 0:4 | 1:4 | 2:4 |
-| 0:5 | 1:5 | 2:5 |
+| CLCRED | Optional 可选 | Credentials client uses to authenticate itself to the OMA DM Server at the DM protocol level.<br/> 凭据客户端用于在DM协议级别向OMA DM服务器认证自身。|
+| SRVCRED | Optional 可选 | Credentials server uses to authenticate itself to the OMA DM Client at the DM protocol level.<br/>凭据服务器用于在DM协议级别向OMA DM客户端认证自身。 |
+| OBEX | Optional 可选  | Credentials server uses to authenticate itself to the OMA DM Client at the DM protocol level. NOTE: If this AAuthLevel is selected only HTTP-BASIC, HTTP-DIGEST and TRANSPORT are possible AAuthTypes. <br/>OBEX身份验证凭据。注意：如果选择此AAuthLevel，则只有HTTP-BASIC，HTTP-DIGEST和TRANSPORT可能是AAuthTypes。 |
+| HTTP | Optional 可选 | Credentials for HTTP (/WSP) authentication. NOTE: If this AAuthLevel is selected only HTTP-BASIC, HTTP-DIGEST and TRANSPORT are possible AAuthTypes.<br/>用于HTTP（/ WSP）身份验证的凭据。注意：如果选择此AAuthLevel，则只有HTTP-BASIC，HTTP-DIGEST和TRANSPORT可能是AAuthTypes。 |
 
+##### 7.1.3.1.20 Node: `<X>`/AppAuth/`<X>`/AAuthType
+This node specifies the authentication type.<br/>
+此节点指定认证类型。
+* Occurrence: One<br/>
+出现次数：一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values: 值：
 
+|  | Status 状态 | Interpretation 解释 |
+| -- | -- | -- |
+| HTTP-BASIC | Optional 可选 | HTTP basic authentication done according to RFC 2617.<br/> HTTP基本认证根据RFC2617完成。 |
+| HTTP-DIGEST | Optional 可选 | HTTP digest authentication done according to RFC 2617.<br/> HTTP摘要认证根据RFC2617完成。 |
+| BASIC | Optional 可选 | DM 'syncml:auth-basic' authentication as specified in [DMSEC].<br/> DM 'syncml：auth-basic'身份验证，如[DMSEC]中所指定。|
+| DIGEST | Optional 可选 | DM 'syncml:auth-md5' authentication as specified in [DMSEC].<br/>DM 'syncml：auth-md5'验证，如[DMSEC]中指定。 |
+| HMAC | Optional 可选 | DM 'syncml:auth-MAC' authentication as specified in [DMSEC].<br/> DM 'syncml：auth-MAC'验证，如[DMSEC]中指定。 |
+| X509 | Optional 可选 | 'syncml:auth-X509' authentication done according to [REPPRO].<br/> 根据[REPPRO]完成的“syncml：auth-X509”身份验证。 |
+| SECURID | Optional 可选 | 'syncml:auth-securid' authentication done according to [REPPRO].<br/>根据[REPPRO]完成的“syncml：auth-securid”身份验证。 |
+| SAFEWORD | Optional 可选 | 'syncml:auth-safeword' authentication done according to [REPPRO].<br/>根据[REPPRO]完成的“syncml：auth-safeword”身份验证。 |
+| DIGIPASS | Optional 可选 | 'syncml:auth-digipass' authentication done according to [REPPRO].<br/>根据[REPPRO]完成的“syncml：auth-digipass”身份验证。 |
+| TRANSPORT | Optional 可选 | Secure Transport authentication is used. Transport layer authentication is beyond the scope of OMA DM Security.<br/> 使用安全传输身份验证。传输层认证超出了OMA DM安全的范围。 |
+
+##### 7.1.3.1.21 Node: `<X>`/AppAuth/`<X>`/AAuthName
+This node specifies the authentication name.<br/>
+此节点指定认证名称。
+* Occurrence: ZeroOrOne<br/>
+出现次数：零次或一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values: `<Authentication name>`<br/>
+值：`<Authentication name>`
+
+##### 7.1.3.1.22 Node: `<X>`/AppAuth/`<X>`/AAuthSecret
+This node specifies the authentication secret.<br/>
+此节点指定认证密钥。
+* Occurrence: ZeroOrOne<br/>
+出现次数：零次或一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: No Get<br/>
+访问类型：No Get
+* Values: `<Authentication secret>`<br/>
+值：`<Authentication secret>`
+
+##### 7.1.3.1.23 Node: `<X>`/AppAuth/`<X>`/AAuthData
+This node specifies the authentication data relating to the AAuthType.<br/>
+此节点指定与AAuthType相关的认证数据。
+* Occurrence: ZeroOrOne<br/>
+出现次数：零次或一次
+* Format: Bin<br/>
+形式：二进制
+* Access Types: No Get<br/>
+访问类型：No Get
+* Values: `<Authentication data>`<br/>
+值：`<Authentication data>`
+
+##### 7.1.3.1.24 Node: `<X>`/Ext/
+The Ext is an interior node for where the vendor specific information about device management application is being placed (vendor meaning application vendor, device vendor, OS vendor etc.). Usually the vendor extension is identified by vendor specific name under the ext node. The tree structure under the vendor identified is not defined and can therefore include a non-standard sub-tree.<br/>
+Ext是用于放置设备管理应用的供应商特定信息（供应商，意为应用供应商，设备供应商，操作系统供应商等）的内部节点。通常，供应商扩展由ext节点下的供应商特定名称标识。在所识别的供应商下的树结构未被定义，并且因此可以包括非标准子树。
+
+#### 7.1.3.2 The DevInfo management object DevInfo管理对象
+Management object identifier: urn:oma:mo:oma-dm-devinfo:1.0<br/>
+管理对象标识符：urn：oma：mo：oma-dm-devinfo：1.0
+
+The following figure shows an overview of the DevInfo management object.<br/>下图显示了DevInfo管理对象的概述。
+
+![](7.1.3.2.jpeg)
+
+The nodes making up DevDetail have the following meanings:<br/>
+构成DevDetail的节点具有以下含义：
+
+* Ext: An optional, interior node, designating the only branch of the DevDetail sub tree into which extensions can be added, permanently or dynamically.<br/>
+Ext: 可选的内部节点，指定DevDetail子树的唯一分支，可以永久或动态地向其中添加扩展。
+
+* Bearer: An optional, interior node, designating a branch of the DevDetail sub tree into which items related to the bearer (CDMA, etc.) are stored. Use of this sub tree can be mandated by other standards.<br/>
+Bearer: 可选的内部节点，指定DevDetail子树的分支，其中存储与承载（CDMA等）相关的项目。使用此子树可以由其他标准强制。
+
+* URI/MaxDepth: Specifies the maximum depth of the management tree supported by the device. The maximum depth of the tree is defined as the maximum number of URI segments that the device supports. The value is a 16 bit, unsigned integer encoded as a numerical string. The value ‘0’ means that the device supports a tree of ‘unlimited’ depth.<br/>
+URI/MaxDepth: 指定设备支持的管理树的最大深度。树的最大深度定义为设备支持的最大URI段数。 该值是作为数字字符串编码的16位无符号整数。值'0'意味着设备支持“无限”深度的树。
+
+* URI/MaxTotLen: Specifies the maximum total length of any URI used to address a node or node property. The maximum total length of a URI is defined as the largest total number of characters making up the URI which the device can support. Note that depending on the character set this might not be the same as the number of bytes. The value is a 16 bit, unsigned integer encoded as a numerical string. The value ‘0’ means that the device supports URI of ‘unlimited’ length.<br/>
+URI/MaxTotLen: 指定用于寻址节点或节点属性的任何URI的最大总长度。URI的最大总长度被定义为构成设备可以支持的URI的最大字符总数。请注意，根据字符集，这可能不同于字节数。该值是作为数字字符串编码的16位无符号整数。值“0”表示设备支持“无限”长度的URI。
+
+* URI/MaxSegLen: Specifies the maximum total length of any URI segment in a URI used to address a node or node property. The maximum total length of a URI segment is defined as the largest number of characters which the device can support in a single URI segment. Note that depending on the used character set this might not be the same as the number of bytes. The value is a 16 bit, unsigned integer encoded as a numerical string. The value ‘0’ means that the device supports URI segments of ‘unlimited’ length.<br/>
+URI/MaxSegLen: 指定用于寻址节点或节点属性的URI中任何URI段的最大总长度。URI段的最大总长度被定义为设备在单个URI段中可以支持的最大字符数。请注意，根据使用的字符集，这可能与字节数不同。该值是作为数字字符串编码的16位无符号整数。值'0'表示设备支持'无限'长度的URI段。
