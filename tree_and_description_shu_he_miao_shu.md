@@ -7,3 +7,8 @@ Since device manufacturers will always develop new functions in their devices an
 由于设备制造商将始终在其设备中开发新功能，并且由于这些功能通常是专有的，因此不存在用于它们的标准化管理对象。为了使这些功能在具有它们的设备中可管理，需要设备描述框架，其可以向服务器提供他们必须具有的必要信息以便管理新功能。这个框架的意图是，设备制造商将在他们进入市场时发布他们的设备的描述。然后，运行DM服务器的组织只需要向其服务器馈送新描述，以便他们自动识别和管理设备中的新功能。
 
 ## Definitions 定义
+Access Control List: A list of identifiers and access rights associated with each identifier.<br/>
+访问控制列表: 与每个标识符相关联的标识符和访问权限的列表。
+
+Description Framework: A specification for how to describe the management syntax and semantics for a particular device type.<br/>
+描述框架：如何描述特定设备类型的管理语法和语义的规范。
