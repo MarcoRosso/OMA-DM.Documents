@@ -402,6 +402,42 @@ The following figure shows an overview of the DevInfo management object.<br/>下
 
 ![](7.1.3.2.jpeg)
 
+The nodes making up DevInfo have the following meanings:<br/>
+构成DevInfo的节点具有以下含义：
+
+* Ext: An optional, interior node, designating the only branch of the DevInfo sub tree into which extensions can be added, permanently or dynamically.<br/>
+Ext: 可选的内部节点，指定DevInfo子树的唯一分支，可以永久或动态地向其中添加扩展。
+
+* Bearer: An optional, interior node of the DevInfo sub tree in which items related to the bearer (CDMA, etc.) are stored. Use of this sub tree can be mandated by other standards.<br/>
+Bearer: DevInfo子树的可选的内部节点，其中存储与承载（CDMA等）相关的项目。使用此子树可以由其他标准强制。
+
+* DevId: A unique identifier for the device. SHOULD be globally unique and MUST be formatted as a URN as defined in [RFC2141].<br/>
+DevId: 设备的唯一标识符。应该是全局唯一的，并且必须格式化为[RFC2141]中定义的URN。
+
+* Man: The manufacturer identifier.<br/> 
+Man: 制造商标识符。
+
+* Mod: A model identifier (manufacturer specified string).<br/>
+Mod: 模型标识符（制造商指定的字符串）。
+
+* DmV: OMA device management client version identifier (manufacturer specified string).<br/>
+DmV:  OMA设备管理客户端版本标识符（制造商指定的字符串）。
+
+* Lang: The current language setting of the device. The syntax of the language tags and their use are defined in [RFC1766]. Language codes are defined by ISO in the standard ISO639.<br/>
+设备的当前语言设置。语言标记的语法及其使用在[RFC1766]中定义。语言代码由ISO在标准ISO639中定义。
+
+The complete DDF description of this management object can be found in [DevInfoDDF].<br/>
+此管理对象的完整DDF描述可在[DevInfoDDF]中找到。
+
+
+#### 7.1.3.3 The DevDetail management object DevDetail管理对象
+Management object identifier: urn:oma:mo:oma-dm-devdetail:1.0<br/>
+管理对象标识符：urn：oma：mo：oma-dm-devdetail：1.0
+
+The following figure shows an overview of the DevDetail management object.<br/>下图显示了DevDetail管理对象的概述。
+
+![](7.1.3.3.jpeg)
+
 The nodes making up DevDetail have the following meanings:<br/>
 构成DevDetail的节点具有以下含义：
 
@@ -437,3 +473,9 @@ HwV: 设备的硬件版本。
 
 * LrgObj: Indicates whether the device supports the OMA DM Large Object Handling specification, as defined in [DMPRO].<br/>
 LrgObj: 指示设备是否支持[DMPRO]中定义的OMA DM大对象处理规范。
+
+It is RECOMMENDED that the combination of HwV, SwV, FwV, Man, Mod, and OEM provide a unique signature identifying the specific version of software, thus providing a means for other implementations to make special provisions based on that identification.<br/>
+建议HwV，SwV，FwV，Man，Mod和OEM的组合提供识别软件的特定版本的唯一签名，从而为其他实现提供基于该识别做出特殊配置的方法。
+
+The complete DDF description of this management object can be found in [DevDetailDDF].<br/>
+此管理对象的完整DDF描述可以在[DevDetailDDF]中找到。
