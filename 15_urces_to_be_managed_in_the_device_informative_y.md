@@ -130,3 +130,8 @@ Performance measurements can take multiple forms. For example, they may be high 
 | Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy 更改政策| Notes 备注|
 | -- | -- | -- | -- | -- |
 | System software<br/>系统软件 | Operating system firmware, middleware, libraries and drivers<br/>操作系统固件，中间件，库和驱动程序 | User | W/O A | These are resources that can be managed with standardized software download protocols, mechanisms and interfaces coupled with proprietary software to actually manage the Device.<br/>这些是可以利用标准化软件下载协议，机制和接口连同专有软件来管理实际管理设备的资源。 |
+
+### 1.5.2.9 Operator Menu 操作员菜单
+| Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy 更改政策| Notes 备注|
+| -- | -- | -- | -- | -- |
+| Operator Menu<br/> 操作员菜单 | Set of menu items on User Interface for list of services S1, S2 ,S3 ,...<br/>用户界面上用于服务列表S1，S2，S3 ...的菜单项 | MA; i.e. the User is not able to modify the operator’s menu.<br/> MA; 即用户不能修改操作者的菜单。 | W/A | The operator is able to download a complete menu system or part of a menu system to the Device via the Device Management System. The operator is able to select amongst the following options:- whether or not the user needs to accept the new or changed menu system- whether or not the new or changed menu system is activated as the primary user interface<br/>操作员能够通过设备管理系统将完整的菜单系统或菜单系统的一部分下载到设备。操作员能够在以下选项中进行选择：- 用户是否需要接受新的或改变的菜单系统 - 新的或更改的菜单系统是否作为主用户界面激活 |
