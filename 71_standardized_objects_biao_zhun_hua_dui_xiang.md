@@ -103,10 +103,10 @@ This interior node acts as a placeholder for one or more accounts or for a fixed
 * Occurrence: OneOrMore<br/>
 出现次数：一次或多次
 * Format: Node<br/>
-形式：点
-* Access Types: Get
+形式：节点
+* Access Types: Get<br/>
 访问类型：Get
-* Values: N/A
+* Values: N/A<br/>
 值：无
 
 ##### 7.1.3.1.2 Node: `<X>`/AppID
@@ -135,7 +135,7 @@ This node specifies a server identifier for management server used in the manage
 This node specifies user displayable name for the management server.<br/>
 此节点指定管理服务器的用户可显示名称。
 * Occurrence: ZeroOrOne<br/>
-出现次数：一次
+出现次数：零次或一次
 * Format: Chr<br/>
 形式：字符
 * Access Types: Get<br/>
@@ -146,3 +146,110 @@ This node specifies user displayable name for the management server.<br/>
 ##### 7.1.3.1.5 Node: `<X>`/PrefConRef
 This node specifies a reference to preferred connectivity. It is expected that either a proxy or NAP MO is specified, but other, implementation-specific connectoids MAY be referenced.<br/>
 此节点指定对首选连接的引用。它期望指定代理或NAP MO，但是可以引用其他方法实现特定的连接。
+* Occurrence: ZeroOrOne<br/>
+出现次数：零次或一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values:  URI to a management object or implementation specific identifier.
+<br/>
+值：URI到管理对象或实现特定标识符。
+
+##### 7.1.3.1.6 Node: `<X>`/ToConRef/
+The ToConRef interior node is used to allow application to refer to a collection of connectivity definitions. Several connectoids MAY be listed for a given application under this interior node.<br/>
+ToConRef内部节点用于允许应用程序引用连接定义的集合。对于这个内部节点下的给定应用，可以列出几个连接体。
+* Occurrence: ZeroOrOne<br/>
+出现次数：零次或一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values: N/A<br/>
+值：无
+
+##### 7.1.3.1.7 Node: `<X>`/ToConRef/`<X>`
+This run-time node acts as a placeholder for one or more connectivity parameters.<br/>
+此运行时节点充当一个或多个连接参数的占位符。
+* Occurrence: OneOrMore<br/>
+出现次数：一次或多次
+* Format: Node<br/>
+形式：节点
+* Access Types: Get<br/>
+访问类型：Get
+* Values: N/A<br/>
+值：无
+
+##### 7.1.3.1.8 Node: `<X>`/ToConRef/`<X>`/ConRef
+The ConRef leaf indicates the linkage to connectivity parameters.<br/>
+ConRef叶表示连接到连接参数。
+* Occurrence: One<br/>
+出现次数：一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values:  URI to a management object or implementation specific identifier.
+<br/>
+值：URI到管理对象或实现特定标识符。
+
+##### 7.1.3.1.9 Node: `<X>`/AppAddr
+This node is used to specify multiple Management Server addresses.<br/>
+此节点用于指定多个管理服务器地址。
+* Occurrence: One<br/>
+出现次数：一次
+* Format: Node<br/>
+形式：节点
+* Access Types: Get<br/>
+访问类型：Get
+* Values: N/A<br/>
+值：无
+
+##### 7.1.3.1.10 Node: `<X>`/AppAddr/`<X>`
+This interior node acts as a placeholder for separating one or more Server Addresses.<br/>
+该内部节点充当用于分离一个或多个服务器地址的占位符。
+* Occurrence: OneOrMore<br/>
+出现次数：一次或多次
+* Format: Node<br/>
+形式：节点
+* Access Types: Get<br/>
+访问类型：Get
+* Values: N/A<br/>
+值：无
+
+##### 7.1.3.1.11 Node: `<X>`/AppAddr/`<X>`/Addr
+This node specifies a Management Server address.<br/>
+此节点指定管理服务器地址。
+* Occurrence: One<br/>
+出现次数：一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values: Dependent upon AddrType<br/>
+值：取决于AddrType
+
+##### 7.1.3.1.12 Node: `<X>`/AppAddr/`<X>`/AddrType
+This node specifies a Management Server address type.<br/>
+此节点指定管理服务器地址类型。
+* Occurrence: One<br/>
+出现次数：一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values:  “URI”, “IPv4” or “IPv6”. If no value exists the default type MUST be “URI”.<br/>
+值：“URI”，“IPv4”或“IPv6”。如果没有值，默认类型必须是“URI”。
+
+##### 7.1.3.1.13 Node: `<X>`/AppAddr/`<X>`/Port
+This node specifies Port information for Management Server address.<br/>
+此节点指定管理服务器地址的端口信息。
+* Occurrence: OneOrMore<br/>
+出现次数：一次或多次
+* Format: Node<br/>
+形式：节点
+* Access Types: Get<br/>
+访问类型：Get
+* Values: N/A<br/>
+值：无
+
