@@ -27,4 +27,12 @@ Each block in the graphical notation corresponds to a described node, and the te
 
 The following is an example of what a management object can look like when it is expressed using the graphical notation. This particular object is the OMA DM Device Information management object.<br/>
 以下是使用图形表示法表示管理对象时的示例。这个特定对象是OMA DM设备信息管理对象。
+![](7.1.1.1a.jpeg)
+Naturally, this graphical overview does not show all the details of the full description, but it provides a good map of the description so that it is easier to find the individual nodes. Although the figure only provides an elevated view of the description, there are still some things worth noticing. All the blocks with names in place occur exactly once, except Ext and Bearer that are optional and may not be present at all. One of the named nodes, DevInfo, has child nodes; it is an interior node. With the exception of Ext and Bearer, none of the other named nodes can have any children of their own; they are leaf nodes. The un-named leaf nodes are marked with `*`. This means that although the description only contains one node description at this position in the tree, there can be any number of instantiated nodes at run-time, including none. The only limit is that the node names MUST be unique and memory MUST be available to store the nodes.<br/>
+自然地，该图形概述不显示完整描述的所有细节，但是它提供了描述的好的图，使得更容易找到各个节点。虽然图中只提供了一个概括的描述，但还有一些值得注意的事情。所有具有名称的块都恰好出现一次，除了Ext和Bearer是可选的，并且可能根本不存在。其中一个命名节点DevInfo具有子节点；它是一个内部节点。除了Ext和Bearer之外，没有其他命名节点可以有自己的任何子节点；它们是叶节点。未命名的叶节点用`*`标记。这意味着虽然描述部分在树中的该位置仅包含一个节点描述，但是在运行时可以有任何数量的实例化节点，数量也可以是没有。唯一的限制是节点名称必须是唯一的，并且存储器必须可用于存储节点。
+
+The next figure shows an example of what the device information management object could look like at run-time.<b/r>
+下图显示了设备信息管理对象在运行时的外观示例。
+
+
 
