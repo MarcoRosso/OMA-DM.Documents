@@ -253,3 +253,54 @@ This node specifies Port information for Management Server address.<br/>
 * Values: N/A<br/>
 值：无
 
+##### 7.1.3.1.14 Node: `<X>`/AppAddr/`<X>`/Port/`<X>`
+This interior node acts as a placeholder for separating one or more Port settings.<br/>
+该内部节点充当用于分离一个或多个端口设置的占位符。
+* Occurrence: OneOrMore<br/>
+出现次数：一次或多次
+* Format: Node<br/>
+形式：节点
+* Access Types: Get<br/>
+访问类型：Get
+* Values: N/A<br/>
+值：无
+
+##### 7.1.3.1.15 Node: `<X>`/AppAddr/`<X>`/Port/`<X>`/PortNbr
+This node specifies port number.<br/>此节点指定端口号。
+* Occurrence: One<br/>
+出现次数：一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values: The port number MUST be a decimal number and must fit within the range of a 16 bit unsigned integer.<br/>
+值：端口号必须是十进制数，并且必须符合16位无符号整数的范围。
+
+##### 7.1.3.1.16 Node: `<X>`/AAuthPref
+This is a string-valued parameter whose possible values are the names of the various possible authentication types (AAuthType values), e.g. "DIGEST". If this node is present, the client SHOULD use this authentication type when connecting to the server. The use of this node is intended to reduce the number of round trips between client and server that would be caused by authentication challenges. If a client supports this leaf node and the value is empty, the default behaviour is to indicate the authentication mechanism negotiated in the previous session if one exists.<br/>
+这是一个字符串值参数，其可能的值是各种可能的认证类型（AAuthType值）的名称，例如 “DIGEST”。 如果此节点存在，推荐客户端在连接到服务器时使用此认证类型。该节点的使用旨在减少由认证质询引起的客户端和服务器之间的往返次数。如果客户端支持此叶节点并且该值为空，则默认行为是指示在上一个会话中协商的认证机制（如果存在）。
+* Occurrence: ZeroOrOne<br/>
+出现次数：零次或一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values: See AAuthTypes in section 7.1.3.1.20.<br/>
+值：请参阅第7.1.3.1.20节中的AAuthTypes。
+
+##### 7.1.3.1.17 Node: `<X>`/AppAuth
+This node specifies authentication information.<br/>
+此节点指定认证信息。
+* Occurrence: OneOrMore<br/>
+出现次数：一次或多次
+* Format: Node<br/>
+形式：节点
+* Access Types: Get<br/>
+访问类型：Get
+* Values: N/A<br/>
+值：无
+
+
+
+
+
