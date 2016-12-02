@@ -29,5 +29,5 @@
    * [6.3 OMA Device Management Transport Dependant Profiles OMA设备管理传输依赖配置文件](63_oma_device_management_transport_dependant_profi.md)
    * [Appendix 附录](appendix_fu_lu1.md)
 * [Standardized Objects 标准化对象](standardized_objects_biao_zhun_hua_dui_xiang.md)
-   * 7.1 Standardized Objects 标准化对象
+   * [7.1 Standardized Objects 标准化对象](71_standardized_objects_biao_zhun_hua_dui_xiang.md)
 
