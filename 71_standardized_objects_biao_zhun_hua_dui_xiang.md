@@ -300,7 +300,17 @@ This node specifies authentication information.<br/>
 * Values: N/A<br/>
 值：无
 
-
+##### 7.1.3.1.18 Node: `<X>`/AppAuth/`<X>`
+This interior node acts as a placeholder for separating one or more authentication settings.<br/>
+该内部节点充当用于分离一个或多个认证设置的占位符。
+* Occurrence: OneOrMore<br/>
+出现次数：一次或多次
+* Format: Node<br/>
+形式：节点
+* Access Types: Get<br/>
+访问类型：Get
+* Values: N/A<br/>
+值：无
 
 
 
