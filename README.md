@@ -37,3 +37,7 @@ This document specifies the OMA Device Management Notification Initiation packag
 ## 7. Standardized Objects 标准化对象
 This document defines a set of management objects. Some of these are mandatory for all OMA DM compliant devices and others are optional. The objects are defined using the OMA DM Device Description Framework.<br/>
 本文档定义了一组管理对象。 其中一些对所有符合OMA DM的设备是强制性的，而其他是可选的。 使用OMA DM设备描述框架定义对象。
+
+## 8. Tree and Description 树及其描述
+This document defines the management tree and the Nodes on which the OMA DM protocol acts. A standardized way to describe these Nodes is also specified.<br/>
+本文档定义了OMA DM协议所在的管理树和节点。还规定了描述这些节点的标准化方法。
