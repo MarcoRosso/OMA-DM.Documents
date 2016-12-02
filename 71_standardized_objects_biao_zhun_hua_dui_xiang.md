@@ -39,4 +39,24 @@ The next figure shows an example of what the device information management objec
 The difference between this and the previous figure is that now the un-named blocks have been instantiated. It is also shown that the `*` character means that a node can occur zero or more times. Note that none of the stored data in the leaf nodes is shown in the figure, what are visible are only the node names.<br/>
 这和前一个图的区别在于，现在未命名的块已经被实例化。还示出了`*`字符意味着节点可以出现零次或多次。注意，在图中没有示出叶节点中存储的数据，只有节点名称是可见的。
 
-
+### 7.1.1.2 DDF compliance DDF合规性
+The management object descriptions in this document are normative. However, the descriptions also contain are a number of informative aspects that could be included to enhance readability or serve as examples. Other informative aspects are, for instance, the ZeroOrMore and OneOreMore elements, where implementations MAY introduce restrictions. All these exceptions are listed here:<br/>
+本文档中的管理对象的描述是规范性的。然而，描述还包括以增强可读性或作为示例的一些方面的信息。其他信息方面例如ZeroOrMore和OneOreMore元素，其中的实现方法可以引入限制机制。所有这些例外情况都列在这里：
+* All XML comments, e.g. `<!-- some text -->`, are informative.<br/>
+所有XML注释，例如`<！ - some text - >`，是信息性的。
+* The descriptions do not contain an RTProperties element, or any of its child elements, but a description of an actual implementation of this object MAY include these.<br/>
+描述不包含RTProperties元素或其任何子元素，但对此对象的实际实现的描述可以包括这些元素。
+* If a default value for a leaf node is specified in a description, by the DefaultValue element, an implementation MUST supply its own appropriate value for this element. If the DefaultValue element is present in the description of a node, it MUST be present in the implementation, but MAY have a different value.<br/>
+如果在描述中由DefaultValue元素指定了叶节点的默认值，则实现必须为此元素提供自己适当的值。如果DefaultValue元素存在于节点的描述中，则它必须存在于实现中，但可能有不同的值。
+* The value of all Man, Mod, Description and DFTitle elements are informative and included only as examples.<br/>
+所有Man，Mod，Description和DFTitle元素的值都是信息性的，仅作为示例。
+* Below the interior nodes Ext and Bearer, an implementation MAY add further nodes at will.<br/>
+在内部节点Ext和Bearer下，实现可以随意添加更多节点。
+* The contents of the AccessType element MAY be extended by an implementation.<br/>
+AccessType元素的内容可以通过实现扩展。
+* If the any of the following AccessType values are specified, they MUST NOT be removed in an implementation: Copy, Delete, Exec, Get, and Replace.<br/>
+如果指定了以下任何AccessType值，那么在实现中不能移除它们：复制，删除，执行，获取和替换。
+* If the AccessType value Add is specified it MAY be removed in an implementation if the implementation only supports a fixed number of child nodes.<br/>
+如果指定了AccessType值Add，如果实现只支持固定数量的子节点，则可以在实现中删除它。
+* An implementation MAY replace the ZeroOrMore or OneOreMore elements with ZeroOrN or OneOrN respectively. An appropriate value for N MUST also be given with the ...OrN elements.<br/>
+实现可以分别用ZeroOrN或OneOrN替换ZeroOrMore或OneOreMore元素。N的适当值也必须与... OrN元素一起给出。
