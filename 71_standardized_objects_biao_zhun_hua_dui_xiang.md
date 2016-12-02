@@ -62,3 +62,38 @@ AccessType元素的内容可以通过实现扩展。
 实现可以分别用ZeroOrN或OneOrN替换ZeroOrMore或OneOreMore元素。N的适当值也必须与... OrN元素一起给出。
 
 ### 7.1.2 Management objects standardized by other organizations 其他组织的标准化管理对象
+
+OMA DM has been designed so that existing management objects can be managed. These existing management objects have typically already been standardized by other standards organizations.<br/>
+OMA DM已设计为可以管理现有的管理对象。这些现有的管理对象通常已经被其他标准组织标准化。
+
+### 7.1.3 The OMA DM management objects OMA DM管理对象
+Clients implementing OMA DM MUST support the OMA DM Account management object, DevInfo management object and the DevDetail management object. OMA DM servers MUST support all three management objects as well.<br/>
+实现OMA DM的客户端必须支持OMA DM帐户管理对象，DevInfo管理对象和DevDetail管理对象。OMA DM服务器也必须支持所有三个管理对象。
+
+| Management Object 管理对象 | Client Support 客户端支持 | Server Support 服务器支持 | Description 描述 |
+| -- | -- | -- | -- |
+| DMAcc | MUST | MUST | Settings for the DM client in a managed device.<br/>受管设备中的DM客户端的设置。|
+| DevInfo | MUST | MUST | Device information for the OMA DM server. Sent from the client to the server.<br/> OMA DM服务器的设备信息。从客户端发送到服务器。|
+| DevDetail | MUST | MUST | General device information that benefits from standardization.<br/>从标准化中受益的一般设备信息。 |
+| Inbox | MAY | MAY | Reserved URI where the device SHOULD use the management object identifier to identify the absolute URI.<br/>保留的URI，其中推荐设备使用管理对象标识符来标识绝对URI。 |
+
+The difference between DevInfo and DevDetail is that the DevInfo parameters are needed by the management server for problem free operation of the OMA DM protocol. The DevInfo object is sent from client to server in the beginning of every session.<br/>
+DevInfo和DevDetail之间的区别在于管理服务器需要DevInfo参数以用于OMA DM协议的无问题操作。 DevInfo对象在每个会话开始时从客户端发送到服务器。
+
+DevDetail contains other device specific parameters that benefits from being standardized and mandatory. The only difference is that these parameters are not sent from client to server automatically. Instead, these parameters are managed by servers as any other parameters and can be manipulated using OMA DM commands.<br/>
+DevDetail包含受益于标准化和强制性的其他设备特定参数。唯一的区别是这些参数不是从客户端自动发送到服务器。相反，这些参数由服务器作为任何其他参数来管理，并且可以使用OMA DM命令来操纵。
+
+#### 7.1.3.1 The DM Account management object DM帐户管理对象
+The management object is used to manage settings for OMA DM protocol.<br/>
+管理对象用于管理OMA DM协议的设置。
+
+Management object identifier: urn:oma:mo:oma-dm-dmacc:1.0<br/>
+管理对象标识符：rn:oma:mo:oma-dm-dmacc:1.0
+
+![](7.1.3.1.jpeg)
+Parameters are also described in Device Management Application Characteristic registration document [w7] which is used as a part of OMA Client Provisioning specifications [ERELDCP]. General mapping rules of OMA Client Provisioning parameters are described in [DMBOOT]. When the DM Account parameters are derived from OMA Client Provisioning w7 document, see more information about parameter mapping in Appendix.<br/>
+参数也在设备管理应用特性注册文档[w7]中描述，该文档是OMA客户端配置规范[ERELDCP]的一部分。 OMA客户端提供参数的一般映射规则在[DMBOOT]中描述。 当DM帐户参数是从OMA客户端配置w7文档派生时，请参阅附录中有关参数映射的更多信息。
+
+The complete DDF description of this management object can be found in [DMAccDDF].<br/>
+此管理对象的完整DDF描述可在[DMAccDDF]中找到。
+
