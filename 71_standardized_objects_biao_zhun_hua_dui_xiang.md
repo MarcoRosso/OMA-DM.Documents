@@ -129,5 +129,20 @@ This node specifies a server identifier for management server used in the manage
 * Access Types: Get<br/>
 访问类型：Get
 * Values: `<Server identifier>`<br/>
-值：<Server identifier>
+值：`<Server identifier>`
 
+##### 7.1.3.1.4 Node: `<X>`/Name
+This node specifies user displayable name for the management server.<br/>
+此节点指定管理服务器的用户可显示名称。
+* Occurrence: ZeroOrOne<br/>
+出现次数：一次
+* Format: Chr<br/>
+形式：字符
+* Access Types: Get<br/>
+访问类型：Get
+* Values: `<User displayable name>`<br/>
+值：`<User displayable name>`
+
+##### 7.1.3.1.5 Node: `<X>`/PrefConRef
+This node specifies a reference to preferred connectivity. It is expected that either a proxy or NAP MO is specified, but other, implementation-specific connectoids MAY be referenced.<br/>
+此节点指定对首选连接的引用。它期望指定代理或NAP MO，但是可以引用其他方法实现特定的连接。
