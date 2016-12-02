@@ -60,3 +60,5 @@ AccessType元素的内容可以通过实现扩展。
 如果指定了AccessType值Add，如果实现只支持固定数量的子节点，则可以在实现中删除它。
 * An implementation MAY replace the ZeroOrMore or OneOreMore elements with ZeroOrN or OneOrN respectively. An appropriate value for N MUST also be given with the ...OrN elements.<br/>
 实现可以分别用ZeroOrN或OneOrN替换ZeroOrMore或OneOreMore元素。N的适当值也必须与... OrN元素一起给出。
+
+### 7.1.2 Management objects standardized by other organizations 其他组织的标准化管理对象
