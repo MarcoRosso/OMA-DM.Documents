@@ -31,3 +31,11 @@ Devices MAY support different sets of properties. Some properties are OPTIONAL f
 | TStamp | MAY 可以 |
 | Type | MUST 必须 |
 | VerNo | MAY 可以 |
+
+## 8.3.3 Property addressing 属性寻址
+The properties of a Node are addressed by appending `?prop=<property_name>` to the Node’s URI. For instance, to access the ACL of an OMA DM account a DM Server could use one of these URIs;<br/>
+通过将`?prop=<property_name>`添加到节点的URI来寻址节点的属性。例如，为了访问OMA DM帐户的ACL，DM服务器可以使用这些URI之一;<br/>
+           ./DMAcc/xyzInc?prop=ACL<br/>
+           DMAcc/xyzInc?prop=ACL<br/>
+If a server addresses an unsupported property in a device, an error is returned in the form of an (406) Optional feature not supported status.<br/>
+如果服务器寻址设备中遇到不受支持的属性，则会返回（406）Optional feature not supported status的错误
