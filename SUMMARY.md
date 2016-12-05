@@ -35,5 +35,5 @@
    * [8.1 The Management Tree 管理树](81_the_management_tree_guan_li_shu.md)
    * [8.2 Nodes 节点](82_nodes_jie_dian.md)
    * [8.3 Properties of Nodes 节点属性](83_properties_of_nodes_jie_dian_shu_xing.md)
-   * 8.4 Device Management Tree Exchange 设备管理树交换
+   * [8.4 Device Management Tree Exchange 设备管理树交换](84_device_management_tree_exchange_she_bei_guan_li.md)
 
