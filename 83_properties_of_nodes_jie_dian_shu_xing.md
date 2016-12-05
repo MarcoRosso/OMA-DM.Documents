@@ -38,4 +38,17 @@ The properties of a Node are addressed by appending `?prop=<property_name>` to t
            ./DMAcc/xyzInc?prop=ACL<br/>
            DMAcc/xyzInc?prop=ACL<br/>
 If a server addresses an unsupported property in a device, an error is returned in the form of an (406) Optional feature not supported status.<br/>
-如果服务器寻址设备中遇到不受支持的属性，则会返回（406）Optional feature not supported status的错误
+如果服务器寻址设备中遇到不受支持的属性，则会返回（406）Optional feature not supported status的错误。
+
+## 8.3.4 Property values 属性值
+Property values MUST be transported by OMA DM as UTF-8 encoded strings. Numerical property values MUST be converted to numerical strings, expressed in decimal. It is NOT RECOMMENDED to use a `<Meta>` element for property values.<br/>
+属性值必须由OMA DM作为UTF-8编码字符串传输。数字属性值必须转换为数字字符串，以十进制表示。 不推荐对属性值使用`<Meta>`元素。
+
+It is unnecessary to use a `<Meta>` element for property values because they are all strings. This means that they would all have the same `<Meta>`, like this:<br/>
+对于属性值，不必使用`<Meta>`元素，因为它们都是字符串。这意味着它们都将具有相同的`<Meta>`，如下所示：
+```
+<Meta>
+  <Format xmlns=’syncml:metinf’>chr</Format> 
+  <Type xmlns=’syncml:metinf’>text/plain</Type>
+</Meta>
+```
