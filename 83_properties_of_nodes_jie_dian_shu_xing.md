@@ -226,3 +226,17 @@ the Meta Format MUST be b64, if the Base64 encoding is used.<br/>
 
 In either case, the Base64 encoding is used only during transport. The Management Tree property Format MUST be bin. for this data.<br/>
 在任一情况下，Base64编码仅在传输期间使用。此数据管理树属性格式必须是bin。
+
+#### 8.3.7.1.3 Name
+This property reflects the name of the Node to which it belongs. This is the name by which the Node is addressed in the Management Tree. The Name property is a string with a maximum length that is defined in ./DevDetail/URI/MaxSegLen as described in [DMSTDOBJ].<br/>
+此属性反映它所属的节点的名称。这是在管理树中对节点进行寻址的名称。Name属性是一个字符串，其最大长度在[DMSTDOBJ]中所述的./DevDetail/URI/MaxSegLen中定义。
+
+When a new Node is created, the value of the Name property MUST be assigned with the value of last segment in the Target URI.<br/>
+当创建一个新的节点时，Name属性的值必须分配有目标URI中的最后一个段的值。
+
+This property supports the Replace command. When a Replace command for this property is received by the device, it MUST first check that the result of the command does not lead to an inconsistent tree, e.g. duplicate Node names, before the command is executed. Since it is only the last segment of the current Node’s URI that is changed, the search for possible duplicate names can be limited to the siblings of the current Node.<br/>
+此属性支持Replace命令。当设备接收到此属性的Replace命令时，它必须首先检查命令的结果不会导致不一致的树，例如重复节点名称，在执行命令之前。 因为只有当前节点的URI的最后一个段被更改，所以可能的重复名称的搜索可以限制到当前节点的兄弟节点。
+
+#### 8.3.7.1.4 Size
+
+
