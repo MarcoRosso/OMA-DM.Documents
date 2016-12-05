@@ -239,12 +239,21 @@ This property supports the Replace command. When a Replace command for this prop
 
 #### 8.3.7.1.4 Size
 The Size property is used for the current size of the Node value. The property value is a 32 bit unsigned integer.<br/>
+该大小属性用于当前节点值的大小。属性值是一个32位无符号整数。
 
 The value of the Size property MUST be equal to the size of the Node value in bytes and the client is responsible to do that.<br／>
+大小属性的值必须等于字节的节点值的大小，而客户端则负责这样做。
 
 Note that the Size property of a binary data value MUST indicate the size in bytes of the actual (unencoded) value, and NOT the length of a Base64 encoded string that may or may not have been used to convey the data over XML.<br/>
+注意，二进制数据值的大小属性必须表明实际字节大小（非编码）的值，并不是一个Base64编码的字符串的长度可能会或可能不会被用来通过XML传递数据。
 
 Also note that the Meta Size tag used in conveying data always indicates the size of the data in the message. If the message is in XML and the data is binary, then the data will be encoded. Consequently, the Meta Size of data that is encoded as b64 is the length of the Base64 encoded string.<br/>
+还注意，在传送数据中使用的Meta Size标记总是表示消息中的数据的大小。如果消息是在XML中，数据是二进制的，那么数据将被编码。因此，该编码为b64是Base64编码的字符串的长度数据元的大小。
 
 #### 8.3.7.1.5 TItle
+The Title property is used to store a human readable, alphanumeric string that provides some information about the Node to which this property belongs. The Title property is a string with a maximum length of 255 bytes.<br/>
+标题属性是用来存储一个人类可读的，字母数字字符串，它提供有关节点属性的信息。标题属性是一个最大长度为255个字节的的字符串。
 
+#### 8.3.7.1.6 TStamp
+This property is a record of the date and time of the last change in value of the Node which has this property. The value is represented by a string containing a UTC based, [ISO8601] basic format, complete representation of a date and time value, e.g. 20010711T163817Z means July 11, 2001 at 16 hours, 38 minutes and 17 seconds.
+此属性是具有此属性的节点的最后一个值的日期和时间的记录。其值是由一个字符串包含一个基于UTC的表示，[ISO8601]的基本格式，一个日期和时间值的完整再现，如20010711t163817z意味着在16小时38分17秒2001年7月11日。
