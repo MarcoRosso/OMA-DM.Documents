@@ -24,3 +24,29 @@ Leaf Node: A Node that can store a value, but cannot have child Nodes. The Forma
 
 Management Object: A Management Object is a subtree of the Management Tree which is intended to be a (possibly singleton) collection of Nodes which are related in some way. For example, the ./DevInfo Nodes form a Management Object. A simple Management Object may consist of one single Node.<br/>
 管理对象：管理对象是管理树的子树，其旨在成为以某种方式相关的节点的集合（可能是单例）。 例如，./DevInfo节点形成管理对象。 一个简单的管理对象可以由一个单一的节点组成。
+
+Management Object Identifier: The Type property describing the kind of data stored as the Management Object’s value.<br/>
+管理对象标识符：Type属性描述作为管理对象的值存储的数据的类型。
+
+DM Server: A network based entity that issues OMA DM commands to devices and correctly interprets responses sent from the devices.<br/>
+DM服务器：基于网络实体，向设备发出OMA DM命令，并正确解释从设备发送的响应。
+
+Management Tree: The mechanism by which the management client interacts with the device, e.g. by storing and retrieving values from it and by manipulating the properties of it, for example the access control lists.
+<br/>
+管理树：管理客户端与设备交互的机制，例如， 通过存储和检索它的值，并通过操作它的属性，例如访问控制列表。
+
+Node: A Node is a single element in a Management Tree. There can be two kinds of Nodes in a Management Tree: Interior Nodes and Leaf Nodes. The Format property of a Node provides information about whether a Node is a leaf or an Interior Node.<br/>
+节点: 节点是管理树中的单个元素。管理树中可以有两种节点：内部节点和叶节点。节点的Format属性提供关于节点是叶节点还是内部节点的信息。
+
+Permanent Node: A Node is permanent if the DDF property Scope is set to Permanent. If a Node is not permanent, it is dynamic. A permanent Node can never be deleted.<br/>
+永久节点：如果DDF属性范围设置为永久，则节点是永久的。如果节点不是永久的，则它是动态的。永久节点永远不能被删除。
+
+Server Identifier: The OMA DM internal name for a DM Server. A DM Server is associated with an existing Server Identifier in a device through OMA DM authentication.<br/>
+服务器标识符：DM服务器的OMA DM内部名称。DM服务器通过OMA DM认证与设备中的现有服务器标识符相关联。
+
+## Abbreviations 缩写
+OMA Open Mobile Alliance 开放移动联盟
+
+ACL Access Control List  访问控制列表
+
+DDF Device Description Framework 设备描述框架
