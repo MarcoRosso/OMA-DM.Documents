@@ -187,3 +187,11 @@ Consider the following Management Tree:<br/>
 ![](8.3.7.1.6.jpeg)
 The following statements about this Management Tree are true:<br/>
 有关此管理树的以下语句是真实的：
+* Any server can Get the value of ./NodeA/Node1, but only ServerC can modify
+./NodeA/Node1?prop=ACL in one operation.<br/>
+任何服务器可以获取./NodeA/Node1的值，但只有ServerC可以修改
+
+* No server can directly Delete or Replace the value of ./NodeA/Node1.
+* A Get request on ./NodeA/Node1?prop=ACL will return Get=`*`.
+* A Get request on ./NodeB/Node3/Node4?prop=ACL will return no value, e.g. `<Data/>`.
+* A Replace request on ./NodeB/Node3/Node5 by ServerA will be successful.
