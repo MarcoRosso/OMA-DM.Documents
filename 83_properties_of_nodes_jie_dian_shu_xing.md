@@ -256,4 +256,4 @@ The Title property is used to store a human readable, alphanumeric string that p
 
 #### 8.3.7.1.6 TStamp
 This property is a record of the date and time of the last change in value of the Node which has this property. The value is represented by a string containing a UTC based, [ISO8601] basic format, complete representation of a date and time value, e.g. 20010711T163817Z means July 11, 2001 at 16 hours, 38 minutes and 17 seconds.
-此属性是具有此属性的节点的最后一个值的日期和时间的记录。其值是由一个字符串包含一个基于UTC的表示，[ISO8601]的基本格式，一个日期和时间值的完整再现，如20010711t163817z意味着在16小时38分17秒2001年7月11日。
+此属性是具有此属性的节点的最后一次更改值的日期和时间的记录。该值由包含基于UTC的[ISO8601]基本格式的字符串表示，完全表示日期和时间值，例如20010711T163817Z表示2001年7月11日16小时38分17秒。
