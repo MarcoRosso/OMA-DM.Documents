@@ -180,3 +180,10 @@ Add=www.sonera.fi-8765&Delete=www.sonera.fi-
 
 There is no ACL representation for the Copy command. Copy exists as a command on its own mainly for efficiency reasons. Any result of a Copy command can always be created by a sequence of other commands. To successfully execute a Copy, a server needs to have the correct access rights for the equivalent Add, Delete, Get, and Replace commands.<br/>
 Copy命令没有ACL表示。副本作为命令本身存在主要是出于效率的原因。Copy命令的任何结果都可以通过一系列其他命令创建。要成功执行复制，服务器需要对等效的添加，删除，获取和替换命令具有正确的访问权限。
+
+#### 8.3.7.1.6 ACL Example ACL示例
+Consider the following Management Tree:<br/>
+考虑以下管理树：
+![](8.3.7.1.6.jpeg)
+The following statements about this Management Tree are true:<br/>
+有关此管理树的以下语句是真实的：
