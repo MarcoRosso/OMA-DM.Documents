@@ -83,3 +83,40 @@ could receive a response like this: 可以接收到这样的响应：
 ```
 If a Get command is issued on an Interior Node that does not have any children the client MUST return an empty child list, e.g. `<Data/>`, and the status code (200) OK.<br/>
 如果在没有任何子节点的内部节点上发出Get命令，客户端必须返回一个空的子节点列表，例如， `<Data/>`，状态码（200）OK。
+
+## 8.2.2.3 Permanent and Dynamic Nodes 永久和动态节点
+Nodes in the Management Tree can be either permanent or dynamic.<br/>
+管理树中的节点可以是永久性的也可以是动态的。
+
+Permanent Nodes are typically built in at device manufacture. Permanent Nodes can also be temporarily added to a device by, for instance, connecting new accessory hardware. However, a DM Server cannot create or delete permanent Nodes at runtime.An attempt by a DM Server to delete apermanent Node will return status(405) Command not allowed. The same status code will also be returned for all attempts to modify the Name property of a permanent Node.
+永久节点通常在设备制造中内置。永久节点也可以通过例如连接新的附件硬件被临时添加到设备。但是，DM服务器不能在运行时创建或删除永久节点。DM服务器尝试删除永久节点将返回状态（405）Command not allowed。对于修改永久节点的Name属性的所有尝试，也将返回相同的状态代码。
+
+Dynamic Nodes can be created and deleted at runtime by DM Servers. The Add command is used to create new Nodes. The Delete command is used to delete Dynamic Nodes and all their properties. If a deleted Node has children, i.e. is an Interior Node, the children MUST also be deleted.<br/>
+动态节点可以在运行时由DM服务器创建和删除。Add命令用于创建新的节点。Delete命令用于删除动态节点及其所有属性。如果被删除的节点具有子节点，即是一个内部节点，子节点也必须被删除。
+
+The complete layout of the permanent Nodes in the Management Tree is reflected in the device description.<br/>
+管理树中永久节点的完整布局反映在设备描述中。
+
+## 8.2.2.4 Permanent and Dynamic Nodes 永久和动态节点
+As stated in the previous section the Add command is used to create new Nodes. The definition of the Add command in [DMPRO] states that the Node addressed MUST NOT exist in the tree. The name of the newly created Node SHALL be the last segment of the URI presented in the Target element of the Add command. Note that devices might have various constraints as to the lengths of the URI used to address the Management Tree. These constraints MUST be recorded in the ./DevDetail Management Object as specified in [DMSTDOBJ].<br/>
+如上一节所述，Add命令用于创建新节点。在[DMPRO]中的Add命令的定义表明，所寻址的节点必须不存在于树中。新创建的节点的名称应该是添加命令的目标元素中呈现的URI的最后一段。注意，设备可能对用于寻址管理树的URI的长度具有各种约束。这些约束必须记录在[DMSTDOBJ]中指定的./DevDetail管理对象中。
+
+Example: 范例
+
+The following Add command: 以下Add命令
+```
+ <Add>
+     <CmdID>5</CmdID>
+     <Item>
+     <Meta>
+        <Format xmlns=’syncml:metinf’>b64</Format>
+        <Type xmlns=’syncml:metinf’>audio/myMelodyType</Type>
+     </Meta>
+     <Target>
+        <LocURI>Vendor/Ring_signals/My_beep</LocURI> 
+     </Target>
+     <Data>jkhdsfKJhdsf89374h</Data>
+     </Item>
+   </Add>
+
+```
