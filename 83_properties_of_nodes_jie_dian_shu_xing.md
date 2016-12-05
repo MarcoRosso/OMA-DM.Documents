@@ -76,3 +76,31 @@ Use of an unsupported command on a property will result in an error and the stat
 
 Property values MAY also change for reasons other than direct server operations. For instance, some devices MAY allow the user to modify the ACL. If this occurs and the device supports the TStamp or VerNo properties, these MUST be updated.<br/>
 属性值也可能因直接服务器操作之外的原因而更改。例如，一些设备可以允许用户修改ACL。如果发生这种情况，并且设备支持TStamp或VerNo属性，则必须更新这些属性。
+
+### 8.3.5.1 Properties of Permanent Nodes 永久节点的属性
+The semantics of most properties are independent of the permanent/dynamic status of the Node to which they are associated. The exception is the Name property, which MUST NOT be changed for permanent Nodes. Any attempt to perform such a change SHALL fail.<br/>
+大多数属性的语义与它们所关联的节点的永久/动态状态无关。异常是Name属性，必须不更改永久节点。 任何尝试执行这样的更改都将失败。
+
+## 8.3.6 Scope of properties 属性范围
+
+With the exception of the ACL property, all properties are only applicable to the Node with which they are associated. Properties are individual characteristics of each Node. There SHALL be no inheritance of property values, implied or specified, other than for the ACL property.<br/>
+除ACL属性外，所有属性仅适用于与其关联的节点。属性是每个节点的个别特性。属性值必须没有隐含或指定的继承，这与ACL属性不同。
+
+## 8.3.7 Detailed description of properties 详细的属性描述
+
+### 8.3.7.1 ACL
+The ACL property has some unique characteristics when compared to the other properties.<br/>
+与其他属性相比，ACL属性具有一些独特的特性。
+
+The access rights granted by an ACL are granted to Server Identifiers and not to the URI, IP address or certificate of a DM Server. The Server Identifier is an OMA DM specific name for a server. A management session is associated with a DM Server Identifier through OMA DM authentication [DMSEC]. All management commands received in one session are assumed to originate from the same DM Server.<br/>
+ACL授予的访问权限授予服务器标识符，而不授予DM服务器的URI，IP地址或证书。服务器标识符是服务器的OMA DM特定名称。管理会话通过OMA DM认证[DMSEC]与DM服务器标识符相关联。在一个会话中接收的所有管理命令被假定为源自同一DM服务器。
+
+#### 8.3.7.1.1 ACL and inheritance ACL和继承
+Every Node MUST implement the ACL property, but there can be no guarantee that the ACL of every Node has a value assigned to it. However, the root Node MUST always have an ACL value. If a server performs a management operation on a Node with no value set on the ACL the device MUST look at the ACL of the parent Node for a value. If the parent does not have a value for the ACL, the device MUST look at the ACL of the parent’s parent, and so on until an ACL value is found. This search will always result in a found value since the root Node MUST have an assigned ACL value. This way, Nodes can inherit ACL settings from one of their ancestors.<br/>
+每个节点必须实现ACL属性，但不能保证每个节点的ACL都有赋值的值。但是，根节点必须始终具有ACL值。如果服务器在没有在ACL上设置值的节点上执行管理操作，则设备必须查看父节点的ACL的值。如果父节点没有ACL的值，则设备必须查看父节点父节点的ACL，以此类推，直到找到ACL值。此搜索将始终导致找到的值，因为根节点必须具有指派的ACL值。这样，节点可以从其祖先中继承ACL设置。
+
+Inheritance only takes place if there is no value assigned to the complete ACL property, i.e. there are no commands present. As soon as any value for an ACL property is present, this value is the only valid one for the current Node. ACL values MUST NOT be constructed by concatenation of values from the current Node and its ancestors.<br/>
+
+If an ACL does not contain any Server Identifier for a particular command, then this command MUST NOT be present in the ACL. Inheritance does not take place on a per command basis. Whenever an ACL is changed, by a server or by the client itself, care needs to be taken so that command names without Server Identifiers are not stored in the new ACL, resulting in an improperly formatted ACL.<br/>
+
+A Get command on the ACL property of a Node MUST return an empty data value, e.g. <Data/>, if the ACL for that Node has no commands present (i.e. if the ACL has no value). In other words, the client SHOULD NOT locate an ancestor with a value for the ACL and provide that value.<br/>
