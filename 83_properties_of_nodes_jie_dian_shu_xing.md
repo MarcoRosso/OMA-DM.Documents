@@ -199,7 +199,7 @@ The following statements about this Management Tree are true:<br/>
 * A Replace request on ./NodeB/Node3/Node5 by ServerA will be successful.<br/>
 ServerA对./NodeB/Node3/Node5的替换请求将成功。
 
-#### 8.3.7.1.2 Format
+#### 8.3.7.2 Format
 The Format property always maintains information about the data format of the current Node value. Allowed formats are defined in [META].<br/>
 Format属性始终维护有关当前Node值的数据格式的信息。允许的格式在[META]中定义。
 
@@ -227,7 +227,7 @@ the Meta Format MUST be b64, if the Base64 encoding is used.<br/>
 In either case, the Base64 encoding is used only during transport. The Management Tree property Format MUST be bin. for this data.<br/>
 在任一情况下，Base64编码仅在传输期间使用。此数据管理树属性格式必须是bin。
 
-#### 8.3.7.1.3 Name
+#### 8.3.7.3 Name
 This property reflects the name of the Node to which it belongs. This is the name by which the Node is addressed in the Management Tree. The Name property is a string with a maximum length that is defined in ./DevDetail/URI/MaxSegLen as described in [DMSTDOBJ].<br/>
 此属性反映它所属的节点的名称。这是在管理树中对节点进行寻址的名称。Name属性是一个字符串，其最大长度在[DMSTDOBJ]中所述的./DevDetail/URI/MaxSegLen中定义。
 
@@ -237,7 +237,7 @@ When a new Node is created, the value of the Name property MUST be assigned with
 This property supports the Replace command. When a Replace command for this property is received by the device, it MUST first check that the result of the command does not lead to an inconsistent tree, e.g. duplicate Node names, before the command is executed. Since it is only the last segment of the current Node’s URI that is changed, the search for possible duplicate names can be limited to the siblings of the current Node.<br/>
 此属性支持Replace命令。当设备接收到此属性的Replace命令时，它必须首先检查命令的结果不会导致不一致的树，例如重复节点名称，在执行命令之前。 因为只有当前节点的URI的最后一个段被更改，所以可能的重复名称的搜索可以限制到当前节点的兄弟节点。
 
-#### 8.3.7.1.4 Size
+#### 8.3.7.4 Size
 The Size property is used for the current size of the Node value. The property value is a 32 bit unsigned integer.<br/>
 该大小属性用于当前节点值的大小。属性值是一个32位无符号整数。
 
@@ -250,14 +250,73 @@ Note that the Size property of a binary data value MUST indicate the size in byt
 Also note that the Meta Size tag used in conveying data always indicates the size of the data in the message. If the message is in XML and the data is binary, then the data will be encoded. Consequently, the Meta Size of data that is encoded as b64 is the length of the Base64 encoded string.<br/>
 还注意，在传送数据中使用的Meta Size标记总是表示消息中的数据的大小。如果消息是在XML中，数据是二进制的，那么数据将被编码。因此，该编码为b64是Base64编码的字符串的长度数据元的大小。
 
-#### 8.3.7.1.5 TItle
+#### 8.3.7.5 TItle
 The Title property is used to store a human readable, alphanumeric string that provides some information about the Node to which this property belongs. The Title property is a string with a maximum length of 255 bytes.<br/>
 标题属性是用来存储一个人类可读的，字母数字字符串，它提供有关节点属性的信息。标题属性是一个最大长度为255个字节的的字符串。
 
-#### 8.3.7.1.6 TStamp
+#### 8.3.7.6 TStamp
 This property is a record of the date and time of the last change in value of the Node which has this property. The value is represented by a string containing a UTC based, [ISO8601] basic format, complete representation of a date and time value, e.g. 20010711T163817Z means July 11, 2001 at 16 hours, 38 minutes and 17 seconds.
 此属性是具有此属性的节点的最后一次更改值的日期和时间的记录。该值由包含基于UTC的[ISO8601]基本格式的字符串表示，完全表示日期和时间值，例如20010711T163817Z表示2001年7月11日16小时38分17秒。
 
-#### 8.3.7.1.7 Type
+#### 8.3.7.7 Type
 The Type property is inspired by the concept of typed data in programming languages. For leaf objects, the Type property describes the kind of data stored as the object’s value. For interior objects, the Type property identifies the collection rooted at that Interior Node.<br/>
 Type属性受编程语言中类型化数据的概念的启发。对于叶对象，Type属性描述存储为对象值的数据类型。对于内部对象，Type属性标识以该内部节点为根的集合。
+
+##### 8.3.7.7.1 Leaf objects 叶对象
+The Type property of a leaf object is always the MIME type of the current object value. Allowed types are defined in [AMT]. The entity setting the value MUST supply the type information in the same command that is used to set the value. The Type tag in the Meta information carries the MIME type information for the Item. The property value is represented by a string.
+An object’s description MAY specify that the object can store more than one MIME type. Consequently, a server that modifies an object’s value MUST supply the MIME type of the data when the object value is set.<br/>
+叶对象的Type属性始终是当前对象值的MIME类型。允许的类型在[AMT]中定义。设置值的实体必须在用于设置值的相同命令中提供类型信息。Meta信息中的Type标签包含该Item的MIME类型信息。属性值由字符串表示。对象的描述可以指定对象可以存储多个MIME类型。因此，修改对象值的服务器必须在设置对象值时提供数据的MIME类型。
+
+Example: 范例: 
+
+The following Add command illustrates how the Type and Format properties are set:<br/>
+以下Add命令说明如何设置Type和Format属性：
+```
+<Add>
+     <CmdID>4</CmdID>
+     <Item>
+       <Target> 
+           <LocURI>Vendor/ISP/yyy/GWName</LocURI>
+       </Target>
+       <Meta>
+            <Format xmlns=’syncml:metinf’>chr</Format>
+            <Type xmlns=’syncml:metinf’>text/plain</Type> 
+       </Meta>
+       <Data>www.yyy.se</Data>
+     </Item>
+</Add>
+```
+##### 8.3.7.7.2 Interior objects 内部对象
+The Type property of an interior object is represented by a string. The property MAY have no value. When the property does have a value, it MUST represent the Management Object Identifier of the collection of objects rooted at the current object.<br/>
+内部对象的Type属性由字符串表示。属性可能没有价值。当属性有值时，它必须表示以当前对象为根的对象集合的管理对象标识符。
+
+The Management Object Identifier SHOULD be a URI. When the Management Object Identifier is registered by the Open Mobile Naming Authority [OMNA], the identifier will most likely be a URN. Some examples are: urn:oma:mo:oma-fumo:1.0, or urn:oma:mo:oma-imps:1.0.<br/>
+管理对象标识符应该是一个URI。当管理对象标识符由开放移动命名机构[OMNA]注册时，标识符将很可能是URN。一些示例是：urn：oma：mo：oma-fumo：1.0，或urn：oma：mo：oma-imps：1.0。
+
+Management Object Identifiers not registered by the Open Mobile Naming Authority MAY use the following reversed domain name scheme:<br/>
+未由开放移动命名管理机构注册的管理对象标识符可以使用以下反向域名方案：
+
+Reversed Domain Management Object Identifiers<br/>
+反向域管理对象标识符
+
+A reversed domain Management Object Identifier is formed by combining the reversed domain name of the owner with the name and version of the object, e.g. “com.companyx/1.2/ProductY”. The syntax is as follows:<br/>
+通过将所有者的反向域名与对象的名称和版本相组合来形成反向域管理对象标识符。 “com.companyx/1.2/ProductY”。语法如下：
+```
+     <management_object_name> ::= <reversed-
+     domain>/<major>.<minor>/<name>[/<name>]*
+     <reversed-domain> ::= “reversed internet domain name”
+     <major> ::= [1-9][0-9]*
+     <minor> ::= 0 | [1-9][0-9]*
+     <name> ::= alphanum
+```
+Notes: 备注：
+1. The reversed domain is as used in some programming languages to name classes uniquely, and MAY include sub- domains, e.g. “com.companyx.producty” (a fictional example).<br/>
+反向域在一些编程语言中用于唯一地命名类，并且可以包括子域，例如子域。 “com.companyx.producty”（一个虚构的例子）。
+2. The major and minor elements of the version are considered unsigned integer counters, without leading zeros.<br/>
+版本的主要和次要元素被认为是无符号整数计数器，没有前导零。
+3. For simplicity and portability, each name element is currently restricted to alphanumeric characters. (Alphanum is defined in [RFC2396].)<br/>
+为了简单和可移植性，每个名称元素当前仅限于字母数字字符。（Alphanum在[RFC2396]中定义。）
+
+
+
+
