@@ -200,3 +200,29 @@ The following statements about this Management Tree are true:<br/>
 ServerA对./NodeB/Node3/Node5的替换请求将成功。
 
 #### 8.3.7.1.2 Format
+The Format property always maintains information about the data format of the current Node value. Allowed formats are defined in [META].<br/>
+Format属性始终维护有关当前Node值的数据格式的信息。允许的格式在[META]中定义。
+
+The entity setting the value MUST supply the format information in the same command that is used to set the value. The format information is carried (in the SyncML message) by the Format tag within the Meta element [META] of the Item that has the data to be set. The property value is represented by a string. See section 8.3.7.7.1 for an example.<br/>
+设置值的实体必须在用于设置值的相同命令中提供格式信息。通过具有要设置的数据的项的元元素[META]内的格式标记来携带格式信息（在SyncML消息中）。属性值由字符串表示。例如，见8.3.7.7.1节。
+
+Note that Interior Nodes MUST have node as the Format value.<br/>
+注意，内部节点必须有节点作为格式值。
+
+When a Node’s native value is B64-encoded binary, the value b64 is used as the node Format property and a Meta Format [META] value of “b64” MAY be used when sent over DM protocol. When data has a binary form (as indicated by the Mime Type in the Meta Type), and the data is sent over XML, then the Meta Format MUST be b64. The recipient of this data then decodes the data and associates the node Format property bin with the data so that any time a Get command on the Format property of this Node is executed, the response MUST be bin.<br/>
+当节点的固有值是B64编码的二进制时，值b64用作节点的格式属性，并且当通过DM协议发送时，可以使用“b64”的元格式[META]值。当数据具有二进制形式（由Meta类型中的Mime类型指示），并且数据通过XML发送时，元格式必须为b64。 然后，此数据的接收者解码数据，并将节点Format属性bin与数据相关联，以便每次执行此节点的Format属性上的Get命令时，响应必须是bin。
+
+In effect, the binary data exists as binary on the server, and is processed as binary on the client. It MAY be only temporarily encoded in Base64 if it needs to be sent over XML.<br/>
+实际上，二进制数据作为二进制存在于服务器上，并在客户端上作为二进制处理。如果需要通过XML发送它可能只是临时编码在Base64。
+
+When binary data is sent over WBXML:<br/>
+当通过WBXML发送二进制数据时：
+
+the Meta Format MUST be bin, if the Base64 encoding is not used,<br/>
+如果不使用Base64编码,元格式必须是bin，
+
+the Meta Format MUST be b64, if the Base64 encoding is used.<br/>
+如果使用Base64编码，元格式必须是b64。
+
+In either case, the Base64 encoding is used only during transport. The Management Tree property Format MUST be bin. for this data.<br/>
+在任一情况下，Base64编码仅在传输期间使用。此数据管理树属性格式必须是bin。
