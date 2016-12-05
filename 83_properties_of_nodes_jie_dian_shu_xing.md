@@ -134,11 +134,48 @@ The ability for a Server Identifier with access to a parent Node to take control
 Servers can explicitly set ACL values by performing a Replace operation on the ACL property of any given Node. A successful completion of such an operation is signaled by an (200) OK status code. If the operation fails due to lack of device memory status code (420) Device full is returned. In addition, if the reason for failure is access violation the status code (425) Permission denied is returned.<br/>
 服务器可以通过对任何给定节点的ACL属性执行替换操作来显式设置ACL值。这样的操作的成功完成由（200）OK状态码发出信号。如果操作由于缺少设备内存而失败则返回状态代码（420）Device full。此外，如果失败的原因是访问冲突，则返回状态代码（425）Permission denied。
 
-If a server successfully creates a new Node with the Add command the value of the Node’s ACL property is initially set to no value, e.g. <Data/>,. This means that the value is inherited from the parent Node. However, there is one exception to this rule. If a server is adding an Interior Node and does not have Replace access rights on the parent of the new Node then the device MUST automatically set the ACL of the new Node so that the creating server has Add, Delete and Replace rights on the new Node.<br/>
+If a server successfully creates a new Node with the Add command the value of the Node’s ACL property is initially set to no value, e.g. `<Data/>`,. This means that the value is inherited from the parent Node. However, there is one exception to this rule. If a server is adding an Interior Node and does not have Replace access rights on the parent of the new Node then the device MUST automatically set the ACL of the new Node so that the creating server has Add, Delete and Replace rights on the new Node.<br/>
+如果服务器使用Add命令成功创建了一个新节点，则节点的ACL属性的值最初被设置为无值，例如。`<Data/>` 。这意味着该值从父节点继承。但是，此规则有一个例外。如果服务器正在添加内部节点并且没有设置新节点的父节点的替换访问权限，则设备必须自动设置新节点的ACL，以便创建服务器在新节点上具有添加，删除和替换权限。
 
 In cases where the above rule does not apply it is RECOMMENDED that the current Server Identifier explicitly set the new Node ACL. This is achieved by using a Replace command on the ACL URI of the new Node. The current server SHOULD set the ACL value so that itself has Delete, Get and Replace access.<br/>
+在上述规则不适用的情况下，推荐当前服务器标识符显式地设置新的节点ACL。这通过对新节点的ACL URI使用Replace命令来实现。当前服务器应该设置ACL值，使其自身具有Delete，Get和Replace访问权限。
 
 Note that since the only command available to change an ACL is Replace, all existing Server Identifiers and access rights are overwritten. If a server wishes to keep the existing entries in an ACL it MUST read the ACL, perform the needed changes and then Replace the existing ACL with the new one.<br/>
+请注意，由于可用于更改ACL的唯一命令是替换，所有现有的服务器标识符和访问权限都将被覆盖。如果服务器希望保留ACL中的现有条目，它必须读取ACL，执行所需的更改，然后用新的ACL替换现有的ACL。
 
+#### 8.3.7.1.4 Deletion of DM Server Identifier 删除DM服务器标识符
+When a DM Server Identifier is to be deleted from the device, the Management Tree MUST be scanned for Nodes with ACL’s held by the soon to be deleted Server Identifier. The reference to this Server Identifier MUST be deleted. In the event that this process removes the only Server Identifier for a particular command on a particular Node, then this command is removed from the ACL for this Node. Note that if all commands are removed from an ACL in this process, resulting in an ACL with no value, the ACL becomes inherited (see Section 8.3.7.1.1).<br/>
+当要从设备中删除DM服务器标识符时，管理树必须扫描具有由即将被删除的服务器标识符持有的ACL的节点。必须删除对此服务器标识符的引用。如果此进程删除特定节点上特定命令的唯一服务器标识符，则会从此节点的ACL中删除此命令。注意，如果在此过程中从ACL中删除所有命令，导致ACL没有值，则ACL将被继承（参见第8.3.7.1.1节）。
 
+In the event that this process removes the only Server Identifier for a command in the root ACL, the ACL for that command MUST become `"*"` or a suitable factory default. This is in order to comply with the restriction on the root ACL specified in Section 8.3.7.1.2 in this document.<br/>
+如果此进程删除根ACL中命令的唯一服务器标识符，则该命令的ACL必须变为`“*”`或合适的出厂默认值。这是为了遵守本文档中第8.3.7.1.2节中规定的根ACL的限制。
+
+#### 8.3.7.1.5 ACL syntax ACL语法
+The ACL structure is a list of Server Identifiers where each identifier is associated with a list of OMA DM command names [DMPRO]. The right to perform a command is granted if an identifier is associated with the name of the command that is to be performed.<br/>
+ACL结构是服务器标识符的列表，其中每个标识符与OMA DM命令名称[DMPRO]的列表相关联。如果标识符与要执行的命令的名称相关联，则授予执行命令的权限。
+
+The Server Identifier can also have a wildcard value assigned to it. This means that any Server Identifier used to access the Node and/or its properties is granted access.<br/>
+服务器标识符也可以具有分配给它的通配符值。这意味着用于访问节点和/或其属性的任何服务器标识符都被授予访问权限。
+
+ACL are carried over OMA DM as a string. The string MUST be formatted according to the following simple grammar.<br/>
+ACL作为字符串在OMA DM上承载。字符串必须根据以下简单语法格式化。
+```
+            <acl> ::= <acl-value> | ”No value”
+           <acl-value> ::= <acl-entry> | <acl-value> & <acl-entry>
+           <acl-entry> ::= <command> = <server-identifiers>
+           <server-identifiers> ::= <server-identifier> | <server-
+           identifier> + <server-identifiers>
+           <server-identifier> ::= * | “All printable characters
+           except ‘=’, ‘&’, ‘*’, ‘+’ or white-space characters.”
+           <command> ::= Add | Delete | Exec | Get | Replace
+```
+For uniqueness, it is RECOMMENDED that the Server Identifier contain the domain name of the server. For efficiency reasons it is also RECOMMENDED that it is kept as short as possible. The wildcard value for a Server Identifier is character `‘*’`. If a `<server-identifier>` has the value `‘*’`, then there SHOULD NOT be any other `<server- identifier>` values associated with this command in the current ACL. If an ACL entry contains both a wild card, `‘*’`, and a `<server-identifier>`, the access right granted by the `<server-identifier>` is overridden by the wild card.<br/>
+为了唯一性，建议服务器标识符包含服务器的域名。出于效率的原因，也建议它保持尽可能短。服务器标识符的通配符值为字符`'*'`。 如果`<server-identifier>`具有值`'*'`，那么在当前ACL中不应该有与此命令相关联的任何其他`<server-identifier>`值。 如果ACL条目包含通配符，`“*”`和`<server-identifier>`，则由`<server-identifier>`授予的访问权限将被通配符覆盖。
+
+Example ACL value: ACL值示例：
+```
+Add=www.sonera.fi-8765&Delete=www.sonera.fi- 
+8765&Replace=www.sonera.fi-8765+321_ibm.com&Get=*
+
+```
 
