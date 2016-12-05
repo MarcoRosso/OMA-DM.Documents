@@ -50,3 +50,37 @@ OMA Open Mobile Alliance 开放移动联盟
 ACL Access Control List  访问控制列表
 
 DDF Device Description Framework 设备描述框架
+
+## References 参考
+[AMT]: Assigned media types. Internet Assigned Numbers Authority. URL:http:// www.iana.org
+
+[DMDDFDTD]: “OMA DM Device Description Framework DTD, Version 1.2”. Open Mobile Alliance . URL: http://www.openmobilealliance.org/tech/DTD/dm_ddf-v1_2.dtd
+
+[DMPRO]: “OMA Device Management Protocol, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_Protocol-V1_2. URL:http://www.openmobilealliance.org
+
+[DMSEC]: “OMA Device Management Security, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_Security-V1_2. URL:http://www.openmobilealliance.org
+
+[DMSTDOBJ]: “OMA Device Management Standardized Objects, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_StdObj-V1_2. URL:http://www.openmobilealliance.org
+
+[DMTNDS]: “OMA Device Management Tree and Description Serialization Specification, Version 1.2”. Open Mobile Alliance . OMA-TS-DM_TNDS-V1_2. URL:http://www.openmobilealliance.org
+
+[ISO8601]:ISO 8601:2000, Data elements and interchange formats -- Information interchange -- Representation of dates and times. URL:http://www.iso.ch/
+
+[META]: “SyncML Meta Information, version 1.2”. Open Mobile Alliance . OMA-TS-SyncML_MetaInfo-V1_2. URL:http://www.openmobilealliance.org
+
+[RFC2119]: “Key words for use in RFCs to Indicate Requirement Levels”. S. Bradner. March 1997.
+URL:http://www.ietf.org/rfc/rfc2119.txt
+
+[RFC2396]:“Uniform Resource Identifiers (URI): Generic Syntax”. T. Berners-Lee, et al. August 1998.
+URL:http://www.ietf.org/rfc/rfc2396.txt
+
+[WBXML1.1]:“WAP Binary XML Content Format Specification”, WAP Forum , SPEC-WBXML- 19990616.pdf, URL:http://www.openmobilealliance.org
+
+[WBXML1.2]: “WAP Binary XML Content Format Specification”, WAP Forum , WAP-154-WBXML, URL:http://www.openmobilealliance.org
+
+[WBXML1.3]: “WAP Binary XML Content Format Specification”, WAP Forum , WAP-192-WBXML, URL:http://www.openmobilealliance.org
+
+[XMLSCHEMADT]:“XML Schema Part 2: Datatypes”, W3C Recommendation 02 May 2001,
+URL:http://www.w3.org/XML/Schema/
+
+[OMNA]: “Open Mobile Naming Authority”. Open Mobile Alliance . URL:http://www.openmobilealliance.org/tech/omna/index.html
