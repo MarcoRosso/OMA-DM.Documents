@@ -155,3 +155,6 @@ Note that this is not the same thing as a permanent Node. A Node protected by th
 |  | | Directly by URI in a Delete command<br/> 在Delete命令中直接通过URI | Indirectly, as a child of a Node being deleted<br/> 间接地，作为被删除节点的子节点 |
 | What AccessType specifies for the Node<br/> 节点的AccessType属性 | Delete allowed<br/> 允许删除 | Deleted<br/>删除 | Deleted<br/>删除 |
 | | Delete not allowed<br/> 不允许删除 | Not Deleted<br/>未删除 | Deleted<br/>删除 |
+
+Note that this mechanism is completely independent of the ACL. See chapter 8 .5 for more information on DDF properties.<br/>
+请注意，此机制完全独立于ACL。有关DDF属性的更多信息，请参见第8.5章。
