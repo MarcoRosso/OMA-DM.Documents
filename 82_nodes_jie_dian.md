@@ -118,5 +118,40 @@ The following Add command: 以下Add命令
      <Data>jkhdsfKJhdsf89374h</Data>
      </Item>
    </Add>
-
 ```
+would create a previously non-existing Node called My_beep as a child Node to the Interior Node Vendor/Ring_signals.<br/>
+将创建一个以前不存在的名为My_beep的节点作为内部节点Vendor/Ring_signals的子节点。
+
+When a Node is created, all the properties that this Node supports are automatically created by the client. Those property values that depend on information present in the Add or Replace command, e.g. Name, are assigned these values. Properties with a default value (e.g. Name) or a value that is automatically updated by the client (e.g. Size) are also assigned appropriate value at Node creation. Other properties will have no value.<br/>
+创建节点时，此节点支持的所有属性都由客户端自动创建。Add或Replace命令中存在的信息的那些属性值，例如Name，用来分配这些属性值。具有默认值（例如Name）或由客户端自动更新的值（例如Size）的属性也在节点创建时分配适当的值。其他属性将没有值。
+
+Interior Nodes are created in the same way. The difference is that the server MUST explicitly say that the new Node is an Interior Node by including a Meta element with a Format value of node.<br/>
+内部节点以相同的方式创建。不同之处在于服务器必须通过包括具有节点的格式值的Meta元素来明确地说新节点是内部节点。
+
+Example: 范例
+```
+ <Add>
+     <CmdID>5</CmdID>
+     <Item>
+     <Target> 
+         <LocURI>Vendor/Ring_signals/MyOwnSongs</LocURI>
+     </Target>
+     <Meta>
+          <Format xmlns=’syncml:metinf’>node</Format> 
+     </Meta>
+     </Item>
+ </Add>
+```
+
+## 8.2.2.5 Protecting Dynamic Nodes 保护动态节点
+Some Dynamic Nodes can be part of a larger context, and only have meaning in this context. Alternatively, the context (a Management Object) might become useless if a detail is lost, e.g. by the deletion of a dynamic Leaf Node. This could for instance be the address of an SMTP server for an e-mail Management Object. To protect this kind of Node from deletion and thus maintain the integrity of the context, the DDF property AccessType can be set so that the Delete command is excluded. This means that a Delete command will fail with status (405) Command not allowed.<br/>
+一些动态节点可以是较大上下文的一部分，并且仅在该上下文中具有意义。或者，如果细节丢失，上下文（管理对象）可能变得无用，例如，通过删除动态叶节点。这可以用于电子邮件管理对象的SMTP服务器的地址。为了保护这种节点不被删除，从而保持上下文的完整性，可以设置DDF属性AccessType，以便排除Delete命令。这意味着Delete命令将失败，状态为（405）Command not allowed。
+
+Note that this is not the same thing as a permanent Node. A Node protected by the AccessType property can still be deleted if it is part of a sub-tree that is being deleted. The Delete command acts strictly on the Node it is addressed at, and if that Node is a dynamic Interior Node it will be deleted along with all its child Nodes. If any of these child Nodes have the AccessType property set to exclude Delete they will be deleted anyway. The following table summarizes the protection mechanisms for Dynamic Nodes.<br/>
+注意，这不是一个永久的节点。受AccessType属性保护的节点仍然可以删被除，如果它是正在被删除的子树的一部分。Delete命令严格地作用于它被寻址的节点，并且如果该节点是动态内部节点，则它将与其所有子节点一起被删除。如果任何这些子节点的AccessType属性设置为排除删除，它们仍将被删除。下表总结了动态节点的保护机制。
+
+|  |  | How the Node is addressed<br/> 节点如何被寻址 |  |
+| -- | -- | -- | -- |
+|  | | Directly by URI in a Delete command<br/> 在Delete命令中直接通过URI | Indirectly, as a child of a Node being deleted<br/> 间接地，作为被删除节点的子节点 |
+| What AccessType specifies for the Node<br/> 节点的AccessType属性 | Delete allowed<br/> 允许删除 | Deleted<br/>删除 | Deleted<br/>删除 |
+| | Delete not allowed<br/> 不允许删除 | Not Deleted<br/>未删除 | Deleted<br/>删除 |
