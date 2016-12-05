@@ -317,6 +317,52 @@ Notes: 备注：
 3. For simplicity and portability, each name element is currently restricted to alphanumeric characters. (Alphanum is defined in [RFC2396].)<br/>
 为了简单和可移植性，每个名称元素当前仅限于字母数字字符。（Alphanum在[RFC2396]中定义。）
 
+The domain name of the object owner specifies a namespace. In that namespace, the Management Object Identifier MUST be unique. A server that wishes to obtain the DDF file corresponding to the object does so in an implementation-specific way. The server MAY maintain a local repository of DDF files describing objects that are managed by the server. It is RECOMMENDED that manufacturers and standards organizations maintain web-accessible repositories of these documents. Then servers could be implemented to obtain DDF files automatically (as needed) by maintaining a small mapping from organization (domain) to the web location (URL) of the DDF file, given the Management Object Identifier. Alternatively, another technique could be specified in a future version of OMA DM specifications.<br/>
+对象所有者的域名指定一个命名空间。在该命名空间中，管理对象标识符必须是唯一的。希望获得与对象相对应的DDF文件的服务器以实现特定的方式完成。服务器可以维护由服务器管理的对象的DDF文件的本地存储库。建议制造商和标准组织维护这些文件的网络访问存储库。然后，通过维护从组织（域）到DDF文件的web位置（URL）的小映射，给定管理对象标识符时，服务器自动地（根据需要）获得DDF文件的功能可以被实现。 或者，可以在OMA DM规范的未来版本中指定另一种技术。
+
+Note that a client may store DDF files internally. A Management Object could be designed to provide a consistent location within the Management Tree for these descriptions.<br/>
+注意，客户端可以在内部存储DDF文件。管理对象可以被设计为在管理树内为这些描述提供一致的位置。
+
+When an object has a DDF description, and an ancestor of that object also has a DDF description, the two descriptions SHOULD be consistent. For example, the OMA DM Account information is described by a specific DDF. A manufacturer MAY supply a DDF file for an entire device, which corresponds to the DDF of the root. The information in the root DDF which describes the OMA DM Account information SHOULD correspond to the description in the Management Object Identifier of the DMAcc object. In the case of a conflict, the more local Management Object Identifier MUST be used.<br/>
+当对象具有DDF描述，并且该对象的祖先也具有DDF描述时，这两个描述应该是一致的。例如，OMA DM账户信息由特定DDF描述。制造商可以为整个设备提供DDF文件，且该文件对应于根的DDF。描述OMA DM账户信息的根DDF中的信息应该对应于DMAcc对象的管理对象标识符中的描述。在冲突的情况下，必须使用更多的本地管理对象标识符。
+
+The server provides the Management Object Identifier in the Type property when creating interior objects (see the example below). Device manufacturers would typically provide it for permanent objects.<br/>
+在创建内部对象时，服务器在Type属性中提供管理对象标识符（请参见下面的示例）。设备制造商通常将其用于提供永久对象。
+
+Example: 范例:
+
+The following Add command illustrates how the Type property might be set when an interior object is created:<br/>
+以下Add命令说明了在创建内部对象时如何设置Type属性：
+```
+ <Add>
+     <CmdID>3</CmdID>
+     <Item>
+        <Target> 
+            <LocURI>Vendor/ISP/yyy/Profile</LocURI>
+       </Target>
+       <Meta>
+            <Format xmlns=’syncml:metinf’>node</Format>
+            <Type xmlns=’syncml:metinf’>se.yyy.dm/2.10/Profile/Class1</Type> 
+       </Meta>
+     </Item>
+</Add>
+```
+Note that in the example above, a sub-domain is used (dm.yyy.se), the major version is 2 (two), the minor version is 10 (ten), and the name is “Profile/Class1”.<br/>
+注意，在上面的示例中，一个子域被使用（dm.yyy.se），主版本是2（二），次版本是10（十），名称是“Profile/Class1”。
+
+The Management Object Identifier is intended to be useful under the following circumstances. A DM Server MAY use DDF definition files from different devices to identify which positions the different devices stores Management Objects. A DM Server that examines the Management Tree in a device can use the Management Object Identifier to obtain a description of an object that was previously unknown to this server. This situation could arise many ways, for example:<br/>
+管理对象标识符在以下情况下是有用的。DM服务器可以使用来自不同设备的DDF定义文件来识别不同设备存储管理对象的位置。检查设备中的管理树的DM服务器可以使用管理对象标识符来获得对该服务器先前未知的对象的描述。这种情况可能有许多方面，例如：
+
+* A different DM Server in the same organization may have created the collection of objects in the device.<br/>
+同一组织中的不同DM服务器可能已在设备中创建对象集合。
+* A DM Server from a different organization may have created the collection of objects in the device.<br/>
+来自不同组织的DM服务器可能已创建设备中的对象集合。
+* The collection of objects could have been added to the device’s Management Tree by software in the device itself, perhaps in response to the addition of a piece of hardware to the device (e.g. a card inserted into an expansion slot).<br/>
+对象的集合可能已经由设备自身中的软件添加到设备的管理树中，可能受向设备添加一块硬件的影响（例如，插入扩展槽中的卡）。
+
+#### 8.3.7.8 VerNo
+VerNo is a 16 bit unsigned integer. Each time a Node with this property changes value, through a management operation or otherevent, this value SHALL be incremented. If the property value has reached FFFF16, and then is incremented, it SHALL return to 000016.<br/>
+VerNo是16位无符号整数。每次具有此属性的节点通过管理操作或其他方式更改值时，此值都将增加。 如果属性值已达到FFFF16后又递增，则应返回000016。
 
 
 
