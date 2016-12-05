@@ -52,3 +52,18 @@ It is unnecessary to use a `<Meta>` element for property values because they are
   <Type xmlns=’syncml:metinf’>text/plain</Type>
 </Meta>
 ```
+
+## 8.3.5 Operations on properties 属性操作
+The following table defines the allowed operations for each property. An operation on a property is equivalent to an OMA DM command that is performed by a server on the URI of the property.<br/>
+下表定义了每个属性允许的操作。对属性的操作等效于由服务器对属性的URI执行的OMA DM命令。
+
+| Property 属性 | Applicable Commands 适用命令 | Comment 备注 |
+| -- | -- | -- |
+| ACL | Get, Replace | Get and Replace are the only valid commands for ACL manipulation. Note that Replace always replaces the complete ACL.<br/>Get和Replace是ACL操作的唯一有效命令。请注意，Replace始终会替换完整的ACL。 |
+| Format | Get |  Automatically updated by Add and Replace commands on the associated Node.<br/>通过关联节点上的添加和替换命令自动更新。 |
+| Name | Get, Replace | A Replace is equivalent to a rename of the Node.<br/>Replace等效于节点的重命名。 |
+| Size | Get | Automatically updated by the device.<br/> 由设备自动更新。 |
+| Title | Get, Replace | Only updated by server actions or software version changes.<br/> 仅通过服务器操作或软件版本更改进行更新。 |
+| TStamp | Get | Automatically updated by the device.<br/>由设备自动更新。 |
+| Type | Get | Automatically updated by Add and Replace commands on the associated Leaf Node.<br/>在关联的叶节点上通过Add和Replace命令自动更新。 |
+| VerNo | Get | Automatically updated by the device.<br/> 由设备自动更新。 |
