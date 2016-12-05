@@ -238,5 +238,13 @@ This property supports the Replace command. When a Replace command for this prop
 此属性支持Replace命令。当设备接收到此属性的Replace命令时，它必须首先检查命令的结果不会导致不一致的树，例如重复节点名称，在执行命令之前。 因为只有当前节点的URI的最后一个段被更改，所以可能的重复名称的搜索可以限制到当前节点的兄弟节点。
 
 #### 8.3.7.1.4 Size
+The Size property is used for the current size of the Node value. The property value is a 32 bit unsigned integer.<br/>
 
+The value of the Size property MUST be equal to the size of the Node value in bytes and the client is responsible to do that.<br／>
+
+Note that the Size property of a binary data value MUST indicate the size in bytes of the actual (unencoded) value, and NOT the length of a Base64 encoded string that may or may not have been used to convey the data over XML.<br/>
+
+Also note that the Meta Size tag used in conveying data always indicates the size of the data in the message. If the message is in XML and the data is binary, then the data will be encoded. Consequently, the Meta Size of data that is encoded as b64 is the length of the Base64 encoded string.<br/>
+
+#### 8.3.7.1.5 TItle
 
