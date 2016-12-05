@@ -67,3 +67,12 @@ The following table defines the allowed operations for each property. An operati
 | TStamp | Get | Automatically updated by the device.<br/>由设备自动更新。 |
 | Type | Get | Automatically updated by Add and Replace commands on the associated Leaf Node.<br/>在关联的叶节点上通过Add和Replace命令自动更新。 |
 | VerNo | Get | Automatically updated by the device.<br/> 由设备自动更新。 |
+
+Properties do not support the Add command. All mandatory properties, and those optional properties that a device implements, MUST be automatically created when a new Node is created. The values of the newly created Node properties areall empty,e.g.`<Data/>`.However,Node properties that have a default value,or are automatically updated by the device, MUST be assigned appropriate values by the device.<br/>
+属性不支持Add命令。所有必需属性和设备实现的那些可选属性必须在创建新节点时自动创建。新创建的N节点属性的值为空，例如`<Data/>`。但是，具有默认值或由设备自动更新的节点属性必须由设备分配适当的值。
+
+Use of an unsupported command on a property will result in an error and the status (405) Command not allowed is returned.<br/>
+在属性上使用不支持的命令将导致错误，并返回状态（405）Command not allowed。
+
+Property values MAY also change for reasons other than direct server operations. For instance, some devices MAY allow the user to modify the ACL. If this occurs and the device supports the TStamp or VerNo properties, these MUST be updated.<br/>
+属性值也可能因直接服务器操作之外的原因而更改。例如，一些设备可以允许用户修改ACL。如果发生这种情况，并且设备支持TStamp或VerNo属性，则必须更新这些属性。
