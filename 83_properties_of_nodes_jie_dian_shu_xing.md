@@ -97,10 +97,35 @@ ACL授予的访问权限授予服务器标识符，而不授予DM服务器的URI
 
 #### 8.3.7.1.1 ACL and inheritance ACL和继承
 Every Node MUST implement the ACL property, but there can be no guarantee that the ACL of every Node has a value assigned to it. However, the root Node MUST always have an ACL value. If a server performs a management operation on a Node with no value set on the ACL the device MUST look at the ACL of the parent Node for a value. If the parent does not have a value for the ACL, the device MUST look at the ACL of the parent’s parent, and so on until an ACL value is found. This search will always result in a found value since the root Node MUST have an assigned ACL value. This way, Nodes can inherit ACL settings from one of their ancestors.<br/>
-每个节点必须实现ACL属性，但不能保证每个节点的ACL都有赋值的值。但是，根节点必须始终具有ACL值。如果服务器在没有在ACL上设置值的节点上执行管理操作，则设备必须查看父节点的ACL的值。如果父节点没有ACL的值，则设备必须查看父节点父节点的ACL，以此类推，直到找到ACL值。此搜索将始终导致找到的值，因为根节点必须具有指派的ACL值。这样，节点可以从其祖先中继承ACL设置。
+每个节点必须实现ACL属性，但不能保证每个节点的ACL都有赋值的值。但是，根节点必须始终具有ACL值。如果服务器在没有在ACL上设置值的节点上执行管理操作，则设备必须查看父节点的ACL的值。如果父节点没有ACL的值，则设备必须查看父节点父节点的ACL，以此类推，直到找到ACL值。此搜索将最终找到值，因为根节点必须具有指派的ACL值。这样，节点可以从其祖先中继承ACL设置。
 
 Inheritance only takes place if there is no value assigned to the complete ACL property, i.e. there are no commands present. As soon as any value for an ACL property is present, this value is the only valid one for the current Node. ACL values MUST NOT be constructed by concatenation of values from the current Node and its ancestors.<br/>
+仅在没有为完整ACL属性分配值（即没有命令存在）时才会发生继承。一旦ACL属性的任何值存在，此值是当前节点的唯一有效值。ACL值不能通过连接来自当前节点及其祖先的值来构造。
 
 If an ACL does not contain any Server Identifier for a particular command, then this command MUST NOT be present in the ACL. Inheritance does not take place on a per command basis. Whenever an ACL is changed, by a server or by the client itself, care needs to be taken so that command names without Server Identifiers are not stored in the new ACL, resulting in an improperly formatted ACL.<br/>
+如果ACL不包含特定命令的任何服务器标识符，则此命令不得存在于ACL中。继承不会在每个命令的基础上发生。每当ACL由服务器或客户端本身更改时，需要注意，没有服务器标识符的命令名称不应存储在新的ACL中，这将导致格式不正确的ACL。
 
-A Get command on the ACL property of a Node MUST return an empty data value, e.g. <Data/>, if the ACL for that Node has no commands present (i.e. if the ACL has no value). In other words, the client SHOULD NOT locate an ancestor with a value for the ACL and provide that value.<br/>
+A Get command on the ACL property of a Node MUST return an empty data value, e.g. `<Data/>`, if the ACL for that Node has no commands present (i.e. if the ACL has no value). In other words, the client SHOULD NOT locate an ancestor with a value for the ACL and provide that value.<br/>
+如果该节点的ACL没有命令（即如果ACL没有值），对节点的ACL属性的Get命令必须返回一个空数据值，例如 `<Data/>`。换句话说，客户端不应该找到具有ACL的值的祖先并提供该值。
+
+#### 8.3.7.1.2 The root ACL value 根ACL值
+The value of the root is special – it is owned by the device. It is also the only Node that MUST have a value assigned to the ACL. The default value for the root ACL SHOULD be `Add=*&Get=*`.<br/>
+根的值是特殊的 - 它由设备拥有。它也是唯一必须为ACL分配值的节点。根ACL的默认值应为`Add = *＆Get = *`。
+
+To ensure that any authenticated server always can extend the Management Tree, the root ACL value for the Add command SHOULD NOT be changed. The ACL value for the Add command in the root ACL SHOULD be “`*`”. Any attempt by a server to modify this ACL value MAY fail with the status code (405) Command not allowed.<br/>
+为了确保任何已验证的服务器始终可以扩展管理树，Add命令的根ACL值不应该被更改。根ACL中的Add命令的ACL值应为“`*`”。 服务器尝试修改此ACL值可能会失败，并显示状态代码（405）Command not allowed。
+
+#### 8.3.7.1.3 Changing the ACL 更改ACL
+The rules for changing the ACL of a Node are different for Interior Nodes and Leaf Nodes.<br/>
+更改节点的ACL的规则对于内部节点和叶节点是不同的。
+* Interior Nodes 内部节点<br/>
+The ACL is valid for the Node and all properties that the Node may have, i.e. the right to access the ACL is controlled by the ACL itself. If a Server Identifier has Replace access rights according to the Node ACL then this Server Identifier can change the ACL value.<br/>
+ACL对节点和节点可能具有的所有属性有效，即访问ACL的权限由ACL本身控制。 如果服务器标识符根据节点ACL具有替换访问权限，则此服务器标识符可以更改ACL值。
+* Leaf Nodes 叶节点<br/>
+The ACL is valid for the Node value and all properties that the Node may have, except the ACL property itself. If a Server Identifier has Replace access rights according to the Node ACL then this Server Identifier can change the Node value and all property values, but not the ACL value.<br/>
+ACL对节点值和节点可能具有的所有属性有效，但ACL属性本身除外。如果服务器标识符根据节点ACL具有替换访问权限，则此服务器标识符可以更改节点值和所有属性值，但不能更改ACL值。
+
+However, for both types of Nodes the right to change the ACL of the Node is also controlled by the ACL of the parent Node. Note that any parent Node is by definition an Interior Node. This makes it possible for a Server Identifier with sufficient access to a parent Node to take control of a child Node. This is a two-step process where the server first changes the ACL of the child Node and then can access the Node value, list of children or other Node properties. Note that even if a server has total access to the parent Node according to the parent’s ACL, this does not imply direct access to the child Node value. To change a child Node value the child ACL value MUST be changed first.<br/>
+但是，对于这两种类型的节点，更改节点的ACL的权利也由父节点的ACL控制。注意，任何父节点根据定义是内部节点。这使得具有对父节点的足够访问的服务器标识符能够控制子节点。 这是一个两步过程，其中服务器首先更改子节点的ACL，然后可以访问节点值，子节点列表或其他节点属性。请注意，即使服务器根据父节点的ACL对父节点具有完全访问权限，也不意味着可以直接访问子节点值。要更改子节点值，必须首先更改子ACL值。
+
+
