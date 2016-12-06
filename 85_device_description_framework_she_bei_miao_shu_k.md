@@ -160,7 +160,6 @@ Content Model: (#PCDATA)<br/>
 内容模型：(#PCDATA)
 
 Example: The following XML is an alternative way to describe the same Management Objects as in the example in section 8.5.4.1.5. This description specifies the same URI as the other example: Vendor/ISP/GWInfo/GWName. Note that all the details of DFProperties are deliberately left out.<br/>
-
 示例：以下XML是描述与第8.5.4.1.5节中的示例相同的管理对象的另一种方法。此描述指定与另一个示例相同的URI：Vendor/ISP/GWInfo/GWName。 请注意，DFProperties的所有详细信息都会被故意忽略。
 ```
 <MgmtTree>
@@ -186,3 +185,71 @@ Example: The following XML is an alternative way to describe the same Management
   </Node>
 </MgmtTree>
 ```
+#### 8.5.4.1.8 Value
+Usage: Specifies a default value for Nodes that are instantiated using the current description. <br/>
+用法：指定使用当前描述实例化的节点的默认值。
+
+Parent Elements: Node<br/>
+父元素：Node
+
+Restrictions: OPTIONAL element. If omitted, the Node description does not specify any default value for the Node. In this case the initial value of new Nodes are undefined.<br/>
+限制：可选元素。如果省略，节点描述不会为节点指定任何默认值。在这种情况下，新节点的初始值是未定义的。
+
+#### 8.5.4.1.9 RTProperties
+Usage: Aggregating element for run-time properties, i.e. properties that the Nodes have in a device at run-time. Used to specify which properties the described Node supports at run-time. Can also be used to supply default values for supported run-time properties.<br/>
+用法：聚合运行时属性的元素，即节点在运行时在设备中具有的属性。用于指定所描述的节点在运行时支持的属性。也可以用于为支持的运行时属性提供默认值。
+
+Parent Elements: Node<br/>
+父元素：Node
+
+Restrictions: OPTIONAL element. If omitted, the Node MUST only support the mandatory run-time properties ACL, Format, Name and Type. If any optional properties are supported, they MUST be specified by using this element.<br/>
+限制：可选元素。如果省略，节点必须只支持强制运行时属性ACL，格式，名称和类型。如果支持任何可选属性，则必须使用此元素指定它们。
+
+Content Model: (ACL?, Format?, Name?, Size?, Title?, TStamp?, Type, VerNo?)<br/>
+内容模型：（ACL？，Format？，Name？，Size？，Title？，TStamp？，Type，VerNo？）
+
+#### 8.5.4.1.10 DFProperties
+Usage: Aggregating element for description framework properties, i.e. properties that Nodes have in the description framework and that are not explicitly present at run-time.<br/>
+用法：聚合描述框架属性的元素，即节点在描述中具有的属性框架，并且没有在运行时显式存在。
+
+Parent Elements: Node<br/>
+父元素：Node
+
+Restrictions: This is a REQUIRED element.<br/>
+限制：这是一个必须元素。
+
+Content Model:(AccessType, DefaultValue?, Description?, DFFormat, Occurrence?, Scope?, DFTitle?, DFType, CaseSense?)<br/>
+内容模型：（AccessType，DefaultValue ?, Description？，DFFormat，Occurrence？，Scope，DFTitle，DFType，CaseSense？）
+
+### 8.5.4.2 Run-time property elements 运行时属性元素
+The usage of the run-time properties in the description framework reflects the mandatory/optional status of the corresponding run-time property. These elements can also be used to describe default values for the supported properties. Since these properties can change at run-time, the values of these properties in the description and in a real device will differ.<br/>
+在描述框架中运行时属性的使用反映了相应运行时属性的强制/可选状态。这些元素也可用于描述支持的属性的默认值。由于这些属性在运行时可能会更改，因此这些属性在描述中和实际设备中的值会有所不同。
+
+The RTProperties element,which encapsulates the run-time properties,is OPTIONAL within its parent element Node. The purpose of this is to make it possible to omit the RTProperties element if only the mandatory propertiesare supported and there is no need to specify any default values.If the RTProperties element is used in a description,all the mandatory run-time properties MUST be specified.<br/>
+RTProperties元素（封装运行时属性）在其父元素Node中是可选的。这样做的目的是如果只支持强制属性，则RTProperties元素可以省略，并且不需要指定任何默认值。如果在描述中使用RTProperties元素，则所有强制运行时属性必须被指定。
+
+#### 8.5.4.2.1 ACL
+Usage: Specifies support for the ACL property. MAY be used to specify a default value for the property. <br/>
+用法：指定对ACL属性的支持。可用于指定属性的默认值。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: If a value is specified it MUST be formatted according to section 8.3.7.1.5.<br/>
+限制：如果指定了值，则必须根据8.5.7.1.5节进行格式化。
+
+Content Model: (#PCDATA)<br/>
+内容模型：(#PCDATA)
+
+#### 8.5.4.2.2 Format
+Usage: Specifies support for the Format property. MAY be used to specify a default value for the property. <br/>
+用法：指定对Format属性的支持。 可用于指定属性的默认值。
+
+Parent Elements: RTProperties<br／>
+父元素：RTProperties
+
+Restrictions: If a default value is specified for the described Node, the Format property MUST specify the correct format of the Node value.<br/>
+限制：如果为描述的节点指定了默认值，则Format属性必须指定Node值的正确格式。
+
+Content Model: (b64 | bin | bool | chr | int | node | null | xml | date |time |float)<br/>
+内容模型：（b64 | bin | bool | chr | int | node | null | xml | date | time | float）
