@@ -647,3 +647,56 @@ Restrictions: None.<br/>
 
 Content Model: EMPTY<br/>
 内容模型：EMPTY
+
+#### 8.5.4.3.10 Copy
+Usage: Specifies support for the OMA DM Copy command. <br/>
+用法：指定对OMA DM Copy命令的支持。
+
+Parent Elements: AccessType<br/>
+父元素：AccessType
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.11 Delete
+
+Usage: Specifies support for the OMA DM Delete command. <br/>
+用法：指定对OMA DM Delete命令的支持。
+
+Parent Elements: AccessType<br/>
+父元素：AccessType
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.12 Exec
+Usage: Specifies support for the OMA DM Exec command. <br/>
+用法：指定对OMA DM Exec命令的支持。
+
+Parent Elements: AccessType<br/>
+父元素：AccessType
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.13 Get
+Usage: Specifies support for the OMA DM Get command. <br/>
+用法：指定对OMA DM Get命令的支持。
+
+Parent Elements: AccessType<br/>
+父元素：AccessType
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
