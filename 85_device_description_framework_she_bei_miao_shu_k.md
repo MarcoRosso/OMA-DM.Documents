@@ -419,3 +419,32 @@ Parent Elements:Format, DFFormat
 
 Restrictions: This Format MUST only be used for Interior Nodes.<br/>
 限制：此格式必须只用于内部节点。
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.2.15 null
+Usage: OMA DM format description. Specifies that the Node value is null.<br/>用法：OMA DM格式描述。指定Node值为null。 
+
+Parent Elements:Format, DFFormat<br/>
+父元素：Format, DFFormat
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.2.16 xml
+
+Usage: OMA DM format description. Specifies that the Node value is XML data.<br/>
+用法：OMA DM格式描述。 指定Node值是XML数据。
+
+ParentElements:Format, DFFormat<br/>
+父元素：Format, DFFormat
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
