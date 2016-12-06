@@ -279,3 +279,16 @@ Restrictions: If a value is specified it MUST be formatted according to section 
 
 Content Model: (#PCDATA)<br/>
 内容模型：(#PCDATA)
+
+#### 8.5.4.2.5 Title
+Usage: Specifies support for the Title property. MAY be used to specify a default value for the property. <br/>
+用法：指定对Title属性的支持。可用于指定属性的默认值。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: If a value is specified it MUST be formatted according to section 8.3.4.<br/>
+限制：如果指定了值，则必须根据第8.3.4节进行格式化。
+
+Content Model: (#PCDATA)<br/>
+内容模型：(#PCDATA)
