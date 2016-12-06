@@ -461,3 +461,16 @@ Restrictions: None.<br/>
 
 Content Model: EMPTY<br/>
 内容模型：EMPTY
+
+#### 8.5.4.2.18 time
+Usage: OMA DM format description. Specifies that the Node value is a time in ISO 8601 format [ISO8601]. <br/>
+用法：OMA DM格式描述。指定Node值是ISO 8601格式[ISO8601]中的时间。
+
+Parent Elements:Format, DFFormat<br/>
+父元素：Format, DFFormat
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
