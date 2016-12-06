@@ -21,3 +21,6 @@ All properties are defined and described in [DMTND]. Only a subset of these prop
 | Type | MUST 必须  | MUST 必须  |
 | VerNo | MAY 可选 | MAY 可选 |
 
+## 9.2.2 TNDS DTD
+The DTD is specified in [DMTND]. All extra behavior and restriction compared to the DTD definitions is defined later in this chapter. A compliant TNDS object MUST follow all rules in this specification. The TNDS object byte stream can be encoded as xml or as wbxml. Two different MIME-types are defined to indicate what encoding type the byte stream uses.<br/>
+DTD在[DMTND]中指定。与DTD定义相比，所有额外的行为和限制在本章后面定义。合规的TNDS对象必须遵循本规范中的所有规则。TNDS对象字节流可以编码为xml或wbxml。定义了两种不同的MIME类型以指示字节流使用哪种编码类型。
