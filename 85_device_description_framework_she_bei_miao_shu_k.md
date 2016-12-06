@@ -619,3 +619,31 @@ Restrictions: Titles SHOULD be kept as short and informative as possible.<br/>
 
 Content Model: (#PCDATA)
 内容模型：(#PCDATA)
+
+#### 8.5.4.3.8 DFType
+
+Usage: For Leaf Nodes, one or more elements specify the MIME types the described Node supports. For Interior Nodes, a single MIME element MUST specify be present and specify a valid Management Object Identifier, which MAY be empty.<br/>
+用法：对于叶节点，一个或多个元素指定所描述的节点支持的MIME类型。对于内部节点，单个MIME元素必须指定存在，并且指定有效的管理对象标识符，它可以是空的。
+
+Parent Elements: DFProperties<br/>
+父元素：DFProperties
+
+Restrictions: Note that a Leaf Node can support multiple MIME types, e.g. a ring signal Node might support both audio/mpeg and audio/MP4-LATM. The values of the DFType property MUST be registered MIME types.<br/>
+限制：注意，叶节点可以支持多种MIME类型，例如。 环形信号节点可能支持音频/ mpeg
+和音频/ MP4-LATM。 DFType属性的值必须是注册的MIME类型。
+
+ContentModel: (MIME+ | DDFName)
+内容模型：(MIME+ | DDFName)
+
+#### 8.5.4.3.9 Add
+Usage: Specifies support for the OMA DM Add command. <br/>
+用法：指定对OMA DM Add命令的支持。
+
+Parent Elements: AccessType
+父元素：AccessType
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
