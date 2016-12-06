@@ -305,3 +305,56 @@ Restrictions: If a value is specified it MUST be formatted according to section 
 
 Content Model: (#PCDATA)<br/>
 内容模型：（#PCDATA）
+
+#### 8.5.4.2.7 Type
+Usage: Specifies support for the Type property. MAY be used to specify a default value for the property. <br/>
+用法：指定对Type属性的支持。可用于指定属性的默认值。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: For Leaf Nodes, if a default value is specified for the described Node, the Type property MUST be used to specify the correct MIME type of the Node’s present value using a single MIME element. For Interior Nodes a DDFName element MUST be present and specify a valid Management Object identifier, which MAY be empty.<br/>
+限制：对于叶节点，如果为描述的节点指定了默认值，则必须使用Type属性来使用单个MIME元素指定节点的当前值的正确MIME类型。对于内部节点，一个DDFName元素必须存在，并指定一个有效的管理对象标识符，它可以是空的。
+
+Content Model:(MIME | DDFName)
+内容模型：(MIME | DDFName)
+
+#### 8.5.4.2.8 VerNo
+Usage: Specifies support for the VerNo property. MAY be used to specify a default value for the property. <br/>
+用法：指定对VerNo属性的支持。可用于指定属性的默认值。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: If a value is specified it MUST be formatted according to section 8.3.4.<br/>
+限制：如果指定了值，则必须根据第8.3.4节进行格式化。
+
+Content Model: (#PCDATA)<br/>
+内容模型：（#PCDATA）
+
+#### 8.5.4.2.9 b64
+Usage: OMA DM format description. Specifies that the Node value is Base64 encoded. <br/>
+用法：OMA DM格式描述。指定Node值为Base64编码。
+
+Parent Elements:Format, DFFormat
+父元素：Format, DFFormat
+
+Restrictions: None.
+限制：无
+
+Content Model: EMPTY
+内容模型：EMPTY
+
+#### 8.5.4.2.10 bin
+Usage: OMA DM format description. Specifies that the Node value is binary data. <br/>
+用法：OMA DM格式描述。指定Node值是二进制数据。
+
+ParentElements:Format, DFFormat<br/>
+父元素：Format, DFFormat
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY
+内容模型：EMPTY
+
