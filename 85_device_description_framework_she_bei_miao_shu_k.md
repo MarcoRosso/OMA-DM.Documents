@@ -358,3 +358,64 @@ Restrictions: None.<br/>
 Content Model: EMPTY
 内容模型：EMPTY
 
+#### 8.5.4.2.11 bool
+Usage: OMA DM format description. Specifies that the Node value is a Boolean. <br/>
+用法：OMA DM格式描述。指定Node值是布尔值。
+
+Parent Elements:Format, DFFormat<br/>
+父元素：Format, DFFormat
+
+Restrictions: None.<br/>
+限制：无。
+
+Content Model: EMPTY
+内容模型：EMPTY
+
+#### 8.5.4.2.11 bool
+Usage: OMA DM format description. Specifies that the Node value is a Boolean. <br/>
+用法：OMA DM格式描述。 指定Node值是布尔值。
+
+Parent Elements:Format, DFFormat<br/>
+父元素：Format, DFFormat
+
+Restrictions: None.<br/>
+限制：无。
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.2.12 chr
+Usage: OMA DM format description. Specifies that the Node value is text.<br/>
+用法：OMA DM格式描述。 指定Node值为文本。
+
+Parent Elements:Format, DFFormat<br/>
+父元素：Format, DFFormat
+
+Restrictions: The character set used is specified either by the transport protocol, MIME content type header or XML prologue.<br/>
+限制：使用的字符集由传输协议，MIME内容类型标头或XML序列指定。
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.2.13 int
+Usage: OMA DM format description. Specifies that the Node value is a 32-bit signed integer. <br/>
+用法：OMA DM格式描述。指定Node值是32位有符号整数。
+
+Parent Elements:Format, DFFormat
+父元素：Format, DFFormat
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.2.14 node
+Usage: OMA DM format description. Specifies that the Node is an Interior Node. <br/>
+用法：OMA DM格式描述。指定节点是内部节点。 
+
+Parent Elements:Format, DFFormat
+<br/>父元素：Format, DFFormat
+
+Restrictions: This Format MUST only be used for Interior Nodes.<br/>
+限制：此格式必须只用于内部节点。
