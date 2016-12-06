@@ -448,3 +448,16 @@ Restrictions: None.<br/>
 
 Content Model: EMPTY<br/>
 内容模型：EMPTY
+
+#### 8.5.4.2.17 date
+Usage: OMA DM format description. Specifies that the Node value is a date in ISO 8601 format with the century being included in the year [ISO8601].<br/>
+用法：OMA DM格式描述。指定Node值是ISO 8601格式的日期，其中包括年份[ISO8601]中的世纪。
+
+ParentElements:Format, DFFormat<br/>
+父元素：Format, DFFormat
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
