@@ -514,3 +514,19 @@ Restrictions: MUST only contain a valid Management Object Identifier or be empty
 Content Model: (#PCDATA)
 内容模型：(#PCDATA)
 
+### 8.5.4.3 Framework property elements 框架属性元素
+The properties that described Nodes have in the description framework are specified with framework property elements. These are not the same as the run-time properties of an instantiated Node in a device. These properties express other information about Nodes that DM Servers might need. The framework properties MUST NOT change at run-time since such a change might introduce discrepancies between the run-time Node and the corresponding description. The following table defines the framework Node properties.<br/>
+描述框架中描述节点的属性是使用框架属性元素指定的。这些与设备中实例化的节点的运行时属性不同。这些属性表示有关DM服务器可能需要的节点的其他信息。框架属性在运行时不能改变，因为这样的改变可能引入运行时节点和相应描述之间的差异。下表定义了框架的节点属性。
+
+| Element/Property 元素／属性 | Explanation 解释 | Usage 用法 |
+| -- | -- | -- |
+| AccessType | Specifies which commands are allowed on the Node.<br/> 指定节点上允许哪些命令。 | MUST 必须 |
+| DefaultValue | The Node value used in a device unless specifically set to a different value.<br/>在设备中使用的节点值，除非特别设置为不同的值。| MAY 可选 |
+| Description | The human readable description of the Node.<br/>节点的人可读的描述。 | MAY 可选 |
+| DFFormat | The data format of the described Node.<br/>所描述的节点的数据格式。 | MUST 必须 |
+| Occurrence | Specifies the number of instances that MAY occur of the Node.<br/>指定可能发生的节点的实例数。 | MAY 可选 |
+| Scope | Specifies whether this is a permanent or Dynamic Node.<br/>指定这是永久还是动态节点。 | MAY 可选 |
+| DFTitle | The human readable name of the Node.<br/> 节点的人可读名称。| MAY 可选 |
+| DFType | For Leaf Nodes, the MIME type of the Node value. For Interior Nodes, a Management Object Identifier or empty.<br/>对于叶节点，节点值的MIME类型。对于内部节点，管理对象标识符或空。 | MUST 必须 |
+| CaseSense | Specifies whether the Node name and names of descendant Nodes in the tree below should be treated as case sensitive or case insensitive.<br/>指定节点名称和下面树中的后代节点的名称是否应被视为区分大小写或不区分大小写。 | MAY 可选 |
+
