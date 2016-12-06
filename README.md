@@ -42,6 +42,6 @@ This document defines a set of management objects. Some of these are mandatory f
 This document defines the management tree and the Nodes on which the OMA DM protocol acts. A standardized way to describe these Nodes is also specified.<br/>
 本文档定义了OMA DM协议所在的管理树和节点。还规定了描述这些节点的标准化方法。
 
-## 9. Tree and Description 树及其描述序列化
+## 9. Tree and Description Serialization 树及其描述的序列化
 This specification defines how to transform a runtime management tree into an xml or wbxml file. With this specification it is possible to transform a MO or complete/part of the Management Tree to or from an xml or wbxml file.<br/>
 此规范定义了如何将运行时管理树转换为xml或wbxml文件。使用此规范，可以将管理树的MO或完整/部分转换为xml或wbxml文件或从xml或wbxml文件中转换。
