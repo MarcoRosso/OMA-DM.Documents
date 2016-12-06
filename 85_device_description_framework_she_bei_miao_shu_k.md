@@ -253,3 +253,29 @@ Restrictions: If a default value is specified for the described Node, the Format
 
 Content Model: (b64 | bin | bool | chr | int | node | null | xml | date |time |float)<br/>
 内容模型：（b64 | bin | bool | chr | int | node | null | xml | date | time | float）
+
+#### 8.5.4.2.3 Name
+Usage: Specifies support for the Name property. MAY be used to specify a default value for the property. <br/>
+用法：指定对Name属性的支持。可用于指定属性的默认值。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: See [RFC2396]. If a default property value is specified, it SHOULD be the same as the value of the NodeName element.<br/>
+限制：参见[RFC2396]。如果指定了默认属性值，则它应该与NodeName的值相同。
+
+Content Model: (#PCDATA)<br/>
+内容模型：(#PCDATA)
+
+#### 8.5.4.2.4 Size
+Usage: Specifies support for the Size property. MAY be used to specify a default value for the property. Within its parent element, the Size element is defined as optional. Size MUST NOT be used for Interior Nodes. In Node elements describing Leaf Nodes the Size element MAY be used within RTProperties.<br/>
+用法：指定对Size属性的支持。可用于指定属性的默认值。在其父元素中，Size元素被定义为可选。 Size不能用于内部节点。在描述叶节点的节点元素中，可以在RTProperties中使用Size元素。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: If a value is specified it MUST be formatted according to section 8.3.4.<br/>
+限制：如果指定了值，则必须根据第8.3.4节进行格式化。
+
+Content Model: (#PCDATA)<br/>
+内容模型：(#PCDATA)
