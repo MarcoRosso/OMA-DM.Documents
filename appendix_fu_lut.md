@@ -138,6 +138,9 @@ Client response using Result and multiple Item elements.<br/>
    <Data>JSCNMDTUVWXYZcuokcdghfidjssatu</Data> 
   </Item>
 </Results>
-
-
 ```
+## MIME Media Type Definition MIME媒体类型定义
+| MIME Type MIME类型 | Description 描述 |
+| -- | -- |
+| application/vnd.syncml.dmddf+xml | XML encoded DDF document complying to this specification<br/>符合本规范的XML编码DDF文档 |
+| application/vnd.syncml.dmddf+wbxml | WBXML encoded DDF document complying to this specification<br/>WBXML编码符合本规范的DDF文档 |
