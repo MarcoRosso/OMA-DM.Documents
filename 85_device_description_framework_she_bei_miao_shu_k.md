@@ -530,3 +530,17 @@ The properties that described Nodes have in the description framework are specif
 | DFType | For Leaf Nodes, the MIME type of the Node value. For Interior Nodes, a Management Object Identifier or empty.<br/>对于叶节点，节点值的MIME类型。对于内部节点，管理对象标识符或空。 | MUST 必须 |
 | CaseSense | Specifies whether the Node name and names of descendant Nodes in the tree below should be treated as case sensitive or case insensitive.<br/>指定节点名称和下面树中的后代节点的名称是否应被视为区分大小写或不区分大小写。 | MAY 可选 |
 
+### 8.5.4.3.1 AccessType
+Usage: Specifies which commands are supported for the described Node. This property is independent of the ACL run-time property.<br/>
+用法：指定对所描述的节点支持哪些命令。此属性独立于ACL运行时属性。
+
+Parent Elements: DFProperties<br/>
+父元素：DFProperties
+
+Restrictions: The value of this property MUST be an unordered list of the valid OMA DM commands.<br/>
+限制：此属性的值必须是有效的OMA DM命令的无序列表。
+
+Content Model: (Add?, Copy?, Delete?, Exec?, Get?, Replace?)<br/>
+内容模型：(Add?, Copy?, Delete?, Exec?, Get?, Replace?)
+
+
