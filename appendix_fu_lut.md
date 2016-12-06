@@ -76,5 +76,17 @@ Client response using Result and multiple Item elements.<br/>
     </Source>
   </Item>
 </Results>
-
+```
+### Example of a Get with Attribute StructData 获取属性StructData的示例
+In the example below DM Server requests a Management Tree structure as well as the data from a client.<br/>
+在下面的示例中，DM Server请求管理树结构以及来自客户端的数据。
+```
+<Get>
+  <CmdID>4</CmdID>
+  <Item>
+    <Target> 
+      <LocURI>./A/D?list=StructData</LocURI>
+    </Target>
+  </Item>
+</Get>
 ```
