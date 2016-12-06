@@ -606,3 +606,16 @@ Restrictions: The value is indicated by the tags Permanent and Dynamic in the de
 
 ContentModel: (Permanent | Dynamic)<br/>
 内容模型：(Permanent | Dynamic)
+
+#### 8.5.4.3.7 DFTitle
+Usage: A human readable name for the Node description. <br/>
+用法：节点描述的可读名称。
+
+Parent Elements: DFProperties<br/>
+父元素：DFProperties
+
+Restrictions: Titles SHOULD be kept as short and informative as possible.<br/>
+限制：标题应尽可能短，内容丰富。
+
+Content Model: (#PCDATA)
+内容模型：(#PCDATA)
