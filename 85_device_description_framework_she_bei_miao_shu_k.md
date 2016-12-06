@@ -530,7 +530,7 @@ The properties that described Nodes have in the description framework are specif
 | DFType | For Leaf Nodes, the MIME type of the Node value. For Interior Nodes, a Management Object Identifier or empty.<br/>对于叶节点，节点值的MIME类型。对于内部节点，管理对象标识符或空。 | MUST 必须 |
 | CaseSense | Specifies whether the Node name and names of descendant Nodes in the tree below should be treated as case sensitive or case insensitive.<br/>指定节点名称和下面树中的后代节点的名称是否应被视为区分大小写或不区分大小写。 | MAY 可选 |
 
-### 8.5.4.3.1 AccessType
+#### 8.5.4.3.1 AccessType
 Usage: Specifies which commands are supported for the described Node. This property is independent of the ACL run-time property.<br/>
 用法：指定对所描述的节点支持哪些命令。此属性独立于ACL运行时属性。
 
@@ -543,4 +543,66 @@ Restrictions: The value of this property MUST be an unordered list of the valid 
 Content Model: (Add?, Copy?, Delete?, Exec?, Get?, Replace?)<br/>
 内容模型：(Add?, Copy?, Delete?, Exec?, Get?, Replace?)
 
+#### 8.5.4.3.2 DefaultValue
+Usage: Specifies the “factory default” value of the Node, if such a value exists.<br/>
+用法：如果存在此值，则指定节点的“出厂默认值”值。
 
+Parent Elements: DFProperties<br/>
+父元素：DFProperties
+
+Restrictions: The MIME type of the value MUST correspond with the MIME type specified by the DFType property. <br/>
+限制：值的MIME类型必须与DFType属性指定的MIME类型相对应。
+
+Content Model: (#PCDATA)<br/>
+内容模型：(#PCDATA)
+
+#### 8.5.4.3.3 Description
+Usage: A human readable description of the described Node. This is used to convey any relevant information regarding the Node that is not explicitly given by the other properties.<br/>
+用法：对所描述的节点的人可读的描述。这用于传达关于未由其他属性明确给出的关于节点的任何相关信息。
+
+Parent Elements: DFProperties<br/>
+父元素：DFProperties
+
+Restrictions: Descriptions SHOULD be kept as short as possible.<br/>
+限制：说明应尽可能短。
+
+Content Model: (#PCDATA)<br/>
+内容模型：(#PCDATA)
+
+#### 8.5.4.3.4 DFFormat
+Usage: Specifies the data format of the described Node.<br/>
+用法：指定描述的节点的数据格式。
+
+Parent Elements: DFProperties<br/>
+父元素：DFProperties
+
+Restrictions: For Interior Nodes the Format MUST be node.<br/>
+限制：对于内部节点，格式必须为节点。
+
+ContentModel:(b64 | bin | bool | chr | int | node | null | xml | date | time | float)<br/>
+内容模型：(b64 | bin | bool | chr | int | node | null | xml | date | time | float)
+
+#### 8.5.4.3.5 Occurrence
+Usage: Specifies the potential number of instances that MAY occur of the described Node.<br/>
+用法：指定所描述的节点可能发生的实例的可能数量。
+
+Parent Elements: DFProperties<br/>
+父元素：DFProperties
+
+Restrictions: If the property is omitted the Node occurrence is exactly one.<br/>
+限制：如果省略属性，则节点出现正好一次。
+
+Content Model:(One | ZeroOrOne | ZeroOrMore | OneOrMore | ZeroOrN | OneOrN)<br/>内容模型：(One | ZeroOrOne | ZeroOrMore | OneOrMore | ZeroOrN | OneOrN)
+
+#### 8.5.4.3.6 Scope
+Usage: Specifies whether the described Node is Permanent or Dynamic.<br/>
+用法：指定描述的节点是永久还是动态。
+
+Parent Elements: DFProperties<br/>
+父元素：DFProperties
+
+Restrictions: The value is indicated by the tags Permanent and Dynamic in the description framework. This property is OPTIONAL, if omitted the described Node is Dynamic.<br/>
+限制：值由描述框架中的“永久”和“动态”标签指示。如果省略所描述的节点是动态的则此属性是可选的。
+
+ContentModel: (Permanent | Dynamic)<br/>
+内容模型：(Permanent | Dynamic)
