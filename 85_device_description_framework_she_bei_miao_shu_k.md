@@ -104,11 +104,14 @@ Parent Elements: MgmtTree <br/>
 父元素：MgmtTree
 
 Restrictions: This element is recursive. A Node with a Value element MUST always terminate the recursion. It is possible for a Node to omit both the next recursive Node and a Value, this means that the hierarchy of Nodes continues elsewhere. This can be used to increase readability of very deep trees. In the continuation, the Path element MUST contain a full URI that specifies the insertion point in the tree.<br/>
+限制：此元素是递归的。具有Value元素的节点必须始终终止递归。节点可以省略下一个递归节点和值，这意味着节点的层次结构在其他地方继续。这可以用于增加非常深的树的可读性。在继续中，Path元素必须包含指定树中插入点的完整URI。
 
 ContentModel:(NodeName, Path?, RTProperties?, DFProperties?, (Node`*`|Value?))<br/>
 内容模型：(NodeName, Path?, RTProperties?, DFProperties?, (Node`*`|Value?))
 
 Example: The following XML is a description of a number of Nodes that form the URI Vendor/ISP/GWInfo/GWName. Note that all the details of DFProperties are deliberately left out.<br/>
+示例：以下XML是形成URI Vendor/ISP/GWInfo/GWName的多个节点的描述。请注意，DFProperties的所有详细信息都会被故意忽略。
+
 ```
 <MgmtTree>
   <Node>
@@ -130,3 +133,15 @@ Example: The following XML is a description of a number of Nodes that form the U
   </Node>
 </MgmtTree>
 ```
+#### 8.5.4.1.6 NodeName
+Usage: Specifies the name of the described Node.<br/>
+用法：指定描述的节点的名称。
+
+Parent Elements: Node<br/>
+父元素：Node
+
+Restrictions: See [RFC2396] for general restrictions on URI. The NodeName element MAY be empty. If empty, this means that the name of the Node MUST be assigned when the Node is created. When the Node name is assigned at Node creation time, the value for the name is set to the last segment of the URI specified as Target for the command that results in the Node being created. See also section 8.4.7.3.<br/>
+限制：有关URI的一般限制，请参阅[RFC2396]。NodeName元素可以为空。如果为空，这意味着在创建节点时必须分配节点的名称。当节点名称在节点创建时分配时，名称的值将设置为指定为目标的URI的最后一个段，用于创建节点的命令。参见8.4.7.3节。
+
+Content Model: (#PCDATA)
+内容模型：(#PCDATA)
