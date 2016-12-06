@@ -474,3 +474,43 @@ Restrictions: None.<br/>
 
 Content Model: EMPTY<br/>
 内容模型：EMPTY
+
+#### 8.5.4.2.19 float
+Usage: OMA DM format description. Specifies that the Node value is a real number corresponding to a single precision 32 bit floating point type as defined in XML Schema 1.0 as the float primitive type [XMLSCHEMADT].<br/>
+用法：OMA DM格式描述。指定Node值是与XML模式1.0中定义的浮点型类型[XMLSCHEMADT]对应的单精度32位浮点类型的实数。
+
+Parent Elements:Format, DFFormat<br/>
+父元素：Format, DFFormat
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.2.20 MIME
+Usage: Specifies the MIME type of the current Node value. <br/>
+用法：指定当前Node值的MIME类型。
+
+Parent Elements:Type, DFType<br/>
+父元素：Type, DFType
+
+Restrictions: MUST only contain valid MIME type identifiers. See [META].<br/>
+限制：必须只包含有效的MIME类型标识符。参见[META]。
+
+Content Model: (#PCDATA)<br/>
+内容模型：(#PCDATA)
+
+#### 8.5.4.2.21 DDFName
+Usage: Specifies the Management Object Identifier of the Management Object rooted at this Node, or is empty. 
+用法：指定以此节点为根的管理对象的管理对象标识符，或为空。
+
+Parent Elements:Type, DFType
+父元素：Type, DFType
+
+Restrictions: MUST only contain a valid Management Object Identifier or be empty. See 8.3.7.7.2.
+限制：务必只包含有效的管理对象标识符或为空。见8.3.7.7.2。
+
+Content Model: (#PCDATA)
+内容模型：(#PCDATA)
+
