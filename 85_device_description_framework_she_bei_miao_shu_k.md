@@ -700,3 +700,96 @@ Restrictions: None.<br/>
 
 Content Model: EMPTY<br/>
 内容模型：EMPTY
+
+#### 8.5.4.3.14 Replace
+Usage: Specifies support for the OMA DM Replace command. <br/>
+用法：指定对OMA DM Replace命令的支持。
+
+Parent Elements: AccessType<br/>
+父元素：AccessType
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.15 One
+Usage: Specifies that the described Node can occur exactly one (1) time.<br/>
+用法：指定所描述的节点可以正好出现一（1）次。
+
+Parent Elements: Occurrence<br/>
+父元素：Occurrence
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.16 ZeroOrOne
+Usage: Specifies that the described Node can occur either one (1) time or not at all. <br/>
+用法：指定描述的节点可以发生一（1）次，也可以不发生。
+
+Parent Elements: Occurrence<br/>
+父元素：Occurrence
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.17 ZeroOrMore
+Usage: Specifies that the described Node can occur an unspecified number of times, or not occur at all.<br/>
+用法：指定描述的节点可能发生未指定的次数，或根本不发生。
+
+Parent Elements: Occurrence<br/>
+父元素：Occurrence
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.18 ZeroOrN
+Usage: Specifies that the described Node can occur any number times up to N times, or not occur at all.<br/>
+用法：指定描述的节点可以发生任意N次，或根本不发生。
+
+Parent Elements: Occurrence<br/>
+父元素：Occurrence
+
+Restrictions: N MUST be specified as a character string representing a positive integer value between 2 and 65536.<br/>
+限制：N必须指定为表示介于2和65536之间的正整数值的字符串。
+
+Content Model: (#PCDATA)<br/>
+内容模型：(#PCDATA)
+
+#### 8.5.4.3.19 OneOrMore
+Usage: Specifies that the described Node can occur an unspecified number of times, but MUST occur at least once.<br/>
+用法：指定描述的节点可能发生未指定的次数，但务必发生至少一次。
+
+Parent Elements: Occurrence<br/>
+父元素：Occurrence
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.20 OneOrN
+Usage: Specifies that the described Node can occur any number times up to N times but MUST occur at least once.<br/>
+用法：指定描述的节点可以发生任意次数，最多N次，但必须至少发生一次。
+
+Parent Elements: Occurrence<br/>
+父元素：Occurrence
+
+Restrictions: N MUST be specified as a character string representing a positive integer value between 2 and 65536.<br/>
+限制：N必须指定为表示介于2和65536之间的正整数值的字符串。
+
+Content Model: (#PCDATA)<br/>
+内容模型：(#PCDATA)
+
+
