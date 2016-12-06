@@ -145,3 +145,44 @@ Restrictions: See [RFC2396] for general restrictions on URI. The NodeName elemen
 
 Content Model: (#PCDATA)
 内容模型：(#PCDATA)
+
+#### 8.5.4.1.7 Path
+Usage: Specifies the URI up to, but not including, the described Node.<br/>
+用法：指定URI，但不包括描述的节点。
+
+Parent Elements: Node<br/>
+父元素：Node
+
+Restrictions: OPTIONAL element. If omitted, the URI for the Node MUST be constructed by concatenating all ancestral NodeName and Path values. This concatenated value MUST form the correct URI. Path SHOULD only be used inside Node elements that are child elements to the MgmtTree element. For general restrictions, see [RFC2396].<br/>
+限制：可选元素。如果省略，则节点的URI必须通过连接所有祖先NodeName和Path值来构造。这个连接的值必须形成正确的URI。路径应该只在作为MgmtTree元素的子元素的Node元素中使用。有关一般限制，请参见[RFC2396]。
+
+Content Model: (#PCDATA)<br/>
+内容模型：(#PCDATA)
+
+Example: The following XML is an alternative way to describe the same Management Objects as in the example in section 8.5.4.1.5. This description specifies the same URI as the other example: Vendor/ISP/GWInfo/GWName. Note that all the details of DFProperties are deliberately left out.<br/>
+
+示例：以下XML是描述与第8.5.4.1.5节中的示例相同的管理对象的另一种方法。此描述指定与另一个示例相同的URI：Vendor/ISP/GWInfo/GWName。 请注意，DFProperties的所有详细信息都会被故意忽略。
+```
+<MgmtTree>
+  <Node>
+    <NodeName>Vendor</NodeName>
+    <DFProperties>...</DFProperties>
+  </Node>
+  <Node>
+    <NodeName>ISP</NodeName>
+    <Path>Vendor</Path>
+    <DFProperties>...</DFProperties>
+  </Node>
+  <Node>
+    <NodeName>GWInfo</NodeName>
+    <Path>Vendor/ISP</Path>
+    <DFProperties>...</DFProperties>
+  </Node>
+  <Node>
+    <NodeName>GWName</NodeName>
+    <Path>Vendor/ISP/GWInfo</Path>
+    <DFProperties>...</DFProperties>
+    <Value>gw.yyy.se</Value>
+  </Node>
+</MgmtTree>
+```
