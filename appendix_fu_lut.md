@@ -90,3 +90,54 @@ In the example below DM Server requests a Management Tree structure as well as t
   </Item>
 </Get>
 ```
+Client response using Result and multiple Item elements.<br/>
+客户端响应使用Result和多个项目元素。
+```
+<Results>
+  <CmdRef>4</CmdRef>
+  <CmdID>7</CmdID>
+  <Item>
+  <Meta>
+    <Format xmlns="syncml:metinf">node</Format>
+    </Meta>
+    <Source>
+      <LocURI>./A/D</LocURI>
+    </Source>
+  </Item>
+  <Item>
+  <Meta>
+    <Format xmlns="syncml:metinf">node</Format>
+  </Meta>
+    <Source>
+      <LocURI>./A/D/E</LocURI>
+    </Source>
+  </Item>
+  <Item>
+  <Meta>
+      <Format xmlns="syncml:metinf">xml</Format>
+  </Meta>
+  <Source>
+    <LocURI>./A/D/F</LocURI>
+  </Source>
+    <Data>”XML document”</Data>
+  </Item>
+  <Item>
+  <Source>
+      <LocURI>./A/D/E/G</LocURI>
+  </Source>
+    <Data>leaf node data</Data>
+  </Item>
+  <Item>
+    <Meta>
+      <Format xmlns="syncml:metinf">b64</Format>
+      <Type xmlns=’syncml:metinf’>image/jpeg</Type> 
+    </Meta>
+   <Source>
+    <LocURI>./A/D/E/H</LocURI>
+   </Source>
+   <Data>JSCNMDTUVWXYZcuokcdghfidjssatu</Data> 
+  </Item>
+</Results>
+
+
+```
