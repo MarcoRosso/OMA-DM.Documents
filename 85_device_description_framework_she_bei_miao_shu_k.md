@@ -792,4 +792,71 @@ Restrictions: N MUST be specified as a character string representing a positive 
 Content Model: (#PCDATA)<br/>
 内容模型：(#PCDATA)
 
+#### 8.5.4.3.21 Dynamic
+Usage: Specifies that the described Node is Dynamic. <br/>
+用法：指定描述的节点是动态的。
 
+Parent Elements: Scope<br/>
+父元素：Scope
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.22 Permanent
+Usage: Specifies that the described Node is Permanent.<br/>
+用法：指定描述的节点为永久。
+
+Parent Elements: Scope<br/>
+父元素：Scope
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.23 CaseSense
+Usage: Specifies whether the Node name and names of descendant Nodes in the tree below SHOULD be treated as case sensitive or case insensitive.<br/>
+用法：指定节点名称和下面树中的后代节点的名称是否应被视为区分大小写或不区分大小写。
+
+Parent Elements: DFProperties<br/>
+父元素：DFProperties
+
+Restrictions: MUST only contain value CS or CIS.<br/>
+限制：必须只包含值CS或CIS。
+
+ContentModel:(CS | CIS)<br/>
+内容模型：(CS | CIS)
+
+#### 8.5.4.3.24 CS
+Usage: Case sensitivity declaration. Specifies that child Node names MUST be treated as case sensitive. <br/>
+用法：区分大小写。指定子节点名称必须被视为区分大小写。
+
+Parent Elements: CaseSense<br/>
+父元素：CaseSense
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+#### 8.5.4.3.24 CIS
+Usage: Case insensitivity declaration. Specifies that child Node names MUST be treated as case insensitive. <br/>
+用法：不区分大小写声明。指定子节点名称必须被视为不区分大小写。
+
+Parent Elements: CaseSense<br/>
+父元素：CaseSense
+
+Restrictions: None.<br/>
+限制：无
+
+Content Model: EMPTY<br/>
+内容模型：EMPTY
+
+## 8.5.5 Shortcomings of the OMA DM description framework OMA DM描述框架的缺点
+It is not possible to specify that only one Node of an allowed set can be instantiated at a time. Compare with the DTD construct ( A | B ), this is currently described by making both A and B optional, but there is no way to represent that they are mutually exclusive. However, this is mostly a problem that occurs when mapping existing Management Objects onto the description framework. When new Management Objects are designed for the framework, this situation can be avoided.<br/>
+不可能指定只允许一组的一个节点一次实例化。与DTD结构（A | B）比较，目前通过使A和B都是可选的来描述，但是没有办法表示它们是互斥的。但是，这主要是将现有管理对象映射到描述框架时发生的问题。当为框架设计新的管理对象时，可以避免这种情况。
