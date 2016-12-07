@@ -43,5 +43,5 @@
    * [9.1 TND Serialization Definition TND序列化定义](91_tnd_serialization_definition_tndxu_lie_hua_ding.md)
    * [9.2 TNDS Syntax TNDS语法](92_tnds_syntax_tndsyu_fa.md)
    * [Appendix 附录](appendix_fu_lut2.md)
-* Firmware Update Management Object 固件更新管理对象
+* [Firmware Update Management Object 固件更新管理对象](firmware_update_management_object_gu_jian_geng_xin.md)
 
