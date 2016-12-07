@@ -224,3 +224,113 @@ Parent Elements: RTProperties<br/>
 
 Restrictions: If a value is specified it MUST be formatted according to definition in [DMTND].<br/>
 限制：如果指定了值，它必须根据[DMTND]中的定义格式化。
+
+#### 9.2.3.1.15 b64
+Usage: OMA DM format description. Specifies that the node value is Base64 encoded. 
+用法：OMA DM格式描述。指定节点值为Base64编码。
+
+Parent Elements: Format 
+父元素：Format 
+
+Restrictions: None.
+限制：无
+
+#### 9.2.3.1.16 bin
+Usage: OMA DM format description. Specifies that the node value is binary data. <br/>
+用法：OMA DM格式描述。指定节点值是二进制数据。 
+
+Parent Elements: Format 
+父元素：Format 
+
+Restrictions: None.
+限制：无
+
+#### 9.2.3.1.17 bool
+Usage: OMA DM format description. Specifies that the node value is a Boolean. <br/>
+用法：OMA DM格式描述。指定节点值是布尔值。
+
+Parent Elements: Format<br/>
+父元素：Format 
+
+Restrictions: None.<br/>
+限制：无
+
+#### 9.2.3.1.18 chr
+Usage: OMA DM format description. Specifies that the node value is text. <br/>
+用法：OMA DM格式描述。指定节点值是文本。
+
+Parent Elements: Format<br/>
+父元素：Format
+
+Restrictions: The character set used is specified either by the transport protocol, MIME content type header or XML prologue.<br/>
+限制：使用的字符集由传输协议，MIME内容类型标头或XML序列指定。
+
+#### 9.2.3.1.19 int
+Usage: OMA DM format description. Specifies that the node value is an integer. <br/>
+用法：OMA DM格式描述。指定节点值为整数。
+
+Parent Elements: Format<br/>
+父元素：Format
+
+Restrictions: None.<br/>
+限制：无
+
+#### 9.2.3.1.20 node
+Usage: OMA DM format description. Specifies that the node is an interior node. <br/>
+用法：OMA DM格式描述。指定节点是内部节点。
+
+Parent Elements: Format<br/>
+父元素：Format
+
+Restrictions: This Format MUST only be used for interior nodes.<br/>
+限制：此格式务必只用于内部节点。
+
+#### 9.2.3.1.21 null
+Usage: OMA DM format description. Specifies that the node value is null.<br/>
+用法：OMA DM格式描述。指定节点值为null。
+
+Parent Elements: Format<br/>
+父元素：Format
+
+Restrictions: None.<br/>
+限制：无
+
+#### 9.2.3.1.22 xml
+Usage: OMA DM format description. Specifies that the node value is XML data.<br/>
+用法：OMA DM格式描述。指定节点值是XML数据。
+
+Parent Elements: Format<br/>
+父元素：Format
+
+Restrictions: None.<br/>
+限制：无
+
+#### 9.2.3.1.23 date
+Usage: OMA DM format description. Specifies that the node value is a date in ISO 8601 format with the century being included in the year [ISO8601].<br/>
+用法：OMA DM格式描述。指定节点值是ISO 8601格式的日期，其中包括年份[ISO8601]中的世纪。
+
+Parent Elements: Format<br/>
+父元素：Format
+
+Restrictions: None.<br/>
+限制：无
+
+#### 9.2.3.1.24 time
+Usage: OMA DM format description. Specifies that the node value is a time in ISO 8601 format [ISO8601].<br/>
+OMA DM格式描述。指定节点值是ISO 8601格式[ISO8601]中的时间。
+
+Parent Elements: Format<br/>
+父元素：Format
+
+Restrictions: None.<br/>
+限制：无
+
+#### 9.2.3.1.25 float
+Usage: OMA DM format description. Specifies that the node value is a real number corresponding to a single precision 32 bit floating point type as defined in XML Schema 1.0 as the float primitive type [XMLSCHEMADT].
+用法：OMA DM格式描述。指定节点值是与XML模式1.0中定义的浮点型类型[XMLSCHEMADT]对应的单精度32位浮点类型的实数。
+
+Parent Elements: Format<br/>
+父元素：Format
+
+Restrictions: None.<br/>
+限制：无
