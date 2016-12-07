@@ -117,3 +117,110 @@ Restrictions: See [RFC2396] for general restrictions on URI. The NodeName elemen
 
 If NodeName is omitted then the client may use the Type to decide where in the tree the structure should be created.<br/>
 如果忽略NodeName，则客户端可以使用类型来决定应该在树中的哪里创建结构。
+
+#### 9.2.3.1.7 Path
+Usage: Specifies the URI up to, but not including, the described node.<br/>
+用法：指定所描述节点的URI，但不包括该节点。
+
+Parent Elements: Node<br/>
+父元素：Node
+
+Restrictions: OPTIONAL element when creating a TNDS object and MANDATORY when importing nodes from a TNDS object. If omitted, the URI for the node MUST be constructed by concatenating all ancestral NodeName and Path values. This concatenated value MUST form the correct URI. Path SHOULD only be used inside Node elements that are child elements to the MgmtTree element. For general restrictions, see [RFC2396].<br/>
+限制：当创建TNDS对象时，该元素可选，当从TNDS对象导入节点时，该元素是必须的。 如果省略，则必须通过连接所有祖先NodeName和Path值来构造节点的URI。这个连接的值必须形成正确的URI。路径应该只在作为MgmtTree元素的子元素的Node元素中使用。有关一般限制，请参见[RFC2396]。
+
+Example: The following XML is an alternative way to describe the same management objects as in the example in section 6.3.1.5. This description specifies the same URI as the other example: Vendor/ISP/GWInfo/GWName.<br/>
+示例：以下XML是描述与第6.3.1.5节中的示例相同的管理对象的替代方法。此描述指定与另一个示例相同的URI：Vendor / ISP / GWInfo / GWName。
+```
+<MgmtTree>
+  <Node>
+    <NodeName>Vendor</NodeName>
+    <RTProperties>...</RTProperties>
+  </Node>
+  <Node>
+    <NodeName>ISP</NodeName>
+    <Path>Vendor</Path>
+    <RTProperties>...</RTProperties>
+  </Node>
+  <Node>
+     <NodeName>GWInfo</NodeName>
+     <Path>Vendor/ISP</Path>
+     <RTProperties>...</RTProperties>
+  </Node>
+  <Node>
+      <NodeName>GWName</NodeName>
+      <Path>Vendor/ISP/GWInfo</Path>
+      <RTProperties>...</RTProperties>
+      <Value>gw.yyy.se</Value>
+  </Node>
+</MgmtTree>
+```
+
+#### 9.2.3.1.8 Value
+Usage: Specifies the value for nodes that are instantiated using the current description. <br/>
+用法：指定使用当前描述实例化的节点的值。
+
+Parent Elements: Node<br/>
+父元素：Node
+
+Restrictions: OPTIONAL element. If omitted, the node description does not specify any default value for the node. In this case the initial value of new nodes are undefined.<br/>
+限制：可选元素。如果省略，则节点描述不会为节点指定任何默认值。在这种情况下，新节点的初始值是未定义的。
+
+#### 9.2.3.1.9 RTProperties
+Usage: Aggregating element for run-time properties, i.e. properties that the nodes have in a device at run-time. Used to specify which properties the described node supports at run-time. Can also be used to supply default values for supported run-time properties.<br/>
+用法：聚合运行时属性的元素，即节点在运行时在设备中具有的属性。用于指定所描述的节点在运行时支持的属性。也可以用于为支持的运行时属性提供默认值。
+
+Parent Elements: Node<br/>
+父元素：Node
+
+Restrictions: MANDATORY element.<br/>
+限制：必须的元素。
+
+#### 9.2.3.1.10 ACL
+Usage: Specifies the ACL value. This MAY be used to specify a different ACL value then the default value for this node. <br/>
+用法：指定ACL的值。这可以用于指定不同的ACL值，然后指定此节点的默认值。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: If a value is specified it MUST be formatted according to definition in [DMTND].
+限制：如果指定了值，它必须根据[DMTND]中的定义格式化。
+
+#### 9.2.3.1.11 Format
+Usage: Specifies the Format value. <br/>
+用法：指定格式值。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: If a value is specified it MUST specify the correct format of the node according to section definition in [DMTND].<br/>
+限制：如果指定了一个值，它必须根据[DMTND]中的段定义指定节点的正确格式。
+
+#### 9.2.3.1.12 TStamp
+Usage: Specifies the TStamp value.<br/>
+用法：指定TStamp值。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: If a value is specified it MUST be formatted according to section definition in [DMTND].<br/>
+限制：如果指定了值，它必须根据[DMTND]中的段定义进行格式化。
+
+#### 9.2.3.1.13 Type
+Usage: Specifies the Type value. <br/>
+用法：指定类型值。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: For leaf nodes, the Type property MUST be used to specify the correct MIME type of the node value. For interior nodes the value MUST specify a valid identifier of a DDF document, or be empty according to section definition in [DMTND].
+限制：对于叶节点，必须使用Type属性来指定节点值的正确MIME类型。对于内部节点，值必须指定DDF文档的有效标识符，或者根据[DMTND]中的节定义为空。
+
+#### 9.2.3.1.14 VerNo
+Usage: Specifies the VerNo value.<br/>
+用法：指定VerNo值。
+
+Parent Elements: RTProperties<br/>
+父元素：RTProperties
+
+Restrictions: If a value is specified it MUST be formatted according to definition in [DMTND].<br/>
+限制：如果指定了值，它必须根据[DMTND]中的定义格式化。
