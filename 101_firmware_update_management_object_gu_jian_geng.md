@@ -186,7 +186,20 @@ The following state table enumerates the valid states: <br/>
 | Update Failed / Have Data 更新失败/有数据 | Update failed but have update package 更新失败，但有更新包 | 70 |
 | Update Failed / No Data 更新失败/无数据 | Update failed and no update package available 更新失败，没有可用的更新包 | 80 |
 | Update Successful / Have Data 更新成功/有数据 | Update complete and data still available 更新完成，数据仍然可用 | 90 |
-| Update Successful / No Data 更新成功/无数据 | Data deleted or removed after a successful Update 成功更新后删除或删除数据 | 100 |
+| Update Successful / No Data 更新成功/无数据 | Data deleted or removed after a successful Update 成功更新后移除或删除数据 | 100 |
 
+### 10.1.1.11 Node: x/Ext
+This is a node for supporting vendor specific extensions.<br/>
+这是一个用于支持供应商特定扩展的节点。
 
+Occurrence: ZeroOrOne<br/>
+出现次数：零次或一次
 
+Format: Node<br/>
+格式：Node
+
+Access Types: Get
+访问类型：Get
+
+Values: N/A 
+值：无
