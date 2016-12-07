@@ -123,3 +123,21 @@ Access Types: Replace
 
 Values: N/A 
 值：无
+
+### 10.1.1.8 Node: x/DownloadAndUpdate
+This interior node is the target of an ‘Exec’ command invoked to initiate a firmware download and update for the specified update package and is optional. The update MUST take place as soon as practical after download.<br/>
+该内部节点是被调用以启动用于指定的更新包的固件下载和更新的“Exec”命令的目标，并且是可选的。更新必须在下载后尽快进行。
+
+Occurrence: ZeroOrOne<br/>
+出现次数：零次或一次
+
+Format: Node<br/>
+格式：Node
+
+Access Types: Exec,Get
+访问类型：Exec,GEt
+
+Values: N/A 
+值：无
+
+
