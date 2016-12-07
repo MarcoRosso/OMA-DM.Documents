@@ -140,4 +140,53 @@ Access Types: Exec,Get
 Values: N/A 
 值：无
 
+### 10.1.1.9 Node: x/DownloadAndUpdate/PkgURL
+This node specifies the URL where the firmware update package or download descriptor is located, that is to be downloaded and installed at the next practical opportunity.  This URL is used for alternative download mechanisms (such as HTTP Get [RFC2616] or Descriptor Based Download [DLOTA]).<br/>
+此节点指定固件更新包或下载描述符所在的URL，将在下一个实际机会下载和安装。此URL用于备用下载机制（例如HTTP Get [RFC2616]或基于描述符的下载[DLOTA]）。
+
+Occurrence: One<br/>
+出现次数：一次
+
+Format: Chr<br/>
+格式：Chr
+
+Access Types: Replace, Get
+访问类型：Replace,Get
+
+Values: N/A 
+值：无
+
+### 10.1.1.10 Node: x/DownloadAndUpdate/PkgURL
+Contains a value indicating the current state of the mobile device with respect to this firmware update. <br/>
+包含指示移动设备相对于此固件更新的当前状态的值。
+
+Occurrence: One<br/>
+出现次数：一次
+
+Format: Int<br/>
+格式：Int
+
+Access Types: Get <br/>
+访问类型：Get
+
+Values: See table below <br/>
+值：见下表
+
+The following state table enumerates the valid states: <br/>
+以下状态表枚举了有效状态：
+
+| State 状态 | Description 描述| Integer Value 整数值 |
+| -- | -- | -- |
+| Idle/Start 空闲/开始 | No pending operation 无待处理操作 | 10 |
+| Download Failed 下载失败 | Download Failed 下载失败 | 20 |
+| Download Progressing 下载进度 | Download has started 下载已开始 | 30 |
+| Download Complete 下载完成 | Download has been completed successfully  下载已成功完成 | 40 |
+| Ready to Update 准备更新 | Have data and awaiting command to start update 有数据和等待命令开始更新 | 50 |
+| Update Progressing 更新进度 | Update has started 更新已开始 | 60 |
+| Update Failed / Have Data 更新失败/有数据 | Update failed but have update package 更新失败，但有更新包 | 70 |
+| Update Failed / No Data 更新失败/无数据 | Update failed and no update package available 更新失败，没有可用的更新包 | 80 |
+| Update Successful / Have Data 更新成功/有数据 | Update complete and data still available 更新完成，数据仍然可用 | 90 |
+| Update Successful / No Data 更新成功/无数据 | Data deleted or removed after a successful Update 成功更新后删除或删除数据 | 100 |
+
+
 
