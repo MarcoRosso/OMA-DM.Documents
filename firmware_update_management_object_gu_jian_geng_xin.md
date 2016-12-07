@@ -20,3 +20,23 @@ See also the DM Tree and Description [DMTND] document for definitions of terms r
 FUMO: Firmware Update Management Object 固件更新管理对象
 
 OMA: Open Mobile Alliance 开放移动联盟
+
+## References 参考
+[DMPRO]: “OMA Device Management Protocol, Version 1.2”. Open Mobile Alliance. OMA-TS-DM-Protocol-V1_2, URL:http://www.openmobilealliance.org
+
+[DMTND]: “OMA Device Management Tree and Description, Version 1.2”. Open Mobile Alliance. OMA-TS-DM-TND-V1_2. URL:http://www.openmobilealliance.org
+
+[IOPPROC]: “OMA Interoperability Policy and Process”, Version 1.13, Open Mobile Alliance™, OMA-IOP-Process-V1_13, URL:http://www.openmobilealliance.org/
+
+[RFC2119]: “Key words for use in RFCs to Indicate Requirement Levels”, S. Bradner, March 1997, URL:http://www.ietf.org/rfc/rfc2119.txt
+
+[RFC2234]: “Augmented BNF for Syntax Specifications: ABNF”. D. Crocker, Ed., P. Overell. November 1997, URL:http://www.ietf.org/rfc/rfc2234.txt
+
+[DLOTA]: OMA Download, Version 1.0, Open Mobile Alliance. URL:http://www.openmobilealliance.org/documents.html 
+
+[DMNOTI]: “OMA Device Management Notification Initiated Session, Version 1.2”. Open Mobile Alliance. OMA-TS-DM-Notification-V1_2. URL:http://www.openmobilealliance.org
+
+[DMSTDOBJ]: “OMA Device Management Standardized Objects, Version 1.2”. Open Mobile Alliance. OMA-TS-DM-StdObj-V1_2. URL:http://www.openmobilealliance.org
+
+[RFC2616]：“Hypertext Transfer Protocol – HTTP/1.1”. Network Working group. June 1999. URL: http://www.ietf.org/rfc/rfc2616.txt
+
