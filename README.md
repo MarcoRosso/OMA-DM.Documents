@@ -45,3 +45,10 @@ This document defines the management tree and the Nodes on which the OMA DM prot
 ## 9. Tree and Description Serialization 树及其描述的序列化
 This specification defines how to transform a runtime management tree into an xml or wbxml file. With this specification it is possible to transform a MO or complete/part of the Management Tree to or from an xml or wbxml file.<br/>
 此规范定义了如何将运行时管理树转换为xml或wbxml文件。使用此规范，可以将管理树的MO或完整/部分转换为xml或wbxml文件或从xml或wbxml文件中转换。
+
+## 10. Firmware Update Management Object 固件更新管理对象
+This document specifies management object(s) and their necessary behaviour to support the updating of firmware in mobile devices. It leverages the OMA DM enabler [OMADM] and supports alternate download mechanisms (such as OMA Download [DLOTA]). This represents the interface between the client and server required to manage the update of a mobile device’s firmware.<br/>
+本文档规定了管理对象及其支持的移动设备中固件更新的必要行为。它利用OMA DM启用程序[OMADM]并支持备用下载机制（例如OMA下载[DLOTA]）。这表示在管理移动设备的固件更新所需的客户端和服务器之间的接口。
+
+The content and format of the update package, and the process used to update firmware in the device, are implementation specific and are not covered by this specification. <br/>
+更新包的内容和格式以及用于更新设备中的固件的过程是实现特定的，并且不被本规范所涵盖。
