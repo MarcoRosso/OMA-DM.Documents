@@ -45,4 +45,5 @@
    * [Appendix 附录](appendix_fu_lut2.md)
 * [Firmware Update Management Object 固件更新管理对象](firmware_update_management_object_gu_jian_geng_xin.md)
    * [10.1 Firmware Update Management Object 固件更新管理对象](101_firmware_update_management_object_gu_jian_geng.md)
+   * 10.2  Behavior Associated with the Management Object 与管理对象相关的行为
 
