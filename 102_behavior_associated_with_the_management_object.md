@@ -107,3 +107,66 @@ Example of ‘Exec’ command:<br/>
 </Exec>
 
 ```
+## 10.2.2 Use of Generic Alert for Notifications 将通用警报用于通知
+At the end of the operation invoked by the Exec commands in section 10.2.1, the device MUST send a notification to the DM server via a Generic Alert [DMPRO] message.  The alert message includes the following data:<br/>
+在6.1节中的Exec命令调用的操作结束时，设备务必通过通用警报[DMPRO]消息向DM服务器发送通知。警报消息包括以下数据：
+
+*	An integer result code – Used to report status of the operation<br/>
+整数结果代码 - 用于报告操作的状态
+
+
+*	The URI of the Firmware Update Management Object – Used to identify the source<br/>
+固件更新管理对象的URI - 用于标识源
+
+*	An alert type – Used to identify the operation<br/>
+警报类型 - 用于识别操作
+
+*	Correlator – Used by the server and passed as part of the Exec command<br/>
+相关器 - 由服务器使用并作为Exec命令的一部分传递
+
+Alerts that are reporting an error or failure condition SHOULD report a severity other than Informational in the Mark field of the Meta information.<br/>
+报告错误或失败条件的警报应在Meta信息的标记字段中报告除了信息之外的严重性。
+
+Once the Generic Alert message is sent to the DM Server at the end of the operation, the device MUST NOT retry the operation invoked via the Exec command by the DM Server without further server intervention. <br/>
+一旦在操作结束时将通用警报消息发送到DM服务器，设备必须不重试由DM服务器通过Exec命令调用的操作，而不需要进一步的服务器干预。
+
+NOTE: If the server needs to retrieve additional information, such as State, then the server MAY query the device for those specific nodes.<br/>
+注意：如果服务器需要检索附加信息（例如状态），则服务器可以向设备查询这些特定节点。
+
+## 10.2.2.1	URI of Firmware Update Management Object 固件更新管理对象的URI
+The URI of the Firmware Update Management Object MUST be sent as the source of the Generic Alert [DMPRO] message.  This allows the Management Server to identify the origin of the alert.<br/>
+固件更新管理对象的URI必须作为通用警报[DMPRO]消息的源发送。这允许管理服务器识别警报的来源。
+
+## 10.2.2.2	Firmware Update Alert Types 固件更新警报类型
+One of the following alert types MUST be used in a Generic Alert [DMPRO] message originating from a Firmware Update Management Object. The alert types are used to identify the Exec operation that was performed on the device.<br/>
+在来自固件更新管理对象的通用警报[DMPRO]消息中必须使用以下警报类型之一。警报类型用于标识在设备上执行的Exec操作。
+* The alert type “org.openmobilealliance.dm.firmwareupdate.download” MUST be used in response to the completion of a Download operation.
+* The alert type “org.openmobilealliance.dm.firmwareupdate.update” MUST be used in response to the completion of an Update operation
+* The alert type “org.openmobilealliance.dm.firmwareupdate.downloadandupdate” MUST be used in response to the completion of a DownloadAndUpdate  operation
+
+## 10.2.2.3	Correlator 相关器
+If the server passes a correlator to the client in the Exec command of a Firmware Update Operation, the client MUST return the same value to the server in the correlator field of the Generic Alert [DMPRO] message.<br/>
+如果服务器在固件更新操作的Exec命令中将相关器传递给客户端，则客户端必须在通用警报[DMPRO]消息的相关器字段中向服务器返回相同的值。
+
+If the server does not pass a correlator to the client in the Exec command of a Firmware Update Operation, the client MUST NOT send a correlator to the server in the correlator field of the Generic Alert [DMPRO] message.<br/>
+如果服务器在固件更新操作的Exec命令中未将相关器传递给客户端，则客户端不必在通用警报[DMPRO]消息的相关器字段中向服务器发送相关器。
+
+## 10.2.2.4	Result Code 结果代码
+The result code of the operation MUST be sent as an integer value in the Data element of the GenericAlert [DMPRO] message. The ResultCode MUST be one of the values defined below:<br/>
+操作的结果代码必须作为一个整数值发送到通用报警[DMPRO]消息的Data元素中。结果代码必须是以下定义的值之一：
+
+| Result Code 结果代码 | Meaning 含义 | Usage 用法 |
+| -- | -- | -- |
+| 200 | Successful<br/> 成功 | Successful – The Request has Succeeded.<br/> 成功 - 请求已成功 |
+| 250 -299 | Successful – Vendor Specified<br/> 成功 - 指定供应商 | Successful Operation with Vendor Specified ResultCode.<br/> 使用供应商指定的结果代码成功操作。 |
+| 400 | Management Client Error <br/>管理客户端错误 | Management Client error – based on User or Device behavior<br/> 管理客户端错误 - 基于用户或设备行为 |
+| 401 | User Cancelled<br/> 用户已取消 | User chose not to accept the operation when prompted. 用户在提示时选择不接受操作 |
+| 402 | Corrupted Firmware Update Package <br/> 损坏的固件更新软件包 | Corrupted firmware update package, did not store correctly.  Detected, for example, by mismatched CRCs between actual and expected.<br/>损坏的固件更新包，没有正确存储。例如，通过CRC检测发现实际和期望之间的不匹配。 |
+| 403 | Firmware Update Package – Device Mismatch 固件更新软件包 - 设备不匹配 | Wrong Firmware Update Package delivered to device based on current device characteristics.<br/> 根据当前设备特性将错误的固件更新软件包传送到设备。 |
+| 404 | Failed Firmware Update Package Validation <br/>固件更新软件包验证失败 | Failure to positively validate digital signature of firmware update package.<br/>未正确验证固件更新包的数字签名 |
+| 405 | Firmware Update Package Not Acceptable <br/>固件更新程序包不可接受 | Firmware Update Package is Not Acceptable<br/>固件更新包不可接受 |
+| 406 | Alternate Download  Authentication Failure<br/> 备用下载认证失败 | Authentication was Required but Authentication Failure was encountered when downloading Firmware Update Package.<br/>验证是必需的，但下载固件更新程序包时遇到了验证失败。 |
+| 407 | Alternate Download  Request Time-Out<br/>备用下载请求超时 | Client has encountered a time-out when downloading Firmware Update Package<br/>客户端在下载固件更新包时遇到超时 |
+| 408 | Not Implemented <br/> 未实现 | The device does not support the requested operation.<br/> 设备不支持请求的操作。|
+| 409 | Undefined Error<br/> 未定义错误 | Indicates failure not defined by any other error code.<br/>表示未由任何其他错误代码定义的故障。 |
+| 410 | Firmware Update Failed<br/>固件更新失败 | Firmware Update operation failed in device.<br/>设备中的固件更新操作失败 |
