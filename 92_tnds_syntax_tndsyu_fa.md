@@ -103,3 +103,17 @@ Example: The following XML is a description of a number of nodes that form the U
  </Node> 
 </MgmtTree>
 ```
+
+#### 9.2.3.1.6 NodeName
+
+Usage: Specifies the name of the described node. <br/>
+用法：指定所描述节点的名称。
+
+Parent Elements: Node<br/>
+父元素：Node
+
+Restrictions: See [RFC2396] for general restrictions on URI. The NodeName element MAY be empty. If empty, this means that the name of the node MUST be assigned when the node is created. When the node name is assigned at node creation time, the value for the name is set to the last segment of the URI specified as Target for the command this results in the node being created. See also in [DMTND].<br/>
+限制：有关URI的一般限制，请参阅[RFC2396]。 NodeName元素可以为空。如果为空，这意味着在创建节点时必须分配节点的名称。在节点创建分配节点名称时，名称的值将设置为指定为目标的URI的最后一个段，这将导致节点的创建。 参见[DMTND]。
+
+If NodeName is omitted then the client may use the Type to decide where in the tree the structure should be created.<br/>
+如果忽略NodeName，则客户端可以使用类型来决定应该在树中的哪里创建结构。
