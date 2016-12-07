@@ -62,7 +62,7 @@ Example of ‘Exec’ command:
 The server issues an ‘Exec’ command targeting the x/Update node. The client applies the previously received update package. When the update operation is complete, the client issues a Generic Alert indicating the result of the update operation.<br/>
 服务器发出一个“Exec”命令，目标是x/Update节点。客户端应用预先接收更新包。更新操作完成后，客户端将发出一个通用警报，指示更新操作的结果。
 
-### 10.2.1.2.1 1.1.1.1	Example of ‘Exec’ Command for Update 用于更新的'Exec'命令示例
+### 10.2.1.2.1 	Example of ‘Exec’ Command for Update 用于更新的'Exec'命令示例
 Pre-Condition: 预先条件
 
 The firmware update package must be available on the device.<br/>
@@ -79,4 +79,31 @@ Example of ‘Exec’ command:<br/>
 		</Target>
  	</Item>
 </Exec>
+```
+### 10.2.1.3 ‘Exec’ Command Semantics for Download And Update 用于下载和更新的'Exec'命令语义
+The server issues an ‘Exec’ command targeting the x/DownloadAndUpdate node. The client initiates an alternate download operation from the URL identified in the x/DownloadAndUpdate/PkgURL value. When the download operation is completed successfully, the client applies the received update package without further server intervention. When the update operation is complete, the client issues a Generic Alert indicating the result of the update operation. In the event that the download fails, the client issues a Generic Alert indicating the failure of the download operation.<br/>
+服务器发出一个“Exec”命令，目标是x/DownloadAndUpdate节点。 客户端从x/ DownloadAndUpdate/PkgURL值中标识的URL启动备用下载操作。当下载操作成功完成时，客户端应用所接收的更新包而无需进一步的服务器干预。更新操作完成后，客户端将发出一个通用警报，指示更新操作的结果。在下载失败的情况下，客户端发出指示下载操作失败的通用警报。
+
+The Update activity is launched at the next practical opportunity.<br/>
+更新活动在下一个实际机会时启动。
+
+#### 10.2.1.3.1 Example of ‘Exec’ Command for DownloadAndUpdate 用于下载和更新的'Exec'命令示例
+Pre-Condition: The following element needs to be set with an appropriate value:<br/>
+前提条件：以下元素需要设置一个适当的值：
+
+`x/Download/PkgURL` is set<br/>
+`x/Download/PkgURL` 已被设置好
+
+Example of ‘Exec’ command:<br/>
+'Exec'命令示例：
+```
+<Exec>
+	<CmdID>3</CmdID>
+	<Item>
+		<Target>
+			<LocURI>x/DownloadAndUpdate</LocURI>
+		</Target>
+ 	</Item>
+</Exec>
+
 ```
