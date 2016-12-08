@@ -29,6 +29,7 @@ It is also possible for Alert 1222 to be replaced by Alert 1223 (Session Abort) 
 
 The following chart shows an example of how multiple messages can be used.
 下图显示了如何使用多个消息的示例。
+
 ![](2.1.1.jpeg)
 ## 2.1.2  Requirements 需求
 If a SyncML package is transferred in multiple SyncML messages, the last message in the package MUST include the Final element [REPPRO]. Other messages belonging to the package MUST NOT include the Final element.<br/>
