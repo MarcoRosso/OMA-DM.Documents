@@ -177,3 +177,16 @@ The result code of the operation MUST be sent as an integer value in the Data el
 | 502 | Firmware update fails due to device out of memory<br/>固件更新由于设备内存不足而失败 | The update fails because there isn’t sufficient memory to update the device.<br/>更新失败，因为没有足够的内存来更新设备。 |
 | 503 | Download fails due to network issues<br/>由于网络问题，下载失败 | The download fails due to network/transport level errors.<br/>由于网络/传输级别错误，下载失败。|
 | 550 -599 | Alternate Download Server Error – Vendor Specified<br/>备用下载服务器错误 - 指定供应商 | Alternate Download Server Error encountered for Operation with Vendor Specified ResultCode.<br/>使用供应商指定的结果代码进行操作时遇到备用下载服务器错误。|
+
+In the above table, the series 2xx result codes indicate successful outcome.  The series 4xx and 5xx result codes, which indicate unsuccessful outcome, provide indication of failure conditions that resulted in the end of the firmware update activity in the device.<br/>
+在上表中，2xx系列结果代码表示成功结果。4xx和5xx系列结果代码表示不成功的结果，指示导致设备中固件更新活动结束的故障条件。
+
+## 10.2.2.3	Support for Update Package Download and Firmware Update Activities 支持更新包下载和固件更新活动
+The FUMO 1.0 compliant client MUST support at least one download mechanism to download update packages.  This download mechanism MUST be OMA DM based transfer or an alternate download mechanism, such as OMA Download [DLOTA].  In addition, to successfully conduct a firmware update, at least one of the following two activities MUST be supported:<br/>
+符合FUMO 1.0的客户端必须支持至少一个下载机制来下载更新包。此下载机制必须是基于OMA DM的传输或备用下载机制，例如OMA下载[DLOTA]。此外，为了成功地进行固件更新，必须支持以下两个活动中的至少一个：
+
+a) Exec on x/Update node<br/>
+a）在 x / Update节点上执行
+
+b) Exec on x/DownloadAndUpdate node <br/>
+b）在x / DownloadAndUpdate节点上执行
