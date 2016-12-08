@@ -170,3 +170,10 @@ The result code of the operation MUST be sent as an integer value in the Data el
 | 408 | Not Implemented <br/> 未实现 | The device does not support the requested operation.<br/> 设备不支持请求的操作。|
 | 409 | Undefined Error<br/> 未定义错误 | Indicates failure not defined by any other error code.<br/>表示未由任何其他错误代码定义的故障。 |
 | 410 | Firmware Update Failed<br/>固件更新失败 | Firmware Update operation failed in device.<br/>设备中的固件更新操作失败 |
+| 411 | Malformed or Bad URL<br/>格式错误或网址不正确 | The URL provided for alternate download is bad<br/>为备用下载提供的网址不正确 |
+| 450-499 | Client Error – Vendor Specified<br/>客户端错误 - 指定的供应商 | Client Error encountered for Operation with Vendor Specified Result Code<br/>使用供应商指定的结果代码进行操作时遇到客户端错误 |
+| 500 | Firmware Update Failed<br/>固件更新失败 | Firmware Update operation failed in device.<br/>设备中的固件更新操作失败 |
+| 501 | Download fails due to device is out of memory<br/>由于设备内存不足，下载失败 | The download fails due insufficient memory in the device to save the firmware update package.<br/>下载失败，因为设备中的内存不足，无法保存固件更新包。 |
+| 502 | Firmware update fails due to device out of memory<br/>固件更新由于设备内存不足而失败 | The update fails because there isn’t sufficient memory to update the device.<br/>更新失败，因为没有足够的内存来更新设备。 |
+| 503 | Download fails due to network issues<br/>由于网络问题，下载失败 | The download fails due to network/transport level errors.<br/>由于网络/传输级别错误，下载失败。|
+| 550 -599 | Alternate Download Server Error – Vendor Specified<br/>备用下载服务器错误 - 指定供应商 | Alternate Download Server Error encountered for Operation with Vendor Specified ResultCode.<br/>使用供应商指定的结果代码进行操作时遇到备用下载服务器错误。|
