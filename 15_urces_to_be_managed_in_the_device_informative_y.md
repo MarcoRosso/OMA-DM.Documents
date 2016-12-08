@@ -70,7 +70,7 @@ The following resources are mainly based on the OMA client provisioning data.<br
 
 | Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy  更改政策| Notes 备注|
 | -- | -- | -- | -- | -- |
-| Supported packet bearer settings - The information model associated with GPRS bearer settings is described in the OMA client provisioning Network Access Point parameter, for the case where the bearer relates to GPRS.<br/> 支持的分组承载设置 - 在承载与GPRS相关的情况下，在OMA客户端配置网络接入点参数中描述与GPRS承载设置相关联的信息模型。| Packet Bearer (e.g. GPRS, SMS, ...)<br/>分 组承载（例如GPRS，SMS，...）| MA | W/A |The management authority may, for example, use this object to modify or add an APN definition in the Device.<br/> 管理权限可以使用此对象来修改或在设备中添加APN定义。|
+| Supported packet bearer settings - The information model associated with GPRS bearer settings is described in the OMA client provisioning Network Access Point parameter, for the case where the bearer relates to GPRS.<br/> 支持的分组承载设置 - 在承载与GPRS相关的情况下，在OMA客户端配置网络接入点参数中描述与GPRS承载设置相关联的信息模型。| Packet Bearer (e.g. GPRS, SMS, ...)<br/>分组承载（例如GPRS，SMS，...）| MA | W/A |The management authority may, for example, use this object to modify or add an APN definition in the Device.<br/> 管理权限可以使用此对象来修改或在设备中添加APN定义。|
 | Circuit switched data settings - The information model associated with circuit switched data settings is described in the OMA client provisioning Network Access Point parameter, for the case where the bearer relates to circuit switched data.<br/>电路交换数据设置 - 在承载涉及电路交换数据的情况下，在OMA客户端配置网络接入点参数中描述与电路交换数据设置相关联的信息模型。 |  | MA | W/A |  |
 | Proxy settings - The information model associated with this resource is described in the OMA client provisioning PXLOGICAL parameter.<br/>代理设置-与此资源关联的信息模型在OMA客户端配置PXLOGICAL参数中描述。 | WAP Gateway<br/>WAP网关 | MA | W/A |  |
 | Application connectivity data - Application-specific protocol connectivity parameters are specified in Sec.1.5.2.1<br/>应用程序连接数据-特定于应用程序的协议连接参数在1.5.2.1节 | Application Service Access Point (address and port), Bearer, Server Name, Access Point Information Link, Proxy Information Link, URI Domain<br/>应用服务接入点（地址和端口），承载，服务器名称，接入点信息链路，代理信息链路，URI域 | MA | W/A | The Device may support fallback connectivity parameters in case the preferred connectivity profile fails. (See OMA- REQ-2002-0078, LS from MSIG).For any combination of: (a) application, (b) port number and (c) requested URI domain it shall be possible to specify the network access point (including bearer) and/or proxy to be used.Reference the information model in the OMA client provisioning APPLICATIONand ACCESS parameters.<br/>在优选连接性配置文件失败的情况下，设备可以支持回退连接参数。（参见OMA-REQ-2002-0078，来自MSIG的LS）。对于（a）应用，（b）端口号和（c）请求的URI域的任何组合，应当可以指定要使用的网络接入点（包括承载）和/或代理。在OMA客户端配置APPLICATION和ACCESS参数中引用信息模型。|
@@ -123,8 +123,8 @@ Performance measurements can take multiple forms. For example, they may be high 
 | Background Lighting<br/>背景亮度 | Color, Intensity<br/>颜色，强度 | User | W/O A |  |
 | Audio<br/>音频 | Volume, Tone, Output Component<br/>音量，音调，输出组件 | User | W/O A |  |
 | Signature<br/>签名 | Signature List, Application List, Current Choice<br/>签名列表，应用程序列表，当前选择 | User | W/O A |  |
-| Language<br/>语言 | Language List, Current Choice<br/>语言列表，当前选择 | User | W/O A | -- |
-| Ring Tone<br/>铃声 | Ring Tones, Current Choice<br/>铃声，当前选择 | User | W/O A | -- |
+| Language<br/>语言 | Language List, Current Choice<br/>语言列表，当前选择 | User | W/O A |  |
+| Ring Tone<br/>铃声 | Ring Tones, Current Choice<br/>铃声，当前选择 | User | W/O A |  |
 
 ### 1.5.2.8 Non-applications software and firmware 非应用软件和固件
 | Resource 资源 | Parameters 参数 | Default Actor 默认参与者| Change Policy 更改政策| Notes 备注|
