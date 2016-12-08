@@ -121,3 +121,26 @@ NA表示该项目不适用于该类
 
 Expression in the column MUST be a valid TerminalExpression according to [IOPPROC] and it MUST accurately reflect the architectural requirement of the Item in question.<br/>
 列中的表达式必须是根据[IOPPROC]的有效终端表达式，并且必须准确地反映所讨论的项目的结构要求。
+
+###ERDEF for Device Management - Client Requirements 设备管理的ERDEF - 客户端要求
+| Item 项目 | Feature / Application 特征／应用  | Status 状态 | Requirement 需求 |
+| -- | -- | -- | -- |
+| OMA-ERDEF-DM-C-001 | DM Client | M`*`| [DMPRO] AND [DMREPU] AND [DMSEC] AND [DMTND] AND [DMSTDOBJ] AND [DMDDFDTD]. |
+| OMA-ERDEF-DM-C-002 |  DM Client Bootstrap | O | [DMBOOT] |
+| OMA-ERDEF-DM-C-003 |  DM Client Notification | O | [DMNOTI] |
+| OMA-ERDEF-DM-C-004 |  DM TND Serialization | O | [DMTNDS] |
+
+`*`It should be understood that the OMA SyncML Common v1.2 specifications MUST be used in conjunction with the OMA Device Management Enabler Release, version 1.2. Fully conformant DM client implementations can only be achieved through combining the conformance requirements outlined above with those outlined within the SyncML Common Specifications enabler release definition [ERELDSC].<br/>
+`*`应当理解，OMA SyncML Common v1.2规范必须与OMA设备管理启动器版本1.2结合使用。完全符合DM客户端实现只能通过将上面概述的一致性要求与SyncML通用规范启用程序发布定义[ERELDSC]中概述的要求相结合来实现。
+
+
+###ERDEF for Device Management - Client Requirements 设备管理的ERDEF - 服务器要求
+| Item 项目 | Feature / Application 特征／应用  | Status 状态 | Requirement 需求 |
+| -- | -- | -- | -- |
+| OMA-ERDEF-DM-S-001 | DM Server | M`*`| [DMPRO] AND [DMREPU] AND [DMSEC] AND [DMTND] AND [DMSTDOBJ] AND [DMDDFDTD]. |
+| OMA-ERDEF-DM-S-002 |  DM Bootstrap Server | O | [DMBOOT] |
+| OMA-ERDEF-DM-S-003 |  DM Notification Server | O | [DMBOOT] |
+| OMA-ERDEF-DM-S-004 | DM TND Serialization | O | [DMTNDS] |
+
+`*`It should be understood that the OMA SyncML Common v1.2 specifications must be used in conjunction with the OMA Device Management Enabler Release, version 1.2. Fully conformant DM server implementations can only be achieved through combining the conformance requirements outlined above with those outlined within the SyncML Common Specifications enabler release definition [ERELDSC].<br/>
+`*`应当理解，OMA SyncML Common v1.2规范必须与OMA设备管理启动器版本1.2配合使用。 完全符合DM服务器实现只能通过将上面概述的一致性要求与SyncML通用规范使能器释放定义[ERELDSC]中概述的要求相结合来实现。
