@@ -83,3 +83,22 @@ The following Exec command initiates the update process in cases where the firmw
   </Item>
 </Exec>
 ```
+
+### 10.4.2.4.2 Firmware Install after OMA DM Download 固件安装备选下载
+
+For alternative download (such as Descriptor based OMA v1.0 Download), it is recommended that the appropriate install parameters are provided prior to the download initiation Exec command. Please reference ‘ Normative – Exec Command’ section above for the appropriate Exec command.<br/>
+对于其他下载（如基于描述符的OMA v1.0下载），建议在下载启动Exec命令之前提供相应的安装参数。请参考上面的“Normative-Exec命令”部分，了解相应的Exec命令。
+
+The update package could be deleted from object storage at the completion of the update when it is no longer needed. The management client could choose to delete it as soon as an update is successfully or unsuccessfully terminated, or whenever prompted to do so by the DM server.<br/>
+更新包可以在更新完成且不再需要时从对象存储中删除。管理客户端可以选择在更新成功或失败成功终止时或者在DM服务器提示这样做时立即将其删除。
+
+### 10.4.2.5 Firmware Update Step 5: Notification of Firmware Update Status 固件更新步骤5：固件更新状态的通知
+
+At the completion of the firmware update process, the device notifies the server of the resulting status of the firmware update. This is accomplished through a subsequent client or server initiated OMA DM session to assure that the management server is informed of the final result.<br/>
+在固件更新处理完成时，设备向服务器通知固件更新的结果状态。这通过随后的客户端或服务器发起的OMA DM会话来完成，以确保管理服务器被通知最终的结果。
+
+A Result Code is provided to the DM server via a Generic Alert [DMPRO] notification.<br/>
+结果代码通过通用警报[DMPRO]通知提供给DM服务器。
+
+The Generic Alert [DMPRO] command provided by the OMA-DM protocols is to be used by the OMA-DM client to communicate the ResultCode value to the DM Server.<br/>
+由OMA-DM协议提供的通用警报[DMPRO]命令将由OMA-DM客户端用于将结果代码值传送到DM服务器。
