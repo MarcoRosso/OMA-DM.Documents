@@ -131,7 +131,7 @@ Expression in the column MUST be a valid TerminalExpression according to [IOPPRO
 | OMA-ERDEF-DM-C-004 |  DM TND Serialization | O | [DMTNDS] |
 
 `*`It should be understood that the OMA SyncML Common v1.2 specifications MUST be used in conjunction with the OMA Device Management Enabler Release, version 1.2. Fully conformant DM client implementations can only be achieved through combining the conformance requirements outlined above with those outlined within the SyncML Common Specifications enabler release definition [ERELDSC].<br/>
-`*`应当理解，OMA SyncML Common v1.2规范必须与OMA设备管理启动器版本1.2结合使用。完全符合DM客户端实现只能通过将上面概述的一致性要求与SyncML通用规范启用程序发布定义[ERELDSC]中概述的要求相结合来实现。
+`*`应当理解，OMA SyncML Common v1.2规范必须与OMA设备管理启动器版本1.2结合使用。完全符合DM客户端的实现只能通过将上面概述的一致性要求与SyncML通用规范启用程序发布定义[ERELDSC]中概述的要求相结合来实现。
 
 
 ###ERDEF for Device Management - Client Requirements 设备管理的ERDEF - 服务器要求
@@ -143,4 +143,4 @@ Expression in the column MUST be a valid TerminalExpression according to [IOPPRO
 | OMA-ERDEF-DM-S-004 | DM TND Serialization | O | [DMTNDS] |
 
 `*`It should be understood that the OMA SyncML Common v1.2 specifications must be used in conjunction with the OMA Device Management Enabler Release, version 1.2. Fully conformant DM server implementations can only be achieved through combining the conformance requirements outlined above with those outlined within the SyncML Common Specifications enabler release definition [ERELDSC].<br/>
-`*`应当理解，OMA SyncML Common v1.2规范必须与OMA设备管理启动器版本1.2配合使用。 完全符合DM服务器实现只能通过将上面概述的一致性要求与SyncML通用规范使能器释放定义[ERELDSC]中概述的要求相结合来实现。
+`*`应当理解，OMA SyncML Common v1.2规范必须与OMA设备管理启动器版本1.2配合使用。完全符合DM服务器的实现只能通过将上面概述的一致性要求与SyncML通用规范使能器释放定义[ERELDSC]中概述的要求相结合来实现。
