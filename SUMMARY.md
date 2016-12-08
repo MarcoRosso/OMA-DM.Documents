@@ -49,5 +49,5 @@
    * [10.3 Client Initiated Firmware Update 客户端启动的固件更新](103_client_initiated_firmware_update_ke_hu_duan_qi.md)
    * [10.4 FUMO Usage FUMO 用法](104_fumo_usage_fumo_yong_fa.md)
    * [Appendix 附录](appendix_fu_lu10.md)
-* Enabler Release Definition 启动器发布定义
+* [Enabler Release Definition 启动器发布定义](enabler_release_definition_qi_dong_qi_fa_bu_ding_y.md)
 
