@@ -32,7 +32,7 @@ Before any Device management operations can be carried out on the Device, it mus
 当使用本地无线接口时，设备发现被控制在PC代理和设备之间。必须支持安全关联和认证。第一个连接需要在设备和PC之间创建安全关联。（用例1.3.1.5）
 
 #### 1.4.1.3 Authorisation 授权
-Before the Device Management server can carry out any Device management operations on the Device, it must conform to the following:
+Before the Device Management server can carry out any Device management operations on the Device, it must conform to the following:<br/>
 在设备管理服务器可以在设备上执行任何设备管理操作之前，它必须符合以下条件：
 1. The Device Management server MUST be authorised to carry out any Device management operations on the Device (Use Case 1.3.2.1).<br/>
 设备管理服务器必须被授权在设备上执行任何设备管理操作（用例1.3.2.1）。
