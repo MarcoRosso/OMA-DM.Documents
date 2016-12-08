@@ -102,3 +102,16 @@ A Result Code is provided to the DM server via a Generic Alert [DMPRO] notificat
 
 The Generic Alert [DMPRO] command provided by the OMA-DM protocols is to be used by the OMA-DM client to communicate the ResultCode value to the DM Server.<br/>
 由OMA-DM协议提供的通用警报[DMPRO]命令将由OMA-DM客户端用于将结果代码值传送到DM服务器。
+
+#### 10.4.2.5.1 Non-Fatal Result Codes 非致命结果代码
+
+For non-fatal update failures, the end-user can be provided an indication of the failure and return the phone to an operational mode.<br/>
+对于非致命更新故障，可以向终端用户提供故障的指示并将电话返回到操作模式。
+
+In addition to the result codes listed in the ResultCodes table, the ./FwUpdate/x/State element provides additional detailed information regarding the state in which the mobile device is left in at the termination (successful or otherwise) Exec operations invoked on the Update or Download elements.<br/>
+除了结果代码表中列出的结果代码之外，./FwUpdate/x/State元素还提供有关移动设备在终止（成功或其他）执行更新或下载元素操作时调用的移动设备的状态的额外详细信息。
+
+#### 10.4.2.5.2 Fatal Failures 致命故障
+
+Fatal failure will likely render the device inoperable. Therefore, it will not be possible to provide indication to the user or notify the OMA DM server of the failure. For this reason, implementations that do not provide a high degree of fault tolerance are not likely to be used for the purpose of updating firmware.<br/>
+致命故障可能会导致设备无法操作。因此，将不可能向用户提供指示或通知OMA DM服务器失败。由于这个原因，不提供高度容错的实现不可能用于更新固件。
