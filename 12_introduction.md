@@ -37,7 +37,7 @@ between Management Authorities
 * Management, download and installation of software at all levels above hardware to the Device in the form of complete code, patching and deltas as applicable in communication with the Device Management Server via wired and unwired mechanisms
 
 本文档将设备管理的要求定义为以下功能的框架：
-* 将配置数据配置到设备
+* 将配置数据初始化配置到设备
 * 远程维护设备的配置数据
 * 向管理机构报告设备功能和配置
 * 下载/更新和检索管理中心软件或操作系统组件/固件的状态到设备
