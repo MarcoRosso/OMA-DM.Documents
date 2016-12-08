@@ -47,4 +47,5 @@
    * [10.1 Firmware Update Management Object 固件更新管理对象](101_firmware_update_management_object_gu_jian_geng.md)
    * [10.2  Behavior Associated with the Management Object 与管理对象相关的行为](102_behavior_associated_with_the_management_object.md)
    * [10.3 Client Initiated Firmware Update 客户端启动的固件更新](103_client_initiated_firmware_update_ke_hu_duan_qi.md)
+   * 10.4 FUMO Usage FUMO 用法
 
