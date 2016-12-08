@@ -14,7 +14,7 @@ Backup and Restore: The secure and reliable offline storage of personal informat
 备份和恢复：安全可靠的离线存储个人信息，参数和应用程序，可以在以后使用以恢复设备。 备份副本可以本地，远程或作为两者的组合存储。
 
 Bootstrap Provisioning: The process of installing parameters and/or applications on a Device to establish a given service for the first time, or for the purposes of resetting a Device to initial settings.<br/>
-引导配置：在设备上安装参数和/或应用程序以首次建立特定服务或将设备重置为初始设置的过程。
+初始化配置：在设备上安装参数和/或应用程序首次建立特定服务或将设备重置为初始设置的过程。
 
 Content Provider:An entity that provides data which forms the basis of a service.<br/>
 内容提供者：提供形成服务基础的数据的实体。
@@ -23,7 +23,7 @@ Continuous Provisioning: The process where a Device is updated with new data, pa
 连续配置：使用新数据，参数或应用程序升级更新设备以替换以前存在的版本的过程。
 
 Device: In this context, a Device is a voice and/or data terminal that uses a Wireless Bearer for data transfer. Device types may include (but are not limited to): mobile phones (GSM, CDMA, 3GSM, etc.), data-only terminals, PDAs, laptop computers, PCMCIA cards for data communication, unattended data-only Devices (e.g., vending machines), and smart cards if associated with these Devices. If within a particular context an associated smart card should not be regarded as part of a Device this is marked explicitly.<br/>
-设备：在此上下文中，设备是使用无线承载进行数据传输的语音和/或数据终端。设备类型可以包括（但不限于）：移动电话（GSM，CDMA，3GSM等），数据终端，PDA，笔记本电脑，用于数据通信的PCMCIA卡，无人值守的数据设备（如自动售货机）和智能卡（如果与这些设备相关联）。如果在特定上下文中，相关联的智能卡不应被视为设备的一部分，则这应该被明确地标记。
+设备：在此上下文中，设备是使用无线承载进行数据传输的语音和/或数据终端。设备类型可以包括（但不限于）：移动电话（GSM，CDMA，3GSM等），数据终端，PDA，笔记本电脑，用于数据通信的PCMCIA卡，无人值守的数据设备（如自动售货机）和智能卡（如果与这些设备相关联）。如果在特定上下文中，相关联的智能卡不应被视为设备的一部分，且这应该被明确地标记。
 
 Device Discovery: A mechanism to allow devices to identify each other for the purposes of performing some data exchange. <br/>
 设备发现：允许设备识别彼此以执行某些数据交换的机制。
