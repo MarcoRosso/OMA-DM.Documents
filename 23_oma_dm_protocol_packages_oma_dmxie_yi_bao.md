@@ -6,6 +6,8 @@ The following chart depicts the two phases.<br/>
 下图描述了两个阶段。
 
 ![](2.3.jpg)
+
+
 The Management Phase consists of a number of protocol iterations. The content of the package sent from the server to the client determines whether the session must be continued or not. If the server sends management operations in a package that need responses (Status or Results) from the client, the management phase of the protocol continues with a new package from client to server containing the client’s responses to those management operations. The response package from client starts a new protocol iteration. The server can send a new management operation package and therefore initiate a new protocol iteration as many times as it wishes.<br/>
 管理阶段包括多个协议迭代。从服务器发送到客户端的包的内容确定会话是否必须继续。如果服务器在需要来自客户端的响应（状态或结果）的包中发送管理操作，则协议的管理阶段将从客户端到服务器的包含客户端对这些管理操作的响应的新包中继续。客户端的响应包开始新的协议迭代。服务器可以发送新的管理操作包，并且因此发起所需次数的新的协议迭代。
 
@@ -70,7 +72,7 @@ The setup phase is virtually identical to that described in the [SYNCPRO]. The p
 The detailed requirements for the initialization package from the client to server (Package 1) are:<br/>
 从客户端到服务器（包1）的初始化包的详细要求是：
 
-1. The requirements for the elements within the SyncHdr element.
+1. The requirements for the elements within the SyncHdr element.<br/>
 SyncHdr元素中元素的要求。
   * The value of the VerDTD element MUST be '1.2'.<br/>
   VerDTD元素的值必须为“1.2”。
@@ -142,7 +144,7 @@ The detailed requirements for package 2 are:<br/>
    Target元素必须用于标识目标设备。
    * The Source element MUST be used to identify the source device.<br/>
    Source元素必须用于标识源设备。
-   * Cred element MAY be included in the authentication message according to the rules described in Section 9. Server is always authenticated to the device but this authentication MAY be accomplished at the transport level.<br/>
+   * Cred element MAY be included in the authentication message according to the rules described in Section 2.4. Server is always authenticated to the device but this authentication MAY be accomplished at the transport level.<br/>
    Cred元素可以根据第2.4节中描述的规则包括在认证消息中。服务器始终对设备进行认证，但此认证可以在传输层完成。
 2. The Status MUST be returned in the SyncBody for the SyncHdr and Alerts sent by the client.<br/>
 必须在SyncBody中为客户端发送的SyncHdr和Alerts返回状态。
