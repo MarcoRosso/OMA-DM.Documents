@@ -9,6 +9,7 @@ Restrictions listed in this document are in addition to the restrictions listed 
 ## 4.1.1 Common Use Elements 常用元素
 The following are common element types used by numerous other element types. The table lists the mandatory and optional elements that servers and clients send and receive.<br/>
 以下是许多其他元素类型使用的常见元素类型。该表列出了服务器和客户端发送和接收的必需和可选元素。
+
 ![](4.1.1.jpeg)
 ### 4.1.1.1 Archive
 Restrictions: This element is not used in OMA Device Management Protocol.<br/>
@@ -958,7 +959,7 @@ Meta element type specifies meta-information to be used for the command. The sco
 One or more Item element types MUST be specified. The Item element type specifies the data item replaced in the management tree. The Target and Source specified within the Item element type MUST be a full device URI.<br/>
 必须指定一个或多个Item元素类型。Item元素类型指定在管理树中替换的数据项。在Item元素类型中指定的目标和源必须是完整设备URI。
 
-The command MUST return a valid status code as defined in [REPPRO], Status codes listed here are for implementation guidance only:
+The command MUST return a valid status code as defined in [REPPRO], Status codes listed here are for implementation guidance only:<br/>
 命令必须返回如[REPPRO]中定义的有效状态代码，此处列出的状态代码仅供实施指导：
 
 | Status code 状态码 | Meaning 含义 |
