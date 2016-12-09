@@ -7,6 +7,7 @@ The following figure describes the format of the General Package #0.<br/>
 下图描述了通用包＃0的格式。
 
 ![](6.2.jpeg)
+
 The MIME type for the General Notification Initiated Session Alert message is application/vnd.syncml.notification and the Content-Type code for that is 0x44. Byte order for General Notification Initiated Session Alert message is Big Endian (Network order).<br/>
 通用通知发起的会话警报消息的MIME类型为application/vnd.syncml.notification，而Content-Type代码为0x44。 一般通知发起的警报消息的会话的字节顺序是大端序（网络顺序）。
 
@@ -53,11 +54,11 @@ The `<trigger>` field is container for the trigger-hdr and trigger-body fields.<
 `<trigger>`字段是trigger-hdr和trigger-body字段的容器。
 
 ### 6.2.2.4 Header of the Trigger Message 触发消息的标题
-The `<trigger-hdr>` field specifies the header of the Trigger Message.
+The `<trigger-hdr>` field specifies the header of the Trigger Message.<br/>
 `<trigger-hdr>`字段指定触发消息的标题。
 
 ### 6.2.2.5 Body of the Trigger Message 触发消息的主体
-The `<trigger-body>` field specifies the body of the Trigger Message.
+The `<trigger-body>` field specifies the body of the Trigger Message.<br/>
 `<trigger-body>`字段指定触发消息的主体。
 
 ### 6.2.2.6 Version Information 版本信息
