@@ -8,6 +8,7 @@ In the below table the Device Management Account Management Object and Device Ma
 The following diagram shows how information from the provisioning content and the w7 characteristic are mapped to the management tree.<br/>
 下图显示了如何将配置内容和w7特性中的信息映射到管理树。
 ![](s.app.2.jpeg)
+
 Requirements for DM client when it converts the w7 APPLICATION characteristic to the management tree:<br/>
 DM客户端将w7 APPLICATION特性转换为管理树时的要求：
 
