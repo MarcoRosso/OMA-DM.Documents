@@ -2,6 +2,7 @@
 Each device that supports OMA DM MUST contain a Management Tree. The Management Tree organizes all available Management Objects in the device as a hierarchical tree structure where all Nodes can be uniquely addressed with a URI. The following figure shows an example Management Tree.<br/>
 支持OMA DM的每个设备必须包含一个管理树。 管理树将设备中的所有可用管理对象组织为分层树结构，其中所有节点可以使用URI唯一地寻址。 下图显示了一个示例管理树。
 ![](8.1.jpeg)
+
 The URI for a node is constructed by starting at the device root and, as the tree is traversed down to the Node in question, each Node name is appended to the previous ones using “/” as the delimiting character. In the OMA DM protocol [DMPRO], the URI used to address Nodes MUST be a relative URI.
 <br/>
 通过在设备根处开始构建节点的URI，并且当树向下遍历到所讨论的节点时，使用“/”作为定界字符将每个节点名称附加到先前的节点。在OMA DM协议[DMPRO]中，用于寻址节点的URI必须是相对URI。
