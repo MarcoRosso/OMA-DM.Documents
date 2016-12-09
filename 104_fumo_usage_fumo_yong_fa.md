@@ -37,6 +37,8 @@ The following examples shows how OMA DM is used to invoke an external download m
 ### 10.4.1.2.2 Example 2: ‘Exec’ on x/DownloadAndUpdate node 示例2：x / DownloadAndUpdate节点上“Exec”
 The server issues an ‘Exec’ command targeting the x/DownloadAndUpdate node. Client sends final notification to server after the completion of DownloadAndUpdate operation.<br/>
 服务器发出一个“Exec”命令，目标是x / DownloadAndUpdate节点。 完成DownloadAndUpdate操作后，客户端向服务器发送最终通知。
+
+
 ![](10.4.1.2.2.jpeg)
 ## 10.4.2 Protocol Definition 协议定义
 ### 10.4.2.1 Firmware Update Step1: Firmware Update Initiation 固件更新步骤1：固件更新启动
