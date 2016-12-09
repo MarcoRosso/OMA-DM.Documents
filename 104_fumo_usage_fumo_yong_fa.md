@@ -11,6 +11,7 @@ The protocol shall support the following process steps in order to achieve an OT
 协议应支持以下过程步骤以实现OTA固件更新：
 1. 	Firmware Update Step 1: Firmware Update Initiation<br/>
 固件更新步骤1：固件更新启动
+
 2. 	Firmware Update Step 2: Device Information Exchange<br/>
 固件更新步骤2：设备信息交换
 
