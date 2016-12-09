@@ -184,7 +184,9 @@ Copy命令没有ACL表示。副本作为命令本身存在主要是出于效率�
 #### 8.3.7.1.6 ACL Example ACL示例
 Consider the following Management Tree:<br/>
 考虑以下管理树：
+
 ![](8.3.7.1.6.jpeg)
+
 The following statements about this Management Tree are true:<br/>
 有关此管理树的以下语句是真实的：
 * Any server can Get the value of ./NodeA/Node1, but only ServerC can modify
@@ -255,7 +257,7 @@ The Title property is used to store a human readable, alphanumeric string that p
 标题属性是用来存储一个人类可读的，字母数字字符串，它提供有关节点属性的信息。标题属性是一个最大长度为255个字节的的字符串。
 
 #### 8.3.7.6 TStamp
-This property is a record of the date and time of the last change in value of the Node which has this property. The value is represented by a string containing a UTC based, [ISO8601] basic format, complete representation of a date and time value, e.g. 20010711T163817Z means July 11, 2001 at 16 hours, 38 minutes and 17 seconds.
+This property is a record of the date and time of the last change in value of the Node which has this property. The value is represented by a string containing a UTC based, [ISO8601] basic format, complete representation of a date and time value, e.g. 20010711T163817Z means July 11, 2001 at 16 hours, 38 minutes and 17 seconds.<br/>
 此属性是具有此属性的节点的最后一次更改值的日期和时间的记录。该值由包含基于UTC的[ISO8601]基本格式的字符串表示，完全表示日期和时间值，例如20010711T163817Z表示2001年7月11日16小时38分17秒。
 
 #### 8.3.7.7 Type
