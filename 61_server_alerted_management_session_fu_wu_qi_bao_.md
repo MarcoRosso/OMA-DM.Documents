@@ -7,6 +7,7 @@ Figure describes the MSC how the server alerts management session.
 图描述了MSC如何提醒管理会话。
 
 ![](6.1.jpeg)
+
 The package flow presented above is one OMA Device Management session. This means that all messages have the same OMA DM Session ID.<br/>
 上面给出的包流程是一个OMA设备管理会话。 这意味着所有消息具有相同的OMA DM会话ID。
 
