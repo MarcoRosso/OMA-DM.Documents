@@ -7,6 +7,7 @@ To address this issue the concept of a device description framework is introduce
 为了解决这个问题，引入了设备描述框架的概念。简而言之，该框架规定了设备供应商描述他们的设备的方式，使得管理系统可以理解如何管理设备。下图说明了原理。
 
 ![](8.5.1.jpeg)
+
 By using a description framework we also make sure that the total management system based on OMA DM is flexible and easily extendible. And that it can accommodate not only the demands we put on it today but also the ones we might have tomorrow. We also avoid a situation where all future management needs would have to be standardized before they could be used in devices to simplify the use of these devices.<br/>
 通过使用描述框架，我们还确保基于OMA DM的总管理系统是灵活的并且易于扩展。它不仅能适应我们今天提出的要求，而且能适应我们明天可能提出的要求。我们还避免了一种情况，即所有未来的管理需求必须标准化，然后才能用于设备，以简化这些设备的使用。
 
