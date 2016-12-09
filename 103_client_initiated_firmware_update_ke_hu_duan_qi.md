@@ -4,11 +4,13 @@ Firmware Upgrade is in its nature device dependent. This feature is therefore an
 固件升级的性质取决于设备。因此，此功能是客户端设备和服务器的可选功能。本节仅定义客户端发起的消息的格式，而不是客户端设备将在哪种情况下发送它。此消息是到服务器的信息消息，以便服务器应调查是否需要更新。取决于设备是源自设备还是用户，设备可以发送两个不同的固件更新请求。客户端不应期望服务器的任何特定固件更新操作。如果警报类型是“用户启动”，则服务器可以在同一会话中发送用户交互命令以通知用户服务器将如何处理固件更新请求。服务器可以调查是否需要在同一会话中更新，但也可以通知用户服务器将调查此后。
 
 The Generic Alert format is used for this notification. The Server MAY respond with specific Status Codes as follows:<br/>
+通用警报格式用于此通知。服务器可以使用特定的状态代码进行响应，如下所示:
 
  If the update package is available and the Server will command update operations in the same session, the Server MAY respond with status 200 “OK”. If the update package is not available or the Server will not command update operations in the same session, the Server SHOULD respond with status 202 “Accepted for processing”. <br/>
- 
-The following client requirements MUST be supported if Client Initiated Firmware Update is implemented:<br/>
+如果更新包可用并且服务器将在同一会话中命令更新操作，则服务器可以用状态200“OK”进行响应。如果更新包不可用或服务器不会在同一会话中命令更新操作，则服务器应响应状态202“Accepted for processing”。 
 
+The following client requirements MUST be supported if Client Initiated Firmware Update is implemented:<br/>
+如果实施客户端启动的固件更新，则必须支持以下客户端要求：
 
 ## 10.3.1.1 Generic Alert 通用警报
 The message MUST follow the Generic Alert format. <br/>
