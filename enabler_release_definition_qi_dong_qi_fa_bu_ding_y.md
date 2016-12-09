@@ -10,6 +10,7 @@ The SyncML Initiative merged with the Open Mobile Alliance in November 2002. The
 SyncML计划于2002年11月与开放移动联盟合并。在2002年5月，SyncML遗留规范被转换为OMA SyncML Common，OMA数据同步和OMA设备管理的1.1.2版本的OMA格式。这些文档之间的关系在SyncML计划期间创建并已经被保留并且在图中描绘。
 
 ![](e01.jpeg)
+
 Although the SyncML Common specification defines transport bindings that specify how to use a particular transport to exchange messages and responses, the SyncML Common representation, synchronization and device management protocols are transport-independent. Each package in these protocols is completely self-contained, and could in principle be carried by any transport. The initial bindings specified are HTTP, WSP and OBEX, but there is no reason why SyncML Common could not be implemented using email or message queues, to list only two alternatives. Because the SyncML Common messages are self-contained, multiple transports may be used without either the server or client devices having to be aware of the network topology. Thus, a short-range OBEX connection could be used for local connectivity, with the messages being passed on via HTTP to an Internet-hosted synchronization server.<br/>
 虽然SyncML Common规范定义了指定如何使用特定传输来交换消息和响应的传输绑定，但是SyncML Common表示，同步和设备管理协议是传输独立的。这些协议中的每个包是完全独立的，并且原则上可以由任何传输器承载。所指定的初始绑定是HTTP，WSP和OBEX，但没有理由不能使用电子邮件或消息队列（仅列出两个备选项）实现SyncML Common。 因为SyncML公共消息是自包含的，所以可以使用多个传输，而服务器或客户端设备不必知道网络拓扑。因此，短距离OBEX连接可以用于本地连接，消息通过HTTP传递到因特网托管的同步服务器。
 
