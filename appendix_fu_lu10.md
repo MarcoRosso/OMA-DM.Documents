@@ -11,6 +11,6 @@ b）删除/x/节点下的更新包是一个需要在成功更新后进行的活�
 c) PkgURL and PkgData are mutually exclusive. Only one of them needs to be set.<br/>
 c）PkgURL和PkgData是互斥的。只需要设置其中一个。
 
-d) The PkgData node contains the actual binary firmware upgrade package. Once the package is installed, the client could remove the data to save space, leaving the node empty. Similarly, and the end of an update activity, the client could remove the update package downloaded from a server specified by a PkgURL.
+d) The PkgData node contains the actual binary firmware upgrade package. Once the package is installed, the client could remove the data to save space, leaving the node empty. Similarly, and the end of an update activity, the client could remove the update package downloaded from a server specified by a PkgURL.<br/>
 d）PkgData节点包含实际的二进制固件升级包。安装软件包后，客户端可以删除数据以节省空间，将节点保留为空。类似地，更新活动结束后，客户端可以移除从由PkgURL指定的服务器下载的更新包。
 
